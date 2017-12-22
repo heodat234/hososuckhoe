@@ -71,6 +71,8 @@ $route['callbackFB'] 		= 'Login/callback';
 $route['loginGoogle'] 		= 'Login/LoginGoogle';
 $route['gcallback'] 		= 'Login/gcallback';
 
+
+//page hồ sơ
 $route['account'] 		= 'Hoso';
-
-
+$route['a'] 		= 'Hoso/medNowVisit';
+$route['b'] 		= 'Hoso/center';

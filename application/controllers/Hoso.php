@@ -17,6 +17,17 @@ class Hoso extends CI_Controller {
         $this->_data['html_body'] = $this->load->view('hoso/welcome', NULL, TRUE);
         return $this->load->view('hoso/account',$this->_data);
 	}
-	
+	public function medNowVisit()
+	{
+		// $this->_data['page']		= 'account';
+        $this->_data['html_body'] = $this->load->view('hoso/mednow_visit', NULL, TRUE);
+        return $this->load->view('hoso/account',$this->_data);
+	}
+	public function center()
+	{
+		// $this->_data['page']		= 'account';
+        $this->_data['html_body'] = $this->load->view('hoso/message_center', NULL, TRUE);
+        return $this->load->view('hoso/account',$this->_data);
+	}
 	
 }

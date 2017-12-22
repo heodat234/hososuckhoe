@@ -77,11 +77,7 @@
             <ul class="nav nav-list">
                 <!---->
                 <!---->
-                <!---->
-                <!---->
-                <!---->
-                <!---->
-                <!---->
+           
                 <!---->
                 <!---->
                 <!---->
@@ -101,23 +97,8 @@
                 <!---->
                 <!---->
                 <!---->
-                <!---->
-                <!---->
-                <!---->
-                <!---->
-                <!---->
-                <!---->
-                <!---->
-                <!---->
-                <!---->
-                <!---->
-                <!---->
-                <!---->
-                <!---->
-                <!---->
-                <!---->
                 <li data-ng-repeat="item in menu" data-ng-if="item.authorized" data-ng-class="{'active': item.active }">
-                    <a id="menu-mednow" data-ng-href="#/mednow" data-ng-click="item.click" data-badge-for="" data-ng-show="loggedIn" data-ng-class="{'active': item.active }" analytics-on="" analytics-category="Link" analytics-label="/welcome" analytics-value="  {{item.title}}" href="#/mednow" class="">
+                    <a id="menu-mednow" href="<?php echo base_url() ?>a">
                         <!---->
                         <!---->MedNow Visit
                         <!---->
@@ -130,7 +111,7 @@
                 <!---->
                 <!---->
                 <li data-ng-repeat="item in menu" data-ng-if="item.authorized" data-ng-class="{'active': item.active }">
-                    <a id="menu-message-center" data-ng-href="#/message-center" data-ng-click="item.click" data-badge-for="alerts.unreadMessages" data-ng-show="loggedIn" data-ng-class="{'active': item.active }" analytics-on="" analytics-category="Link" analytics-label="/welcome" analytics-value="  {{item.title}}" href="#/message-center" class="">
+                    <a id="menu-message-center" href="<?php echo base_url() ?>b" class="">
                         <!---->
                         <!----><span class="badge ng-hide" data-ng-if="item.title === 'Message Center'" data-ng-show="alerts.unreadMessages">0</span>
                         <!---->Message Center
