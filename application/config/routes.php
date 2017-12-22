@@ -71,4 +71,6 @@ $route['callbackFB'] 		= 'Login/callback';
 $route['loginGoogle'] 		= 'Login/LoginGoogle';
 $route['gcallback'] 		= 'Login/gcallback';
 
+$route['account'] 		= 'Hoso';
+
 

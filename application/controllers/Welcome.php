@@ -14,7 +14,7 @@ class Welcome extends CI_Controller {
 	{
 		$this->_data['page']		= 'index';
         $this->_data['html_body'] = $this->load->view('home/index', NULL, TRUE);
-        $this->_data['html_slider'] = $this->load->view('home/slider', NULL, TRUE);
+        // $this->_data['html_slider'] = $this->load->view('home/slider', NULL, TRUE);
         return $this->load->view('home/master', $this->_data);
 	}
 	

@@ -33,23 +33,7 @@
             
         </div>    
         <!--Footer Start-->
-        <div>
-            <div id="settings">
-                <div class="colors">
-                    <div class="panel-title">Style Switcher</div> 
-                    <div class="panel-color-title">Color Schemes</div>    
-                    <ul>
-                        <li><a title="maroon" class="color1 color-switch"><i class="fa fa-check"></i></a></li>
-                        <li><a title="grey" class="color2 color-switch"><i class="fa fa-check"></i></a></li>
-                        <li><a title="green" class="color3 color-switch"><i class="fa fa-check"></i></a></li>
-                        <li><a title="orange" class="color4 color-switch"><i class="fa fa-check"></i></a></li>
-                        <li><a title="red" class="color5 color-switch"><i class="fa fa-check"></i></a></li>
-                        <li><a title="blue" class="color6 color-switch selected"><i class="fa fa-check"></i></a></li> 
-                    </ul>
-                </div>
-                <a href="javascript:void(0);" class="settings_link showup"><i class="fa fa-cog"></i></a>
-            </div>
-        </div>
+        
         <?php echo isset($html_footer) ? $html_footer : ''; ?>
             
        

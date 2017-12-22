@@ -34,12 +34,7 @@
                         <div class="container-fluid">
                             <!-- Brand and toggle get grouped for better mobile display -->
                             <div class="navbar-header">
-                                <button type="button" class="navbar-toggle icon-list-ul" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                    <span class="sr-only">Toggle navigation</span>
-                                </button>
-                                <button type="button" class="navbar-toggle icon-rocket" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-                                    <span class="sr-only">Toggle navigation</span>
-                                </button>
+                                
                                 <a href="<?php echo base_url() ?>"><div class="logo"></div></a>
                             </div>
                             
@@ -182,7 +177,7 @@
                                     </li>
 
                                     <?php if($this->session->has_userdata('user')) { ?>
-                                         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-envelope"></i>Hồ sơ cá nhân<b class="icon-angle-down"></b></a></li>
+                                         <li class="dropdown"><a href="<?php echo base_url() ?>account" ><i class="icon-envelope"></i>Hồ sơ cá nhân<b class="icon-angle-down"></b></a></li>
                                     <?php } ?>
                                 </ul>
                             </div>
