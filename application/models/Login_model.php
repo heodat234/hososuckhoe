@@ -35,6 +35,19 @@ class Login_model extends CI_Model{
             return false;
         }
     }
+
+    public function checkPassword($id, $pass ){
+        $a_User =   $this->db->select()
+                            ->where('id', $id)
+                            ->where('password', md5($pass))
+                            ->get($this->_name)
+                            ->row_array();
+        if(count($a_User) >0){
+            return 1;
+        } else {
+            return 0;
+        }
+    }
     //thêm tài khoản mới
     public function insertUser($data)
     {
@@ -43,7 +56,12 @@ class Login_model extends CI_Model{
     //sửa tài khoản 
     public function editUser($data)
     {
-        $a_User =   $this->db->where('email', $data['email'])
+        $a_User =   $this->db->where('id', $data['id'])
+                            ->update($this->_name,$data);
+    }
+    public function editPassword($data)
+    {
+        $a_User =   $this->db->where('id', $data['id'])
                             ->update($this->_name,$data);
     }
     //xóa tài khoản

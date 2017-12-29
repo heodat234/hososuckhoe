@@ -1,157 +1,200 @@
-<header id="header" class="header-bar" data-ng-include="'<?php echo base_url() ?>hoso/app/layout/views/header.html'">
-        <div class="clearfix header">
+<header id="header" class="header-bar">
+    <div class=" header" style="border-bottom: 1px solid #ededee;">
+        
+        <ul class="nav hidden-sm hidden-xs" style="margin-right: 5%">
             <!---->
-            <div data-ng-if="brand === 'sh'">
-                <div class="hidden-md hidden-lg" data-ng-controller="TutorialCtrl" data-ng-show="loggedIn &amp;&amp; !getHasSeenTutorial()" data-ng-click="tutorialClicked($event)">
-                    <div id="tutorial-overlay"></div>
-                    <div id="tutorial-container">
-                        <div id="tutorial">
-                            <div class="owl-carousel owl-loaded" data-tutorial="tutorialItems">
-                                <!---->
-                                <!---->
-                                <!---->
-                                <div class="owl-stage-outer">
-                                    <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: 0s;">
-                                        <div class="owl-item">
-                                            <div class="" data-ng-repeat="item in tutorialItems">
-                                                <div class="row">
-                                                    <div class="col-xs-2">
-                                                        <!----><img id="tutorial-hamburger" data-ng-if="$index === 0" class="tutorial-feature-image" data-ng-src="<?php echo base_url() ?>hoso/assets/images/coach-mark_hamburger_r1v1.svg" alt="Menu icon" src="<?php echo base_url() ?>hoso/assets/images/coach-mark_hamburger_r1v1.svg">
-                                                        <!---->
-                                                    </div>
-                                                    <div class="col-xs-8">
-                                                        <div class="row">
-                                                            <!---->
-                                                            <div data-ng-if="$index === 0">
-                                                                <div class="tutorial-arrow-image"><img data-ng-src="<?php echo base_url() ?>hoso/assets/images/coach-mark_left-arrow.svg" alt="Arrow icon" src="<?php echo base_url() ?>hoso/assets/images/coach-mark_left-arrow.svg"></div>
-                                                            </div>
-                                                            <!---->
-                                                            <!---->
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="text-center">
-                                                                <div class="tutorial-content">
-                                                                    <h3 class="item">More Features</h3>
-                                                                    <p>Tap this icon to see all of the features available to you.</p>
-                                                                    <p class="tutorial-hint">Tap anywhere to continue</p><img class="tutorial-nav-icon" data-ng-src="<?php echo base_url() ?>hoso/assets/images/coach-mark_step1_r1v1.svg" alt="Navigation icon" src="<?php echo base_url() ?>hoso/assets/images/coach-mark_step1_r1v1.svg"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!---->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="owl-item">
-                                            <div class="" data-ng-repeat="item in tutorialItems">
-                                                <div class="row">
-                                                    <div class="col-xs-2">
-                                                        <!---->
-                                                    </div>
-                                                    <div class="col-xs-8">
-                                                        <div class="row">
-                                                            <!---->
-                                                            <!---->
-                                                            <div data-ng-if="$index === 1">
-                                                                <div class="tutorial-arrow-image"><img class="align-right" data-ng-src="<?php echo base_url() ?>hoso/assets/images/coach-mark_right-arrow.svg" alt="Arrow icon" src="<?php echo base_url() ?>hoso/assets/images/coach-mark_right-arrow.svg"></div>
-                                                            </div>
-                                                            <!---->
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="text-center">
-                                                                <div class="tutorial-content">
-                                                                    <h3 class="item">Profile</h3>
-                                                                    <p>Tap here to view account activity or sign out.</p>
-                                                                    <p class="tutorial-hint">Tap anywhere to dismiss</p><img class="tutorial-nav-icon" data-ng-src="<?php echo base_url() ?>hoso/assets/images/coach-mark_step2_r1v1.svg" alt="Navigation icon" src="<?php echo base_url() ?>hoso/assets/images/coach-mark_step2_r1v1.svg"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!----><img id="tutorial-avatar" data-ng-if="$index === 1" class="tutorial-feature-image" data-ng-src="<?php echo base_url() ?>hoso/assets/images/coach-mark_profile-name_r1v1.svg" alt="Profile icon" src="<?php echo base_url() ?>hoso/assets/images/coach-mark_profile-name_r1v1.svg">
-                                                    <!---->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="owl-nav disabled">
-                                    <div></div>
-                                    <div></div>
-                                </div>
-                                <div class="owl-dots disabled"></div>
+            <li class="visible-spectrum-block">
+                <div id="header-quick-search">
+                    <!-- <quick-search class="ignore-toggle">
+                        <form id="quick-search" class="ng-pristine ng-valid ng-valid-maxlength">
+                            <div class="search-input">
+                                <span class="search-icon"><i class="icon-search"></i></span>
+                                <label for="search" style="position:absolute;clip:rect(1px,1px,1px,1px)">I am looking for...</label>
+                                <input id="search" type="search" placeholder="I am looking for..." maxlength="40" class="ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength">
                             </div>
-                        </div>
-                    </div>
+                        </form>
+                        <nav id="search-results" class="ng-hide">
+                            <ul>
+                        
+                            </ul>
+                        </nav>
+                    </quick-search> -->
                 </div>
-            </div>
+            </li>
             <!---->
-            <button type="button" class="sidebar-toggle btn-menu-toggle hidden-lg hide-element" data-ng-class="{'hidden': !loggedIn}" data-sidebar-toggle="right"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <span class="profile-toggle nav nav-list hidden-md hidden-lg hide-element" data-ng-show="loggedIn"><a id="profile-link" class="img-link avatar" data-sidebar-toggle="left" analytics-on="" analytics-category="Link" analytics-label="/welcome" analytics-value="{{currentUser.displayName | titlecase}} "><div class="header-profile-image-wrapper pull-right"><img class="profile-image" data-ng-src="" data-fallback-src="assets/images/profile-fallback.png" src="<?php echo base_url() ?>hoso/assets/images/profile-fallback.png" alt="Profile photo"></div><small>Thanh Hung <b class="caret"></b></small></a></span>
-            <ul class="nav hidden-sm hidden-xs" data-ng-show="loggedIn">
-                <!---->
-                <li class="visible-spectrum-block" data-ng-if="useQuickSearch()">
-                    <div id="header-quick-search">
-                        <quick-search class="ignore-toggle">
-                            <form id="quick-search" class="ng-pristine ng-valid ng-valid-maxlength">
-                                <div class="search-input" data-ng-class="{'search-results': searchItems.length}"><span class="search-icon"><i class="icon-search"></i></span>
-                                    <label for="search" style="position:absolute;clip:rect(1px,1px,1px,1px)">I am looking for...</label>
-                                    <input id="search" type="search" data-ng-model="search" placeholder="I am looking for..." maxlength="40" class="ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength">
-                                </div>
-                            </form>
-                            <nav data-ng-show="search.length" id="search-results" class="ng-hide">
-                                <ul>
-                                    <!---->
-                                    <!---->
-                                    <!---->
-                                </ul>
-                            </nav>
-                        </quick-search>
-                    </div>
-                </li>
-                <!---->
-                <!---->
-                <li class="visible-spectrum-block">
-                    <div class="header-profile-image-wrapper"><img class="profile-image" data-ng-src="" data-fallback-src="<?php echo base_url() ?>hoso/assets/images/profile-fallback.png" alt="Profile photo" src="<?php echo base_url() ?>hoso/assets/images/profile-fallback.png"></div>
-                </li>
-                <li class="visible-spectrum-block"><span class="header-text">Thanh Hung Le</span></li>
-                <li class="visible-spectrum-block"><a href="" data-ng-click="signOut()" analytics-on="" analytics-event="" analytics-category="Link" analytics-label="/welcome" analytics-value="Sign Out">Sign Out</a></li>
-                <!---->
-                <li if-feature-enabled="messages" data-ng-if="loggedIn" class="visible-spectrum-block"><a href="#/message-center/inbox" analytics-on="" analytics-event="#/message-center/inbox" analytics-category="Link" analytics-label="/welcome" analytics-value=" {{ alerts.unreadMessages }}"><i class="glyphicon glyphicon-envelope"></i> <span class="badge envelope ng-hide" ng-show="alerts.unreadMessages" ui-if="item.url == 'messages'">0</span></a></li>
-                <!---->
-                <li class="dropdown profile-link"><a class="clickable" data-toggle="dropdown" analytics-on="" analytics-category="Link" analytics-label="/welcome" analytics-value=" {{currentUser.displayName | titlecase}}  "><span class="visible-priority-block"><img class="profile-image" data-ng-src="" data-fallback-src="<?php echo base_url() ?>hoso/assets/images/profile-fallback.png" alt="Profile photo" src="<?php echo base_url() ?>hoso/assets/images/profile-fallback.png"> <span class="header-text">Thanh Hung</span> <b class="caret"></b></span> <span class="visible-spectrum-block"><i class="glyphicon glyphicon-cog"><b class="caret"></b></i></span></a>
-                    <!---->
-                    <aside id="settings-menu" class="sidebar dropdown-menu dropdown-menu-right" data-ng-include="'<?php echo base_url() ?>hoso/app/layout/views/right-sidebar.html'" role="menu">
-                        <nav class="sidebar-nav" role="navigation">
-                            <!---->
-                            <div data-list-only="true" data-is-in-menu="true" class="hidden-md hidden-lg shared-access-list visible-spectrum-block" data-ng-if="loggedIn">
-                                <ul>
-                                    <li class="visible-spectrum-block header"><span>Using MyHealth as:</span></li>
-                                    <li class="user user-current"><img class="profile-image" data-ng-src="" data-fallback-src="<?php echo base_url() ?>hoso/assets/images/profile-fallback.png" src="<?php echo base_url() ?>hoso/assets/images/profile-fallback.png"> <span>Thanh Hung Le</span></li>
-                                    <!---->
-                                    <!---->
-                                    <li data-ng-if="!vm.hasGrantors()">
-                                        <!---->You are not sharing with anyone yet.</li>
-                                    <!---->
-                                    <!---->
-                                    <!---->
-                                    <!---->
-                                    <!---->
-                                    <li class="user ng-hide" data-ng-click="vm.accessGrantor(loggedInUser.ePersonId)" tabindex="0" data-ng-hide="loggedInUser.ePersonId === currentUser.ePersonId"><img class="profile-image" data-ng-src="assets/images/profile-fallback.png" data-fallback-src="<?php echo base_url() ?>hoso/assets/images/profile-fallback.png" src="<?php echo base_url() ?>hoso/assets/images/profile-fallback.png" alt="user profile photo"> <span>Thanh Hung Le</span></li>
-                                    <li class="hidden-xs hidden-sm user footer" ng-show="!isUserProxied()" if-feature-enabled="sharedAccess"><span><a href="#/share-access" analytics-on="" analytics-event="#/share-access" analytics-category="Link" analytics-label="/welcome" analytics-value=" Request Shared Access"><i class="glyphicon glyphicon-plus hidden-xs"></i> Request Shared Access</a></span></li>
-                                </ul>
-                            </div>
-                            <!---->
-                            <!---->
-                            <ng-include src="'<?php echo base_url() ?>hoso/app/layout/views/shared-access-link.html'">
-                                <div data-ng-controller="RightSidebarCtrl">
-                                    <!----><a role="menuitem" href="#/share-access" data-ng-if="showSharedAccessLink()" analytics-on="" analytics-event="#/share-access" analytics-category="Link" analytics-label="/welcome" analytics-value="Share Access">Share Access</a>
-                                    <!---->
-                                </div>
-                            </ng-include>
-                            <!----><a role="menuitem" href="#/profile/about-me" class="hidden-sm hidden-xs" analytics-on="" analytics-event="#/profile/about-me" analytics-category="Link" analytics-label="/welcome" analytics-value="Profile">Profile</a> <a role="menuitem" href="#/profile" class="hidden-md hidden-lg" analytics-on="" analytics-event="#/profile" analytics-category="Link" analytics-label="/welcome" analytics-value="Profile">Profile</a> <a role="menuitem" href="#/accountActivity" data-ng-hide="isStandardSharedAccess" analytics-on="" analytics-event="#/accountActivity" analytics-category="Link" analytics-label="/welcome" analytics-value="Account Activity" class="">Account Activity</a>
-                            <!---->
-                            <!---->
-                            <!----><a role="menuitem" href="" data-ng-click="signOut()" analytics-on="" analytics-event="" analytics-category="Link" analytics-label="/welcome" analytics-value="Sign Out">Sign Out</a></nav>
-                    </aside>
-                </li>
-            </ul><a data-ng-href="#/welcome" title="My Health" id="logo" analytics-on="" analytics-category="Link" analytics-label="/welcome" analytics-value="" href="#/welcome"></a></div>
-    </header>
+            <li class="visible-spectrum-block">
+                <div class="header-profile-image-wrapper">
+                    <img class="profile-image" src="<?php echo base_url() ?>hoso/assets/images/profile-fallback.png">
+                </div>
+            </li>
+            <li class="visible-spectrum-block"><span class="header-text"><?php echo $this->session->userdata('user')['name']  ?></span></li>
+            <li class="visible-spectrum-block">
+                <a href="<?php echo base_url()?>logout">Đăng xuất</a>
+            </li>
+            
+            
+           
+        </ul>
+    </div>
+
+    <div class=" header"  >
+        <div class=" top-bar container">
+            <div class="row">
+                <nav class="navbar-default" role="navigation">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a href="<?php echo base_url() ?>"><div class="logo"></div></a>
+                        </div>
+                        
+                        <div class="collapse navbar-collapse right" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right" style="margin-top: -4px; ">
+                                <li class="<?php echo isset($trangchu)? $trangchu : '' ?>"><a href="<?php echo base_url() ?>" ><i class="icon-home"></i>Trang chủ</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="home-page-1.html">Home Page 1</a></li>
+                                        <li><a href="home-page-2.html">Home Page 2</a></li>
+                                        <li><a href="home-page-3.html">Home Page 3</a></li>
+                                        <li><a href="home-page-4.html">Home Page 4</a></li>
+                                        <li><a href="home-page-5.html">Home Page 5</a></li>
+                                        <li><a href="home-page-6.html">Home Page 6</a></li>
+                                        <li><a href="home-page-7.html">Home Page 7</a></li>
+                                        <li><a href="home-page-8.html">Home Page 8</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i>Bệnh sử<b class="icon-angle-down"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown"><a href="#">Page Elements</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="page-elements-1.html">Page Elements 1</a></li>
+                                                <li><a href="page-elements-2.html">Page Elements 2</a></li>
+                                                <li><a href="page-elements-3.html">Page Elements 3</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="typography.html">Typography</a></li>
+                                        <li><a href="columns.html">Columns</a></li>
+                                        <li><a href="pricing-tables.html">Pricing Tables</a></li>
+                                        <li><a href="pricing-plans.html">Pricing Plans</a></li>
+                                        <li><a href="flip-box.html">Flip Box</a></li>
+                                        <li><a href="call-to-action.html">Call To Action</a></li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-file"></i>Tra cứu<b class="icon-angle-down"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown"><a href="#">About Us</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="about-us-1.html">About Us 1</a></li>
+                                                <li><a href="about-us-2.html">About Us 2</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#">Services</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="services-1.html">Services 1</a></li>
+                                                <li><a href="services-2.html">Services 2</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="departments.html">Departments</a></li>
+                                        <li class="dropdown"><a href="#">Meet Our Doctors</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="meet-our-doctors-1.html">Meet Our Doctors 1</a></li>
+                                                <li><a href="meet-our-doctors-2.html">Meet Our Doctors 2</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="testimonials.html">Testimonials</a></li>
+                                        <li><a href="faq.html">FAQs</a></li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-camera"></i>Tin tức<b class="icon-angle-down"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown left-dropdown"><a href="#">Gallery Carousel</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="gallery-1-column-carousel.html">1 Column Carousel</a></li>
+                                                <li><a href="gallery-2-columns-carousel.html">2 Columns Carousel</a></li>
+                                                <li><a href="gallery-3-columns-carousel.html">3 Columns Carousel</a></li>
+                                                <li><a href="gallery-4-columns-carousel.html">4 Columns Carousel</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown left-dropdown"><a href="#">Gallery Full Width</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="gallery-1-column.html">Gallery 1 Column</a></li>
+                                                <li><a href="gallery-2-columns.html">Gallery 2 Columns</a></li>
+                                                <li><a href="gallery-3-columns.html">Gallery 3 Columns</a></li>
+                                                <li><a href="gallery-4-columns.html">Gallery 4 Columns</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown left-dropdown"><a href="#">Gallery Left Sidebar</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="gallery-1-column-left-sidebar.html">Gallery 1 Column</a></li>
+                                                <li><a href="gallery-2-columns-left-sidebar.html">Gallery 2 Columns</a></li>
+                                                <li><a href="gallery-3-columns-left-sidebar.html">Gallery 3 Columns</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown left-dropdown"><a href="#">Gallery Right Sidebar</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="gallery-1-column-right-sidebar.html">Gallery 1 Column</a></li>
+                                                <li><a href="gallery-2-columns-right-sidebar.html">Gallery 2 Columns</a></li>
+                                                <li><a href="gallery-3-columns-right-sidebar.html">Gallery 3 Columns</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-pencil"></i>Thành viên<b class="icon-angle-down"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown left-dropdown"><a href="#">Blog Masonry</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="blog-masonry-full-width.html">Full Width</a></li>
+                                                <li><a href="blog-masonry-left-sidebar.html">Left Sidebar</a></li>
+                                                <li><a href="blog-masonry-right-sidebar.html">Right Sidebar</a></li> 
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown left-dropdown"><a href="#">Blog Medium Image</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="blog-medium-full-width.html">Full Width</a></li>
+                                                <li><a href="blog-medium-left-sidebar.html">Left Sidebar</a></li>
+                                                <li><a href="blog-medium-right-sidebar.html">Right Sidebar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown left-dropdown"><a href="#">Blog Large Image</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="blog-full-width.html">Blog Full Width</a></li>
+                                                <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
+                                                <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
+                                            </ul>
+                                        </li>                   
+                                        <li><a href="blog-with-slider.html">Blog With Slider</a></li>
+                                        <li class="dropdown left-dropdown"><a href="#">Blog Single Post</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="blog-image-post.html">Image Post</a></li>
+                                                <li><a href="blog-gallery-post.html">Gallery Post</a></li>
+                                                <li><a href="blog-video-post.html">Video Post</a></li>
+                                                <li><a href="blog-full-width-post.html">Full Width Post</a></li>
+                                            </ul>
+                                        </li>   
+                                      </ul>
+                                </li>
+                                
+                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-envelope"></i>Liên hệ<b class="icon-angle-down"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="contact-1.html">Contact Version 1</a></li>
+                                        <li><a href="contact-2.html">Contact Version 2</a></li>
+                                        <li><a href="contact-3.html">Contact Version 3</a></li>
+                                    </ul>
+                                </li>
+
+                                <?php if($this->session->has_userdata('user') && $this->session->userdata('user')['group'] == '1') { ?>
+                                    <li class=" <?php echo isset($pageHoso)? $pageHoso : '' ?>"><a href="<?php echo base_url() ?>account.html" ><i class="icon-envelope"></i>Hồ sơ cá nhân</a></li>
+                                <?php }else if ($this->session->has_userdata('user') && $this->session->userdata('user')['group'] == '0') { ?>
+                                    <li class=" <?php echo isset($pageHoso)? $pageHoso : '' ?>"><a href="<?php echo base_url() ?>admin.html" ><i class="icon-envelope"></i>Trang quản trị</a></li>
+                                <?php  } ?>
+                            </ul>
+                        </div>                         
+                    </div> 
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
 
     

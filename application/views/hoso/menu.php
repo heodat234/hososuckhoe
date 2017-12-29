@@ -1,58 +1,16 @@
-<aside id="sidebar" class="sidebar" data-ng-if="loggedIn" data-ng-class="{'hidden-md hidden-lg' : !loggedIn}" data-ng-controller="SidebarCtrl" data-ng-include="'<?php echo base_url() ?>hoso/app/layout/views/sidebar.html'">
+<aside id="sidebar" class="sidebar" >
     <div class="sidebar-inner" id="sidebar-inner">
         <div id="user-controller" class="xs-hidden sm-hidden">
-            <div class="pic-frame" ng-mouseover="hoverPhoto = true;" ng-mouseleave="hoverPhoto = false; showPhotoMenu = false;">
-                <div class="edit-photo-overlay ng-hide" data-ng-show="hoverPhoto &amp;&amp; !isStandardSharedAccess" data-ng-click="showPhotoMenu = true"><a href="" analytics-on="" analytics-event="" analytics-category="Link" analytics-label="/welcome" analytics-value="Edit Photo"><i class="fa fa-pencil edit-photo-pencil"></i>Edit Photo</a></div>
-                <ng-switch data-on="photoMenuStep" data-ng-show="showPhotoMenu" role="navigation" class="ng-hide">
-                    <!---->
-                    <div data-ng-switch-when="1" class="photo-menu">
-                        <ul class="nav nav-list">
-                            <li><a href="#/profile/account-settings" class="first-element" analytics-on="" analytics-event="#/profile/account-settings" analytics-category="Link" analytics-label="/welcome" analytics-value="Change Photo">Change Photo</a></li>
-                            <li><a href="" data-ng-click="nextStep()" analytics-on="" analytics-event="" analytics-category="Link" analytics-label="/welcome" analytics-value="Remove Photo">Remove Photo</a></li>
-                            <li><a href="" class="last-element" data-ng-click="$parent.showPhotoMenu = false" analytics-on="" analytics-event="" analytics-category="Link" analytics-label="/welcome" analytics-value="Cancel">Cancel</a></li>
-                        </ul>
-                    </div>
-                    <!---->
-                    <!---->
-                </ng-switch><img data-ng-src="" data-fallback-src="<?php echo base_url() ?>hoso/assets/images/profile-fallback.png" src="<?php echo base_url() ?>hoso/assets/images/profile-fallback.png" alt="avatar">
-                <a href="#/profile/about-me" analytics-on="" analytics-event="#/profile/about-me" analytics-category="Link" analytics-label="/welcome" analytics-value="{{currentUser.fullName | titlecase}}">
+            <div class="pic-frame" >
+                <div class="edit-photo-overlay ng-hide" ><a href="" ><i class="fa fa-pencil edit-photo-pencil"></i>Edit Photo</a></div>
+                <img  src="<?php echo base_url() ?>hoso/assets/images/profile-fallback.png" alt="avatar">
+                <a href="#/profile/about-me">
                     <div id="avatar-name-container" class="visible-spectrum-inline-block avatar-name-overlay-container">
-                        <label class="visible-spectrum-inline-block avatar-name-overlay-text">Thanh Hung Le</label>
+                        <label class="visible-spectrum-inline-block avatar-name-overlay-text"><?php echo $this->session->userdata('user')['name']  ?></label>
                     </div>
                 </a>
             </div>
-            <!---->
-            <div data-ng-if="loggedIn">
-                <!---->
-                <div class="shared-access-list visible-spectrum-block" data-ng-if="loggedIn">
-                    <div uib-dropdown="" dropdown-append-to-body="" is-open="vm.sharedAccessVisible" class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" uib-dropdown-toggle="" aria-haspopup="true" aria-expanded="false">Change user <span class="caret"></span></button>
-                        <!---->
-                        <ng-include class="dropdown-body ng-hide" src="'<?php echo base_url() ?>hoso/app/shared-access/directives/share-access-change-user/shared-access-list.html'" data-ng-show="vm.sharedAccessVisible">
-                            <div>
-                                <ul>
-                                    <li class="visible-spectrum-block header"><span>Using MyHealth as:</span></li>
-                                    <li class="user user-current"><img class="profile-image" data-ng-src="" data-fallback-src="<?php echo base_url() ?>hoso/assets/images/profile-fallback.png" src="<?php echo base_url() ?>hoso/assets/images/profile-fallback.png"> <span>Thanh Hung Le</span></li>
-                                    <!---->
-                                    <!---->
-                                    <li data-ng-if="!vm.hasGrantors()">
-                                        <!---->You are not sharing with anyone yet.</li>
-                                    <!---->
-                                    <!---->
-                                    <!---->
-                                    <!---->
-                                    <!---->
-                                    <li class="user ng-hide" data-ng-click="vm.accessGrantor(loggedInUser.ePersonId)" tabindex="0" data-ng-hide="loggedInUser.ePersonId === currentUser.ePersonId"><img class="profile-image" data-ng-src="<?php echo base_url() ?>hoso/assets/images/profile-fallback.png" data-fallback-src="<?php echo base_url() ?>hoso/assets/images/profile-fallback.png" src="<?php echo base_url() ?>hoso/assets/images/profile-fallback.png" alt="user profile photo"> <span>Thanh Hung Le</span></li>
-                                    <li class="hidden-xs hidden-sm user footer" ng-show="!isUserProxied()" if-feature-enabled="sharedAccess"><span><a href="#/share-access" analytics-on="" analytics-event="#/share-access" analytics-category="Link" analytics-label="/welcome" analytics-value=" Request Shared Access"><i class="glyphicon glyphicon-plus hidden-xs"></i> Request Shared Access</a></span></li>
-                                </ul>
-                            </div>
-                        </ng-include>
-                        <div class="btn-share-access-wrapper" if-feature-enabled="sharedAccess" data-ng-show="vm.isSharedAccessAvailable()"><a class="btn btn-default btn-share-access" data-ng-href="#/share-access" analytics-on="" analytics-category="Link" analytics-label="/welcome" analytics-value="Share Access" href="#/share-access">Share Access</a></div>
-                    </div>
-                </div>
-                <!---->
-            </div>
-            <!---->
+           
         </div>
         <!---->
         <div id="sidebar-quick-search" data-ng-if="useQuickSearch()">
@@ -63,13 +21,7 @@
                         <input id="search" type="search" data-ng-model="search" placeholder="I am looking for..." maxlength="40" class="ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength">
                     </div>
                 </form>
-                <nav data-ng-show="search.length" id="search-results" class="ng-hide">
-                    <ul>
-                        <!---->
-                        <!---->
-                        <!---->
-                    </ul>
-                </nav>
+               
             </quick-search>
         </div>
         <!---->
@@ -79,62 +31,41 @@
                 <!---->
            
                 <!---->
-                <!---->
-                <!---->
-                <!---->
-                <!---->
-                <li data-ng-repeat="item in menu" data-ng-if="item.authorized" data-ng-class="{'active': item.active }" class="active">
-                    <a id="menu-welcome" data-ng-href="#/welcome" data-ng-click="item.click" data-badge-for="" data-ng-show="loggedIn" data-ng-class="{'active': item.active }" analytics-on="" analytics-category="Link" analytics-label="/welcome" analytics-value="  {{item.title}}" href="#/welcome" class="active">
-                        <!---->
-                        <!---->Welcome
-                        <!---->
-                    </a>
-                    <!---->
-                </li>
+                    <li data-ng-repeat="item in menu" class="<?php echo isset($welcome)?$welcome : '' ?>">
+                        <a id="menu-welcome"  href="<?php echo base_url() ?>account.html" class="<?php echo isset($welcome)?$welcome : '' ?>">
+                            <!---->Thông tin cơ bản
+                        </a>
+                    </li>
                 <!---->
                 <!---->
                 <!---->
                 <!---->
                 <!---->
+                    <?php if($this->session->has_userdata('user') && $this->session->userdata('user')['group'] == '1') { ?>
+                        <li data-ng-repeat="item in menu" class="<?php echo isset($a)?$a : '' ?>">
+                            <a id="menu-mednow" href="<?php echo base_url() ?>hoso.html" class="<?php echo isset($a)?$a : '' ?>">Hồ sơ</a>
+                        </li>
+                    <?php }else if ($this->session->has_userdata('user') && $this->session->userdata('user')['group'] == '0') { ?>
+                        <li data-ng-repeat="item in menu" class="<?php echo isset($a)?$a : '' ?>">
+                            <a id="menu-mednow" href="<?php echo base_url() ?>admin.html" class="<?php echo isset($a)?$a : '' ?>">Quản trị</a>
+                        </li>
+                    <?php  } ?>
+                    
+                
                 <!---->
-                <li data-ng-repeat="item in menu" data-ng-if="item.authorized" data-ng-class="{'active': item.active }">
-                    <a id="menu-mednow" href="<?php echo base_url() ?>a">
-                        <!---->
-                        <!---->MedNow Visit
-                        <!---->
-                    </a>
-                    <!---->
-                </li>
                 <!---->
                 <!---->
                 <!---->
-                <!---->
-                <!---->
-                <li data-ng-repeat="item in menu" data-ng-if="item.authorized" data-ng-class="{'active': item.active }">
-                    <a id="menu-message-center" href="<?php echo base_url() ?>b" class="">
-                        <!---->
-                        <!----><span class="badge ng-hide" data-ng-if="item.title === 'Message Center'" data-ng-show="alerts.unreadMessages">0</span>
-                        <!---->Message Center
-                        <!----><span data-ng-if="item.title === 'Message Center'" class="pull-right"><spinner-inline spinner-type="status" trigger="false"><span id="status-spinner" ng-show="showSpinner" class="ng-hide"><img src="<?php echo base_url() ?>hoso/assets/images/update-spinner.gif" alt="Loading spinner"></span></spinner-inline>
-                        </span>
-                        <!---->
-                    </a>
-                    <!---->
-                    <ul data-ng-if="item.items" class="nav sub-nav hidden-sm hidden-xs" data-ng-class="{'last':$last}">
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                    </ul>
-                    <!---->
-                </li>
+                    <li class="<?php echo isset($b)?$b : '' ?>">
+                        <a id="menu-message-center" href="<?php echo base_url() ?>b" class="<?php echo isset($b)?$b : '' ?>">
+                            <!---->
+                            <!----><span class="badge ng-hide" data-ng-if="item.title === 'Message Center'" data-ng-show="alerts.unreadMessages">0</span>
+                            <!---->Message Center
+                            <!----><span data-ng-if="item.title === 'Message Center'" class="pull-right"><spinner-inline spinner-type="status" trigger="false"><span id="status-spinner" ng-show="showSpinner" class="ng-hide"><img src="<?php echo base_url() ?>hoso/assets/images/update-spinner.gif" alt="Loading spinner"></span></spinner-inline>
+                            </span>
+                            <!---->
+                        </a>
+                    </li>
                 <!---->
                 <!---->
                 <!---->
@@ -148,29 +79,21 @@
                     </a>
                     <!---->
                     <ul data-ng-if="item.items" class="nav sub-nav hidden-sm hidden-xs" data-ng-class="{'last':$last}">
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
+                        
                     </ul>
                     <!---->
                 </li>
                 <!---->
                 <!---->
                 <!---->
-                <li data-ng-repeat="item in menu" data-ng-if="item.authorized" data-ng-class="{'active': item.active }">
+                <!-- <li data-ng-repeat="item in menu" data-ng-if="item.authorized" data-ng-class="{'active': item.active }">
                     <a id="menu-notebook" data-ng-href="#/notebook" data-ng-click="item.click" data-badge-for="" data-ng-show="loggedIn" data-ng-class="{'active': item.active }" analytics-on="" analytics-category="Link" analytics-label="/welcome" analytics-value="  {{item.title}}" href="#/notebook" class="">
-                        <!---->
-                        <!---->Notebook
-                        <!---->
+                        
+                        Notebook
+                        
                     </a>
-                    <!---->
-                </li>
+                    
+                </li> -->
                 <!---->
                 <!---->
                 <!---->

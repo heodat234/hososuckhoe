@@ -41,7 +41,7 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li class="active"><a href="<?php echo base_url() ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-home"></i>Trang chủ</a>
+                                    <li class="<?php echo isset($trangchu)? $trangchu : '' ?>"><a href="<?php echo base_url() ?>" ><i class="icon-home"></i>Trang chủ</a>
                                         <ul class="dropdown-menu">
                                             <li><a href="home-page-1.html">Home Page 1</a></li>
                                             <li><a href="home-page-2.html">Home Page 2</a></li>
@@ -176,9 +176,11 @@
                                         </ul>
                                     </li>
 
-                                    <?php if($this->session->has_userdata('user')) { ?>
-                                         <li class="dropdown"><a href="<?php echo base_url() ?>account" ><i class="icon-envelope"></i>Hồ sơ cá nhân<b class="icon-angle-down"></b></a></li>
-                                    <?php } ?>
+                                    <?php if($this->session->has_userdata('user') && $this->session->userdata('user')['group'] == '1') { ?>
+                                        <li class=" <?php echo isset($pageHoso)? $pageHoso : '' ?>"><a href="<?php echo base_url() ?>account.html" ><i class="icon-envelope"></i>Hồ sơ cá nhân</a></li>
+                                    <?php }else if ($this->session->has_userdata('user') && $this->session->userdata('user')['group'] == '0') { ?>
+                                        <li class=" <?php echo isset($pageHoso)? $pageHoso : '' ?>"><a href="<?php echo base_url() ?>admin.html" ><i class="icon-envelope"></i>Trang quản trị</a></li>
+                                    <?php  } ?>
                                 </ul>
                             </div>
                          

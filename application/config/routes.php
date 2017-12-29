@@ -64,6 +64,8 @@ $route['deleteUser'] 		= 'Login/deleteUser';
 $route['insertUser'] 		= 'Login/insertUser';
 $route['forgotPassword'] 	= 'Login/forgotPassword';
 $route['activeUser/(:any)/(:any)'] 		= 'Login/activeUser/$1/$2';
+$route['checkPass'] 		= 'Login/checkPassword';
+$route['editPass'] 			= 'Login/editPassword';
 
 $route['loginFb'] 			= 'Login/LoginFacebook';
 $route['callbackFB'] 		= 'Login/callback';
@@ -73,6 +75,17 @@ $route['gcallback'] 		= 'Login/gcallback';
 
 
 //page hồ sơ
-$route['account'] 		= 'Hoso';
-$route['a'] 		= 'Hoso/medNowVisit';
-$route['b'] 		= 'Hoso/center';
+$route['account.html'] 		= 'Hoso';
+$route['hoso.html'] 		= 'Hoso/pageHoso';
+$route['form.html/(:num)'] 	= 'Hoso/formChiso/$1';
+$route['b'] 				= 'Hoso/center';
+$route['pageChiSo.html'] 	= 'Hoso/pageChiSo';
+$route['admin.html'] 		= 'Hoso/pageAdmin';
+
+$route['addHoso'] 			= 'Hoso/addHoso';
+$route['addFile'] 			= 'Hoso/addFile';
+$route['loadImage'] 		= 'Hoso/loadImage';
+$route['addChiSo'] 			= 'Hoso/addChiSo';
+
+$route['loadThongbao'] 		= 'Hoso/loadThongbao';
+$route['activeFile'] 		= 'Hoso/activeFile';

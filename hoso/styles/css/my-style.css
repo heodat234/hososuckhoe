@@ -134,3 +134,6 @@ ng\:form {
 .ng-anchor {
     position: absolute;
 }
+body {
+    font-size: 16px;
+}

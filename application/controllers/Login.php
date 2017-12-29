@@ -7,11 +7,9 @@ class Login extends CI_Controller {
 	private $fb;
 	public function __construct() {
 		parent::__construct();
-		$this->load->helper('url');
-		$this->load->helper('string');
-		$this->load->model('Login_model');
+		$this->load->helper(array('url','string','security'));
+		$this->load->model(array('Login_model'));
 		$this->load->library(array('form_validation','session'));
-		$this->load->helper('security');
 
 		$config = array(
 		    'protocol'  =>  'smtp',
@@ -119,19 +117,18 @@ class Login extends CI_Controller {
 	public function editUser()
 	{
 		$frm = $this->input->post();
+		// var_dump($frm);
 		$a_UserInfo['name'] 		= $frm['name'];
-		$a_UserInfo['email'] 		= $frm['email'];
-		$a_UserInfo['password'] 	= md5($frm['password']);
+		$a_UserInfo['id'] 			= $frm['id'];
 		$a_UserInfo['phone'] 		= $frm['phone'];
-		$a_UserInfo['dia_chi'] 		= $frm['address'];
+		$a_UserInfo['dia_chi'] 		= $frm['dia_chi'];
 		$a_UserInfo['gioi_tinh'] 	= $frm['gioi_tinh'];
 		$a_UserInfo['ngay_sinh'] 	= $frm['ngay_sinh'];
 		$a_UserInfo['cmnd'] 		= $frm['cmnd'];
 		$editUser = $this->Login_model->editUser( $a_UserInfo );
 
-		$this->a_Data['b_Check']= "Sửa thông tin thành công.";
-		$this->_data['html_body'] = $this->load->view('page/account',$this->a_Data, TRUE);
-        return $this->load->view('home/master', $this->_data);
+		$this->session->unset_userdata('user');
+		redirect(base_url('pageLogin'));
 	}
 	//xóa tài khoản
 	public function deleteUser()
@@ -180,6 +177,29 @@ class Login extends CI_Controller {
     	return $this->load->view('home/master', $this->_data);
 
 		
+	}
+
+	public function checkPassword()
+	{
+		$password 	= $this->input->post('pass');
+		$id 		= $this->input->post('id');
+		$csrf = array(
+        'name' => $this->security->get_csrf_token_name(),
+        'hash' => $this->security->get_csrf_hash()
+		);
+		$this->a_Data['csrf'] = $csrf;
+		$this->a_Data['data'] = $this->Login_model->checkPassword($id, $password);
+		print_r(json_encode($this->a_Data));
+	}
+
+	public function editPassword()
+	{
+		// var_dump($this->input->post());
+		$data['password'] = md5($this->input->post('new_pass'));
+		$data['id'] = $this->input->post('id');
+		$this->Login_model->editPassword($data);
+		$this->session->unset_userdata('user');
+		redirect(base_url('pageLogin'));
 	}
 
 	//đăng nhập bằng facebook

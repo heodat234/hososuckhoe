@@ -312,13 +312,13 @@ html {
 				-webkit-tap-highlight-color: rgba(0, 0, 0, 0)
 }
 
-body {
+/*body {
 				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 				font-size: 14px;
 				line-height: 1.42857143;
 				color: #333;
 				background-color: #fff
-}
+}*/
 
 input,
 button,
@@ -361,7 +361,7 @@ img {
 .carousel-inner>.item>a>img {
 				display: block;
 				max-width: 100%;
-				height: auto
+				/*height: auto*/
 }
 
 .img-rounded {
@@ -6114,7 +6114,7 @@ button.close {
 				overflow: auto;
 				overflow-y: scroll;
 				position: fixed;
-				top: 100px;
+				/*top: 100px;*/
 				right: 0;
 				bottom: 0;
 				left: 0;
@@ -6919,7 +6919,6 @@ body {
 				padding: 0px;
 				background: #fff;
 				font-family: 'Noto Sans', sans-serif;
-				font-size: 13px;
 				line-height: 1.62857143
 }
 
@@ -14110,9 +14109,9 @@ input[type="date"] {
 #footer {
 				background: #363839;
 				position: relative;
-				float: left;
+				/*float: left;*/
 				width: 100%;
-				padding: 40px 0px 20px 0
+				padding: 20px 0px 10px 0
 }
 
 .foot-widget {
@@ -17215,7 +17214,7 @@ input[type="date"] {
 				padding-bottom: 10%
 }
 
-#about-us-version-two .c-form {
+#about-us-version-two .c-form {  
 				color: #fff
 }
 
@@ -19202,4 +19201,33 @@ input[type="date"] {
 				#long-version-two .right-arrow {
 								right: 35%
 				}
+}
+.img-hs{
+	height: 100px;
+	width: 100px;
+}
+
+
+
+h4.great {
+  background: #00ac98;
+  margin: 0 0 25px 0px;
+  padding: 7px 15px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  display: inline-block;
+  -moz-box-shadow:    2px 4px 5px 0 #ccc;
+    -webkit-box-shadow: 2px 4px 5px 0 #ccc;
+    box-shadow:         2px 4px 5px 0 #ccc;
+}
+
+
+.help-tooltip{
+  font-size: 20;
+  display: inline-block;
+  color: #7f8c8d;
+  margin-left: 6px;
+  cursor: pointer;
 }

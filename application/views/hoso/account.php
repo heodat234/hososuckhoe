@@ -1,3 +1,6 @@
+<?php 
+if($this->session->has_userdata('user')) {
+?>
 <html lang="en" class="no-js" id="app" ng-controller="AppCtrl" ios-scale-fix="">
 <!-- <![endif]-->
 
@@ -31,13 +34,20 @@
     <!-- Responsive web and mobile web use a proxy to redirect to the appropriate Priority/Spectrum theme. -->
     <link rel="stylesheet" href="<?php echo base_url() ?>hoso/styles/css/theme.4be66d9b79e3d7e7c00c10dd1395f340.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>hoso/styles/css/my-style.css">
-    
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/blue.css" id="style-switch" />
+
+    <script type="text/javascript" src="<?php echo base_url() ?>public/js/jquery.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>public/bootstrap-new/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
     <script async="" src="https://cdn.appdynamics.com/adrum-ext.20eb25d52848d8f807fb234561b4fac7.js"></script>
     
     <!-- End Google Tag Manager -->
     <style type="text/css"></style>
     <script type="text/javascript" src="https://c.la1-c2cs-phx.salesforceliveagent.com/content/g/js/40.0/deployment.js" async=""></script>
-    
+    <script type="text/javascript" src="<?php echo base_url(); ?>public/js/js.cookie.js"></script>
+
+    <script type="text/javascript" src="<?php echo base_url(); ?>hoso/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>hoso/js/dataTables.bootstrap.min.js"></script>
 </head>
 
 <body data-ng-class="{'splash' : !loggedIn, 'ph-app': usePhTheme()}">
@@ -47,12 +57,12 @@
     <!-- Sales Force: LiveAgent -->
     <sales-force-script url="https://c.la1-c2cs-phx.salesforceliveagent.com/content/g/js/40.0/deployment.js"></sales-force-script>
     <!-- Page -->
-    <div id="page" data-ng-controller="KillswitchCtrl" data-ng-init="getAppStatus()">
+    <div id="page">
         <div id="page-shade"></div>
-        <span data-us-spinner="" data-spinner-key="spinner-main" us-spinner-backdrop=""></span>
-        <span data-us-spinner="" data-spinner-key="spinner-fixed" class="fixed-center" us-spinner-backdrop=""></span>
+        <span></span>
+        <span class="fixed-center"></span>
         <div id="page-overlay" class="us-spinner-backdrop"></div>
-        <div id="page-inner" data-watch-height="#sidebar #sidebar-inner" style="min-height: 753px;">
+        <div id="page-inner" style="min-height: 753px;">
             <!-- Sidebar -->
             <!---->
             <!---->
@@ -60,10 +70,10 @@
            
             <!---->
             <!-- Main -->
-            <div id="main" data-ng-class="{'splash' : !loggedIn}">
+            <div id="main">
                 <!--Banner for e-person-->
                 <!---->
-                <div id="eperson-banner" class="hidden-xs" data-ng-if="loggedIn &amp;&amp; currentUser.isPerson &amp;&amp; !currentUser.isPatient &amp;&amp; !currentUser.isMember">
+                <div id="eperson-banner" class="hidden-xs">
                     <!---->
                     <ng-include src="'<?php echo base_url() ?>hoso/app/layout/views/eperson-banner.html'">
                         <section class="eperson-banner-container hidden-xs">
@@ -113,15 +123,7 @@
                 <div id="notifications" data-notification-list="">
                     <!---->
                 </div>
-                <!-- Announcements -->
-                <div id="announcements" class="">
-                    <!---->
-                    <ng-include src="'<?php echo base_url() ?>hoso/app/announcements/views/announcements.html'">
-                        <div ng-controller="AnnouncementsController" ng-init="getAnnouncements()">
-                            <!---->
-                        </div>
-                    </ng-include>
-                </div>
+                
                 <!-- Content -->
                 <main id="content">
                     <!---->
@@ -138,3 +140,6 @@
 </body>
 
 </html>
+<?php 
+    }else{redirect(base_url('pageLogin'));}
+?>
