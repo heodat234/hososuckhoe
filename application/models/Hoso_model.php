@@ -24,9 +24,9 @@ class Hoso_model extends CI_Model{
     // 	}
     // }
    
-    public function selectHoso()
+    public function selectHoso($idUser)
     {
-        $this->db->select();
+        $this->db->select()->where('id_user', $idUser);
         $query = $this->db->get($this->_name);
         return $query->result_array();
     }
@@ -34,8 +34,15 @@ class Hoso_model extends CI_Model{
     public function insertHoso($data)
     {
         $this->db->insert($this->_name,$data);
+        return $this->db->insert_id();;
     }
 
+    public function hoso_by_idUser($id_user)
+    {
+        $this->db->select()->where('id_user',$id_user);
+        $query = $this->db->get($this->_name);
+        return $query->result_array();
+    }
     // //thêm file hồ sơ
     // public function insertFile($data)
     // {

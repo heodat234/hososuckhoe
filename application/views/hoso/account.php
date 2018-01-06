@@ -48,6 +48,8 @@ if($this->session->has_userdata('user')) {
 
     <script type="text/javascript" src="<?php echo base_url(); ?>hoso/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>hoso/js/dataTables.bootstrap.min.js"></script>
+
+     <script src="https://code.highcharts.com/highcharts.src.js"></script>
 </head>
 
 <body data-ng-class="{'splash' : !loggedIn, 'ph-app': usePhTheme()}">

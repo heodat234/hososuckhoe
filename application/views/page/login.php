@@ -17,6 +17,7 @@
 	    </div>
 		<div class="container">
 		    <div class="row">
+		    	<div class="alert-success" style="text-align: center;"><span><?php if(isset($a_Check)){echo $a_Check;}?></span></div>
 		    	<div class="alert-danger" style="text-align: center;"><span><?php if(isset($b_Check)){echo $b_Check;}?></span></div>
 		    	<div class="alert-success" style="text-align: center;"><span><?php if(isset($c_Check) && $c_Check == true){echo "Mật khẩu mới đã được gửi tới mail của bạn !";}?></span></div>
 		    	<div class="alert-success" style="text-align: center;"><span><?php if(isset($d_Check) && $d_Check == true){echo "Tài khoản của bạn đã được xác nhận. Bạn có thể đăng nhập để sử dụng !";}?></span></div>

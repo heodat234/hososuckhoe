@@ -99,7 +99,10 @@ class Login extends CI_Controller {
 			 
 			//thuc hien gui
 			$this->email->send();
-			redirect(base_url('pageLogin'));
+
+			$this->a_Data['a_Check']= 'Tài khoản của bạn đã được đăng ký. Vui lòng vào mail để kiểm tra và xác nhận tài khoản trước khi đăng nhập.';
+			$this->_data['html_body'] = $this->load->view('page/login', $this->a_Data, TRUE);
+        	return $this->load->view('home/master', $this->_data);
 		}
 		$this->a_Data['b_Check']= $this->b_Check;
 		$this->_data['html_body'] = $this->load->view('page/register',$this->a_Data, TRUE);

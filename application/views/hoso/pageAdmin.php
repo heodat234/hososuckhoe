@@ -2,7 +2,7 @@
 	<div id="mednow">
 		<div class="page-header">
 			<div class="">
-				<h3>Chỉ số xét nghiệm bệnh án</h3>
+				<h3>Thông báo </h3>
 			</div>
 		</div>
 			<?php foreach ($thongbao as $tb): ?>

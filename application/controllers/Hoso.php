@@ -7,7 +7,7 @@ class Hoso extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('url','security'));
 		$this->load->library(array('form_validation','session','upload'));
-		$this->load->model(array('Hoso_model','ChitietHoso_model','Muc_Chiso_model'));
+		$this->load->model(array('Hoso_model','ChitietHoso_model','Muc_Chiso_model','Login_model'));
 
 		$adata['pageHoso']		= 'active';
 		$this->_data['html_header'] 	= $this->load->view('hoso/header', $adata, TRUE);  
@@ -29,9 +29,10 @@ class Hoso extends CI_Controller {
 	public function pageHoso()
 	{
 		$this->data['a']		= 'active';
-		$this->a_Data['hoso'] = $this->Hoso_model->selectHoso();
+		$id_user 						= $this->session->userdata('user')['id'];
+		$this->a_Data['hoso'] 			= $this->Hoso_model->selectHoso($id_user);
 		$this->_data['html_menu']		= $this->load->view('hoso/menu', $this->data, TRUE); 
-        $this->_data['html_body'] = $this->load->view('hoso/pageHoso', $this->a_Data, TRUE);
+        $this->_data['html_body'] 		= $this->load->view('hoso/pageHoso', $this->a_Data, TRUE);
         return $this->load->view('hoso/account',$this->_data);
 	}
 	public function formChiso($id)
@@ -43,11 +44,47 @@ class Hoso extends CI_Controller {
         $this->_data['html_body'] 		= $this->load->view('hoso/form_chiso', $this->a_Data, TRUE);
         return $this->load->view('hoso/account',$this->_data);
 	}
-	public function center()
+	public function formChisoAdmin()
 	{
-		$this->data['b']				= 'active';
+		$idata['nhaplieu']			= 'active';
+		$this->a_Data['users'] 			= $this->Login_model->selectUser();
+		$this->a_Data['chiso'] 			= $this->Muc_Chiso_model->selectChiso();
+		$this->_data['html_menu']		= $this->load->view('hoso/menu', $idata, TRUE); 
+        $this->_data['html_body'] 		= $this->load->view('hoso/form_chisoAdmin', $this->a_Data, TRUE);
+        return $this->load->view('hoso/account',$this->_data);
+	}
+	public function thongke()
+	{
+		$tk_data = array();
+		$tk_ngay = array();
+		$this->data['tk']				= 'active';
+		$id_user 						= $this->session->userdata('user')['id'];
+		
+		$muc_chiso 						= $this->Muc_Chiso_model->selectChiso();
+		for ($i=0; $i < count($muc_chiso) ; $i++) { 
+			$data = array();
+			$ngay = array();
+			$thongke					= $this->ChitietHoso_model->thongkeChiso($id_user,$muc_chiso[$i]['id']);
+			if (count($thongke) >0) {
+				for ($j=0; $j < count($thongke); $j++) { 
+				$data[$j] = $thongke[$j]['dulieu']-0;
+				$ngay[$j] = date('d-m-Y',strtotime($thongke[$j]['created_at']));
+				}
+				$tk_data[$i] = json_encode($data);
+				$tk_ngay[$i] = json_encode($ngay);
+			}
+		
+		}
+// 		echo "<pre>";
+ 
+// print_r($tk_data);
+ 
+// echo "</pre>";
+		$this->a_Data['data']  = $tk_data;
+		$this->a_Data['ngay']  = $tk_ngay;
+		$this->a_Data['chiso']	= $muc_chiso;
 		$this->_data['html_menu']		= $this->load->view('hoso/menu', $this->data, TRUE); 
-        $this->_data['html_body'] 		= $this->load->view('hoso/message_center', NULL, TRUE);
+        $this->_data['html_body'] 		= $this->load->view('hoso/thongke', $this->a_Data, TRUE);
         return $this->load->view('hoso/account',$this->_data);
 	}
 	
@@ -59,7 +96,37 @@ class Hoso extends CI_Controller {
 		$hoso['loai'] 				= $frm['loai'];
 		$hoso['ngay_batdau'] 		= $frm['from'];
 		$hoso['ngay_ketthuc'] 		= $frm['end'];
-		$this->Hoso_model->insertHoso( $hoso );
+		$id_hoso = $this->Hoso_model->insertHoso( $hoso );
+
+		$dataInfo 	= array();
+	    $data 		= array();
+	    $files 		= $_FILES;
+	    $cpt 		= count($_FILES['userfile']['name']);
+	    
+	    for($i=0; $i<$cpt; $i++){           
+	        $_FILES['userfile']['name']		= $files['userfile']['name'][$i];
+	        $_FILES['userfile']['type']		= $files['userfile']['type'][$i];
+	        $_FILES['userfile']['tmp_name']	= $files['userfile']['tmp_name'][$i];
+	        $_FILES['userfile']['error']	= $files['userfile']['error'][$i];
+	        $_FILES['userfile']['size']		= $files['userfile']['size'][$i];    
+	        $this->upload->initialize($this->set_upload_options());
+	        if ($this->upload->do_upload()) {
+	        	$dataInfo[] = $this->upload->data();
+	        } else{
+				$error = $this->upload->display_errors();
+        		echo $error;
+			}
+	    }
+	    
+	    for ($i=0; $i < $cpt; $i++) { 
+	    	$_data['dulieu'] 		= $dataInfo[$i]['file_name'];
+    		$_data['id_hoso'] 		= $id_hoso;
+    		$_data['ten_data'] 		= 'file';
+    		$_data['loai'] 			= '0';
+	    	$this->ChitietHoso_model->insertChitiet_Hoso($_data);				
+	    }
+
+
 
 		redirect(base_url('hoso.html'));
 	}
@@ -139,23 +206,16 @@ class Hoso extends CI_Controller {
 	public function addChiSo()
 	{
 		$frm 				= $this->input->post();
-		$mang 				= json_decode($frm['count'],true);
-
-		$chiso 				= $this->Muc_Chiso_model->selectChiso();
-		$data 				= array();
-		$data['loai'] 		= 1;
+		
 		$data['id_hoso'] 	= $frm['id_hoso']; 
 		$data['active'] 	= 1;
 
-		for ($i=1; $i < count($mang); $i++) { 
-			if ($mang[$i] == 1) {
-				$data['dulieu'] = $frm[$i];
-				for ($j=0; $j < count($chiso) ; $j++) { 
-					if ($chiso[$j]['id'] == $i) {
-						$data['ten_data'] 	= $chiso[$j]['ten_chiso'];
-						$data['don_vi'] 	= $chiso[$j]['don_vi'];
-					}
-				}
+		for ($i=0; $i <= $frm['count'] ;$i++) { 
+			if (isset($frm['chiso_'.$i] )) {
+				$data['ten_data'] 	= $frm['chiso_'.$i];
+				$data['loai_chiso'] = $frm['id_chiso_'.$i];
+				$data['dulieu'] 	= $frm[$i];
+				$data['don_vi'] 	= $frm['dv_'.$i];
 				$this->ChitietHoso_model->insertChitiet_Hoso($data);
 			}
 		}
@@ -166,9 +226,9 @@ class Hoso extends CI_Controller {
 	public function pageChiSo()
 	{
 		$id_hoso = $this->input->post('id_hoso');
-		$dk = array('loai' => 1, 'id_hoso' => $id_hoso );
 		$this->data['a']				= 'active';
-		$this->a_Data['chiso'] 			= $this->ChitietHoso_model->selectChiSo($dk);
+		$this->a_Data['chiso'] 			= $this->ChitietHoso_model->selectChiSo($id_hoso);
+		// var_dump($this->a_Data['chiso'] );
 		$this->_data['html_menu']		= $this->load->view('hoso/menu', $this->data, TRUE); 
         $this->_data['html_body'] 		= $this->load->view('hoso/pageChiSo', $this->a_Data, TRUE);
         return $this->load->view('hoso/account',$this->_data);
@@ -204,4 +264,52 @@ class Hoso extends CI_Controller {
 		}
 		redirect(base_url('admin.html'));
 	}
+
+	public function loadHoso()
+	{
+		$csrf = array(
+        'name' => $this->security->get_csrf_token_name(),
+        'hash' => $this->security->get_csrf_hash()
+		);
+		$mData['csrf'] 	= $csrf;
+		$id_user 		= $this->input->post('id');
+		$mData['hoso'] 	= $this->Hoso_model->hoso_by_idUser($id_user);
+	
+        echo json_encode($mData);
+	}
+
+	public function locChiso()
+	{
+		$tk_data = array();
+		$tk_ngay = array();
+		$this->data['tk']				= 'active';
+		$post   	= $this->input->post();
+		$id_user 	= $this->session->userdata('user')['id'];
+		$loai_chiso = $post['loai_chiso'];
+		$from 		= $post['from'];
+		$to 		= $post['to'];
+		$muc_chiso 	= $this->Muc_Chiso_model->selectChiso();
+		$thongke 	= $this->ChitietHoso_model->thongkeChiso_CoDK($id_user,$loai_chiso,$from,$to);
+		$data = array();
+		$ngay = array();
+		if (count($thongke) >0) {
+				for ($j=0; $j < count($thongke); $j++) { 
+				$data[$j] = $thongke[$j]['dulieu']-0;
+				$ngay[$j] = date('d-m-Y',strtotime($thongke[$j]['created_at']));
+				}
+				$tk_data[$loai_chiso-1] = json_encode($data);
+				$tk_ngay[$loai_chiso-1] = json_encode($ngay);
+		}
+		$this->a_Data['data'] 	 		= $tk_data;
+		$this->a_Data['ngay']  			= $tk_ngay;
+		$this->a_Data['chiso']			= $muc_chiso;
+		$this->a_Data['id_chiso']		= $loai_chiso;
+		$this->a_Data['start']			= $from;
+		$this->a_Data['end']			= $to;
+		$this->_data['html_menu']		= $this->load->view('hoso/menu', $this->data, TRUE); 
+        $this->_data['html_body'] 		= $this->load->view('hoso/thongke', $this->a_Data, TRUE);
+        return $this->load->view('hoso/account',$this->_data);
+	}
+
+
 }

@@ -48,6 +48,13 @@ class Login_model extends CI_Model{
             return 0;
         }
     }
+
+    public function selectUser()
+    {
+        $this->db->select();
+        $query = $this->db->get($this->_name);
+        return $query->result_array();
+    }
     //thêm tài khoản mới
     public function insertUser($data)
     {

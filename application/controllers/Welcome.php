@@ -19,5 +19,20 @@ class Welcome extends CI_Controller {
         return $this->load->view('home/master', $this->_data);
 	}
 	
-	
+	public function thanhvien()
+	{
+		$data['thanhvien']			= 'active';
+		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);
+        $this->_data['html_body'] 	= $this->load->view('page/thanhvien', NULL, TRUE);
+        // $this->_data['html_slider'] = $this->load->view('home/slider', NULL, TRUE);
+        return $this->load->view('home/master', $this->_data);
+	}
+	public function benhsu()
+	{
+		$data['benhsu']			= 'active';
+		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);
+        $this->_data['html_body'] 	= $this->load->view('page/benhsu', NULL, TRUE);
+        // $this->_data['html_slider'] = $this->load->view('home/slider', NULL, TRUE);
+        return $this->load->view('home/master', $this->_data);
+	}
 }

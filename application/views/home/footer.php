@@ -60,12 +60,9 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 foot-widget-bottom">
                     <p class="col-xs-12 col-md-5 no-pad">Copyright 2014 iMedica | All Rights Reserved | Designed by RTistic</p>
                     <ul class="foot-menu col-xs-12 col-md-7 no-pad">
-                        <li><a href="about-us-1.html">Liên hệ</a></li>    
-                        <li><a href="gallery-3-columns.html">Thành viên</a></li>
-                        <li><a href="blog-masonry-full-width.html">Tin tức</a></li>    
-                        <li><a href="#">Tra cứu</a></li>    
-                        <li><a href="contact-2.html">Bệnh sử</a></li>    
-                        <li><a href="index-2.html">Trang chủ</a></li>                           
+                        <li><a href="<?php echo base_url() ?>thanhvien.html">Thành viên</a></li>
+                        <li><a href="<?php echo base_url() ?>benhsu.html">Bệnh sử</a></li>    
+                        <li><a href="<?php echo base_url() ?>">Trang chủ</a></li>                           
                     </ul>
                 </div>
             </div>

@@ -37,23 +37,7 @@
 				<?php } ?>
 			</tbody>
 		</table>
-		<!-- <p class="aliments-asterisk">* not available for eVisit</p><h2 class="section-title">Start a MedNow Visit today</h2> -->
-		<!-- <div>
-			<div class="media action-item">
-				<div class="media-left">
-					<span class="fa-stack fa-2x pull-left" aria-hidden="true"><i class="fa fa-mobile fa-stack-2x"></i> <i class="fa fa-user fa-stack-1x fa-mobile-stack"></i></span>
-				</div>
-				<div class="media-body"><h3 class="media-heading">VIDEO VISIT</h3><span class="action-item-details">Real-time access to a primary care provider for on-demand care</span>
-					<div class="action-buttons">
-						<button class="btn btn-primary hidden-xs hidden-sm" ng-click="NavigationService.goToScheduleVideoVisit()">Click to Schedule</button> 
-						<a class="btn btn-default hidden-xs hidden-sm" href="tel:8443227374" analytics-on="" analytics-event="tel:8443227374" analytics-category="Link" analytics-label="/mednow" analytics-value=" 844.322.7374"><i class="fa fa-phone"></i> 844.322.7374</a>
-					</div>
-				</div>
-			</div>
-			<button class="btn btn-primary btn-block visible-xs visible-sm" ng-click="NavigationService.goToScheduleVideoVisit()">Click to Schedule</button> 
-			<a class="btn btn-default btn-block visible-xs visible-sm" href="tel:8443227374" analytics-on="" analytics-event="tel:8443227374" analytics-category="Link" analytics-label="/mednow" analytics-value=" 844.322.7374"><i class="fa fa-phone"></i> 844.322.7374</a>
-		</div>
-		<footer><hr><p>The cost of a MedNow virtual visit depends on the insurance plan and type of visit. Patients may pay anywhere between $0 and $45 for a primary care video visit or eVisit, depending on their health plan coverage. For more information, please review our <a href="#/about/faq#videovisits" analytics-on="" analytics-event="#/about/faq#videovisits" analytics-category="Link" analytics-label="/mednow" analytics-value="FAQ">FAQ</a>.</p></footer> -->
+		
 	</div>
 
   <!-- form thêm hồ sơ mới -->
@@ -110,7 +94,17 @@
                                     </div>
                                     <input type="date" class="form-control today" name="end" required="" >
                                  </div>
-                             </div>
+                            </div>
+                            <div class="form-group">
+                              <div><b>Chọn ảnh</b></div>
+                              <div class="input-group">
+                                  <div class="input-group-addon iga2">
+                                     <span class="glyphicon glyphicon-folder-open"></span>
+                                  </div>
+                                  <input type="file" class="form-control"  name="userfile[]" multiple="multiple" id="i_file"  required="">
+                              </div>
+                              <span>*Có thể nhiều file ảnh cùng lúc.</span>
+                          </div>
                         </div>
                     </div>
                  </div>

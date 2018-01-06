@@ -18,10 +18,44 @@
          <div class="container-fluid">
             <div class="row">
               <form class="form-horizontal form-pricing" role="form" action="<?php echo base_url() ?>addChiSo" method="post" >
-                <input name="<?php echo $csrf['name'] ?>" type="hidden" value="<?php echo $csrf['hash'] ?>" />  
+                <input name="<?php echo $csrf['name'] ?>" type="hidden" value="" id="token" />  
                 <input type="hidden" name="count" id="count" value="0">
-                <input type="hidden" name="id_hoso" value="<?php echo $id_hoso ?>">
+                <div class="row">
+                  <div class="col-md-6 col-md-offset-3">
+                    <div class="form-group">
+                      <div><b>Chọn bệnh nhân</b></div>
+                      <div class="input-group ">
+                          <div class="input-group-addon iga2">
+                             <span class="glyphicon glyphicon-folder-open"></span>
+                          </div>
+                          <select class="form-control"  name="user" onchange="changeUser(this)" required="">
+                            <option value="">Chọn bệnh nhân</option>
+                            <?php foreach ($users as $user): ?>
+                              <option value="<?php echo $user['id'] ?>"><?php echo $user['name'] ?></option>
+                            <?php endforeach ?>                          
+                          </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-md-offset-3" id="form-data">
+                    <div class="form-group">
+                      <div><b>Chọn Hồ sơ</b></div>
+                      <div class="input-group ">
+                          <div class="input-group-addon iga2">
+                             <span class="glyphicon glyphicon-folder-open"></span>
+                          </div>
+                          <select class="form-control"  name="id_hoso"  required="">
+                            <option value="" id="dom_hoso">Chọn loại hồ sơ</option>
+                                                   
+                          </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  
+                </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                  
                   <div class="form-group">
                     <div class="col-md-6">Chọn chỉ số xét nghiệm</div>
                     <div class="col-md-4">Nhập giá trị chỉ số tương ứng</div>
@@ -63,6 +97,38 @@
 </div>
 
 <script type="text/javascript">
+   $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+      if (settings.data.indexOf('csrf_test_name') === -1) {
+        settings.data += '&csrf_test_name=' + encodeURIComponent(Cookies.get('csrf_cookie_name'));
+      }
+    }
+  });
+
+  function changeUser(obj) {
+    $('.hs').remove();
+    var id= obj.value;
+    $.ajax({
+      url: '<?php  echo base_url()?>loadHoso',
+      type: 'post',
+      dataType: 'json',
+      data: {id: id},
+    })
+    .done(function(data) {
+      $('#token').val(data.csrf['hash']);
+      for (var i in data.hoso) {
+        $('#dom_hoso').after('<option class="hs" value="'+data.hoso[i].id+'">'+data.hoso[i].ten+'</option>');
+      }
+      
+    })
+    .fail(function() {
+      console.log("error");
+    });
+    
+  }
+
+
+
   $('input[name=chiso_0]').on('input',function() {
     var selectedOption = $('option[value="'+$(this).val()+'"]');
     if(selectedOption.length>0){

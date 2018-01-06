@@ -53,6 +53,10 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['thanhvien.html'] 		= 'welcome/thanhvien';
+$route['benhsu.html'] 			= 'welcome/benhsu';
+
+
 //login
 $route['pageLogin'] 		= 'Login';
 $route['pageRegister'] 		= 'Login/pageRegister';
@@ -78,9 +82,13 @@ $route['gcallback'] 		= 'Login/gcallback';
 $route['account.html'] 		= 'Hoso';
 $route['hoso.html'] 		= 'Hoso/pageHoso';
 $route['form.html/(:num)'] 	= 'Hoso/formChiso/$1';
-$route['b'] 				= 'Hoso/center';
+$route['thongke.html'] 			= 'Hoso/thongke';
 $route['pageChiSo.html'] 	= 'Hoso/pageChiSo';
 $route['admin.html'] 		= 'Hoso/pageAdmin';
+$route['chisoAdmin.html'] 	= 'Hoso/formChisoAdmin';
+$route['loadHoso'] 			= 'Hoso/loadHoso';
+$route['locChiSo'] 			= 'Hoso/locChiso';
+
 
 $route['addHoso'] 			= 'Hoso/addHoso';
 $route['addFile'] 			= 'Hoso/addFile';
