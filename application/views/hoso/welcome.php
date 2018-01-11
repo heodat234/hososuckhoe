@@ -1,36 +1,54 @@
-<div data-ng-view="" class="welcome-route-content">
-    <section id="lobby" data-ng-controller="LobbyController">
-        <div class="page-header clearfix">
-            <h3>Xin chào <?php echo $this->session->userdata('user')['name']  ?></h3></div>
+<div class="welcome-route-content content-hs col-10 col-offset-2" id="page-info">
+    <section >
+      <div class="row">
+        <div class="page-header clearfix col-sx-12">
+            <h3>Xin chào <?php echo $this->session->userdata('user')['name']  ?></h3>
+        </div>
         <div>
             <div class="row">
-                <div id="WantMoreMain" class="col-xs-12 col-lg-4">
-                    <span>Họ và tên: </span><br>
-                    <span>Email: </span><br>
-                    <span>SỐ CMND: </span><br>
-                    <span>Giới tính: </span><br>
-                    <span>Số điện thoại: </span><br>
-                    <span>Ngày sinh:</span><br>
-                    <span>Địa chỉ: </span><br>
-                </div>
-                <div id="WantMoreMain" class="col-xs-12 col-lg-8">
-                    <span><?php echo $this->session->userdata('user')['name'] ?></span><br>
-                    <span><?php echo $this->session->userdata('user')['email'] ?></span><br>
-                    <span><?php echo $this->session->userdata('user')['cmnd'] ?></span><br>
-                    <span><?php echo $this->session->userdata('user')['gioi_tinh']==0 ?"Nam":"Nữ"  ?></span><br>
-                    <span><?php echo $this->session->userdata('user')['phone'] ?></span><br>
-                    <span><?php echo date('d-m-Y',strtotime($this->session->userdata('user')['ngay_sinh'])) ?></span><br>
-                    <span><?php echo $this->session->userdata('user')['dia_chi'] ?></span><br>
-                </div>
-            </div>
-            <div>
+              <div class=" col-12 col-sm-4 col-lg-2">
+                <img style="width: 90%" src="<?php echo base_url() ?>images/avatar/<?php echo $this->session->userdata('user')['avatar'] ?>">
+              </div>
+              <div class="col-12 col-sm-8 col-lg-10" style="margin-top: 10px;">
+                <table>
+                  <tr>
+                    <td class="tenmuc">Họ và tên: </td>
+                    <td class="col-1"> <?php echo $this->session->userdata('user')['name'] ?></td>
+                  </tr>
+                  <tr>
+                    <td class="tenmuc">Email: </td>
+                    <td> <?php echo $this->session->userdata('user')['email'] ?></td>
+                  </tr>
+                  <tr>
+                    <td class="tenmuc">Số CMND: </td>
+                    <td> <?php echo $this->session->userdata('user')['cmnd'] ?></td>
+                  </tr>
+                  <tr>
+                    <td class="tenmuc">Giới tính: </td>
+                    <td> <?php echo $this->session->userdata('user')['gioi_tinh']==0 ?"Nam":"Nữ"  ?></td>
+                  </tr>
+                  <tr>
+                    <td class="tenmuc">Số điện thoại: </td>
+                    <td> <?php echo $this->session->userdata('user')['phone'] ?></td>
+                  </tr>
+                  <tr>
+                    <td class="tenmuc">Địa chỉ: </td>
+                    <td> <?php echo $this->session->userdata('user')['dia_chi'] ?></td>
+                  </tr>
+                </table>
+              </div>
+              
+              <div class="col-md-6 col-md-offset-2 col-12" style="width: 90%">
                 <br>
                 <button class="btn btn-info" data-toggle="modal" data-target="#edit" data-id='<?php echo $this->session->userdata('user')['id'] ?>' data-name='<?= $this->session->userdata('user')['name'] ?>' data-cmnd='<?php echo $this->session->userdata('user')['cmnd'] ?>' data-gioitinh='<?php echo $this->session->userdata('user')['gioi_tinh'] ?>' data-phone='<?php echo $this->session->userdata('user')['phone'] ?>' data-diachi='<?php echo $this->session->userdata('user')['dia_chi'] ?>' data-ngaysinh='<?php echo date('Y-m-d',strtotime($this->session->userdata('user')['ngay_sinh'])) ?>' >
                     <i class="fa fa-edit"></i> Chỉnh sửa thông tin
                 </button>
                 <button class="btn btn-danger" data-toggle="modal" data-target="#editPass"><i class="fa fa-key"></i> Đổi mật khẩu</button>
             </div>
+            </div>
+            
         </div>
+      </div>
     </section>
     <!-- modal sửa thông tin -->
     <div class="modal fade" id="edit" data-backdrop='static'>

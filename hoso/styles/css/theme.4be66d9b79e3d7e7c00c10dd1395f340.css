@@ -13161,7 +13161,9 @@ appointment-type-card .container-flex .btn {
 				font-size: 1em;
 				font-weight: 400;
 				margin-top: 20px;
-				text-transform: uppercase
+				text-transform: uppercase;
+				text-align: center;
+				margin-left: -57px;
 }
 
 #mednow .aliments {

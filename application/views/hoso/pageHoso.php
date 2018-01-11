@@ -1,45 +1,44 @@
-<div data-ng-view="" class="mednow-appointment-route-content">
+<div  class="content-hs" style="margin-left: -30px">
 	<div id="mednow">
-		<a class="back btn btn-link hidden-md hidden-lg" ng-class="{'hidden-md':loggedIn, 'hidden-lg':loggedIn }" data-ng-href="" analytics-on="" analytics-category="Link" analytics-label="/mednow" analytics-value=" Back">
-		<i class="fa fa-angle-left"></i> Back</a>
 		<div class="page-header">
-			<div class="col-sm-11">
-				<h3>Bệnh án</h3>
-			</div>
-			<div ><button class="btn btn-lg btn-success " data-toggle="modal" data-target="#add-dieutri" style="margin-top: 10px;" title="Thêm hồ sơ mới"><i class="fa fa-plus"></i></button></div>
-			
-		</div>
+        <div class="pull-left" style="padding-top: 10px"><span>Bệnh án</span></div>
+        <div class="pull-right" id="btn-add-hoso" >
+          <button class="btn btn-lg btn-success " data-toggle="modal" data-target="#add-dieutri" title="Thêm hồ sơ mới"><i class="fa fa-plus"></i></button>
+        </div>
+    </div>
 		<h2 class="aliments-header">Các đợt điều trị: </h2>
-
-		<table class="table table-hover table-bordered" id="table">
-			<thead>
-				<th>Tên đợt điều trị</th>
-				<th>Loại điều trị</th>
-				<th>Ngày bắt đầu</th>
-				<th>Ngày kết thúc</th>
-				<th>Thêm ảnh hồ sơ</th>
-        <th>Nhập các chỉ số</th>
-        <th>Xem chi tiết</th>
-				<th>Xóa</th>
-			</thead>
-			<tbody>
-				<?php foreach ($hoso as $hs) { ?>
-				<tr>
-					<td><?php echo $hs['ten'] ?></td>
-					<td><?php echo $hs['loai'] ?></td>
-					<td><?php echo date('d-m-Y',strtotime($hs['ngay_batdau'])) ?></td>
-					<td><?php echo date('d-m-Y',strtotime($hs['ngay_ketthuc'])) ?></td>
-					<td><button class="btn btn-info" data-toggle="modal" data-target="#add-file" data-id="<?php echo $hs['id'] ?>"><i class="fa fa-file" title="Thêm file hồ sơ"></i></button></td>
-          <td><a class="btn btn-primary" href="<?php echo base_url() ?>form.html/<?php echo $hs['id'] ?>"><i class="fa fa-pencil"></i></a></td>
-          <td><button class="btn btn-info" data-toggle="modal" data-target="#view" data-id="<?php echo $hs['id'] ?>"><i class="fa fa-eye" title="Xem chi tiết hồ sơ"></i></button></td>
-					<td><button class="btn btn-danger" title="Xóa hồ sơ"><i class="fa fa-trash"></i></button></td>
-				</tr>
-				<?php } ?>
-			</tbody>
-		</table>
-		
+    <div style="margin-top: 80px;">
+      <table class="table table-hover table-bordered" id="table">
+        <thead>
+          <th></th>
+          <th>Tên đợt điều trị</th>
+          <th>Loại điều trị</th>
+          <th>Ngày bắt đầu</th>
+          <th>Ngày kết thúc</th>
+          <th>Thêm ảnh hồ sơ</th>
+          <th>Nhập các chỉ số</th>
+          <th>Xem chi tiết</th>
+          <th>Xóa</th>
+        </thead>
+        <tbody>
+          <?php foreach ($hoso as $hs) { ?>
+          <tr>
+            <td></td>
+            <td><?php echo $hs['ten'] ?></td>
+            <td><?php echo $hs['loai'] ?></td>
+            <td><?php echo date('d-m-Y',strtotime($hs['ngay_batdau'])) ?></td>
+            <td><?php echo date('d-m-Y',strtotime($hs['ngay_ketthuc'])) ?></td>
+            <td><button class="btn btn-info" data-toggle="modal" data-target="#add-file" data-id="<?php echo $hs['id'] ?>"><i class="fa fa-file" title="Thêm file hồ sơ"></i></button></td>
+            <td><a class="btn btn-primary" href="<?php echo base_url() ?>form.html/<?php echo $hs['id'] ?>"><i class="fa fa-pencil"></i></a></td>
+            <td><button class="btn btn-info" data-toggle="modal" data-target="#view" data-id="<?php echo $hs['id'] ?>"><i class="fa fa-eye" title="Xem chi tiết hồ sơ"></i></button></td>
+            <td><button class="btn btn-danger" title="Xóa hồ sơ"><i class="fa fa-trash"></i></button></td>
+          </tr>
+          <?php } ?>
+        </tbody>
+      </table>
+    </div>
 	</div>
-
+</div>
   <!-- form thêm hồ sơ mới -->
 	<div class="modal fade" id="add-dieutri" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -173,38 +172,35 @@
            <button type="button" class="close" data-dismiss='modal' aria-hidden="true"><span class="glyphicon glyphicon-remove"></span></button>
            <h4 class="modal-title" style="font-size: 20px; padding: 12px;">Xem chi tiết hồ sơ</h4>
         </div>
-            <div class="modal-body">
-               <div class="container-fluid">
-                  <div class="row">
-                      <div class="col-xs-12 col-sm-12 col-md-12">
-                          <div class="col-xs-6 col-sm-6 col-md-6">
-                              <div><b>Xem file ảnh</b></div>
-                              <div class="input-group">
-                                <button type="button" class="btn btn-primary" id="btn-image" data-toggle="modal" data-target="#view-image">Xem ảnh</button>
-                                  
-                              </div>
+        <div class="modal-body">
+           <div class="container-fluid">
+              <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+                      <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div><b>Xem file ảnh</b></div>
+                          <div class="input-group">
+                            <button type="button" class="btn btn-primary" id="btn-image" data-toggle="modal" data-target="#view-image">Xem ảnh</button>
+                              
                           </div>
-                          <div class="col-xs-6 col-sm-6 col-md-6">
-                              <div><b>Xem chỉ số nhập</b></div>
-                              <div class="input-group">
-                                <form method="post" action="<?php echo base_url() ?>pageChiSo.html">
-                                  <input name="<?php echo $csrf['name'] ?>" type="hidden" id="token" value="<?php echo $csrf['hash'] ?>" /> 
-                                  <input type="hidden" name="id_hoso" value="">
-                                  <button type="submit" class="btn btn-info" >Xem Chỉ số</button>
-                                </form>
-                                  
-                              </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div><b>Xem chỉ số nhập</b></div>
+                          <div class="input-group">
+                            <form method="post" action="<?php echo base_url() ?>pageChiSo.html">
+                              <input name="<?php echo $csrf['name'] ?>" type="hidden" id="token" value="<?php echo $csrf['hash'] ?>" /> 
+                              <input type="hidden" name="id_hoso" value="">
+                              <button type="submit" class="btn btn-info" >Xem Chỉ số</button>
+                            </form>
+                              
                           </div>
                       </div>
                   </div>
-               </div>
-            </div>
-
-        <div class="modal-footer" style="height: 60px;">
-              
-              <button type="button" data-dismiss="modal" class="btn btn-sm btn-default"> Cancel <span class="glyphicon glyphicon-remove"></span></button>
+              </div>
+           </div>
         </div>
-        </form>
+        <div class="modal-footer" style="height: 60px;">
+          <button type="button" data-dismiss="modal" class="btn btn-sm btn-default"> Cancel <span class="glyphicon glyphicon-remove"></span></button>
+        </div>
       </div>
     </div>
   </div>
@@ -266,8 +262,6 @@
    </div> 
   </div>
 
-
-</div>
 <script type="text/javascript">
   $.ajaxSetup({
     beforeSend: function(xhr, settings) {
@@ -277,7 +271,7 @@
     }
   });
 
-	$('#table').DataTable();
+	
 
 
 	var x = document.querySelectorAll(".today");

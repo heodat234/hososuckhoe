@@ -1,10 +1,8 @@
-
-<div class="mednow-appointment-route-content">
-	<div id="mednow">
-		
-		<div class="page-header">
+<div class="content-hs">
+	<div  id="mednow">
+		<div class="page-header" id="page-tk" style="padding-bottom: 0px">
 			<div class="row">
-		      <div class="col-md-12">
+		      <div class="col-8">
 		        <div class="box">
 		          <div class="box-header with-boder">
 		            <h3 class="box-title">Lọc kết quả</h3>
@@ -63,17 +61,15 @@
 		<h2 class="aliments-header">Các chỉ số khám bệnh cơ bản:</h2>
 		<?php foreach ($chiso as $cs): ?>
 			<?php if (isset($data[$cs['id']-1])): ?>
-			<div class="row" >
-			  <div class="modal-body" style="margin-top: 20px">
+			
+			  <div class="modal-body" style="margin-top: 15px;padding-left: 0px; margin-left: -55px;">
 			    <div class="container-fluid">
 			       <div id="chart_<?php echo $cs['id'] ?>" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 			    </div>
 			  </div>
-			</div>
+			
 			<?php endif ?>
 		<?php endforeach ?>
-    		
-		
 	</div>
 </div>
 <script type="text/javascript">
@@ -91,7 +87,7 @@
 		            type: 'spline'
 		        },
 		        title: {
-		            text: 'Chỉ số sức khỏe',
+		            text: 'Chỉ số xét nghiệm <?php echo $ss['ten_chiso'] ?>',
 		        },
 
 		        plotOptions: {

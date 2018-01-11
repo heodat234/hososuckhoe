@@ -19,7 +19,7 @@ class ChitietHoso_model extends CI_Model{
     }
     public function selectChiSo($id_hoso)
     {
-        $this->db->select()->where('id_hoso',$id_hoso)->where('loai_chiso !=',0);
+        $this->db->select()->where('id_hoso',$id_hoso)->where('loai_chiso !=',6);
         $query = $this->db->get($this->_name);
         return $query->result_array();
     }
@@ -31,7 +31,7 @@ class ChitietHoso_model extends CI_Model{
 
     public function selectFileActive()
     {
-        $sql = "SELECT  a.id_hoso,COUNT(a.dulieu) AS tong,b.ten, c.name FROM chitiet_hoso a, hoso b, users c WHERE a.loai_chiso = 0 AND a.active =0 AND a.id_hoso = b.id AND c.id = b.id_user GROUP BY a.id_hoso";
+        $sql = "SELECT  a.id_hoso,COUNT(a.dulieu) AS tong,b.ten, c.name FROM chitiet_hoso a, hoso b, users c WHERE a.loai_chiso = 6 AND a.active =0 AND a.id_hoso = b.id AND c.id = b.id_user GROUP BY a.id_hoso";
         $query = $this->db->query($sql); 
         return $query->result_array();
     }

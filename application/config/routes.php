@@ -54,8 +54,12 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['thanhvien.html'] 		= 'welcome/thanhvien';
-$route['benhsu.html'] 			= 'welcome/benhsu';
-
+$route['tintuc.html'] 			= 'news';
+$route['tintuc/(:num)'] 		= 'news/tinTucById/$1';
+$route['tintucAdmin.html'] 		= 'news/tintucAdmin';
+$route['addNews'] 				= 'news/themTintuc';
+$route['editNews'] 				= 'news/suaTintuc';
+$route['deleteNews'] 			= 'news/xoaTintuc';
 
 //login
 $route['pageLogin'] 		= 'Login';

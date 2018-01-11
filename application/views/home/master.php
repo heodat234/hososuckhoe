@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     
     <title>iMedica</title>
-
+    <!-- <link REL="SHORTCUT ICON" HREF="favicon.ico"> -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
     
@@ -16,8 +16,10 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/blue.css" id="style-switch" />
     <!-- REVOLUTION BANNER CSS SETTINGS -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/rs-plugin/css/settings.min.css" media="screen" />
+
+    <link href="<?php echo base_url() ?>public/css/my-admin.css" rel="stylesheet" />
     <!-- <link href="<?php echo base_url() ?>public/css/bootstrap.min.css" rel="stylesheet" />    -->
-    <link rel="icon" type="image/png" href="<?php echo base_url() ?>public/images/fevicon.png">
+    <link rel="icon" type="image/png" href="<?php echo base_url() ?>public/images/logo-hssk1.png">
 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/slides.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/inline.min.css" />

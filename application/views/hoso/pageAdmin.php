@@ -1,85 +1,79 @@
-<div class="mednow-appointment-route-content">
+<div class="content-hs">
 	<div id="mednow">
-		<div class="page-header">
-			<div class="">
-				<h3>Thông báo </h3>
-			</div>
-		</div>
+		<div class="page-header" style="margin-left: -30px">
+        <div class="pull-left" style="padding-top: 10px"><span>Nhập dữ liệu hồ sơ bệnh án</span></div>
+    </div>
+    <h2 class="aliments-header"> </h2>
 			<?php foreach ($thongbao as $tb): ?>
-				<div class="alert alert-info alert-dismissable page-alert"> 
+				<div class="alert alert-info alert-dismissable page-alert" style="margin-left: -30px;"> 
 	   				<button type="button" style="margin-right:20px" class="tat close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
 	   				<a style="margin-right:20px" class="close" data-id="<?php echo $tb['id_hoso'] ?>" data-toggle="modal" data-target="#view-image"><span>xem</span></a>
 	   				<?php echo $tb['name'] ?> đã thêm <?php echo $tb['tong'] ?> ảnh mới vào hồ sơ <?php echo $tb['ten'] ?>
 	    		</div>
 			<?php endforeach ?>
-		<div id="noty-holder">
-			
-		</div>
-		
-	</div>
-
-	<!-- modal ảnh -->
-	<div class="modal fade" id="view-image" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	    <div class="modal-dialog">
-	     <div class="modal-content">
-	        <div class="modal-header">
-	           <button type="button" class="close" data-dismiss='modal' aria-hidden="true"><span class="glyphicon glyphicon-remove"></span></button>
-	           <h4 class="modal-title" style="font-size: 20px; padding: 12px;">Xem ảnh hồ sơ</h4>
-	        </div>
-	        
-	        <form method="post" id="form" enctype="multipart/form-data" action="<?php echo base_url() ?>activeFile">
-	        	<input name="<?php echo $csrf['name'] ?>" type="hidden" value="<?php echo $csrf['hash'] ?>" id= "csrf"/>  
-				
-	            <div class="modal-body">
-	               <div class="container-fluid">
-	                  <div class="row">
-	                  	<h4>Chọn những ảnh đã nhập dữ liệu</h4>
-	                  	<br>
-	                      <div class="col-xs-12 col-sm-12 col-md-12" >
-	                        <div id="dom-image"></div>
-	                        <input type="hidden" name="id_hoso">  
-	                      </div>
-	                  </div>
-	               </div>
-	            </div>
-
-	        <div class="modal-footer" style="height: 10px;">
-	           <div class="form-group">
-	               <button type="submit"  class="btn btn-sm btn-success" id="save"> Lưu <span class="glyphicon glyphicon-save"></span></button>
-	              <button type="button" data-dismiss="modal" class="btn btn-sm btn-default"> Cancel <span class="glyphicon glyphicon-remove"></span></button>
-	           </div>
-	        </div>
-	        </form>
-	      </div>
-	    </div>
-	</div>
-	  
-	  <!-- xem ảnh to -->
-	<div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="min-width: 500px;"> 
-	   <div class="modal-dialog"> 
-	    <div class="modal-content"> 
-	     <div class="modal-header"> 
-	      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
-	      </button> 
-	      <h4 class="modal-title" id="image-gallery-title"></h4> 
-	     </div> 
-	     <div class="modal-body"> 
-	      <p align="center"><img id="image-gallery-image" class="img-responsive" src="" alt="">
-	      </p> 
-	     </div> 
-	     <div class="modal-footer"> 
-	      <div class="col-md-2"> 
-	       <button type="button" class="btn btn-primary" id="show-previous-image"><< </button> 
-	      </div> 
-	      <div class="col-md-8 text-center" id="image-gallery-caption"> </div> 
-	      <div class="col-md-2"> 
-	       <button type="button" class="btn btn-primary" id="show-next-image">>> </button> 
-	      </div> 
-	     </div> 
-	    </div> 
-	   </div> 
 	</div>
 </div>
+<!-- modal ảnh -->
+  <div class="modal fade" id="view-image" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+       <div class="modal-content">
+          <div class="modal-header">
+             <button type="button" class="close" data-dismiss='modal' aria-hidden="true"><span class="glyphicon glyphicon-remove"></span></button>
+             <h4 class="modal-title" style="font-size: 20px; padding: 12px;">Xem ảnh hồ sơ</h4>
+          </div>
+          
+          <form method="post" id="form" enctype="multipart/form-data" action="<?php echo base_url() ?>activeFile">
+            <input name="<?php echo $csrf['name'] ?>" type="hidden" value="<?php echo $csrf['hash'] ?>" id= "csrf"/>  
+        
+              <div class="modal-body">
+                 <div class="container-fluid">
+                    <div class="row">
+                      <h4>Chọn những ảnh đã nhập dữ liệu</h4>
+                      <br>
+                        <div class="col-xs-12 col-sm-12 col-md-12" >
+                          <div id="dom-image"></div>
+                          <input type="hidden" name="id_hoso">  
+                        </div>
+                    </div>
+                 </div>
+              </div>
+
+          <div class="modal-footer" style="height: 10px;">
+             <div class="form-group">
+                 <button type="submit"  class="btn btn-sm btn-success" id="save"> Lưu <span class="glyphicon glyphicon-save"></span></button>
+                <button type="button" data-dismiss="modal" class="btn btn-sm btn-default"> Cancel <span class="glyphicon glyphicon-remove"></span></button>
+             </div>
+          </div>
+          </form>
+        </div>
+      </div>
+  </div>
+    
+    <!-- xem ảnh to -->
+  <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="min-width: 500px;"> 
+     <div class="modal-dialog"> 
+      <div class="modal-content"> 
+       <div class="modal-header"> 
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button> 
+        <h4 class="modal-title" id="image-gallery-title"></h4> 
+       </div> 
+       <div class="modal-body"> 
+        <p align="center"><img id="image-gallery-image" class="img-responsive" src="" alt="">
+        </p> 
+       </div> 
+       <div class="modal-footer"> 
+        <div class="col-md-2"> 
+         <button type="button" class="btn btn-primary" id="show-previous-image"><< </button> 
+        </div> 
+        <div class="col-md-8 text-center" id="image-gallery-caption"> </div> 
+        <div class="col-md-2"> 
+         <button type="button" class="btn btn-primary" id="show-next-image">>> </button> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+  </div>
 <script type="text/javascript">
 
 	$.ajaxSetup({

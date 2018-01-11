@@ -5,7 +5,7 @@ class Hoso extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->helper(array('url','security'));
+		$this->load->helper(array('url','security','text'));
 		$this->load->library(array('form_validation','session','upload'));
 		$this->load->model(array('Hoso_model','ChitietHoso_model','Muc_Chiso_model','Login_model'));
 
@@ -122,7 +122,7 @@ class Hoso extends CI_Controller {
 	    	$_data['dulieu'] 		= $dataInfo[$i]['file_name'];
     		$_data['id_hoso'] 		= $id_hoso;
     		$_data['ten_data'] 		= 'file';
-    		$_data['loai'] 			= '0';
+    		$_data['loai_chiso'] 	= '6';
 	    	$this->ChitietHoso_model->insertChitiet_Hoso($_data);				
 	    }
 
@@ -159,7 +159,7 @@ class Hoso extends CI_Controller {
 	    	$_data['dulieu'] 		= $dataInfo[$i]['file_name'];
     		$_data['id_hoso'] 		= $id;
     		$_data['ten_data'] 		= 'file';
-    		$_data['loai'] 			= '0';
+    		$_data['loai_chiso'] 	= '6';
 	    	$this->ChitietHoso_model->insertChitiet_Hoso($_data);				
 	    }
 
@@ -195,9 +195,9 @@ class Hoso extends CI_Controller {
 		
 		$active = $this->input->post('active');
 		if ($active == 0) {
-			$dk  	= array('loai' => 0, 'id_hoso' => $id_hoso,'active'=>$active );
+			$dk  	= array('loai_chiso' => 6, 'id_hoso' => $id_hoso,'active'=>$active );
 		}else{
-			$dk  	= array('loai' => 0, 'id_hoso' => $id_hoso );
+			$dk  	= array('loai_chiso' => 6, 'id_hoso' => $id_hoso );
 		}
 		$mData['image'] = $this->ChitietHoso_model->selectFile($dk);
 		print_r(json_encode($mData));
@@ -252,7 +252,7 @@ class Hoso extends CI_Controller {
 	public function activeFile()
 	{
 		$frm = $this->input->post();
-		$dk  	= array('loai' => 0, 'id_hoso' => $frm['id_hoso'] );
+		$dk  	= array('loai_chiso' => 6, 'id_hoso' => $frm['id_hoso'] );
 		$noti 		= $this->ChitietHoso_model->selectFile($dk);
 		// var_dump($noti);
 		foreach ($noti as $no) {
