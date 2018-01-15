@@ -20,19 +20,20 @@ class Benhvien extends CI_Controller {
 	}
 	public function index()
 	{
-		$mdata['benhvien']		= $this->BenhVien_model->selectBV();
-		$mdata['benhvien1']		= $mdata['benhvien'][0];
-		$ten = $mdata['benhvien1']['ten'];
-		$ten = to_slug($ten);
-		$ten = str_replace( '-', '+', $ten );
-		$map = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?address=$ten&sensor=false");
-		$map = json_decode($map,true);
-		$location = $map['results'][0]['geometry']['location'];
-		$mdata['toado'] = $location;
+		$config['total_rows'] = $this->BenhVien_model->countAll();
+        $config['base_url'] = base_url()."/benhvien/index";
+        $config['per_page'] = 4;
+        $config['next_link'] = "Trước";
+  		$config['prev_link'] = "Sau";
+  		$config['num_links'] = 5;
+        $start=$this->uri->segment(3);
+        $this->load->library('pagination', $config);
+        $mdata['benhvien'] = $this->BenhVien_model->getBV($config['per_page'], $start);
+        $mdata['phantrang'] =  $this->pagination->create_links();
+		$mdata['noibat'] = $this->BenhVien_model->selectBVIndex();
 		$data['bv']			= 'active';
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
-        // $this->_data['html_footer'] = $this->load->view('home/footer', NULL, TRUE);
-        $this->_data['html_body'] 	= $this->load->view('page/pageBenhvien', $mdata, TRUE);
+        $this->_data['html_body'] 	= $this->load->view('page/listBenhvien', $mdata, TRUE);
         return $this->load->view('home/master', $this->_data);
 	}
 	public function benhVienById($id)

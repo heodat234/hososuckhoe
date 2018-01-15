@@ -10,7 +10,15 @@ class Benhvien_model extends CI_Model{
         $this->primaryKey = 'id';
     } 
     
-   
+    public function countAll(){
+        $query=$this->db->get("benhvien");
+        return $query->num_rows(); 
+    }
+    public function getBV($total, $start){
+       $this->db->limit($total, $start);
+       $query=$this->db->get("benhvien");
+       return $query->result_array();
+    }
     public function selectBVIndex()
     {
         $this->db->select()->order_by("danh_gia", "desc")->limit(10);
