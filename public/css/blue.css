@@ -19415,6 +19415,21 @@ ul.list-bv >li >div {
 		margin-left: 154%; 
 		margin-top: -28px;
 	}
+	.ds-tin a >img {
+		width: 280px; 
+		height: 150px;
+		border-radius: 5px;
+	}
+	.ds-tin-content {
+		margin-left: 300px; 
+		margin-top: -155px;
+	}
+	.body-list {
+		margin-top: -10px;
+	}
+	.body-ds-tin {
+		border-right: 1px solid #ddd
+	}
 }
 @media (min-width: 992px) and (max-width:1199px) {
 	.subtitle div.title-b {
@@ -19431,7 +19446,21 @@ ul.list-bv >li >div {
 		margin-left: 140%; 
 		margin-top: -28px;
 	}
-
+	.body-list {
+		margin-top: -10px;
+	}
+	.ds-tin a >img {
+		width: 280px; 
+		height: 150px;
+		border-radius: 5px;
+	}
+	.ds-tin-content {
+		margin-left: 300px; 
+		margin-top: -155px;
+	}
+	.body-ds-tin {
+		border-right: 1px solid #ddd
+	}
 }
 @media (min-width: 768px) and (max-width:991px) {
 	.subtitle div.title-b {
@@ -19447,6 +19476,18 @@ ul.list-bv >li >div {
 	.tooltip-bs {
 		margin-left: 337%; 
 		margin-top: -28px;
+	}
+	.body-list {
+		margin-top: -10px;
+	}
+	.ds-tin a >img {
+		width: 280px; 
+		height: 150px;
+		border-radius: 5px;
+	}
+	.ds-tin-content {
+		margin-left: 300px; 
+		margin-top: -155px;
 	}
 }
 @media (min-width: 321px) and (max-width:767px)  {
@@ -19692,7 +19733,18 @@ div.box-search h6{
 ul.ul-list-ds li {
 	color: gray;
 }
+
+
+
+.ds-tin{
+	border-bottom: 1px dotted #ccc; 
+	padding: 25px 10px 25px 0; 
+	box-sizing: border-box; 
+	width: 100%
+}
+
 .pagination-page{
+	margin-top: 20px;
     margin-bottom:20px;
     float:left;
     width:100%;
