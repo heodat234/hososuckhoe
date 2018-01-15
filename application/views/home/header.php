@@ -27,9 +27,14 @@
                                     <li class="<?php echo isset($trangchu)? $trangchu : '' ?>"><a href="<?php echo base_url() ?>" ><i class="icon-home"></i>Trang chủ</a>
                                     </li>
 
-                                    <li class="<?php echo isset($new)? $new : '' ?>"><a href="<?php echo base_url() ?>tintuc.html" class="<?php echo isset($new)? $new : '' ?>" ><i class="icon-cog"></i>Tin tức</a>
+                                    <li class="dropdown <?php echo isset($new)? $new : '' ?>"><a href="#" class="<?php echo isset($new)? $new : '' ?>" class="dropdown-toggle" data-toggle="dropdown" ><i class="icon-cog"></i>Tin tức</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="<?php echo base_url() ?>tintucykhoa.html">Tin tức Y khoa</a></li>
+                                            <li><a href="<?php echo base_url();?>tintucnoibo.html">Tin tức Nội bộ</a></li>
+                                        </ul>
                                     </li>
-                                    
+                                    <li class="<?php echo isset($bv)? $bv : '' ?>"><a href="<?php echo base_url() ?>benhvien.html" class="<?php echo isset($bv)? $bv : '' ?>" ><i class="icon-cog"></i>Bệnh viện</a>
+                                    </li>
                                   
                                     
                                     <li class="<?php echo isset($thanhvien)? $thanhvien : '' ?>"><a href="<?php echo base_url() ?>thanhvien.html" class="<?php echo isset($thanhvien)? $thanhvien : '' ?>"><i class="icon-pencil"></i>Thành viên</a>
@@ -39,7 +44,11 @@
                                         <li class="dropdown <?php echo isset($pageHoso)? $pageHoso : '' ?>">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                 
-                                                <img class="profile-image" style="width: 35px; margin-top: -7px;" src="<?php echo base_url() ?>images/avatar/<?php echo $this->session->userdata('user')['avatar'] ?>">
+                                                <?php if ($this->session->userdata('user')['avatar'] == ''){ ?>
+                                                  <img class="profile-image" style="width: 35px; margin-top: -7px;" src="<?php echo base_url() ?>images/profile.png">
+                                                <?php }else { ?>
+                                                  <img class="profile-image" style="width: 35px; margin-top: -7px;" src="<?php echo base_url() ?>images/avatar/<?php echo $this->session->userdata('user')['avatar'] ?>">
+                                                <?php } ?>
                                            
                                                 <?php echo $this->session->userdata('user')['name'] ?>
                                                     
@@ -53,7 +62,11 @@
                                         <li class="dropdown <?php echo isset($pageHoso)? $pageHoso : '' ?>">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                 
-                                                <img class="profile-image" style="width: 35px; margin-top: -7px;" src="<?php echo base_url() ?>images/avatar/<?php echo $this->session->userdata('user')['avatar'] ?>">
+                                                 <?php if ($this->session->userdata('user')['avatar'] == ''){ ?>
+                                                  <img class="profile-image" style="width: 35px; margin-top: -7px;" src="<?php echo base_url() ?>images/profile.png">
+                                                <?php }else { ?>
+                                                  <img class="profile-image" style="width: 35px; margin-top: -7px;" src="<?php echo base_url() ?>images/avatar/<?php echo $this->session->userdata('user')['avatar'] ?>">
+                                                <?php } ?>
                                            
                                                 <?php echo $this->session->userdata('user')['name'] ?>
                                                     

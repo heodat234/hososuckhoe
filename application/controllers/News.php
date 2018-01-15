@@ -8,7 +8,6 @@ class News extends CI_Controller {
 		$this->load->helper(array('url','my_helper','text'));
 		$this->load->model(array('News_model'));
 		$this->load->library(array('form_validation','session','upload'));
-		
         $csrf = array(
         'name' => $this->security->get_csrf_token_name(),
         'hash' => $this->security->get_csrf_hash()
@@ -17,17 +16,28 @@ class News extends CI_Controller {
 	}
 	public function index()
 	{
-		$mdata['category']		= $this->News_model->selectTintuc();
-		$mdata['tintuc']		= $mdata['category'][0];
-		$view = $mdata['tintuc']['view'] + 1;
-		$dk = array('id' =>$mdata['tintuc']['id'] , 'view'=>$view );
-		$this->News_model->updateView($dk);
+        $config['total_rows'] = $this->News_model->countAll();
+        $config['base_url'] = base_url()."/news/tintuc";
+        $config['per_page'] = 2;
+        $config['next_link'] = "Trước";
+  		$config['prev_link'] = "Sau";
+  		$config['num_links'] = 5;
+        $start=$this->uri->segment(3);
+        $this->load->library('pagination', $config);
+        $mdata['category'] = $this->News_model->getNews($config['per_page'], $start);
+        $mdata['phantrang'] =  $this->pagination->create_links();
+		$mdata['noibat'] = $this->News_model->selectTintucNoiBat();
+
 		$data['new']			= 'active';
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
-        $this->_data['html_footer'] = $this->load->view('home/footer', NULL, TRUE);
-        $this->_data['html_body'] 	= $this->load->view('page/news', $mdata, TRUE);
+
+        $t_data['ykhoa']		= $this->News_model->selectTintucYkhoa();
+		$t_data['noibo']		= $this->News_model->selectTintucNoibo();
+        $this->_data['html_footer'] = $this->load->view('home/footer', $t_data, TRUE);
+        $this->_data['html_body'] 	= $this->load->view('page/listNews', $mdata, TRUE);
         return $this->load->view('home/master', $this->_data);
 	}
+
 	public function tinTucById($id)
 	{
 		$mdata['category']		= $this->News_model->selectTintuc();
@@ -36,8 +46,11 @@ class News extends CI_Controller {
 		$dk = array('id' =>$id , 'view'=>$view );
 		$this->News_model->updateView($dk);
 		$data['new']			= 'active';
-		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
-        $this->_data['html_footer'] = $this->load->view('home/footer', NULL, TRUE);
+		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE); 
+		 
+        $t_data['ykhoa']		= $this->News_model->selectTintucYkhoa();
+		$t_data['noibo']		= $this->News_model->selectTintucNoibo();
+        $this->_data['html_footer'] = $this->load->view('home/footer', $t_data, TRUE);
         $this->_data['html_body'] 	= $this->load->view('page/news', $mdata, TRUE);
         return $this->load->view('home/master', $this->_data);
 	}

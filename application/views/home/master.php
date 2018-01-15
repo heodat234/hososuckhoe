@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     
-    <title>iMedica</title>
+    <title>Hồ sơ sức khỏe</title>
     <!-- <link REL="SHORTCUT ICON" HREF="favicon.ico"> -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
@@ -24,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/slides.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/inline.min.css" />
     <script type="text/javascript" src="<?php echo base_url() ?>public/js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAbjBhwvVw17A_RP6r_jeQrZ-ChKY90H5U&sensor=false"></script>
 </head>
     <body>
         <div id="loader-overlay"><img src="<?php echo base_url() ?>public/images/loader.gif" alt="Loading" /></div>
@@ -34,7 +35,6 @@
             <?php echo isset($html_body) ? $html_body : ''; ?>                
             
         </div>    
-        <!--Footer Start-->
         
         <?php echo isset($html_footer) ? $html_footer : ''; ?>
             

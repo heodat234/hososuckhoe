@@ -17,18 +17,26 @@
           <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
             <div class="col-md-9 col-sm-12 col-lg-9 col-xs-12 no-pad ">
               <div>
-                <h3 class=""><?php echo $tintuc['title'] ?></3>
+                <h3 class=""><?php echo $benhvien1['ten'] ?></3>
               </div>
-              <ul class="entry-meta clearfix">
+              <!-- <ul class="entry-meta clearfix">
                 <li><a href=""><i class="fa fa-user"></i> Admin</a></li>
                 <li><a href=""><i class="fa fa-calendar"></i>  <?php echo date('d-m-Y',strtotime($tintuc['created_at'])) ?> </a></li>
                 <li><a href=""><i class="fa fa-eye"></i>  <?php echo number_format($tintuc['view']+1) ?></a></li>
-              </ul>
-              <div class="img-news">
-                <img width="100%" height="400px" src="<?php echo base_url().'images/tintuc/'.$tintuc['image'] ?>">
+              </ul> -->
+              <div class="img-news" style="text-align: center;">
+                <img width="60%" src="<?php echo base_url().'images/tintuc/'.$benhvien1['anh'] ?>">
               </div>
+              <div class="gioithieu-bv" >
+                <div><i class="fa fa-phone"></i><a href=""> <?php echo $benhvien1['so_dienthoai'] ?></a></div>
+                <div><i class="fa fa-map-marker"></i> <?php echo $benhvien1['dia_chi'] ?></div>
+                <div><i class="fa fa-clock-o"></i> <?php echo $benhvien1['gio_lamviec'] ?></div>
+                <div><i class="glyphicon glyphicon-globe"></i><a href="<?php echo $benhvien1['website'] ?>"> <?php echo $benhvien1['website'] ?></a></div>
+              </div>
+              <div id="map" style="height:400px; width:100%"></div>
               <div class="content-news">
-                <p><?php echo $tintuc['content'] ?></p>
+                <div>Giới thiệu</div>
+                <p><?php echo $benhvien1['description'] ?></p>
               </div> 
               <div class="cmt-news">
                 Bình luận
@@ -40,9 +48,9 @@
                   <h4 class="head"><i class="fa fa-folder-o" style="color: #f26529;"></i> Danh mục tin tức</h4>
                 </div>
                 <div>
-                  <ul class="list-categories list-categories_widget">
-                    <?php foreach ($category as $tt): ?>
-                      <li><a href="<?php echo base_url().'tintuc/'.$tt['id']?>"><span class="list-categories__name"><?php echo $tt['title'] ?></span></a></li>
+                  <ul class="list-categories list-categories_widget list-bv">
+                    <?php foreach ($benhvien as $bv): ?>
+                      <li><a href="<?php echo base_url().'benhvien/'.$bv['id']?>"><span class="list-categories__name"><?php echo $bv['ten'] ?></span></a></li>
                     <?php endforeach ?>
                   </ul>
                 </div>
@@ -68,4 +76,71 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
 
+var gmap = new google.maps.LatLng(<?php echo $toado['lat'] ?>,<?php echo $toado['lng'] ?>);
+var marker;
+
+function initialize()
+{
+    var mapProp = {
+         center:new google.maps.LatLng(<?php echo $toado['lat'] ?>,<?php echo $toado['lng'] ?>),
+         zoom:16,
+        mapTypeId:google.maps.MapTypeId.ROADMAP
+    };
+    var map=new google.maps.Map(document.getElementById("map")
+    ,mapProp);
+
+  var styles = [
+    {
+      featureType: 'road.arterial',
+      elementType: 'all',
+      stylers: [
+        { hue: '#fff' },
+        { saturation: 100 },
+        { lightness: -48 },
+        { visibility: 'on' }
+      ]
+    },{
+      featureType: 'road',
+      elementType: 'all',
+      stylers: [
+      ]
+    },
+    {
+        featureType: 'water',
+        elementType: 'geometry.fill',
+        stylers: [
+            { color: '#adc9b8' }
+        ]
+    },{
+        featureType: 'landscape.natural',
+        elementType: 'all',
+        stylers: [
+            { hue: '#809f80' },
+            { lightness: -35 }
+        ]
+    }
+  ];
+
+  var styledMapType = new google.maps.StyledMapType(styles);
+  map.mapTypes.set('Styled', styledMapType);
+
+  marker = new google.maps.Marker({
+    map:map,
+    draggable:true,
+    animation: google.maps.Animation.DROP,
+    position: gmap
+  });
+  google.maps.event.addListener(marker, 'click', toggleBounce);
+}
+
+function toggleBounce() {
+  if (marker.getAnimation() !== null) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>

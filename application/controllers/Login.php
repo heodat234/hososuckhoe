@@ -8,7 +8,7 @@ class Login extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->helper(array('url','string','security'));
-		$this->load->model(array('Login_model'));
+		$this->load->model(array('Login_model','News_model'));
 		$this->load->library(array('form_validation','session'));
 
 		$config = array(
@@ -31,7 +31,10 @@ class Login extends CI_Controller {
 		$this->a_Data['csrf'] = $csrf;
 
 		$this->_data['html_header'] = $this->load->view('home/header', NULL, TRUE);  
-        $this->_data['html_footer'] = $this->load->view('home/footer', NULL, TRUE);
+		
+        $t_data['ykhoa']		= $this->News_model->selectTintucYkhoa();
+		$t_data['noibo']		= $this->News_model->selectTintucNoibo();
+        $this->_data['html_footer'] = $this->load->view('home/footer', $t_data, TRUE);
         
 	}
 	//vào trang đăng nhập
@@ -267,6 +270,8 @@ class Login extends CI_Controller {
         $a_UserInfo['oauth_uid'] = $me->getProperty('id');
         $a_UserInfo['name'] = $me->getProperty('name');
 		$a_UserInfo['email'] = $me->getProperty('email');
+		$a_UserInfo['avatar'] = $me->getProperty('avatar');
+		$a_UserInfo['group'] = 0;
 		// var_dump($a_UserInfo);
 		if ($this->Login_model->checkUser( $a_UserInfo )) {
 			$this->session->set_userdata('user', $a_UserInfo);
@@ -283,13 +288,13 @@ class Login extends CI_Controller {
 	//đăng nhập bằng google
 	public function loginGoogle()
 	{
-		$client_id = '770402780651-neuv86ccneqbgftnoc7n24rlpek873of.apps.googleusercontent.com';
-        $client_secret = 'vXtRTsreEIPR6BuYo_7KoYvN';
+		$client_id = '148311644753-bu3gi4mpei8s70a5j1smrq7j0c70b2pt.apps.googleusercontent.com';
+        $client_secret = 'GEHoQkXScBWpvLtxf8E6cznJ';
         $redirect_uri = base_url('gcallback');;
 
         //Create Client Request to access Google API
         $client = new Google_Client();
-        $client->setApplicationName("1001cv");
+        $client->setApplicationName("Hososuckhoe");
         $client->setClientId($client_id);
         $client->setClientSecret($client_secret);
         $client->setRedirectUri($redirect_uri);
@@ -307,13 +312,13 @@ class Login extends CI_Controller {
 	function gcallback()
     {
             // Fill CLIENT ID, CLIENT SECRET ID, REDIRECT URI from Google Developer Console
-	     $client_id = '770402780651-neuv86ccneqbgftnoc7n24rlpek873of.apps.googleusercontent.com';
-	     $client_secret = 'vXtRTsreEIPR6BuYo_7KoYvN';
+	     $client_id = '148311644753-bu3gi4mpei8s70a5j1smrq7j0c70b2pt.apps.googleusercontent.com';
+	     $client_secret = 'GEHoQkXScBWpvLtxf8E6cznJ';
 	     $redirect_uri = base_url('gcallback');
 
 	    //Create Client Request to access Google API
 	    $client = new Google_Client();
-	    $client->setApplicationName("1001cv");
+	    $client->setApplicationName("Hososuckhoe");
 	    $client->setClientId($client_id);
 	    $client->setClientSecret($client_secret);
 	    $client->setRedirectUri($redirect_uri);
@@ -332,6 +337,8 @@ class Login extends CI_Controller {
 	    $a_UserInfo['oauth_uid'] = $user->id;
 	    $a_UserInfo['name'] = $user->name;
 		$a_UserInfo['email'] = $user->email;
+		// $a_UserInfo['avatar'] = $user->avatar;
+		$a_UserInfo['group'] = 0;
 		// var_dump($a_UserInfo);
 		if ($this->Login_model->checkUser( $a_UserInfo )) {
 			$this->session->set_userdata('user', $a_UserInfo);

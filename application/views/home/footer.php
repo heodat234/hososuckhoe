@@ -4,41 +4,50 @@
             <div class="row">
                 <!--Foot widget-->
                 <div class="col-xs-12 col-sm-6 col-md-3 foot-widget">
-                    <a href="#"><div class="foot-logo col-xs-12 no-pad"></div></a>
+                    <a href="#"><div class=" col-xs-12 no-pad" style="margin-left: -25px; margin-bottom: 10px;"><img class="img-logo" style="width: 200px;" src="<?php echo base_url() ?>public/images/2.png"></div></a>
                     
                     <address class="foot-address">
-                        <div class="col-xs-12 no-pad"><i class="icon-globe address-icons"></i>iMedica Clinic <br />123 Fifth Avenue <br />New York, NY 10160</div>
-                        <div class="col-xs-12 no-pad"><i class="icon-phone2 address-icons"></i>+123 455 755</div>
-                        <div class="col-xs-12 no-pad"><i class="icon-file address-icons"></i>+123 555 755</div>
-                        <div class="col-xs-12 no-pad"><i class="icon-mail address-icons"></i>contact@imedica.com</div>
+                        <div class="col-xs-12 no-pad"><i class="icon-globe address-icons"></i>10 Đường số 11 <br />Quận 6, TP HCM</div>
+                        <div class="col-xs-12 no-pad"><i class="icon-phone2 address-icons"></i>+84 455 755</div>
+                        <!-- <div class="col-xs-12 no-pad"><i class="icon-file address-icons"></i>+123 555 755</div> -->
+                        <div class="col-xs-12 no-pad"><i class="icon-mail address-icons"></i>hungminhits@gmail.com</div>
                     </address>
                 </div>
                 
                 <!--Foot widget-->
                 <div class="col-xs-12 col-sm-6 col-md-3 recent-post-foot foot-widget">
-                    <div class="foot-widget-title">Recent Posts</div>
+                    <div class="foot-widget-title">Bài viết Y khoa</div>
                     <ul>
-                        <li><a href="#">Consecte tur adipiscing elit ut eunt<br /><span class="event-date">3 days ago</span></a></li>
-                        <li><a href="#">Fusce vel tempus augue nunc<br /><span class="event-date">5 days ago</span></a></li>
-                        <li><a href="#">Lorem nulla, vitae eleifend leo tincidunt<br /><span class="event-date">7 days ago</span></a></li>
+                        <?php if (isset($ykhoa)){ ?>
+                            <?php foreach ($ykhoa as $y) { ?>
+                                <li><a href="#"><?php echo $y['title'] ?><br /><span class="event-date"><?php echo date('d-m-Y',strtotime($y['created_at'])) ?></span></a></li>
+                            <?php } ?>  
+                        <?php }else { ?>
+                            <li>Chưa có tin mới</li>
+                        <?php  } ?>
                     </ul>
                 </div>
                 
                  <!--Foot widget-->
                 <div class="col-xs-12 col-sm-6 col-md-3 recent-tweet-foot foot-widget">
-                    <div class="foot-widget-title">Recent News</div>
+                    <div class="foot-widget-title">Bài viết Nội bộ</div>
                     <ul>
-                        <li>Integer iaculis egestas odio. eget: <b>t.co/RTSoououIdg</b><br /><span class="event-date">7 days ago</span></li>
-                        <li>Integer iaculis egestas odio. eget: <b>t.co/RTSoououIdg</b><br /><span class="event-date">7 days ago</span></li>
+                        <?php if (isset($noibo)){ ?>
+                            <?php foreach ($noibo as $n) { ?>
+                            <li><a href="#"><?php echo $n['title'] ?><br /><span class="event-date"><?php echo date('d-m-Y',strtotime($n['created_at'])) ?></span></a></li>
+                            <?php } ?>
+                        <?php }else { ?>
+                            <li>Chưa có tin mới</li>
+                        <?php  } ?>
                     </ul>
                 </div>
                 
                 <!--Foot widget-->
                 <div class="col-xs-12 col-sm-6 col-md-3 foot-widget">
-                    <div class="foot-widget-title">newsletter</div>
-                    <p>Ipsum dolor sit amet, teft consecte tur.</p>
-                    <div class="news-subscribe"><input type="text" class="news-tb" placeholder="Email Address" /><button class="news-button">Subscribe</button></div>
-                    <div class="foot-widget-title">social media</div>
+                    <div class="foot-widget-title">Liên hệ hợp tác</div>
+                    <p>Nhận thông báo mới từ chúng tôi.</p>
+                    <div class="news-subscribe"><input type="text" class="news-tb" placeholder="Email Address" /><button class="news-button">Đăng ký</button></div>
+                    <div class="foot-widget-title">Hồ sơ sức khỏe</div>
                     <div class="social-wrap">
                         <ul>
                         <li><a href="#"><i class="icon-facebook foot-social-icon" id="face-foot" data-toggle="tooltip" data-placement="bottom" title="Facebook"></i></a></li>
@@ -58,7 +67,7 @@
             <div class="row">
                 <!--Foot widget-->
                 <div class="col-xs-12 col-sm-12 col-md-12 foot-widget-bottom">
-                    <p class="col-xs-12 col-md-5 no-pad">Copyright 2014 iMedica | All Rights Reserved | Designed by RTistic</p>
+                    <p class="col-xs-12 col-md-5 no-pad">All Rights Reserved | Designed by <a href="http://hungminhits.com/">HungMinhITS</a></p>
                     <ul class="foot-menu col-xs-12 col-md-7 no-pad">
                         <li><a href="<?php echo base_url() ?>thanhvien.html">Thành viên</a></li>
                         <li><a href="<?php echo base_url() ?>benhsu.html">Bệnh sử</a></li>    

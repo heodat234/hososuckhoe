@@ -29,7 +29,8 @@
 
                                     <li class="<?php echo isset($new)? $new : '' ?>"><a href="<?php echo base_url() ?>tintuc.html" class="<?php echo isset($new)? $new : '' ?>" ><i class="icon-cog"></i>Tin tức</a>
                                     </li>
-                                    
+                                    <li class="<?php echo isset($bv)? $bv : '' ?>"><a href="<?php echo base_url() ?>benhvien.html" class="<?php echo isset($bv)? $bv : '' ?>" ><i class="icon-cog"></i>Bệnh viện</a>
+                                    </li>
                                   
                                     
                                     <li class="<?php echo isset($thanhvien)? $thanhvien : '' ?>"><a href="<?php echo base_url() ?>thanhvien.html" class="<?php echo isset($thanhvien)? $thanhvien : '' ?>"><i class="icon-pencil"></i>Thành viên</a>
@@ -39,7 +40,11 @@
                                         <li class="dropdown <?php echo isset($pageHoso)? $pageHoso : '' ?>">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                 
-                                                <img class="profile-image" style="width: 35px; margin-top: -7px;" src="<?php echo base_url() ?>images/avatar/<?php echo $this->session->userdata('user')['avatar'] ?>">
+                                                <?php if ($this->session->userdata('user')['avatar'] == ''){ ?>
+                                                  <img class="profile-image" style="width: 35px; margin-top: -7px;" src="<?php echo base_url() ?>images/profile.png">
+                                                <?php }else { ?>
+                                                  <img class="profile-image" style="width: 35px; margin-top: -7px;" src="<?php echo base_url() ?>images/avatar/<?php echo $this->session->userdata('user')['avatar'] ?>">
+                                                <?php } ?>
                                            
                                                 <?php echo $this->session->userdata('user')['name'] ?>
                                                     
@@ -52,8 +57,11 @@
                                     <?php }else if ($this->session->has_userdata('user') && $this->session->userdata('user')['group'] != '0') { ?>
                                         <li class="dropdown <?php echo isset($pageHoso)? $pageHoso : '' ?>">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                
-                                                <img class="profile-image" style="width: 35px; margin-top: -7px;" src="<?php echo base_url() ?>images/avatar/<?php echo $this->session->userdata('user')['avatar'] ?>">
+                                                <?php if ($this->session->userdata('user')['avatar'] == ''){ ?>
+                                                  <img class="profile-image" style="width: 35px; margin-top: -7px;" src="<?php echo base_url() ?>images/profile.png">
+                                                <?php }else { ?>
+                                                  <img class="profile-image" style="width: 35px; margin-top: -7px;" src="<?php echo base_url() ?>images/avatar/<?php echo $this->session->userdata('user')['avatar'] ?>">
+                                                <?php } ?>
                                            
                                                 <?php echo $this->session->userdata('user')['name'] ?>
                                                     

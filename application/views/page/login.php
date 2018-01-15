@@ -1,9 +1,8 @@
-<section class="complete-content content-footer-space">	
+<!-- <section class="complete-content content-footer-space">	 -->
      <div class="about-intro-wrap pull-left">
      
 	    <div class="bread-crumb-wrap ibc-wrap-1">
 	        <div class="container">
-	    <!--Title / Beadcrumb-->
 	            <div class="inner-page-title-wrap col-xs-12 col-md-12 col-sm-12">
 	                <div class="bread-heading"><h1>Đăng nhập</h1></div>
 	                <div class="bread-crumb pull-right">
@@ -91,42 +90,42 @@
 
 		<!-- form nhập mail lấy lại mật khẩu -->
 		<div class="modal fade" id="forgotPass" data-backdrop='static'>
-			  <div class="modal-dialog">
-			   <div class="modal-content">
-			      <div class="modal-header">
-			         <button type="button" class="close" data-dismiss='modal' aria-hidden="true"><span class="glyphicon glyphicon-remove"></span></button>
-			         <h4 class="modal-title" style="font-size: 20px; padding: 12px;">Quên mật khẩu?</h4>
-			      </div>
-			      <form method="post" action="<?php echo base_url() ?>forgotPassword">
-			      	<input name="<?php echo $csrf['name'] ?>" type="hidden" value="<?php echo $csrf['hash'] ?>" />
-			      <div class="modal-body">
-			         <div class="container-fluid">
-			            <div class="row">
-			               <div class="col-xs-12 col-sm-12 col-md-12">
-			                  <div class="form-group">
-			                     <div><b>Nhập mail</b></div>
-			                     <div class="input-group">
-			                        <div class="input-group-addon iga2">
-			                           <span class="glyphicon glyphicon-folder-open"></span>
-			                        </div>
-			                        <input type="text" class="form-control" name="eamil">
-			                     </div>
-			                  </div>
-			               </div>
-			            </div>
-			         </div>
-			      </div>
+		  <div class="modal-dialog">
+		   <div class="modal-content">
+		      <div class="modal-header">
+		         <button type="button" class="close" data-dismiss='modal' aria-hidden="true"><span class="glyphicon glyphicon-remove"></span></button>
+		         <h4 class="modal-title" style="font-size: 20px; padding: 12px;">Quên mật khẩu?</h4>
+		      </div>
+		      <form method="post" action="<?php echo base_url() ?>forgotPassword">
+		      	<input name="<?php echo $csrf['name'] ?>" type="hidden" value="<?php echo $csrf['hash'] ?>" />
+		      <div class="modal-body">
+		         <div class="container-fluid">
+		            <div class="row">
+		               <div class="col-xs-12 col-sm-12 col-md-12">
+		                  <div class="form-group">
+		                     <div><b>Nhập mail</b></div>
+		                     <div class="input-group">
+		                        <div class="input-group-addon iga2">
+		                           <span class="glyphicon glyphicon-folder-open"></span>
+		                        </div>
+		                        <input type="text" class="form-control" name="eamil">
+		                     </div>
+		                  </div>
+		               </div>
+		            </div>
+		         </div>
+		      </div>
 
-			      <div class="modal-footer">
-			         <div class="form-group">
-			            <button type="submit" class="btn btn-sm btn-info"  id="btn-add"> Gửi <span class="glyphicon glyphicon-saved"></span></button>
+		      <div class="modal-footer">
+		         <div class="form-group">
+		            <button type="submit" class="btn btn-sm btn-info"  id="btn-add"> Gửi <span class="glyphicon glyphicon-saved"></span></button>
 
-			            <button type="button" data-dismiss="modal" class="btn btn-sm btn-default"> Hủy <span class="glyphicon glyphicon-remove"></span></button>
-			         </div>
-			      </div>
-			      </form>
-			    </div>
-			  </div>
-			</div>
+		            <button type="button" data-dismiss="modal" class="btn btn-sm btn-default"> Hủy <span class="glyphicon glyphicon-remove"></span></button>
+		         </div>
+		      </div>
+		      </form>
+		    </div>
+		  </div>
+		</div>
 	</div>
-<!-- </section>
+<!-- </section> -->

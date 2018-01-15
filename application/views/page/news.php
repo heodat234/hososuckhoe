@@ -12,20 +12,23 @@
       </div>
     </div>
     <div id="shortcode-12">
-      <div class="container">
-        <div class="row">
+      <div class="container body-list">
+        <!-- <div class="row"> -->
           <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
             <div class="col-md-9 col-sm-12 col-lg-9 col-xs-12 no-pad ">
-              <div>
-                <h3 class=""><?php echo $tintuc['title'] ?></3>
+              <div style="margin-bottom: 40px">
+                <h3 class=""><?php echo $tintuc['title'] ?></h3>
               </div>
-              <ul class="entry-meta clearfix">
-                <li><a href=""><i class="fa fa-user"></i> Admin</a></li>
-                <li><a href=""><i class="fa fa-calendar"></i>  <?php echo date('d-m-Y',strtotime($tintuc['created_at'])) ?> </a></li>
-                <li><a href=""><i class="fa fa-eye"></i>  <?php echo number_format($tintuc['view']+1) ?></a></li>
-              </ul>
-              <div class="img-news">
-                <img width="100%" height="400px" src="<?php echo base_url().'images/tintuc/'.$tintuc['image'] ?>">
+              <div class="col-md-2 col-sm-12 col-lg-2 col-xs-12 no-pad ">
+                <ul class="entry-meta clearfix">
+                  <li><a href=""><i class="fa fa-user"></i> Admin</a></li>
+                  <li><a href=""><i class="fa fa-calendar"></i>  <?php echo date('d-m-Y',strtotime($tintuc['created_at'])) ?> </a></li>
+                  <li><a href=""><i class="fa fa-eye"></i>  <?php echo number_format($tintuc['view']+1) ?></a></li>
+                </ul>
+              </div>
+              
+              <div class="img-news col-md-9 col-sm-12 col-lg-9 col-xs-12 col-md-offset-1 no-pad" style="margin-bottom: 40px">
+                <img class="img-responsive" width="100%" src="<?php echo base_url().'images/tintuc/'.$tintuc['image'] ?>">
               </div>
               <div class="content-news">
                 <p><?php echo $tintuc['content'] ?></p>
@@ -40,7 +43,7 @@
                   <h4 class="head"><i class="fa fa-folder-o" style="color: #f26529;"></i> Danh mục tin tức</h4>
                 </div>
                 <div>
-                  <ul class="list-categories list-categories_widget">
+                  <ul class="list-categories list-categories_widget list-bv">
                     <?php foreach ($category as $tt): ?>
                       <li><a href="<?php echo base_url().'tintuc/'.$tt['id']?>"><span class="list-categories__name"><?php echo $tt['title'] ?></span></a></li>
                     <?php endforeach ?>
@@ -62,7 +65,7 @@
               </div>
             </div>
           </div>
-        </div>
+        <!-- </div> -->
         
       </div>
     </div>

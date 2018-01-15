@@ -7,7 +7,11 @@
         <div>
             <div class="row">
               <div class=" col-12 col-sm-4 col-lg-2">
-                <img style="width: 90%" src="<?php echo base_url() ?>images/avatar/<?php echo $this->session->userdata('user')['avatar'] ?>">
+                <?php if ($this->session->userdata('user')['avatar'] == ''){ ?>
+                  <img style="width: 90%" src="<?php echo base_url() ?>images/profile.png">
+                <?php }else { ?>
+                  <img style="width: 90%" src="<?php echo base_url() ?>images/avatar/<?php echo $this->session->userdata('user')['avatar'] ?>">
+                <?php } ?>
               </div>
               <div class="col-12 col-sm-8 col-lg-10" style="margin-top: 10px;">
                 <table>

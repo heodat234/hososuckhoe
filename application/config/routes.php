@@ -54,13 +54,18 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['thanhvien.html'] 		= 'welcome/thanhvien';
-$route['tintuc.html'] 			= 'news';
+
+$route['tintucykhoa.html'] 		= 'news';
+$route['tintucnoibo.html'] 		= 'news/tinNoibo';
 $route['tintuc/(:num)'] 		= 'news/tinTucById/$1';
 $route['tintucAdmin.html'] 		= 'news/tintucAdmin';
 $route['addNews'] 				= 'news/themTintuc';
 $route['editNews'] 				= 'news/suaTintuc';
 $route['deleteNews'] 			= 'news/xoaTintuc';
 
+
+$route['benhvien.html'] 		= 'benhvien';
+$route['benhvien/(:num)'] 		= 'benhvien/benhVienById/$1';
 //login
 $route['pageLogin'] 		= 'Login';
 $route['pageRegister'] 		= 'Login/pageRegister';
