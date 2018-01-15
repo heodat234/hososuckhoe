@@ -26,21 +26,12 @@ class Crawl extends CI_Controller {
         return $this->load->view('hoso/account',$this->_data);
 	}
 
-	public function crawl_result(){
-		$site_url = $this->input->post('url');
-		$keywords['id'] = 'mainContent';
+	public function crawl_domain_category(){
+		$site_url = $this->input->post('name_domain');
+		$keywords['class'] = 'subnav';
 		$site_data = $this->get_site_data($site_url, 1, 0, $keywords);
-		$site_data['url'] = $site_url;
-		// Load view header       
-		$this->_data['html_header'] = $this->load->view('admin/header', $this->menu, TRUE);        
-		// Load  footer        
-		$this->_data['html_footer'] = $this->load->view('admin/footer', NULL, TRUE);      
-		// Load view method_one_view      
-		$this->_data['html_body'] = $this->load->view('admin/v_crawl_result', $site_data, TRUE);
-
-		$this->load->view('admin/master', $this->_data);
-
-		// print_r($site_data['content']);
+		$headers = @get_headers('http://nhathuoclongchau.com/', 0);
+		var_dump($headers);
 	}
 
 	function save_crawl(){
