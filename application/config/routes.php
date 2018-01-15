@@ -55,8 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['thanhvien.html'] 		= 'welcome/thanhvien';
 
-$route['tintucykhoa.html'] 		= 'news';
-$route['tintucnoibo.html'] 		= 'news/tinNoibo';
+$route['tintuc.html'] 			= 'news';
 $route['tintuc/(:num)'] 		= 'news/tinTucById/$1';
 $route['tintucAdmin.html'] 		= 'news/tintucAdmin';
 $route['addNews'] 				= 'news/themTintuc';

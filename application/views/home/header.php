@@ -27,11 +27,7 @@
                                     <li class="<?php echo isset($trangchu)? $trangchu : '' ?>"><a href="<?php echo base_url() ?>" ><i class="icon-home"></i>Trang chủ</a>
                                     </li>
 
-                                    <li class="dropdown <?php echo isset($new)? $new : '' ?>"><a href="#" class="<?php echo isset($new)? $new : '' ?>" class="dropdown-toggle" data-toggle="dropdown" ><i class="icon-cog"></i>Tin tức</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="<?php echo base_url() ?>tintucykhoa.html">Tin tức Y khoa</a></li>
-                                            <li><a href="<?php echo base_url();?>tintucnoibo.html">Tin tức Nội bộ</a></li>
-                                        </ul>
+                                    <li class=" <?php echo isset($new)? $new : '' ?>"><a href="<?php echo base_url() ?>tintuc.html" class="<?php echo isset($new)? $new : '' ?>" ><i class="icon-cog"></i>Tin tức</a>
                                     </li>
                                     <li class="<?php echo isset($bv)? $bv : '' ?>"><a href="<?php echo base_url() ?>benhvien.html" class="<?php echo isset($bv)? $bv : '' ?>" ><i class="icon-cog"></i>Bệnh viện</a>
                                     </li>

@@ -17,8 +17,8 @@ class News extends CI_Controller {
 	public function index()
 	{
         $config['total_rows'] = $this->News_model->countAll();
-        $config['base_url'] = base_url()."/news/tintuc";
-        $config['per_page'] = 2;
+        $config['base_url'] = base_url()."/news/index";
+        $config['per_page'] = 4;
         $config['next_link'] = "Trước";
   		$config['prev_link'] = "Sau";
   		$config['num_links'] = 5;
