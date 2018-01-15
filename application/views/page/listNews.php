@@ -26,7 +26,7 @@
                       </h5>
                     </div>
                     <div>
-                      <h4><?php echo $tintuc['description'] ?></h4>
+                      <p><?php echo word_limiter($tintuc['description'],30) ?></p>
                     </div>
                   </div>
               </li>

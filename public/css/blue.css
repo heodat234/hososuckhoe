@@ -19415,6 +19415,9 @@ ul.list-bv >li >div {
 		margin-left: 154%; 
 		margin-top: -28px;
 	}
+	.ds-tin {
+		height: 184px;
+	}
 	.ds-tin a >img {
 		width: 280px; 
 		height: 150px;
@@ -19422,7 +19425,7 @@ ul.list-bv >li >div {
 	}
 	.ds-tin-content {
 		margin-left: 300px; 
-		margin-top: -155px;
+		margin-top: -170px;
 	}
 	.body-list {
 		margin-top: -10px;
@@ -19449,6 +19452,9 @@ ul.list-bv >li >div {
 	.body-list {
 		margin-top: -10px;
 	}
+	.ds-tin {
+		height: 184px;
+	}
 	.ds-tin a >img {
 		width: 280px; 
 		height: 150px;
@@ -19456,7 +19462,7 @@ ul.list-bv >li >div {
 	}
 	.ds-tin-content {
 		margin-left: 300px; 
-		margin-top: -155px;
+		margin-top: -170px;
 	}
 	.body-ds-tin {
 		border-right: 1px solid #ddd
@@ -19480,6 +19486,9 @@ ul.list-bv >li >div {
 	.body-list {
 		margin-top: -10px;
 	}
+	.ds-tin {
+		height: 184px;
+	}
 	.ds-tin a >img {
 		width: 280px; 
 		height: 150px;
@@ -19487,7 +19496,7 @@ ul.list-bv >li >div {
 	}
 	.ds-tin-content {
 		margin-left: 300px; 
-		margin-top: -155px;
+		margin-top: -170px;
 	}
 }
 @media (min-width: 321px) and (max-width:767px)  {
@@ -19738,11 +19747,13 @@ ul.ul-list-ds li {
 
 .ds-tin{
 	border-bottom: 1px dotted #ccc; 
-	padding: 25px 10px 25px 0; 
+	padding: 15px 10px 59px 0; 
 	box-sizing: border-box; 
 	width: 100%
 }
-
+.ds-tin-content div >h3,.ds-tin-content div >h5{
+	font-weight: bold;
+}
 .pagination-page{
 	margin-top: 20px;
     margin-bottom:20px;
@@ -19792,7 +19803,7 @@ ul.ul-list-ds li {
     text-decoration: none;
     color: #212121;
     line-height: 1.3em;
-    font-weight: 500;
+    font-weight: 550;
     text-transform: capitalize;
 }
 ul.nav >li >a#dangnhap-dky{
