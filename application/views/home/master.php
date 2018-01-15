@@ -14,6 +14,7 @@
     <link href="<?php echo base_url() ?>public/css/animate.css" rel="stylesheet" />
     <link href="<?php echo base_url() ?>public/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/blue.css" id="style-switch" />
+     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/layout.css" id="style-switch" />
     <!-- REVOLUTION BANNER CSS SETTINGS -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/rs-plugin/css/settings.min.css" media="screen" />
 
