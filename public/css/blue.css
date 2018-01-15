@@ -19702,7 +19702,8 @@ div.box-search input{
 	border-radius: 7px; 
 	height: 30px; 
 	width: 90%; 
-	border: 1px solid #ddd
+	border: 1px solid #ddd;
+	padding: 15px;
 }
 div.box-search button{
 	margin-left: -32px; 
@@ -19805,4 +19806,7 @@ ul.ul-list-ds li {
     line-height: 1.3em;
     font-weight: 550;
     text-transform: capitalize;
+}
+ul.nav >li >a#dangnhap-dky{
+  color: #f0b627;
 }

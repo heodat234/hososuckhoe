@@ -72,7 +72,7 @@
                                             </ul>
                                         </li>
                                     <?php  }else{ ?>
-                                        <li><a href="<?php echo base_url() ?>pageLogin" ><i class="icon-pencil"></i>Đăng nhập/Đăng ký</a>
+                                        <li ><a href="<?php echo base_url() ?>pageLogin" id ="dangnhap-dky"><i class="icon-pencil"> </i>Đăng nhập/Đăng ký</a>
                                     </li>
                                     <?php } ?>
                                 </ul>
