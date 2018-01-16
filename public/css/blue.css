@@ -19432,7 +19432,8 @@ ul.list-bv >li >div {
 		margin-top: -10px;
 	}
 	.body-ds-tin {
-		border-right: 1px solid #ddd
+		border-right: 1px solid #ddd;
+		word-wrap: break-word;
 	}
 	.ds-tin{
 		border-bottom: 1px dotted #ccc; 
@@ -19476,7 +19477,8 @@ ul.list-bv >li >div {
 		margin-top: -170px;
 	}
 	.body-ds-tin {
-		border-right: 1px solid #ddd
+		border-right: 1px solid #ddd;
+		word-wrap: break-word;
 	}
 	.ds-tin{
 		border-bottom: 1px dotted #ccc; 
@@ -19502,6 +19504,9 @@ ul.list-bv >li >div {
 	.tooltip-bs {
 		margin-left: 337%; 
 		margin-top: -28px;
+	}
+	.body-ds-tin {
+		word-wrap: break-word;
 	}
 	.body-list {
 		margin-top: -10px;
@@ -19550,7 +19555,9 @@ ul.list-bv >li >div {
 		margin-left: -15px;
 		margin-right: -15px;
 	}
-
+	.body-ds-tin {
+		word-wrap: break-word;
+	}
 }
 
 @media (min-width: 992px)  {
@@ -19695,6 +19702,9 @@ ul.list-bv >li >div {
 		margin-left: 130%; 
 		margin-top: -25px;
 	}
+	.body-ds-tin {
+		word-wrap: break-word;
+	}
 	.body-list {
 		margin-left: -15px;
 		margin-right: -15px;
@@ -19733,6 +19743,7 @@ ul.list-bv >li >div {
 .subtitle div.title-c {
 	float: left;
 	background: #fff;
+	padding-right: 20px;
 }
 .subtitle div >p {
 	border-top: 4px solid #107fc9
