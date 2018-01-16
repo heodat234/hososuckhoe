@@ -57,14 +57,28 @@ class Crawl extends CI_Controller {
 
 	public function crawl_domain_category_detail(){
 		$site_url = $this->input->post('name_domain');
-		$keywords['xpath'] = 'ul/li/a';
-		$keywords['xpath_inner'] = 'ul/li/a/h3';
+		$arr_expl = explode('/', trim($site_url));
+		switch ($arr_expl[3]) {
+			case 'thuoc':
+				$keywords['xpath'] = 'ul/li/a';
+				$keywords['xpath_inner'] = 'ul/li/a/h3';
+				break;
+			case 'benh': 
+				$keywords['xpath'] = 'div[@class="illgroup"]/a|div[@class="illlist"]/a';
+				$keywords['xpath_inner'] = 'div[@class="illgroup"]/a|div[@class="illlist"]/a';
+				break;
+			default:
+				$keywords['xpath'] = '';
+				$keywords['xpath_inner'] = '';
+				break;
+		}
+		
 		if (substr($site_url, 0, 4) != 'http') {
 			$data['error'] = "Link bạn nhập không hợp lệ.";
 		}else{
 			$site_data = $this->get_site_a_href($site_url, $keywords);
 			$data['category'] = [];
-			if(empty($site_data)){
+			if(empty($site_data['links'])){
 				$data['error'] = "Không tìm thấy dữ liệu.";
 			}else{
 				foreach ($site_data['links'] as $key => $value) {
