@@ -3,7 +3,7 @@
          
         <div id="headerstic">
             <div class=" top-bar container">
-                <div class="row">
+                <!-- <div class="row"> -->
                     <nav class="navbar navbar-default" role="navigation">
                         <div class="container-fluid">
                             <div class="navbar-header">
@@ -80,7 +80,7 @@
                                   
                         </div><!-- /.container-fluid -->
                     </nav>
-                </div>    
+                <!-- </div>     -->
             </div><!--Topbar End-->
         </div>  
     </div>

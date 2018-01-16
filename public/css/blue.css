@@ -890,7 +890,7 @@ pre code {
 				margin-right: auto;
 				margin-left: auto;
 				padding-left: 0px;
-				padding-right: 15px
+				/*padding-right: 15px*/
 }
 
 .row {
@@ -7021,8 +7021,8 @@ p {
 }
 
 .inner-page-title-wrap {
-				padding: 30px 0;
-				margin: 0 0 0px 0
+				padding: 15px 0;
+				margin: 0 0 0px 15px
 }
 
 .inner-page-title-wrap h1 {
@@ -19406,6 +19406,11 @@ ul.list-bv >li >div {
 		width: 64%; 
 		margin-left: 35%
 	}
+	.subtitle div.title-e {
+		float: right;
+		width: 70%; 
+		padding-top: 12px;
+	}
 	.subtitle div.title-d {
 		margin-top: -17px;
 		width: 43%; 
@@ -19415,9 +19420,7 @@ ul.list-bv >li >div {
 		margin-left: 154%; 
 		margin-top: -28px;
 	}
-	.ds-tin {
-		height: 184px;
-	}
+	
 	.ds-tin a >img {
 		width: 280px; 
 		height: 150px;
@@ -19433,6 +19436,13 @@ ul.list-bv >li >div {
 	.body-ds-tin {
 		border-right: 1px solid #ddd
 	}
+	.ds-tin{
+		border-bottom: 1px dotted #ccc; 
+		padding: 15px 10px 59px 0; 
+		box-sizing: border-box; 
+		width: 100%;
+		height: 184px;
+	}
 }
 @media (min-width: 992px) and (max-width:1199px) {
 	.subtitle div.title-b {
@@ -19444,6 +19454,11 @@ ul.list-bv >li >div {
 		margin-top: -17px;
 		width: 33%; 
 		margin-left: 105%
+	}
+	.subtitle div.title-e {
+		margin-top: -17px;
+		width: 500px; 
+		margin-left: 105px;
 	}
 	.tooltip-bs {
 		margin-left: 140%; 
@@ -19467,6 +19482,12 @@ ul.list-bv >li >div {
 	.body-ds-tin {
 		border-right: 1px solid #ddd
 	}
+	.ds-tin{
+		border-bottom: 1px dotted #ccc; 
+		padding: 15px 10px 59px 0; 
+		box-sizing: border-box; 
+		width: 100%
+	}
 }
 @media (min-width: 768px) and (max-width:991px) {
 	.subtitle div.title-b {
@@ -19478,6 +19499,11 @@ ul.list-bv >li >div {
 		margin-top: -17px;
 		width: 230%; 
 		margin-left: 105%
+	}
+	.subtitle div.title-e {
+		margin-top: -17px;
+		width: 600px; 
+		margin-left: 105px;
 	}
 	.tooltip-bs {
 		margin-left: 337%; 
@@ -19498,6 +19524,12 @@ ul.list-bv >li >div {
 		margin-left: 300px; 
 		margin-top: -170px;
 	}
+	.ds-tin{
+		border-bottom: 1px dotted #ccc; 
+		padding: 15px 10px 59px 0; 
+		box-sizing: border-box; 
+		width: 100%
+	}
 }
 @media (min-width: 321px) and (max-width:767px)  {
 	.subtitle {
@@ -19507,6 +19539,11 @@ ul.list-bv >li >div {
 		margin-top: -17px;
 		width: 62%; 
 		margin-left: 37%
+	}
+	.subtitle div.title-e {
+		margin-top: -16px;
+		width: 250px; 
+		margin-left: 85px;
 	}
 	.subtitle div.title-d {
 		margin-top: -17px;
@@ -19595,6 +19632,12 @@ ul.list-bv >li >div {
 		float: left;
 		border-right: 1px solid #ddd;
 	}
+	.ds-tin{
+		border-bottom: 1px dotted #ccc; 
+		padding: 20px 10px 10px 0; 
+		box-sizing: border-box; 
+		width: 100%
+	}
 }
 
 @media (max-width: 320px) {
@@ -19640,6 +19683,11 @@ ul.list-bv >li >div {
 		width: 49%; 
 		margin-left: 50%
 	}
+	.subtitle div.title-e {
+		margin-top: -16px;
+		width: 180px; 
+		margin-left: 85px;
+	}
 	.subtitle div.title-d {
 		margin-top: -17px;
 		width: 23%; 
@@ -19666,6 +19714,12 @@ ul.list-bv >li >div {
 		float: left;
 		border-right: 1px solid #ddd;
 	}
+	.ds-tin{
+		border-bottom: 1px dotted #ccc; 
+		padding: 20px 10px 10px 0; 
+		box-sizing: border-box; 
+		width: 100%
+	}
 
 }
 .list-bv-index{
@@ -19686,7 +19740,10 @@ ul.list-bv >li >div {
 .subtitle div.title-a {
 	min-width: 50%;
 }
-
+.subtitle div.title-c {
+	min-width: 30%;
+	float: left;
+}
 .subtitle div >p {
 	border-top: 4px solid #107fc9
 }
@@ -19746,12 +19803,7 @@ ul.ul-list-ds li {
 
 
 
-.ds-tin{
-	border-bottom: 1px dotted #ccc; 
-	padding: 15px 10px 59px 0; 
-	box-sizing: border-box; 
-	width: 100%
-}
+
 .ds-tin-content div >h3,.ds-tin-content div >h5{
 	font-weight: bold;
 }
@@ -19796,7 +19848,8 @@ ul.ul-list-ds li {
 .content-noibat{
 	float: right;
 	width: 65%;
-	margin:-15px 0 15px 0;
+	height: 81px;
+	margin:-10px 0 15px 0;
 	box-sizing: border-box;
 }
 .content-noibat h4 >a {
@@ -19809,4 +19862,8 @@ ul.ul-list-ds li {
 }
 ul.nav >li >a#dangnhap-dky{
   color: #f0b627;
+}
+.vien-tin {
+	margin-bottom: 9px;
+	border-bottom: 1px solid #ccc;
 }

@@ -41,6 +41,9 @@
             <li class="<?php echo isset($tintuc)?$tintuc : '' ?>">
                 <a id="menu-mednow" href="<?php echo base_url() ?>tintucAdmin.html" class="<?php echo isset($tintuc)?$tintuc : '' ?>"> Quản lý tin tức<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a>
             </li>
+            <li class="<?php echo isset($crawl)?$crawl : '' ?>">
+                <a id="menu-mednow" href="<?php echo base_url() ?>crawl.html" class="<?php echo isset($crawl)?$crawl : '' ?>"> Crawl<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a>
+            </li>
         <?php  } ?>
 
         <?php if ($this->session->has_userdata('user') && $this->session->userdata('user')['group'] == '0') { ?>

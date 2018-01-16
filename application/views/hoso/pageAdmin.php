@@ -1,7 +1,7 @@
 <div class="content-hs">
 	<div id="mednow">
 		<div class="page-header" style="margin-left: -30px">
-        <div class="pull-left" style="padding-top: 10px"><span>Nhập dữ liệu hồ sơ bệnh án</span></div>
+        <div class="pull-left" style="padding-top: 10px"><span>Thông báo tình trạng nhập dữ liệu</span></div>
     </div>
     <h2 class="aliments-header"> </h2>
 			<?php foreach ($thongbao as $tb): ?>

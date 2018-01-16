@@ -105,3 +105,5 @@ $route['addChiSo'] 			= 'Hoso/addChiSo';
 
 $route['loadThongbao'] 		= 'Hoso/loadThongbao';
 $route['activeFile'] 		= 'Hoso/activeFile';
+
+$route['crawl.html'] 		= 'Crawl';
