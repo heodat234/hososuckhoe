@@ -19888,7 +19888,6 @@ ul.ul-list-ds li {
 ul.nav >li >a#dangnhap-dky{
   color: #f0b627;
 }
-<<<<<<< HEAD
 #loader-overlay {
     width: 100%;
     height: 100%;
@@ -19906,9 +19905,7 @@ ul.nav >li >a#dangnhap-dky{
     -o-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
 }
-=======
 .vien-tin {
 	margin-bottom: 9px;
 	border-bottom: 1px solid #ccc;
 }
->>>>>>> 43d76e9c4be222e01778d79c57d0f5297c63b06e
