@@ -36,6 +36,7 @@ if($this->session->has_userdata('user')) {
 </head>
 
 <body>
+    <div id="loader-overlay" style="display: none;"><img src="<?php echo base_url() ?>public/images/loader.gif" alt="Loading" /></div>
     <?php echo isset($html_header) ? $html_header : ''; ?>
     <!-- Page -->
     <div id="page" >
