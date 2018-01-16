@@ -19407,8 +19407,6 @@ ul.list-bv >li >div {
 		margin-left: 35%
 	}
 	.subtitle div.title-e {
-		float: right;
-		width: 70%; 
 		padding-top: 12px;
 	}
 	.subtitle div.title-d {
@@ -19456,9 +19454,7 @@ ul.list-bv >li >div {
 		margin-left: 105%
 	}
 	.subtitle div.title-e {
-		margin-top: -17px;
-		width: 500px; 
-		margin-left: 105px;
+		padding-top: 13px;
 	}
 	.tooltip-bs {
 		margin-left: 140%; 
@@ -19501,9 +19497,7 @@ ul.list-bv >li >div {
 		margin-left: 105%
 	}
 	.subtitle div.title-e {
-		margin-top: -17px;
-		width: 600px; 
-		margin-left: 105px;
+		padding-top: 13px;
 	}
 	.tooltip-bs {
 		margin-left: 337%; 
@@ -19541,9 +19535,7 @@ ul.list-bv >li >div {
 		margin-left: 37%
 	}
 	.subtitle div.title-e {
-		margin-top: -16px;
-		width: 250px; 
-		margin-left: 85px;
+		padding-top: 12px;
 	}
 	.subtitle div.title-d {
 		margin-top: -17px;
@@ -19684,9 +19676,7 @@ ul.list-bv >li >div {
 		margin-left: 50%
 	}
 	.subtitle div.title-e {
-		margin-top: -16px;
-		width: 180px; 
-		margin-left: 85px;
+		padding-top: 12px;
 	}
 	.subtitle div.title-d {
 		margin-top: -17px;
@@ -19741,8 +19731,8 @@ ul.list-bv >li >div {
 	min-width: 50%;
 }
 .subtitle div.title-c {
-	min-width: 30%;
 	float: left;
+	background: #fff;
 }
 .subtitle div >p {
 	border-top: 4px solid #107fc9
