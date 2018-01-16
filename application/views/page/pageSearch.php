@@ -61,7 +61,7 @@
           </div>
           
           <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 ">
-            <div class="subtitle  pull-left news-sub" style="width: 100%,margin-bottom: 15px;margin-top: 15px">
+            <div class="subtitle  pull-left news-sub" style="width: 100%;margin-bottom: 15px;margin-top: 15px">
               <div class="title-c">THEO BÁC SĨ</div>
               <div class="title-e"><p></p></div>
             </div>
