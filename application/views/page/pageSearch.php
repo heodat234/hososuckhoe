@@ -78,7 +78,7 @@
               <div class="title-e"><p></p></div>
             </div>
              <ul>
-              <li class="ds-tin ds-timkiem1">
+              <li class=" ds-timkiem1">
                     <a href="<?php echo base_url().'tintuc/1'?>"><img style=""  class="img-responsive" src="<?php echo base_url().'images/benhvien.jpg' ?>"></a>
                   <div class="ds-tin-content" >
                     <div><h3><a href="<?php echo base_url().'tintuc/'?>">jyhntbgvhttynyjhtbgrv</a></h3></div>
@@ -92,7 +92,7 @@
                   </div>
               </li>
                <li class="ds-tin-a ds-timkiem2">
-                    <a href="<?php echo base_url().'tintuc/1'?>"><img style="margin-top: 15px; width: 280px; height: 150px; border-radius: 5px"  class="img-responsive" src="<?php echo base_url().'images/benhvien.jpg' ?>"></a>
+                    <a href="<?php echo base_url().'tintuc/1'?>"><img style="margin-top: 15px;"  class="img-responsive" src="<?php echo base_url().'images/benhvien.jpg' ?>"></a>
                   <div class="ds-tin-content" >
                     <div><h3><a href="<?php echo base_url().'tintuc/'?>">jyhntbgvhttynyjhtbgrvsvcgvsvcgsdtgvcsdgxcvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</a></h3></div>
                     <div>
@@ -115,7 +115,7 @@
 
             </div>
             <ul>
-              <li class="ds-tin ds-timkiem1">
+              <li class="ds-timkiem1">
                     <a href="<?php echo base_url().'tintuc/1'?>"><img style=""  class="img-responsive" src="<?php echo base_url().'images/benhvien.jpg' ?>"></a>
                   <div class="ds-tin-content" >
                     <div><h3><a href="<?php echo base_url().'tintuc/'?>">jyhntbgvhttynyjhtbgrv</a></h3></div>
@@ -129,7 +129,7 @@
                   </div>
               </li>
                <li class="ds-tin-a ds-timkiem2">
-                    <a href="<?php echo base_url().'tintuc/1'?>"><img style="margin-top: 15px; width: 280px; height: 150px; border-radius: 5px"  class="img-responsive" src="<?php echo base_url().'images/benhvien.jpg' ?>"></a>
+                    <a href="<?php echo base_url().'tintuc/1'?>"><img style="margin-top: 15px;"  class="img-responsive" src="<?php echo base_url().'images/benhvien.jpg' ?>"></a>
                   <div class="ds-tin-content" >
                     <div><h3><a href="<?php echo base_url().'tintuc/'?>">jyhntbgvhttynyjhtbgrvsvcgvsvcgsdtgvcsdgxcvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</a></h3></div>
                     <div>
@@ -150,7 +150,7 @@
               <div class="title-e"><p></p></div>
             </div>
            <ul>
-              <li class="ds-tin ds-timkiem1">
+              <li class=" ds-timkiem1">
                     <a href="<?php echo base_url().'tintuc/1'?>"><img style=""  class="img-responsive" src="<?php echo base_url().'images/benhvien.jpg' ?>"></a>
                   <div class="ds-tin-content" >
                     <div><h3><a href="<?php echo base_url().'tintuc/'?>">jyhntbgvhttynyjhtbgrv</a></h3></div>
@@ -164,7 +164,7 @@
                   </div>
               </li>
                <li class="ds-tin-a ds-timkiem2">
-                    <a href="<?php echo base_url().'tintuc/1'?>"><img style="margin-top: 15px; width: 280px; height: 150px; border-radius: 5px"  class="img-responsive" src="<?php echo base_url().'images/benhvien.jpg' ?>"></a>
+                    <a href="<?php echo base_url().'tintuc/1'?>"><img style="margin-top: 15px;"  class="img-responsive" src="<?php echo base_url().'images/benhvien.jpg' ?>"></a>
                   <div class="ds-tin-content" >
                     <div><h3><a href="<?php echo base_url().'tintuc/'?>">jyhntbgvhttynyjhtbgrvsvcgvsvcgsdtgvcsdgxcvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</a></h3></div>
                     <div>

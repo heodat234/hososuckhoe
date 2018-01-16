@@ -19442,6 +19442,12 @@ ul.list-bv >li >div {
 		margin-left: 154%; 
 		margin-top: -28px;
 	}
+	.ds-timkiem1{
+		height: 218px;
+	}
+	.ds-timkiem2{
+		height: 140px;
+	}
 	
 	.ds-tin a >img {
 		width: 280px; 
@@ -19466,12 +19472,23 @@ ul.list-bv >li >div {
 		width: 100%;
 		height: 184px;
 	}
+	.ds-timkiem1 a >img,.ds-timkiem2 a >img {
+		width: 280px; 
+		height: 150px;
+		border-radius: 5px;
+	}
 }
 @media (min-width: 992px) and (max-width:1199px) {
 	.subtitle div.title-b {
 		margin-top: -17px;
 		width: 55%; 
 		margin-left: 44%
+	}
+	.ds-timkiem1{
+		height: 218px;
+	}
+	.ds-timkiem2{
+		height: 140px;
 	}
 	.subtitle div.title-d {
 		margin-top: -17px;
@@ -19510,6 +19527,11 @@ ul.list-bv >li >div {
 		box-sizing: border-box; 
 		width: 100%
 	}
+	.ds-timkiem1 a >img,.ds-timkiem2 a >img {
+		width: 280px; 
+		height: 150px;
+		border-radius: 5px;
+	}
 }
 @media (min-width: 768px) and (max-width:991px) {
 	.subtitle div.title-b {
@@ -19521,6 +19543,12 @@ ul.list-bv >li >div {
 		margin-top: -17px;
 		width: 230%; 
 		margin-left: 105%
+	}
+	.ds-timkiem1{
+		height: 220px;
+	}
+	.ds-timkiem2{
+		height: 150px;
 	}
 	.subtitle div.title-e {
 		padding-top: 13px;
@@ -19539,6 +19567,11 @@ ul.list-bv >li >div {
 		height: 184px;
 	}
 	.ds-tin a >img {
+		width: 280px; 
+		height: 150px;
+		border-radius: 5px;
+	}
+	.ds-timkiem1 a >img,.ds-timkiem2 a >img {
 		width: 280px; 
 		height: 150px;
 		border-radius: 5px;
@@ -19563,6 +19596,12 @@ ul.list-bv >li >div {
 		width: 62%; 
 		margin-left: 37%
 	}
+	.ds-timkiem1{
+		height: auto;
+	}
+	.ds-timkiem2{
+		height: auto;
+	}
 	.subtitle div.title-e {
 		padding-top: 12px;
 	}
@@ -19581,6 +19620,11 @@ ul.list-bv >li >div {
 	}
 	.body-ds-tin {
 		word-wrap: break-word;
+	}
+	.ds-timkiem1 a >img,.ds-timkiem2 a >img {
+		width: 280px; 
+		height: 150px;
+		border-radius: 5px;
 	}
 }
 
@@ -19619,6 +19663,9 @@ ul.list-bv >li >div {
 @media (min-width: 321px) and (max-width:991px)  {
 	.header-1 {
 		display: none !important;
+	}
+	.icon-box-5 {
+		margin-top: 20px;
 	}
 	
 	#menu-trai {
@@ -19667,7 +19714,9 @@ ul.list-bv >li >div {
 	.header-1 {
 		display: none !important;
 	}
-	
+	.icon-box-5 {
+		margin-top: 20px;
+	}
 	#menu-trai {
 		display: block;
 	}
@@ -19682,6 +19731,12 @@ ul.list-bv >li >div {
 	}
 	.nav {
 		z-index: 999999 !important;
+	}
+	.ds-timkiem1{
+		height: auto;
+	}
+	.ds-timkiem2{
+		height: auto;
 	}
 	.collapse.in{
         display:block !important;
@@ -19946,14 +20001,12 @@ ul.nav >li >a#dangnhap-dky{
 	 padding-right: 10px;
 	 padding-bottom: 10px;
 	 padding-left: 4px;
-	height: 218px;
-}
+	}
 .ds-timkiem2{
 	 width: 100%;
 	 padding-top: 0px;
 	 padding-right: 10px;
 	 padding-bottom: 10px;
 	 padding-left: 4px;
-	 height: 140px;
 	 box-sizing: border-box;
 }
