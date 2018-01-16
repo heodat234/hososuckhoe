@@ -4,6 +4,12 @@ class Crawl extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
+		stream_context_set_default( [
+		    'ssl' => [
+		        'verify_peer' => false,
+		        'verify_peer_name' => false,
+		    ],
+		]);
 		$this->load->helper(array('url','security','text'));
 		$this->load->library(array('form_validation','session','upload'));
 		$this->load->model(array('Hoso_model','ChitietHoso_model','Muc_Chiso_model','Login_model'));
@@ -28,10 +34,48 @@ class Crawl extends CI_Controller {
 
 	public function crawl_domain_category(){
 		$site_url = $this->input->post('name_domain');
-		$keywords['class'] = 'subnav';
-		$site_data = $this->get_site_data($site_url, 1, 0, $keywords);
-		$headers = @get_headers('http://nhathuoclongchau.com/', 0);
-		var_dump($headers);
+		$keywords['xpath'] = 'nav/a';
+		$keywords['xpath_inner'] = 'nav/a/h3';
+		if (substr($site_url, 0, 4) != 'http') {
+			$data['error'] = "Link bạn nhập không hợp lệ.";
+		}else{
+			$site_data = $this->get_site_a_href($site_url, $keywords);
+			$data['category'] = [];
+			if(empty($site_data)){
+				$data['error'] = "Không tìm thấy dữ liệu.";
+			}else{
+				foreach ($site_data['links'] as $key => $value) {
+					if (substr($value, 0, 1) == '/') {
+						$data['category'][$key]['href'] = $site_url.$value;
+						$data['category'][$key]['name'] = $site_data['contents'][$key];
+					}
+				}
+			}
+		}
+		echo json_encode($data);
+	}
+
+	public function crawl_domain_category_detail(){
+		$site_url = $this->input->post('name_domain');
+		$keywords['xpath'] = 'ul/li/a';
+		$keywords['xpath_inner'] = 'ul/li/a/h3';
+		if (substr($site_url, 0, 4) != 'http') {
+			$data['error'] = "Link bạn nhập không hợp lệ.";
+		}else{
+			$site_data = $this->get_site_a_href($site_url, $keywords);
+			$data['category'] = [];
+			if(empty($site_data)){
+				$data['error'] = "Không tìm thấy dữ liệu.";
+			}else{
+				foreach ($site_data['links'] as $key => $value) {
+					if (substr($value, 0, 1) == '/') {
+						$data['category'][$key]['href'] = $site_url.$value;
+						$data['category'][$key]['name'] = $site_data['contents'][$key];
+					}
+				}
+			}
+		}
+		echo json_encode($data);
 	}
 
 	function save_crawl(){
@@ -61,8 +105,9 @@ class Crawl extends CI_Controller {
 			// $site_data['keywords'] = $this->crawler->get_keywords();
 			// $site_data['text'] = $this->crawler->get_text();
 			$site_data['image'] = $this->crawler->get_images();
-			$site_data['content'] = $this->crawler->get_contents_by_id($keywords['id']);
+			// $site_data['content'] = $this->crawler->get_contents_by_class($keywords['class']);
 			$site_data['links'] = $this->crawler->get_links();
+			$site_data['link'] = $this->crawler->get_links_by_class($keywords['xpath']);
 
 			if($current_depth <= $max_depth){
 				foreach($site_data['links'] as $link_key => &$link){
@@ -70,6 +115,19 @@ class Crawl extends CI_Controller {
 				}
 			}
 
+			return $site_data;
+		}
+		else{
+			return false;
+		}
+	}
+	private function get_site_a_href($site_url, $keywords){
+		$this->load->library(array('crawler'));
+		$site_data = array();
+
+		if($this->crawler->set_url($site_url) !== false){
+			$site_data['links'] = $this->crawler->get_links_by_xpath($keywords['xpath']);
+			$site_data['contents'] = $this->crawler->get_contents_by_xpath($keywords['xpath_inner']);
 			return $site_data;
 		}
 		else{

@@ -33,8 +33,7 @@
         <div class="complete-content">  
             
             <?php echo isset($html_slider) ? $html_slider : ''; ?>
-            <?php echo isset($html_body) ? $html_body : ''; ?>                
-            
+            <?php echo isset($html_body) ? $html_body : ''; ?>                  
         </div>    
         
         <?php echo isset($html_footer) ? $html_footer : ''; ?>

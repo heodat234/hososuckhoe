@@ -372,4 +372,34 @@ class Crawler{
 
     	return $page_keywords;
     }
+
+    public function get_links_by_xpath($xpath=''){
+    	if($xpath == ''){
+    		return false;
+    	}
+    	$links = [];
+    	$count = 0;
+    	if(!$page_keywords = $this->dom->find($xpath)){
+    		return false;
+    	}
+    	foreach ($page_keywords as $lnk) {
+    		$links[$count++] = $lnk->href;
+    	}
+    	return $links;
+    }
+
+    public function get_contents_by_xpath($xpath=''){
+    	if($xpath == ''){
+    		return false;
+    	}
+    	$contents = [];
+    	$count = 0;
+    	if(!$page_keywords = $this->dom->find($xpath)){
+    		return false;
+    	}
+    	foreach ($page_keywords as $cnt) {
+    		$contents[$count++] = $this->clean_text($cnt->innertext());
+    	}
+    	return $contents;
+    }
 }
