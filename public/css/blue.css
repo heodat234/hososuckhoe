@@ -12649,7 +12649,23 @@ input[type="date"] {
 				transition: .5s;
 				padding-bottom: 20px
 }
-
+.icon-box-5 {
+				background: #fff;
+				border: 1px solid #dfdfdf;
+				-webkit-border-radius: 0;
+				-moz-border-radius: 0;
+				border-radius: 0;
+				-moz-background-clip: padding;
+				-webkit-background-clip: padding-box;
+				background-clip: padding-box;
+				float: left !important;
+				-webkit-transition: .5s;
+				-moz-transition: .5s;
+				-ms-transition: .5s;
+				-o-transition: .5s;
+				transition: .5s;
+				padding-bottom: 20px
+}
 .icon-box-3:hover {
 				background: #fefefe;
 				border: 1px solid #e6e6e6;
@@ -12848,6 +12864,14 @@ input[type="date"] {
 }
 
 .icon-box-3 p {
+				font-size: 13px;
+				color: #6e6e6e;
+				line-height: 1.4em;
+				font-family: 'Noto Sans', sans-serif;
+				padding: 0px 15px 10px 15px;
+				text-align: center
+}
+.icon-box-5 p {
 				font-size: 13px;
 				color: #6e6e6e;
 				line-height: 1.4em;
