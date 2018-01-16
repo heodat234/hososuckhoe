@@ -37,6 +37,15 @@ class Benhvien_model extends CI_Model{
         $query = $this->db->get($this->_name);
         return $query->row_array();
     }
+
+
+    public function search_data($key)
+    {
+      $sql = "SELECT * FROM `benhvien` WHERE ten LIKE '%$key%'";
+      $query = $this->db->query($sql); 
+      return $query->result_array();
+    }
+
     // // thêm lượt xem
     // public function updateView($data)
     // {

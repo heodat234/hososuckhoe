@@ -107,3 +107,6 @@ $route['loadThongbao'] 		= 'Hoso/loadThongbao';
 $route['activeFile'] 		= 'Hoso/activeFile';
 
 $route['crawl.html'] 		= 'Crawl';
+
+$route['load_data'] 		= 'Welcome/loadData';
+$route['timkiem.html'] 		= 'Welcome/pageSearch';

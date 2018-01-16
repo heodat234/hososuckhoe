@@ -58,7 +58,7 @@
                             <span>Lượt xem: <?php echo $tt['view'] ?></span>
                         </h5>
                     </div>
-                    <div class="clearfix"></div>
+                    <div class="clearfix vien-tin"></div>
                     
                 <?php endforeach ?>
             </div>

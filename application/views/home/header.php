@@ -2,7 +2,7 @@
     <div class="header-bg">
         <div id="headerstic">
             <div class=" top-bar container">
-                <div class="row">   
+                <!-- <div class="row">    -->
                     <nav class="navbar navbar-default" role="navigation">
                         <div class="container-fluid">
                             <div class="navbar-header">
@@ -78,9 +78,9 @@
                                 </ul>
                             </div>
                                   
-                        </div><!-- /.container-fluid -->
+                        </div>
                     </nav>
-                </div>    
+                <!-- </div>     -->
             </div><!--Topbar End-->
         </div>  
     </div>

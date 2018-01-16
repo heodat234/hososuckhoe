@@ -34,12 +34,13 @@
                     <div class="icon-boxwrap4"><i class="fa fa-search icon-box-back2"></i></div>
                     <div class="icon-box2-title">Tra cứu nhanh</div>
                     <div class="box-search" >
-                        <input type="text" name="search" placeholder="Tra cứu thông tin ngay">
-                        <button  ><span class="fa fa-search fa-lg"></span></button>
-                        <h6 >Tra cứu thông tin Bệnh viện, Bác sĩ, Thuốc,...</h6>
+                        <form method="post" action="<?php echo base_url() ?>timkiem.html">
+                            <input name="<?php echo $csrf['name'] ?>" type="hidden" value="<?php echo $csrf['hash'] ?>" /> 
+                            <input class="data" type="text" name="search" value="b" placeholder="Tra cứu thông tin ngay">
+                            <button  ><span class="fa fa-search fa-lg"></span></button>
+                            <h6 >Tra cứu thông tin Bệnh viện, Bác sĩ, Thuốc,...</h6>
+                        </form>
                     </div>
-                    
-                    <!-- <div class="iconbox-readmore"><a href="#">Read More</a></div> -->
                  </div>   
                 </div>
             </div>
@@ -236,6 +237,33 @@
     $(function () {
       $('[data-toggle="tooltip"]').tooltip()
     })
+
+     $('.data').mousedown(function(event) {    
+            $('.data').autocomplete({
+              minLength: 0,
+              autoFocus: true,
+              source: function(req, res){
+                  var key = $('.data').val();
+                  
+                  $.ajax({
+                      url: '<?php echo base_url(); ?>load_data', //Controller where search is performed
+                      dataType: 'json',
+                      type: 'get',
+                      data: {  keyword:key},
+                      success: function(data){
+                            res($.map(data, function (item) {                                
+                                return {value: item};
+                            }));        
+                      }
+                  });
+              },
+              select: function (event, ui) {                    
+                $(".data").val(ui.item.value);
+              }
+            }).focus(function() {
+              $(this).autocomplete("search", "");
+            });        
+        });
 </script>
 
 
