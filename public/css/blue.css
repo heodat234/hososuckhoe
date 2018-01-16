@@ -12658,7 +12658,7 @@ input[type="date"] {
 				-moz-background-clip: padding;
 				-webkit-background-clip: padding-box;
 				background-clip: padding-box;
-				float: left !important;
+				/*float: left !important;*/
 				-webkit-transition: .5s;
 				-moz-transition: .5s;
 				-ms-transition: .5s;
