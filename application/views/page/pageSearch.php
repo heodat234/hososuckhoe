@@ -29,7 +29,7 @@
     <div id="shortcode-12" style="margin-top: 10px;">
       <div class="container ">
         <div class="col-md-8 col-sm-12 col-lg-8 col-xs-12 left body-ds-tin"  >
-          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 " style="padding-bottom: 35px; ">
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 " style="padding-bottom: 15px; ">
             <div class="subtitle  pull-left news-sub" style="width: 100%">
               <div class="title-c">TÊN THUỐC</div>
               <div class="title-e"><p></p></div>
@@ -61,7 +61,7 @@
           </div>
           
           <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 ">
-            <div class="subtitle  pull-left news-sub" style="width: 100%">
+            <div class="subtitle  pull-left news-sub" style="width: 100%,style="margin-bottom: 15px;margin-top: 15px">
               <div class="title-c">THEO BÁC SĨ</div>
               <div class="title-e"><p></p></div>
             </div>
@@ -93,7 +93,7 @@
 
 
           <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 ">
-            <div class="subtitle  pull-left news-sub" style="width: 100%">
+            <div class="subtitle  pull-left news-sub" style="width: 100%;style="margin-bottom: 15px;margin-top: 15px">
               <div class="title-c">THEO BỆNH VIỆN</div>
               <div class="title-e"><p></p></div>
             </div>
@@ -124,7 +124,7 @@
           </div>
           
           <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 ">
-            <div class="subtitle  pull-left news-sub" style="width: 100%">
+            <div class="subtitle  pull-left news-sub" style="width: 100%;style="margin-bottom: 15px;margin-top: 15px">
               <div class="title-c">THEO TIN TỨC</div>
               <div class="title-e"><p></p></div>
             </div>
