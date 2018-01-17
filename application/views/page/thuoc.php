@@ -79,7 +79,7 @@
                        <a href="<?php echo base_url().'thuoc/'?>">Flomate 80mg</a>
                     </div>
                     <p class= "gia-thuoc">120.000 VND</p>
-          </div>   
+          </div>  
         </div>
         
         <div class="col-md-4 col-sm-12 col-lg-4 col-xs-12 right">
