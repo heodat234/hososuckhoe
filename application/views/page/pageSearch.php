@@ -13,10 +13,11 @@
       <div class="container">
         <div class=" col-xs-12 col-md-6 col-sm-12">
           <div class="timkiem-info">
-              <form>
+              <form  method="post" action="<?php echo base_url() ?>timkiem.html">
+                  <input name="<?php echo $csrf['name'] ?>" type="hidden" value="<?php echo $csrf['hash'] ?>" /> 
                   <div class=" input-group">
-                    <input type="text" name="0"   class="form-control">
-                    <div class="input-group-addon btn-timkiem"><i class="fa fa-search"></i></div>
+                    <input type="text" name="search"   class="form-control" placeholder="Tra cứu ngay">
+                    <div class="input-group-addon btn-timkiem"><button class="btn-search"><i class="fa fa-search"></i></button></div>
                   </div>
                   <div><h6>Tra cứu thông tin Bệnh viện, Bác sĩ, Thuốc,...</h6></div>
               </form>
@@ -33,7 +34,7 @@
               <div class="title-c">TÊN THUỐC</div>
               <div class="title-e"><p></p></div>
             </div>
-            <?php if ($thuocs != ''){ ?>
+            <?php if (!empty($thuocs)){ ?>
               <?php foreach ($thuocs as $thuoc): ?>
                 <div class="col-sm-6 col-xs-12 col-md-4  col-lg-4">
                   <div class="icon-box-5 wow fadeInDown" data-wow-delay="0.5s" data-wow-offset="150">
@@ -225,7 +226,7 @@
                     <div class="ds-tin-content" >
                       <div>
                         <h3><a href="<?php echo base_url().'tintuc/'.$tintuc[0]['id'] ?>">
-                              <?php echo $tintuc[0]['ten'] ?>
+                              <?php echo $tintuc[0]['title'] ?>
                         </a></h3>
                       </div>
                       <div>
@@ -233,7 +234,7 @@
                             <?php }else{ echo "Tin tức Nội bộ";} ?></p>
                       </div>
                       <div>
-                        <p><?php echo word_limiter($tintuc['description'],30) ?></p>
+                        <p><?php echo word_limiter($tintuc[0]['description'],30) ?></p>
                       </div>
                     </div>
                   </li>
@@ -241,11 +242,11 @@
                   <?php for ($i=0; $i < count($tintuc); $i++) { ?>
                     <?php if ($i < count($tintuc)-1){ ?>
                       <li class=" ds-timkiem1">
-                        <a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id']?>"><img class="img-responsive" src="<?php echo base_url().'images/'.$tintuc[$i]['image'] ?>"></a>
+                        <a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id']?>"><img class="img-responsive" src="<?php echo base_url().'images/tintuc/'.$tintuc[$i]['image'] ?>"></a>
                         <div class="ds-tin-content" >
                           <div>
                             <h3><a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id'] ?>">
-                              <?php echo $tintuc[$i]['ten'] ?>
+                              <?php echo $tintuc[$i]['title'] ?>
                             </a></h3>
                           </div>
                           <div>
@@ -253,7 +254,7 @@
                             <?php }else{ echo "Tin tức Nội bộ";} ?></b></p>
                           </div>
                           <div>
-                            <p><?php echo word_limiter($tintuc['description'],30) ?></p>
+                            <p><?php echo word_limiter($tintuc[$i]['description'],30) ?></p>
                           </div>
                         </div>
                       </li>
@@ -265,7 +266,7 @@
                         <div class="ds-tin-content" >
                           <div>
                             <h3><a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id'] ?>">
-                              <?php echo $tintuc[$i]['ten'] ?>
+                              <?php echo $tintuc[$i]['title'] ?>
                             </a></h3>
                           </div>
                           <div>
@@ -273,7 +274,7 @@
                             <?php }else{ echo "Tin tức Nội bộ";} ?></b></p>
                           </div>
                           <div>
-                            <p><?php echo word_limiter($tintuc['description'],30) ?></p>
+                            <p><?php echo word_limiter($tintuc[$i]['description'],30) ?></p>
                           </div>
                         </div>
                       </li>
