@@ -27,7 +27,7 @@ class Bacsi_model extends CI_Model{
     // }
     public function selectBS()
     {
-        $this->db->select()->order_by("id", "desc");
+        $this->db->select()->order_by("id", "desc")->limit(5);
         $query = $this->db->get($this->_name);
         return $query->result_array();
     }

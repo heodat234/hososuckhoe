@@ -28,9 +28,9 @@ class BacSi extends CI_Controller {
   		$config['num_links'] = 5;
         $start=$this->uri->segment(3);
         $this->load->library('pagination', $config);
-        $mdata['benhvien'] = $this->Bacsi_model->getservbyname(service, protocol)($config['per_page'], $start);
+        $mdata['bacsi'] = $this->Bacsi_model->getBS($config['per_page'], $start);
         $mdata['phantrang'] =  $this->pagination->create_links();
-		// $mdata['noibat'] = $this->Thuoc_model->selectBVIndex();
+		$mdata['noibat'] = $this->Bacsi_model->selectBS();
 		$data['bv']			= 'active';
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
         $this->_data['html_body'] 	= $this->load->view('page/listBacsi', $mdata, TRUE);
