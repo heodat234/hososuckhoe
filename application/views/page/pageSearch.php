@@ -1,3 +1,4 @@
+
 <section>
   <div class="">
     <div class=" ibc-wrap-1">
@@ -11,25 +12,47 @@
     </div>
     <div class="ibc-wrap-1 timkiem-box">
       <div class="container">
-        <div class=" col-xs-12 col-md-6 col-sm-12">
-          <div class="timkiem-info">
-              <form  method="post" action="<?php echo base_url() ?>timkiem.html">
-                  <input name="<?php echo $csrf['name'] ?>" type="hidden" value="<?php echo $csrf['hash'] ?>" /> 
-                  <div class=" input-group">
-                    <input type="text" name="search"   class="form-control" placeholder="Tra cứu ngay">
-                    <div class="input-group-addon btn-timkiem"><button class="btn-search"><i class="fa fa-search"></i></button></div>
-                  </div>
-                  <div><h6>Tra cứu thông tin Bệnh viện, Bác sĩ, Thuốc,...</h6></div>
-              </form>
+        <form  method="post" action="<?php echo base_url() ?>timkiemchitiet.html">
+          <div class=" col-xs-12 col-md-6 col-sm-12">
+            <div class="timkiem-info">
+              <input name="<?php echo $csrf['name'] ?>" type="hidden" value="<?php echo $csrf['hash'] ?>" /> 
+              <div class=" input-group">
+                <input type="text" name="search"   class="form-control" placeholder="Tra cứu ngay">
+                <div class="input-group-addon btn-timkiem"><button class="btn-search"><i class="fa fa-search"></i></button></div>
+              </div>
+              <div><h6>Tra cứu thông tin Bệnh viện, Bác sĩ, Thuốc,...</h6></div>
+            </div>
           </div>
-        </div>
+          <div class=" col-xs-6 col-md-3 col-sm-6">
+            <div class="timkiem-info">
+              <div class="checkbox">
+                  <input id="check1" type="checkbox" name="check_thuoc" value="check1">
+                  <label for="check1">Thuốc</label>
+                  <br>
+                  <input id="check2" type="checkbox" name="check_bv" value="check2">
+                  <label for="check2">Bệnh viện</label>
+              </div>
+            </div>
+          </div>
+          <div class=" col-xs-6 col-md-3 col-sm-6">
+            <div class="timkiem-info">
+              <div class="checkbox">
+                  <input id="check3" type="checkbox" name="check_bs" value="check3">
+                  <label for="check3">Bác sĩ</label>
+                  <br>
+                  <input id="check4" type="checkbox" name="check_tin" value="check4">
+                  <label for="check4">Tin tức</label>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
     
     <div id="shortcode-12" class="timkiem-body">
       <div class="container ">
         <div class="col-md-8 col-sm-12 col-lg-8 col-xs-12 left body-ds-tin"  >
-          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 timkiem" >
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 timkiem <?php  echo isset($hideThuoc) ? $hideThuoc : ''; ?>" >
             <div class="subtitle  pull-left news-sub timkiem-tittle">
               <div class="title-c">TÊN THUỐC</div>
               <div class="title-e"><p></p></div>
@@ -53,7 +76,7 @@
             <?php }else { echo "Không có kết quả phù hợp.";} ?>            
           </div>
             
-          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 timkiem">
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 timkiem <?php echo isset($hideBv) ? $hideBv : '';?>">
             <div class="subtitle  pull-left news-sub timkiem-tittle">
               <div class="title-c">THEO BỆNH VIỆN</div>
               <div class="title-e"><p></p></div>
@@ -136,7 +159,7 @@
           </div>
 
 
-          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 timkiem">
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 timkiem <?php echo isset($hideBs) ? $hideBs : ''; ?>">
             <div class="subtitle  pull-left news-sub timkiem-tittle">
               <div class="title-c">THEO BÁC SĨ</div>
               <div class="title-e"><p></p></div>
@@ -209,7 +232,7 @@
             </ul>
           </div>
             
-          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 timkiem">
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 timkiem <?php echo isset($hideTin) ? $hideTin : ''; ?>">
             <div class="subtitle  pull-left news-sub timkiem-tittle">
               <div class="title-c">TIN TỨC</div>
               <div class="title-e"><p></p></div>

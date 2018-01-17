@@ -121,3 +121,4 @@ $route['crawl.html'] 		= 'Crawl';
 
 $route['load_data'] 		= 'Welcome/loadData';
 $route['timkiem.html'] 		= 'Welcome/pageSearch';
+$route['timkiemchitiet.html'] 		= 'Welcome/pageSearchChitiet';
