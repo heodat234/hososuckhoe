@@ -20013,3 +20013,15 @@ ul.nav >li >a#dangnhap-dky{
 	background: #f0b627;
 	border: none;
 }
+.thongtin-thuoc{
+	margin-bottom: 30px;
+}
+.item-thuoc{
+	 border: 1px solid #ddd;
+	 width: 30%; 
+	 height: 265px; 
+	 text-align: center;
+}
+.gia-thuoc{
+	color: red;
+}

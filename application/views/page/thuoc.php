@@ -13,8 +13,8 @@
     </div>
     <div id="shortcode-12">
       <div class="container body-list">
-        <div class="col-md-8 col-sm-12 col-lg-8 col-xs-12 left body-ds-tin" style="margin-bottom: 30px"  >
-          <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3" style="border: 1px solid #ddd; width: 30%; height: 265px; text-align: center;" >
+        <div class="col-md-8 col-sm-12 col-lg-8 col-xs-12 left body-ds-tin thongtin-thuoc">
+          <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3 item-thuoc">
                     <div class ="thuoc-img">
                       <a href="<?php echo base_url().'thuoc/'?>">
                         <img src="<?php echo base_url() ?>images/thuoc/thuoc.jpg">
@@ -23,9 +23,9 @@
                     <div class="icon-box2-title tenthuoc">
                        <a href="<?php echo base_url().'thuoc/'?>">Flomate 80mg</a>
                     </div>
-                    <p style="color: red;">120.000 VND</p>
+                    <p class= "gia-thuoc">120.000 VND</p>
           </div>   
-          <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3" style="border: 1px solid #ddd; width: 30%; height: 265px; text-align: center;" >
+         <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3 item-thuoc">
                     <div class ="thuoc-img">
                       <a href="<?php echo base_url().'thuoc/'?>">
                         <img src="<?php echo base_url() ?>images/thuoc/thuoc.jpg">
@@ -34,9 +34,9 @@
                     <div class="icon-box2-title tenthuoc">
                        <a href="<?php echo base_url().'thuoc/'?>">Flomate 80mg</a>
                     </div>
-                    <p style="color: red">120.000 VND</p>
+                    <p class= "gia-thuoc">120.000 VND</p>
           </div>   
-         <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3" style="border: 1px solid #ddd; width: 30%; height: 265px; text-align: center;" >
+         <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3 item-thuoc">
                     <div class ="thuoc-img">
                       <a href="<?php echo base_url().'thuoc/'?>">
                         <img src="<?php echo base_url() ?>images/thuoc/thuoc.jpg">
@@ -45,31 +45,9 @@
                     <div class="icon-box2-title tenthuoc">
                        <a href="<?php echo base_url().'thuoc/'?>">Flomate 80mg</a>
                     </div>
-                    <p style="color: red">120.000 VND</p>
-          </div>      
-          <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3" style="border: 1px solid #ddd; width: 30%; height: 265px; text-align: center;" >
-                    <div class ="thuoc-img">
-                      <a href="<?php echo base_url().'thuoc/'?>">
-                        <img src="<?php echo base_url() ?>images/thuoc/thuoc.jpg">
-                      </a>
-                    </div>
-                    <div class="icon-box2-title tenthuoc">
-                       <a href="<?php echo base_url().'thuoc/'?>">Flomate 80mg</a>
-                    </div>
-                    <p style="color: red">120.000 VND</p>
-          </div>    
-          <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3" style="border: 1px solid #ddd; width: 30%; height: 265px; text-align: center;" >
-                    <div class ="thuoc-img">
-                      <a href="<?php echo base_url().'thuoc/'?>">
-                        <img src="<?php echo base_url() ?>images/thuoc/thuoc.jpg">
-                      </a>
-                    </div>
-                    <div class="icon-box2-title tenthuoc">
-                       <a href="<?php echo base_url().'thuoc/'?>">Flomate 80mg</a>
-                    </div>
-                    <p style="color: red">120.000 VND</p>
+                    <p class= "gia-thuoc">120.000 VND</p>
           </div>   
-          <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3" style="border: 1px solid #ddd; width: 30%; height: 265px; text-align: center;" >
+          <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3 item-thuoc">
                     <div class ="thuoc-img">
                       <a href="<?php echo base_url().'thuoc/'?>">
                         <img src="<?php echo base_url() ?>images/thuoc/thuoc.jpg">
@@ -78,7 +56,29 @@
                     <div class="icon-box2-title tenthuoc">
                        <a href="<?php echo base_url().'thuoc/'?>">Flomate 80mg</a>
                     </div>
-                    <p style="color: red">120.000 VND</p>
+                    <p class= "gia-thuoc">120.000 VND</p>
+          </div>   
+         <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3 item-thuoc">
+                    <div class ="thuoc-img">
+                      <a href="<?php echo base_url().'thuoc/'?>">
+                        <img src="<?php echo base_url() ?>images/thuoc/thuoc.jpg">
+                      </a>
+                    </div>
+                    <div class="icon-box2-title tenthuoc">
+                       <a href="<?php echo base_url().'thuoc/'?>">Flomate 80mg</a>
+                    </div>
+                    <p class= "gia-thuoc">120.000 VND</p>
+          </div>   
+          <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3 item-thuoc">
+                    <div class ="thuoc-img">
+                      <a href="<?php echo base_url().'thuoc/'?>">
+                        <img src="<?php echo base_url() ?>images/thuoc/thuoc.jpg">
+                      </a>
+                    </div>
+                    <div class="icon-box2-title tenthuoc">
+                       <a href="<?php echo base_url().'thuoc/'?>">Flomate 80mg</a>
+                    </div>
+                    <p class= "gia-thuoc">120.000 VND</p>
           </div>   
         </div>
         
