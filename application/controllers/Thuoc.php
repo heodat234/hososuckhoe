@@ -20,18 +20,39 @@ class Thuoc extends CI_Controller {
 	}
 	public function index()
 	{
-		$config['total_rows'] = $this->Thuoc_model->countAll();
-        $config['base_url'] = base_url()."/thuoc/index";
-        $config['per_page'] = 4;
-        $config['next_link'] = "Trước";
-  		$config['prev_link'] = "Sau";
-  		$config['num_links'] = 5;
-        $start=$this->uri->segment(3);
+		$config['total_rows'] 	= $this->Thuoc_model->countAll();
+        $config['base_url'] 	= base_url()."/thuoc/index";
+        $config['per_page'] 	= 8;
+        $config['next_link'] 	= "Trước";
+  		$config['prev_link'] 	= "Sau";
+  		$config['num_links'] 	= 5;
+        $start 					=$this->uri->segment(3);
         $this->load->library('pagination', $config);
-        $mdata['benhvien'] = $this->Thuoc_model->getThuoc($config['per_page'], $start);
-        $mdata['phantrang'] =  $this->pagination->create_links();
-		// $mdata['noibat'] = $this->Thuoc_model->selectBVIndex();
-		$data['bv']			= 'active';
+        $mdata['benhvien'] 		= $this->Thuoc_model->getThuoc($config['per_page'], $start);
+        $mdata['phantrang'] 	=  $this->pagination->create_links();
+		$mdata['loai_thuoc'] 	= $this->Thuoc_model->selectLoaiThuoc();
+
+		$data['thuoc']			= 'active';
+		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
+        $this->_data['html_body'] 	= $this->load->view('page/listThuoc', $mdata, TRUE);
+        return $this->load->view('home/master', $this->_data);
+	}
+	public function thuocByIdLoai($idLoai)
+	{
+
+		$config['total_rows'] 	= $this->Thuoc_model->countIdLoai($idLoai);
+        $config['base_url'] 	= base_url()."/thuoc/thuocByIdLoai";
+        $config['per_page'] 	= 8;
+        $config['next_link'] 	= "Trước";
+  		$config['prev_link'] 	= "Sau";
+  		$config['num_links'] 	= 5;
+        $start 					=$this->uri->segment(3);
+        $this->load->library('pagination', $config);
+        $mdata['benhvien'] 		= $this->Thuoc_model->getThuocByIdLoai($idLoai,$config['per_page'], $start);
+        $mdata['phantrang'] 	=  $this->pagination->create_links();
+		$mdata['loai_thuoc'] 	= $this->Thuoc_model->selectLoaiThuoc();
+
+		$data['thuoc']			= 'active';
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
         $this->_data['html_body'] 	= $this->load->view('page/thuoc', $mdata, TRUE);
         return $this->load->view('home/master', $this->_data);
