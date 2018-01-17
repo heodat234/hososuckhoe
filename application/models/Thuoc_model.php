@@ -10,7 +10,12 @@ class Thuoc_model extends CI_Model{
         $this->primaryKey = 'id';
     } 
     
-    public function countAll(){
+    public function countAll($id){
+        $this->db->where('id_loai_thuoc',$id);
+        $query=$this->db->get("thuoc");
+        return $query->num_rows(); 
+    }
+    public function countIdLoai(){
         $query=$this->db->get("thuoc");
         return $query->num_rows(); 
     }
@@ -19,15 +24,10 @@ class Thuoc_model extends CI_Model{
        $query=$this->db->get("thuoc");
        return $query->result_array();
     }
-    // public function selectBVIndex()
-    // {
-    //     $this->db->select()->order_by("danh_gia", "desc")->limit(10);
-    //     $query = $this->db->get($this->_name);
-    //     return $query->result_array();
-    // }
+    
     public function selectThuoc()
     {
-        $this->db->select()->order_by("id", "desc");
+        $this->db->select()->order_by("ten", "desc");
         $query = $this->db->get($this->_name);
         return $query->result_array();
     }
@@ -46,6 +46,18 @@ class Thuoc_model extends CI_Model{
       return $query->result_array();
     }
 
+
+    public function selectLoaiThuoc()
+    {
+        $this->db->select();
+        $query = $this->db->get('nhom_thuoc');
+        return $query->result_array();
+    }
+    public function getThuocByIdLoai($idLoai, $total, $start){
+       $this->db->where('id_loai_thuoc',$idLoai)->limit($total, $start);
+       $query=$this->db->get("thuoc");
+       return $query->result_array();
+    }
     // // thêm lượt xem
     // public function updateView($data)
     // {
