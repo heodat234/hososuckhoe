@@ -62,7 +62,15 @@
             $("html").css("overflow","visible");
         });
     </script>
-
+    
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.11&appId=1981709738820610';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
     </body>
 
 <!-- Mirrored from imedica-html.brainstormforce.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 15 Dec 2017 08:43:26 GMT -->

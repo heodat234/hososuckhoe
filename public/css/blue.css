@@ -20034,7 +20034,7 @@ ul.nav >li >a#dangnhap-dky{
 }
 
 
-label {
+.checkbox  label {
     display: inline-block;
     cursor: pointer;
     position: relative;
@@ -20056,7 +20056,7 @@ label {
     text-align: center;
     line-height: 15px;
   }
-  label:before {
+   .checkbox  label:before {
     content: "";
     display: inline-block;
  

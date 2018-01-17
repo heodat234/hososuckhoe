@@ -34,7 +34,7 @@
                 <p><?php echo $tintuc['content'] ?></p>
               </div> 
               <div class="cmt-news">
-                Bình luận
+                <div class="fb-comments" data-href="http://hososuckhoe.org/staging/" data-width="100%" data-numposts="5"></div>
               </div>           
             </div>
             <div class="col-md-3 col-sm-12 col-lg-3 col-xs-12 right">
