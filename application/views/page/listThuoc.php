@@ -88,7 +88,11 @@
               <h3 class="head"><i class="fa fa-folder-o" style="color: #f26529;"></i> Nhóm dược lý</h3>
             </div>
             <div>
-
+              <ul class="list-categories list-categories_widget list-bv">
+                <?php foreach ($loai_thuoc as $loai): ?>
+                  <li><a href="<?php echo base_url().'thuocByIdLoai/'.$loai['id']?>"><span class="list-categories__name"><?php echo $loai['ten'] ?></span></a></li>
+                <?php endforeach ?>
+              </ul>
             </div>
           </div>
         </div>

@@ -34,7 +34,7 @@ class Thuoc extends CI_Controller {
 
 		$data['thuoc']			= 'active';
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
-        $this->_data['html_body'] 	= $this->load->view('page/thuoc', $mdata, TRUE);
+        $this->_data['html_body'] 	= $this->load->view('page/listThuoc', $mdata, TRUE);
         return $this->load->view('home/master', $this->_data);
 	}
 	public function thuocByIdLoai($idLoai)

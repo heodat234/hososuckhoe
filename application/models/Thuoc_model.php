@@ -10,12 +10,12 @@ class Thuoc_model extends CI_Model{
         $this->primaryKey = 'id';
     } 
     
-    public function countAll($id){
-        $this->db->where('id_loai_thuoc',$id);
+    public function countAll(){
         $query=$this->db->get("thuoc");
         return $query->num_rows(); 
     }
-    public function countIdLoai(){
+    public function countIdLoai($id){
+        $this->db->where('id_loai_thuoc',$id);
         $query=$this->db->get("thuoc");
         return $query->num_rows(); 
     }
