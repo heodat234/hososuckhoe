@@ -13,28 +13,73 @@
     </div>
     <div id="shortcode-12">
       <div class="container body-list">
-        <div class="col-md-8 col-sm-12 col-lg-8 col-xs-12 left body-ds-tin"  >
-          <ul>
-            <?php foreach ($category as $tintuc): ?>
-              <li class="ds-tin" >
-                    <a href="<?php echo base_url().'tintuc/'.$tintuc['id']?>"><img style=""  class="img-responsive" src="<?php echo base_url().'images/tintuc/'.$tintuc['image'] ?>"></a>
-                  <div class="ds-tin-content" >
-                    <div><h3><a href="<?php echo base_url().'tintuc/'.$tintuc['id']?>"><?php echo $tintuc['title'] ?></a></h3></div>
-                    <div>
-                      <h5><?php if ($tintuc['id_loai'] == 1){echo "Tin tức Y khoa"; ?>
-                          <?php }else{ echo "Tin tức Nội bộ";} ?>
-                      </h5>
+        <div class="col-md-8 col-sm-12 col-lg-8 col-xs-12 left body-ds-tin" style="margin-bottom: 30px"  >
+          <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3" style="border: 1px solid #ddd; width: 30%; height: 265px; text-align: center;" >
+                    <div class ="thuoc-img">
+                      <a href="<?php echo base_url().'thuoc/'?>">
+                        <img src="<?php echo base_url() ?>images/thuoc/thuoc.jpg">
+                      </a>
                     </div>
-                    <div>
-                      <p><?php echo word_limiter($tintuc['description'],30) ?></p>
+                    <div class="icon-box2-title tenthuoc">
+                       <a href="<?php echo base_url().'thuoc/'?>">Flomate 80mg</a>
                     </div>
-                  </div>
-              </li>
-              
-            <?php endforeach ?>
-          </ul>
-          
-          <div class="pagination-page"><?php echo $phantrang ?></div>
+                    <p style="color: red;">120.000 VND</p>
+          </div>   
+          <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3" style="border: 1px solid #ddd; width: 30%; height: 265px; text-align: center;" >
+                    <div class ="thuoc-img">
+                      <a href="<?php echo base_url().'thuoc/'?>">
+                        <img src="<?php echo base_url() ?>images/thuoc/thuoc.jpg">
+                      </a>
+                    </div>
+                    <div class="icon-box2-title tenthuoc">
+                       <a href="<?php echo base_url().'thuoc/'?>">Flomate 80mg</a>
+                    </div>
+                    <p style="color: red">120.000 VND</p>
+          </div>   
+         <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3" style="border: 1px solid #ddd; width: 30%; height: 265px; text-align: center;" >
+                    <div class ="thuoc-img">
+                      <a href="<?php echo base_url().'thuoc/'?>">
+                        <img src="<?php echo base_url() ?>images/thuoc/thuoc.jpg">
+                      </a>
+                    </div>
+                    <div class="icon-box2-title tenthuoc">
+                       <a href="<?php echo base_url().'thuoc/'?>">Flomate 80mg</a>
+                    </div>
+                    <p style="color: red">120.000 VND</p>
+          </div>      
+          <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3" style="border: 1px solid #ddd; width: 30%; height: 265px; text-align: center;" >
+                    <div class ="thuoc-img">
+                      <a href="<?php echo base_url().'thuoc/'?>">
+                        <img src="<?php echo base_url() ?>images/thuoc/thuoc.jpg">
+                      </a>
+                    </div>
+                    <div class="icon-box2-title tenthuoc">
+                       <a href="<?php echo base_url().'thuoc/'?>">Flomate 80mg</a>
+                    </div>
+                    <p style="color: red">120.000 VND</p>
+          </div>    
+          <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3" style="border: 1px solid #ddd; width: 30%; height: 265px; text-align: center;" >
+                    <div class ="thuoc-img">
+                      <a href="<?php echo base_url().'thuoc/'?>">
+                        <img src="<?php echo base_url() ?>images/thuoc/thuoc.jpg">
+                      </a>
+                    </div>
+                    <div class="icon-box2-title tenthuoc">
+                       <a href="<?php echo base_url().'thuoc/'?>">Flomate 80mg</a>
+                    </div>
+                    <p style="color: red">120.000 VND</p>
+          </div>   
+          <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3" style="border: 1px solid #ddd; width: 30%; height: 265px; text-align: center;" >
+                    <div class ="thuoc-img">
+                      <a href="<?php echo base_url().'thuoc/'?>">
+                        <img src="<?php echo base_url() ?>images/thuoc/thuoc.jpg">
+                      </a>
+                    </div>
+                    <div class="icon-box2-title tenthuoc">
+                       <a href="<?php echo base_url().'thuoc/'?>">Flomate 80mg</a>
+                    </div>
+                    <p style="color: red">120.000 VND</p>
+          </div>   
         </div>
         
         <div class="col-md-4 col-sm-12 col-lg-4 col-xs-12 right">
@@ -43,24 +88,7 @@
               <h3 class="head"><i class="fa fa-folder-o" style="color: #f26529;"></i> Nhóm dược lý</h3>
             </div>
             <div>
-                <?php foreach ($noibat as $tt): ?>
-                    <div class="img-noibat" >
-                      <a href="<?php echo base_url().'tintuc/'.$tt['id']?>">
-                        <img width="100%"  src="<?php echo base_url().'images/tintuc/'.$tt['image'] ?>">
-                      </a>
-                    </div>
-                    
-                    <div class="content-noibat" >
-                        <h4  >
-                            <a href="<?php echo base_url().'tintuc/'.$tt['id']?>"><?php echo $tt['title'] ?></a>
-                        </h4>
-                        <h5 >
-                            <span>Lượt xem: <?php echo $tt['view'] ?></span>
-                        </h5>
-                    </div>
-                    <div class="clearfix vien-tin"></div>
-                    
-                <?php endforeach ?>
+
             </div>
           </div>
         </div>
