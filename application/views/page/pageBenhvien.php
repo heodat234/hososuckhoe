@@ -19,13 +19,8 @@
               <div>
                 <h3 class=""><?php echo $benhvien1['ten'] ?></3>
               </div>
-              <!-- <ul class="entry-meta clearfix">
-                <li><a href=""><i class="fa fa-user"></i> Admin</a></li>
-                <li><a href=""><i class="fa fa-calendar"></i>  <?php echo date('d-m-Y',strtotime($tintuc['created_at'])) ?> </a></li>
-                <li><a href=""><i class="fa fa-eye"></i>  <?php echo number_format($tintuc['view']+1) ?></a></li>
-              </ul> -->
               <div class="img-news" style="text-align: center;">
-                <img width="60%" src="<?php echo base_url().'images/tintuc/'.$benhvien1['anh'] ?>">
+                <img width="60%" src="<?php echo base_url().'images/benhvien/'.$benhvien1['anh'] ?>">
               </div>
               <div class="gioithieu-bv" >
                 <div><i class="fa fa-phone"></i><a href=""> <?php echo $benhvien1['so_dienthoai'] ?></a></div>
@@ -36,7 +31,7 @@
               <div id="map" style="height:400px; width:100%"></div>
               <div class="content-news">
                 <div>Giới thiệu</div>
-                <p><?php echo $benhvien1['description'] ?></p>
+                <h5><?php echo $benhvien1['description'] ?></h5>
               </div> 
               <div class="cmt-news">
                 Bình luận

@@ -51,7 +51,6 @@ class Benhvien extends CI_Controller {
 
 		$data['bv']			= 'active';
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
-        // $this->_data['html_footer'] = $this->load->view('home/footer', NULL, TRUE);
         $this->_data['html_body'] 	= $this->load->view('page/pageBenhvien', $mdata, TRUE);
         return $this->load->view('home/master', $this->_data);
 	}
