@@ -34,6 +34,8 @@
                                     
                                     <li class="<?php echo isset($thanhvien)? $thanhvien : '' ?>"><a href="<?php echo base_url() ?>thanhvien.html" class="<?php echo isset($thanhvien)? $thanhvien : '' ?>"><i class="icon-pencil"></i>Thành viên</a>
                                     </li>
+                                     <li class="<?php echo isset($thuoc)? $thuoc : '' ?>"><a href="<?php echo base_url() ?>thuoc.html" class="<?php echo isset($thuoc)? $thuoc : '' ?>"><i class="icon-pencil"></i>Tìm thuốc</a>
+                                    </li>
                                     
                                     <?php if($this->session->has_userdata('user') && $this->session->userdata('user')['group'] == '0') { ?>
                                         <li class="dropdown <?php echo isset($pageHoso)? $pageHoso : '' ?>">
