@@ -19443,10 +19443,10 @@ ul.list-bv >li >div {
 		margin-top: -28px;
 	}
 	.ds-timkiem1{
-		height: 218px;
+		padding-bottom: 45px;
 	}
 	.ds-timkiem2{
-		height: 140px;
+		padding-bottom: 45px;
 	}
 	
 	.ds-tin a >img {
@@ -19484,12 +19484,7 @@ ul.list-bv >li >div {
 		width: 55%; 
 		margin-left: 44%
 	}
-	.ds-timkiem1{
-		height: 218px;
-	}
-	.ds-timkiem2{
-		height: 140px;
-	}
+	
 	.subtitle div.title-d {
 		margin-top: -17px;
 		width: 33%; 
@@ -19545,10 +19540,10 @@ ul.list-bv >li >div {
 		margin-left: 105%
 	}
 	.ds-timkiem1{
-		height: 220px;
+		padding-bottom: 45px;
 	}
 	.ds-timkiem2{
-		height: 150px;
+		padding-bottom: 45px;
 	}
 	.subtitle div.title-e {
 		padding-top: 13px;
@@ -19598,9 +19593,11 @@ ul.list-bv >li >div {
 	}
 	.ds-timkiem1{
 		height: auto;
+		padding-bottom: 10px;
 	}
 	.ds-timkiem2{
 		height: auto;
+		padding-bottom: 10px;
 	}
 	.subtitle div.title-e {
 		padding-top: 12px;
@@ -19734,9 +19731,11 @@ ul.list-bv >li >div {
 	}
 	.ds-timkiem1{
 		height: auto;
+		padding-bottom: 10px;
 	}
 	.ds-timkiem2{
 		height: auto;
+		padding-bottom: 10px;
 	}
 	.collapse.in{
         display:block !important;
@@ -19999,14 +19998,18 @@ ul.nav >li >a#dangnhap-dky{
 	border-bottom: 1px dotted #ccc;
 	 padding-top: 0px;
 	 padding-right: 10px;
-	 padding-bottom: 10px;
 	 padding-left: 4px;
+	 margin-top: 20px;
 	}
 .ds-timkiem2{
 	 width: 100%;
 	 padding-top: 0px;
 	 padding-right: 10px;
-	 padding-bottom: 10px;
+	 /*padding-bottom: 10px;*/
 	 padding-left: 4px;
 	 box-sizing: border-box;
+}
+.btn-search {
+	background: #f0b627;
+	border: none;
 }

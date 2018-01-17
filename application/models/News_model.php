@@ -73,6 +73,13 @@ class News_model extends CI_Model{
         $this->db->where('id', $id)->delete($this->_name);
     }
    
+
+   public function search_data($key)
+    {
+      $sql = "SELECT * FROM `news` WHERE title LIKE '%$key%'";
+      $query = $this->db->query($sql); 
+      return $query->result_array();
+    }
    
   
 }
