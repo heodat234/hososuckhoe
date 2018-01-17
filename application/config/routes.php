@@ -65,6 +65,16 @@ $route['deleteNews'] 			= 'news/xoaTintuc';
 
 $route['benhvien.html'] 		= 'benhvien';
 $route['benhvien/(:num)'] 		= 'benhvien/benhVienById/$1';
+
+
+$route['bacsi.html'] 			= 'bacsi';
+$route['bacsi/(:num)'] 			= 'bacsi/bacSiById/$1';
+
+$route['thuoc.html'] 			= 'thuoc';
+$route['thuoc/(:num)'] 			= 'thuoc/thuocById/$1';
+
+
+
 //login
 $route['pageLogin'] 		= 'Login';
 $route['pageRegister'] 		= 'Login/pageRegister';

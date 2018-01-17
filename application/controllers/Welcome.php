@@ -5,8 +5,8 @@ class Welcome extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->helper('url');
-		$this->load->model(array('News_model','BenhVien_model'));
+		$this->load->helper('url','text');
+		$this->load->model(array('News_model','BenhVien_model','Bacsi_model','Thuoc_model'));
 		$this->load->library(array('form_validation','session'));
 
 		
@@ -61,6 +61,12 @@ class Welcome extends CI_Controller {
 
    	public function pageSearch()
    	{
+   		$key 		= $this->input->post('search');
+   		$benhvien 	= $this->BenhVien_model->search_data($key);
+   		$thuocs 		= $this->Thuoc_model->search_data($key);
+   		$bacsi 		= $this->Bacsi_model->search_data($key);
+   		$tintuc 	= $this->News_model->search_data($key);
+
    		$this->_data['html_header'] = $this->load->view('home/header', NULL, TRUE);
         $this->_data['html_body'] 	= $this->load->view('page/pageSearch', NULL, TRUE);
         return $this->load->view('home/master', $this->_data);

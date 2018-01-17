@@ -36,7 +36,7 @@
                     <div class="box-search" >
                         <form method="post" action="<?php echo base_url() ?>timkiem.html">
                             <input name="<?php echo $csrf['name'] ?>" type="hidden" value="<?php echo $csrf['hash'] ?>" /> 
-                            <input class="data" type="text" name="search" value="b" placeholder="Tra cứu thông tin ngay">
+                            <input class="data" type="text" name="search" placeholder="Tra cứu thông tin ngay">
                             <button  ><span class="fa fa-search fa-lg"></span></button>
                             <h6 >Tra cứu thông tin Bệnh viện, Bác sĩ, Thuốc,...</h6>
                         </form>
