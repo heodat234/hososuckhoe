@@ -13,76 +13,25 @@
     </div>
     <div id="shortcode-12">
       <div class="container body-list">
-        <div class="col-md-8 col-sm-12 col-lg-8 col-xs-12 left body-ds-tin thongtin-thuoc">
-          <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3 item-thuoc">
-                    <div class ="thuoc-img">
-                      <a href="<?php echo base_url().'thuoc/'?>">
-                        <img src="<?php echo base_url() ?>images/thuoc/thuoc.jpg">
-                      </a>
-                    </div>
-                    <div class="icon-box2-title tenthuoc">
-                       <a href="<?php echo base_url().'thuoc/'?>">Flomate 80mg</a>
-                    </div>
-                    <p class= "gia-thuoc">120.000 VND</p>
-          </div>   
-         <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3 item-thuoc">
-                    <div class ="thuoc-img">
-                      <a href="<?php echo base_url().'thuoc/'?>">
-                        <img src="<?php echo base_url() ?>images/thuoc/thuoc.jpg">
-                      </a>
-                    </div>
-                    <div class="icon-box2-title tenthuoc">
-                       <a href="<?php echo base_url().'thuoc/'?>">Flomate 80mg</a>
-                    </div>
-                    <p class= "gia-thuoc">120.000 VND</p>
-          </div>   
-         <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3 item-thuoc">
-                    <div class ="thuoc-img">
-                      <a href="<?php echo base_url().'thuoc/'?>">
-                        <img src="<?php echo base_url() ?>images/thuoc/thuoc.jpg">
-                      </a>
-                    </div>
-                    <div class="icon-box2-title tenthuoc">
-                       <a href="<?php echo base_url().'thuoc/'?>">Flomate 80mg</a>
-                    </div>
-                    <p class= "gia-thuoc">120.000 VND</p>
-          </div>   
-          <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3 item-thuoc">
-                    <div class ="thuoc-img">
-                      <a href="<?php echo base_url().'thuoc/'?>">
-                        <img src="<?php echo base_url() ?>images/thuoc/thuoc.jpg">
-                      </a>
-                    </div>
-                    <div class="icon-box2-title tenthuoc">
-                       <a href="<?php echo base_url().'thuoc/'?>">Flomate 80mg</a>
-                    </div>
-                    <p class= "gia-thuoc">120.000 VND</p>
-          </div>   
-         <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3 item-thuoc">
-                    <div class ="thuoc-img">
-                      <a href="<?php echo base_url().'thuoc/'?>">
-                        <img src="<?php echo base_url() ?>images/thuoc/thuoc.jpg">
-                      </a>
-                    </div>
-                    <div class="icon-box2-title tenthuoc">
-                       <a href="<?php echo base_url().'thuoc/'?>">Flomate 80mg</a>
-                    </div>
-                    <p class= "gia-thuoc">120.000 VND</p>
-          </div>   
-          <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3 item-thuoc">
-                    <div class ="thuoc-img">
-                      <a href="<?php echo base_url().'thuoc/'?>">
-                        <img src="<?php echo base_url() ?>images/thuoc/thuoc.jpg">
-                      </a>
-                    </div>
-                    <div class="icon-box2-title tenthuoc">
-                       <a href="<?php echo base_url().'thuoc/'?>">Flomate 80mg</a>
-                    </div>
-                    <p class= "gia-thuoc">120.000 VND</p>
-          </div>  
+        <div class="col-md-9 col-sm-12 col-lg-9 col-xs-12 left body-ds-tin thongtin-thuoc">
+          <?php foreach ($thuocs as $thuoc): ?>
+            <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3 item-thuoc">
+              <div class ="thuoc-img">
+                <a href="<?php echo base_url().'thuoc/'.$thuoc['id']?>">
+                  <img src="<?php echo json_decode($thuoc['image'],true)[0]['src'] ?>">
+                </a>
+              </div>
+              <div class="icon-box2-title tenthuoc">
+                 <a href="<?php echo base_url().'thuoc/'.$thuoc['id'] ?>"> <?php echo $thuoc['title'] ?> </a>
+              </div>
+              <p class= "gia-thuoc"><?php echo $thuoc['price'] ?> </p>
+            </div>
+          <?php endforeach ?>
+             
+         <div class="pagination-page"><?php echo $phantrang ?></div>
         </div>
         
-        <div class="col-md-4 col-sm-12 col-lg-4 col-xs-12 right">
+        <div class="col-md-3 col-sm-12 col-lg-3 col-xs-12 right">
           <div>
             <div class="heading">
               <h3 class="head"><i class="fa fa-folder-o" style="color: #f26529;"></i> Nhóm dược lý</h3>
@@ -90,7 +39,11 @@
             <div>
               <ul class="list-categories list-categories_widget list-bv">
                 <?php foreach ($loai_thuoc as $loai): ?>
-                  <li><a href="<?php echo base_url().'thuocByIdLoai/'.$loai['id']?>"><span class="list-categories__name"><?php echo $loai['ten'] ?></span></a></li>
+                  <?php if ( isset($idLoai) && $id_Loai == $loai['id']){ ?>
+                    <li class="active"><a href="<?php echo base_url().'thuocByIdLoai/'.$loai['id']?>"><span class="list-categories__name"><?php echo $loai['name'] ?></span></a></li>
+                  <?php }else{ ?>
+                    <li><a href="<?php echo base_url().'thuocByIdLoai/'.$loai['id']?>"><span class="list-categories__name"><?php echo $loai['name'] ?></span></a></li>
+                  <?php  } ?>
                 <?php endforeach ?>
               </ul>
             </div>
