@@ -21,7 +21,7 @@ class BacSi extends CI_Controller {
 	public function index()
 	{
 		$config['total_rows'] = $this->Bacsi_model->countAll();
-        $config['base_url'] = base_url()."/bacsi/index";
+        $config['base_url'] = base_url()."/BacSi/index";
         $config['per_page'] = 4;
         $config['next_link'] = "Trước";
   		$config['prev_link'] = "Sau";
@@ -38,9 +38,31 @@ class BacSi extends CI_Controller {
 	}
 	public function bacSiById($id)
 	{
-		$mdata['bacsi']		= $this->Bacsi_model->selectBS_by_Id($id);
-		
-		$data['bacsi']			= 'active';
+		$mdata['bacsi']				= $this->Bacsi_model->selectBS_by_Id($id);
+
+		$url = json_decode($mdata['bacsi']['image'],true)[0]['src'];
+		$headers = @get_headers($url);
+		if ($headers == true){
+			$mdata['image'] = $url;
+		}else{
+			$mdata['image'] = base_url().'images/profile.png';
+		}
+		$thongtin =  json_decode($mdata['bacsi']['article'],true);
+		$chucvu = $thongtin[0];
+		// var_dump($chucvu);
+		$mdata['chucvu'] = str_replace('Chức vụ', '', $chucvu);
+		$noilam = $thongtin[1];
+		$mdata['noilam'] = str_replace('Nơi công tác', '', $noilam);
+		$kinhnghiem = $thongtin[2];
+		$mdata['kinhnghiem'] = str_replace('Kinh nghiệm', '', $kinhnghiem);
+		$giaithuong = $thongtin[3];
+		$mdata['giaithuong'] = str_replace('Giải thưởng-ghi nhận', '', $giaithuong);
+		$daotao = $thongtin[4];
+		$mdata['daotao'] = str_replace('Quá trình đào tạo', '', $daotao);
+
+		$mdata['cate_bacsi']		= $this->Bacsi_model->selectBS($id);
+
+		$data['bacsi']				= 'active';
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
         $this->_data['html_body'] 	= $this->load->view('page/pageBacsi', $mdata, TRUE);
         return $this->load->view('home/master', $this->_data);
