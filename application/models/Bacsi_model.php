@@ -2,7 +2,7 @@
 class Bacsi_model extends CI_Model{
 	
 	/* Gán tên bảng cần xử lý*/
-	private $_name = 'bacsi';
+	private $_name = 'doctor';
 	
 	function __construct(){
         parent::__construct();

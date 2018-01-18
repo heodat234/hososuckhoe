@@ -14,19 +14,23 @@
       <div class="container body-list">
         <div class="col-md-8 col-sm-12 col-lg-8 col-xs-12 left body-ds-tin"  >
           <ul>
-            <?php foreach ($bacsi as $bs): ?>
-              <li class="ds-tin" >
-                    <a href="<?php echo base_url().'bacsi/'.$bs['id']?>"><img style=""  class="img-responsive" src="<?php echo base_url().'images/bacsi/'.$bs['anh'] ?>"></a>
-                  <div class="ds-tin-content" >
-                    <div><h3><a href="<?php echo base_url().'bacsi/'.$bs['id']?>"><?php echo $bs['ten'] ?></a></h3></div>
+            <?php foreach ($bacsi as $bs): 
+              $headers = @get_headers(json_decode($bs['image'],true)[0]['src']);
+            ?>
+              <li class="ds-tin-bs" >
+                <?php if ($headers == true){ ?>
+                  <a href="<?php echo base_url().'bacsi/'.$bs['id']?>"><img class="avatar-bs"  class="img-responsive" src="<?php echo json_decode($bs['image'],true)[0]['src'] ?>"></a>
+                <?php }else{ ?>
+                  <a href="<?php echo base_url().'bacsi/'.$bs['id']?>"><img class="avatar-bs"  class="img-responsive" src="<?php echo base_url() ?>images/profile.png"></a>
+                <?php } ?>
+                    
+                  <div class=" tin-content-bs" >
+                    <div><h3><a href="<?php echo base_url().'bacsi/'.$bs['id']?>"><?php echo $bs['name'] ?></a></h3></div>
                     <div>
-                      <i class="fa fa-graduation-cap"></i><p> <?php echo $bs['trinh_do'] ?></p>
+                      <p><i class="fa fa-code-fork" style="margin-right: 5px;"></i><?php echo $bs['branch'] ?></p>
                     </div>
                     <div>
-                      <i class="fa fa-code-fork"></i><p> <?php echo $bs['chuyen_khoa'] ?></p>
-                    </div>
-                    <div>
-                      <i class="fa fa-map-marker"></i><p> <?php echo $bs['noi_lam_viec'] ?></p>
+                      <p><i class="fa fa-map-marker" style="margin-right: 5px;"></i><?php echo $bs['short_desc'] ?></p>
                     </div>
                   </div>
               </li>
@@ -46,16 +50,16 @@
                 <?php foreach ($noibat as $nb): ?>
                     <div class="img-noibat" >
                       <a href="<?php echo base_url().'bacsi/'.$nb['id']?>">
-                        <img width="100%"  src="<?php echo base_url().'images/bacsi/'.$nb['anh'] ?>">
+                        <img width="70%"  src="<?php echo json_decode($nb['image'],true)[0]['src'] ?>">
                       </a>
                     </div>
                     
                     <div class="content-noibat" >
                         <h4  >
-                            <a href="<?php echo base_url().'bacsi/'.$nb['id']?>"><?php echo $nb['ten'] ?></a>
+                            <a href="<?php echo base_url().'bacsi/'.$nb['id']?>"><?php echo $nb['name'] ?></a>
                         </h4>
                         <h5 >
-                            <span><?php echo $nb['chuyen_khoa'] ?></span>
+                            <span><?php echo $nb['branch'] ?></span>
                         </h5>
                     </div>
                     <div class="clearfix vien-tin"></div>
