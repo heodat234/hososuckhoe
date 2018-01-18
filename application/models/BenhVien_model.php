@@ -2,7 +2,7 @@
 class Benhvien_model extends CI_Model{
 	
 	/* Gán tên bảng cần xử lý*/
-	private $_name = 'benhvien';
+	private $_name = 'hospital';
 	
 	function __construct(){
         parent::__construct();
@@ -11,12 +11,12 @@ class Benhvien_model extends CI_Model{
     } 
     
     public function countAll(){
-        $query=$this->db->get("benhvien");
+        $query=$this->db->get($this->_name);
         return $query->num_rows(); 
     }
     public function getBV($total, $start){
        $this->db->limit($total, $start);
-       $query=$this->db->get("benhvien");
+       $query=$this->db->get($this->_name);
        return $query->result_array();
     }
     public function selectBVIndex()
@@ -41,7 +41,7 @@ class Benhvien_model extends CI_Model{
 
     public function search_data($key)
     {
-      $sql = "SELECT * FROM `benhvien` WHERE ten LIKE '%$key%'";
+      $sql = "SELECT * FROM `hospital` WHERE ten LIKE '%$key%'";
       $query = $this->db->query($sql); 
       return $query->result_array();
     }

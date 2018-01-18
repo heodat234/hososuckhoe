@@ -74,7 +74,9 @@ $route['thuoc.html'] 			= 'thuoc';
 $route['thuocByIdLoai/(:num)'] 	= 'thuoc/thuocByIdLoai/$1';
 $route['thuoc/(:num)'] 			= 'thuoc/thuocById/$1';
 
-
+$route['benh.html'] 			= 'benh';
+$route['benhByIdLoai'] 			= 'benh/benhByIdLoai';
+$route['benh/(:num)'] 			= 'benh/benhById/$1';
 
 //login
 $route['pageLogin'] 		= 'Login';

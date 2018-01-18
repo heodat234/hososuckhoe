@@ -17,17 +17,15 @@
           <ul>
             <?php foreach ($benhvien as $bv): ?>
               <li class="ds-tin" >
-                    <a href="<?php echo base_url().'benhvien/'.$bv['id']?>"><img style=""  class="img-responsive" src="<?php echo base_url().'images/benhvien/'.$bv['anh'] ?>"></a>
+                    <a href="<?php echo base_url().'benhvien/'.$bv['id']?>"><img style=""  class="img-responsive" src="<?php echo json_decode($bv['image'],true)[0]['src'] ?>"></a>
                   <div class="ds-tin-content" >
-                    <div><h3><a href="<?php echo base_url().'benhvien/'.$bv['id']?>"><?php echo $bv['ten'] ?></a></h3></div>
+                    <div><h3><a href="<?php echo base_url().'benhvien/'.$bv['id']?>"><?php echo $bv['name'] ?></a></h3></div>
+                    
                     <div>
-                      <p><b>Chuyên khoa: </b><?php echo $bv['chuyen_khoa'] ?></p>
+                      <p><b>Số điện thoai: </b><?php echo $bv['tel'] ?></p>
                     </div>
                     <div>
-                      <p><b>Số điện thoai: </b><?php echo $bv['so_dienthoai'] ?></p>
-                    </div>
-                    <div>
-                      <p><b>Địa chỉ: </b><?php echo $bv['dia_chi'] ?></p>
+                      <p><b>Địa chỉ: </b><?php echo $bv['address'] ?></p>
                     </div>
                   </div>
               </li>
@@ -47,16 +45,16 @@
                 <?php foreach ($noibat as $tt): ?>
                     <div class="img-noibat" >
                       <a href="<?php echo base_url().'benhvien/'.$tt['id']?>">
-                        <img width="100%"  src="<?php echo base_url().'images/benhvien/'.$tt['anh'] ?>">
+                        <img style="width: 70%"  src="<?php echo json_decode($tt['image'],true)[0]['src'] ?>">
                       </a>
                     </div>
                     
                     <div class="content-noibat" >
                         <h4  >
-                            <a href="<?php echo base_url().'benhvien/'.$tt['id']?>"><?php echo $tt['ten'] ?></a>
+                            <a href="<?php echo base_url().'benhvien/'.$tt['id']?>"><?php echo $tt['name'] ?></a>
                         </h4>
                         <h5 >
-                            <span>Địa chỉ: <?php echo $tt['dia_chi'] ?></span>
+                            <span>Địa chỉ: <?php echo $tt['address'] ?></span>
                         </h5>
                     </div>
                     <div class="clearfix vien-tin"></div>

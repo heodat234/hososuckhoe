@@ -181,10 +181,10 @@
                                 <span class="number special-1">1</span>
                                 <div>
                                     <h4 class="info-bv">
-                                        <a href="<?php echo base_url().'benhvien/'.$benhvien[0]['id']?>"><?php echo $benhvien[0]['ten'] ?></a>
+                                        <a href="<?php echo base_url().'benhvien/'.$benhvien[0]['id']?>"><?php echo $benhvien[0]['name'] ?></a>
                                     </h4>
                                     <h5 class="info-bv">
-                                        <span><?php echo $benhvien[0]['dia_chi'] ?></span>
+                                        <span><?php echo $benhvien[0]['address'] ?></span>
                                     </h5>
                                 </div>
                                     
@@ -193,10 +193,10 @@
                                 <span class="number special-2">2</span>
                                 <div>
                                     <h4 class="info-bv">
-                                        <a href="<?php echo base_url().'benhvien/'.$benhvien[1]['id']?>"><?php echo $benhvien[1]['ten'] ?></a>
+                                        <a href="<?php echo base_url().'benhvien/'.$benhvien[1]['id']?>"><?php echo $benhvien[1]['name'] ?></a>
                                     </h4>
                                     <h5 class="info-bv" >
-                                        <span><?php echo $benhvien[1]['dia_chi'] ?></span>
+                                        <span><?php echo $benhvien[1]['address'] ?></span>
                                     </h5>
                                 </div>
                             </li>
@@ -204,10 +204,10 @@
                                 <span class="number special-3">3</span>
                                 <div>
                                     <h4 class="info-bv">
-                                        <a href="<?php echo base_url().'benhvien/'.$benhvien[2]['id']?>"><?php echo $benhvien[2]['ten'] ?></a>
+                                        <a href="<?php echo base_url().'benhvien/'.$benhvien[2]['id']?>"><?php echo $benhvien[2]['name'] ?></a>
                                     </h4>
                                     <h5 class="info-bv" >
-                                        <span><?php echo $benhvien[2]['dia_chi'] ?></span>
+                                        <span><?php echo $benhvien[2]['address'] ?></span>
                                     </h5>
                                 </div>
                             </li>
@@ -217,10 +217,10 @@
                                     <span class="number"><?php echo $i+1 ?></span>
                                     <div>
                                         <h4 class="info-bv">
-                                        <a href="<?php echo base_url().'benhvien/'.$benhvien[$i]['id']?>"><?php echo $benhvien[$i]['ten'] ?></a>
+                                        <a href="<?php echo base_url().'benhvien/'.$benhvien[$i]['id']?>"><?php echo $benhvien[$i]['name'] ?></a>
                                     </h4>
                                     <h5 class="info-bv" >
-                                        <span><?php echo $benhvien[$i]['dia_chi'] ?></span>
+                                        <span><?php echo $benhvien[$i]['address'] ?></span>
                                     </h5>
                                     </div>
                                 </li>

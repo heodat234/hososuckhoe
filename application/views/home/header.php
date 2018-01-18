@@ -33,7 +33,7 @@
                                     <li class="<?php echo isset($bs)? $bs : '' ?>"><a href="<?php echo base_url() ?>bacsi.html" class="<?php echo isset($bs)? $bs : '' ?>" ><i class="icon-cog"></i>Bác sĩ</a>
                                     </li>
                                     
-                                    <li class="<?php echo isset($thanhvien)? $thanhvien : '' ?>"><a href="<?php echo base_url() ?>thanhvien.html" class="<?php echo isset($thanhvien)? $thanhvien : '' ?>"><i class="icon-pencil"></i>Thành viên</a>
+                                    <li class="<?php echo isset($benh)? $benh : '' ?>"><a href="<?php echo base_url() ?>benh.html" class="<?php echo isset($benh)? $benh : '' ?>"><i class="icon-pencil"></i>Bệnh</a>
                                     </li>
                                      <li class="<?php echo isset($thuoc)? $thuoc : '' ?>"><a href="<?php echo base_url() ?>thuoc.html" class="<?php echo isset($thuoc)? $thuoc : '' ?>"><i class="icon-pencil"></i>Tìm thuốc</a>
                                     </li>

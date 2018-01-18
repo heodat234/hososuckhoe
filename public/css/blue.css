@@ -19458,7 +19458,7 @@ ul.list-bv >li >div {
 	}
 	
 	.ds-tin a >img {
-		width: 280px; 
+		width: 250px; 
 		height: 150px;
 		border-radius: 5px;
 	}
@@ -19529,7 +19529,7 @@ ul.list-bv >li >div {
 		margin-top: -10px;
 	}
 	.ds-tin a >img {
-		width: 280px; 
+		width: 250px; 
 		height: 150px;
 		border-radius: 5px;
 	}
@@ -19602,7 +19602,7 @@ ul.list-bv >li >div {
 	}
 
 	.ds-tin a >img {
-		width: 280px; 
+		width: 250px; 
 		height: 150px;
 		border-radius: 5px;
 	}
@@ -20143,4 +20143,72 @@ ul.nav >li >a#dangnhap-dky{
   }
   .cv_title {
   	display: none;
+  }
+
+  .loadBenh {
+  	background: #f3f3f3;
+  }
+  .ds-benh{
+  	margin-left: 10px; 
+  	width: 23%;
+  	margin-bottom: 10px;
+  }
+  .ds-benh li {
+  	list-style-type: disc;
+  }
+  .boxlink {
+  	display: grid;
+  	overflow: hidden;
+  	background: #f0f7fe;
+  	padding: 10px;
+  	
+  }
+  article h3 {
+  	display: block;
+  	padding: 5px 10px;
+  	position: relative;
+  	line-height: 22px;
+  	font-size: 18px;
+  	font-weight: bold;
+  	margin-top: 10px;
+  }
+  article img {
+  	width: 100%;
+  	height: auto;
+  }
+  article .title {
+  	display: block;
+  	font-size: 18px;
+  	color: #333;
+  	font-weight: 600;
+  	padding: 10px;
+  	margin-top: 10px;
+  }
+  article p.imgwrap {
+  	padding: 5px 0;
+  }
+  article p, article>h2, article>h3 {
+  	display: block;
+  	overflow: hidden;
+  	line-height: 22px;
+  }
+  .boxnote {
+  	display: block;
+  	overflow: hidden;
+  	background: #fffba2;
+  	padding: 10px 10px 10px;
+  	border: 1px dashed #25abe0;
+  	margin: 10px;
+  }
+  .timepost {
+  	display: block;
+  	overflow: hidden;
+  	margin: 10px;
+  }
+  article a.doctor {
+  	display: block;
+  	padding: 0 10px 15px 10px;
+  }
+  article a {
+  	color: #0064c2;
   }

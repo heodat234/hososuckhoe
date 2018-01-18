@@ -17,21 +17,20 @@
           <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
             <div class="col-md-9 col-sm-12 col-lg-9 col-xs-12 no-pad ">
               <div>
-                <h3 class=""><?php echo $benhvien1['ten'] ?></3>
+                <h3 class=""><?php echo $benhvien1['name'] ?></3>
               </div>
               <div class="img-news" style="text-align: center;">
-                <img width="60%" src="<?php echo base_url().'images/benhvien/'.$benhvien1['anh'] ?>">
+                <img style="width: 40%;" src="<?php echo json_decode($benhvien1['image'],true)[0]['src'] ?>">
               </div>
               <div class="gioithieu-bv" >
-                <div><i class="fa fa-phone"></i><a href=""> <?php echo $benhvien1['so_dienthoai'] ?></a></div>
-                <div><i class="fa fa-map-marker"></i> <?php echo $benhvien1['dia_chi'] ?></div>
-                <div><i class="fa fa-clock-o"></i> <?php echo $benhvien1['gio_lamviec'] ?></div>
-                <div><i class="glyphicon glyphicon-globe"></i><a href="<?php echo $benhvien1['website'] ?>"> <?php echo $benhvien1['website'] ?></a></div>
+                <div><i class="fa fa-phone"></i><a href=""> <?php echo $benhvien1['tel'] ?></a></div>
+                <div><i class="fa fa-map-marker"></i> <?php echo $benhvien1['address'] ?></div>
+                <div><i class="fa fa-clock-o"></i> <?php echo $benhvien1['short_desc'] ?></div>
+                <div><i class="glyphicon glyphicon-globe"></i><a href="<?php echo $benhvien1['web_site'] ?>"> <?php echo $benhvien1['web_site'] ?></a></div>
               </div>
               <div id="map" style="height:400px; width:100%"></div>
               <div class="content-news">
-                <div>Giới thiệu</div>
-                <h5><?php echo $benhvien1['description'] ?></h5>
+                <?php echo $gioithieu ?>
               </div> 
               <div class="cmt-news">
                 Bình luận
@@ -40,12 +39,12 @@
             <div class="col-md-3 col-sm-12 col-lg-3 col-xs-12 right">
               <div>
                 <div class="heading">
-                  <h4 class="head"><i class="fa fa-folder-o" style="color: #f26529;"></i> Danh mục tin tức</h4>
+                  <h4 class="head"><i class="fa fa-folder-o" style="color: #f26529;"></i> Danh sách bệnh viện</h4>
                 </div>
                 <div>
                   <ul class="list-categories list-categories_widget list-bv">
                     <?php foreach ($benhvien as $bv): ?>
-                      <li><a href="<?php echo base_url().'benhvien/'.$bv['id']?>"><span class="list-categories__name"><?php echo $bv['ten'] ?></span></a></li>
+                      <li><a href="<?php echo base_url().'benhvien/'.$bv['id']?>"><span class="list-categories__name"><?php echo $bv['name'] ?></span></a></li>
                     <?php endforeach ?>
                   </ul>
                 </div>

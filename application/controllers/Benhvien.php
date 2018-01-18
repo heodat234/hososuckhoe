@@ -41,13 +41,14 @@ class Benhvien extends CI_Controller {
 		$mdata['benhvien']		= $this->BenhVien_model->selectBV();
 		$mdata['benhvien1']		= $this->BenhVien_model->selectBV_by_Id($id);
 		
-		$ten = $mdata['benhvien1']['ten'];
+		$ten = $mdata['benhvien1']['name'];
 		$ten = to_slug($ten);
 		$ten = str_replace( '-', '+', $ten );
 		$map = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?address=$ten&sensor=false");
 		$map = json_decode($map,true);
 		$location = $map['results'][0]['geometry']['location'];
 		$mdata['toado'] = $location;
+		$mdata['gioithieu'] = json_decode($mdata['benhvien1']['article'],true)[0];
 
 		$data['bv']			= 'active';
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
