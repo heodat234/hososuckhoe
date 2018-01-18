@@ -19,7 +19,7 @@
           <img src="<?php echo base_url() ?>images/thuoc/thuoc.jpg">
         </div>
         <div style="float: right; width: 60%; padding-left: 60px;">
-        <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+        <p>  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
          <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
           <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
         </div>
@@ -30,27 +30,23 @@
            </div>
            <div >
               <h2>Flomate 80mg</h2>
-              <ul>
-                <li style="border-bottom: 1px solid #ddd;margin-bottom: 5px">
-                  <div>
-                    <div class="col-md-3">
-                      <h5>hdgcyfgy</h5>
-                  </div>
-              <div class="col-md-9">
-                <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-              </div>
-                  </div>
-                   
-                </li>
-                <li style="border-bottom: 1px solid #ddd">
-                   <div style="float: left; width: 20%">
-                      <h5>hdgcyfgy</h5>
-                  </div>
-              <div style="float: right; width: 80%">
-                <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-              </div>
-                </li>
-              </ul>
+                  <table class="table">
+                  <tbody>
+                     <td>Mark</td>
+                     <td>Otto</td>
+                   <tr>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                  </tr>
+                  <tr>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                  </tr>
+                  <tr>
+                    
+                  </tr>
+                </tbody>
+              </table>
              
            </div>
          </div>

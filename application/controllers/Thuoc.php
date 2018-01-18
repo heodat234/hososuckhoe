@@ -65,7 +65,7 @@ class Thuoc extends CI_Controller {
 		
 		$data['thuoc']			= 'active';
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
-        $this->_data['html_body'] 	= $this->load->view('page/chitietthuoc', null, TRUE);
+        $this->_data['html_body'] 	= $this->load->view('page/chitietbenh', null, TRUE);
         return $this->load->view('home/master', $this->_data);
 	}
 
