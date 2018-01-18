@@ -22,13 +22,14 @@ class Thuoc extends CI_Controller {
 	{
 		$config['total_rows'] 	= $this->Thuoc_model->countAll();
         $config['base_url'] 	= base_url()."/thuoc/index";
-        $config['per_page'] 	= 8;
+        $config['per_page'] 	= 16;
         $config['next_link'] 	= "Trước";
   		$config['prev_link'] 	= "Sau";
   		$config['num_links'] 	= 5;
-        $start 					=$this->uri->segment(3);
+        $start 					= $this->uri->segment(3);
         $this->load->library('pagination', $config);
-        $mdata['benhvien'] 		= $this->Thuoc_model->getThuoc($config['per_page'], $start);
+        $mdata['thuocs'] 		= $this->Thuoc_model->getThuoc($config['per_page'], $start);
+
         $mdata['phantrang'] 	=  $this->pagination->create_links();
 		$mdata['loai_thuoc'] 	= $this->Thuoc_model->selectLoaiThuoc();
 
@@ -41,20 +42,21 @@ class Thuoc extends CI_Controller {
 	{
 
 		$config['total_rows'] 	= $this->Thuoc_model->countIdLoai($idLoai);
-        $config['base_url'] 	= base_url()."/thuoc/thuocByIdLoai";
-        $config['per_page'] 	= 8;
+        $config['base_url'] 	= base_url()."/thuoc/thuocByIdLoai/".$idLoai."/";
+        $config['per_page'] 	= 16;
         $config['next_link'] 	= "Trước";
   		$config['prev_link'] 	= "Sau";
   		$config['num_links'] 	= 5;
-        $start 					=$this->uri->segment(3);
+        $start 					=$this->uri->segment(4);
         $this->load->library('pagination', $config);
-        $mdata['benhvien'] 		= $this->Thuoc_model->getThuocByIdLoai($idLoai,$config['per_page'], $start);
+        $mdata['thuocs'] 		= $this->Thuoc_model->getThuocByIdLoai($idLoai,$config['per_page'], $start);
         $mdata['phantrang'] 	=  $this->pagination->create_links();
 		$mdata['loai_thuoc'] 	= $this->Thuoc_model->selectLoaiThuoc();
+		$mdata['id_Loai']		= $idLoai;
 
 		$data['thuoc']			= 'active';
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
-        $this->_data['html_body'] 	= $this->load->view('page/thuoc', $mdata, TRUE);
+        $this->_data['html_body'] 	= $this->load->view('page/listThuoc', $mdata, TRUE);
         return $this->load->view('home/master', $this->_data);
 	}
 	public function thuocById($id)

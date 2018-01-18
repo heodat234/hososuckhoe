@@ -31,7 +31,7 @@ class BacSi extends CI_Controller {
         $mdata['bacsi'] = $this->Bacsi_model->getBS($config['per_page'], $start);
         $mdata['phantrang'] =  $this->pagination->create_links();
 		$mdata['noibat'] = $this->Bacsi_model->selectBS();
-		$data['bv']			= 'active';
+		$data['bs']			= 'active';
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
         $this->_data['html_body'] 	= $this->load->view('page/listBacsi', $mdata, TRUE);
         return $this->load->view('home/master', $this->_data);

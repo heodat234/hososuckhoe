@@ -9332,7 +9332,6 @@ a:focus {
 .about-intro-wrap {
 				width: 100%;
 				height: auto;
-				background: url(../images/strip-shadow.png) no-repeat top center, url(../images/inner-content-back.jpg) repeat-x top #fff
 }
 
 .intro-content-wrap img {
@@ -19341,7 +19340,9 @@ h4.great {
 	/*border-bottom: 1px solid #eee;*/
 	transition: all 0.3s;
 }
-
+.list-categories li.active {
+	background: #ccc;
+}
 ul.list-bv >li {
 	border-bottom: 1px solid #f3f3f3;
 	min-height: 40px;
@@ -20025,7 +20026,7 @@ ul.nav >li >a#dangnhap-dky{
 }
 .item-thuoc{
 	 border: 1px solid #ddd;
-	 width: 30%; 
+	 /*width: 30%; */
 	 height: 265px; 
 	 text-align: center;
 }

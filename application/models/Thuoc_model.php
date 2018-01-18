@@ -2,7 +2,7 @@
 class Thuoc_model extends CI_Model{
 	
 	/* Gán tên bảng cần xử lý*/
-	private $_name = 'thuoc';
+	private $_name = 'drug';
 	
 	function __construct(){
         parent::__construct();
@@ -11,17 +11,17 @@ class Thuoc_model extends CI_Model{
     } 
     
     public function countAll(){
-        $query=$this->db->get("thuoc");
+        $query=$this->db->get($this->_name);
         return $query->num_rows(); 
     }
     public function countIdLoai($id){
-        $this->db->where('id_loai_thuoc',$id);
-        $query=$this->db->get("thuoc");
+        $this->db->where('id_type',$id);
+        $query=$this->db->get($this->_name);
         return $query->num_rows(); 
     }
     public function getThuoc($total, $start){
        $this->db->limit($total, $start);
-       $query=$this->db->get("thuoc");
+       $query=$this->db->get($this->_name);
        return $query->result_array();
     }
     
@@ -41,7 +41,7 @@ class Thuoc_model extends CI_Model{
 
     public function search_data($key)
     {
-      $sql = "SELECT * FROM `thuoc` WHERE ten LIKE '%$key%'";
+      $sql = "SELECT * FROM `drug` WHERE ten LIKE '%$key%'";
       $query = $this->db->query($sql); 
       return $query->result_array();
     }
@@ -50,12 +50,12 @@ class Thuoc_model extends CI_Model{
     public function selectLoaiThuoc()
     {
         $this->db->select();
-        $query = $this->db->get('nhom_thuoc');
+        $query = $this->db->get('loai_thuoc');
         return $query->result_array();
     }
     public function getThuocByIdLoai($idLoai, $total, $start){
-       $this->db->where('id_loai_thuoc',$idLoai)->limit($total, $start);
-       $query=$this->db->get("thuoc");
+       $this->db->where('id_type',$idLoai)->limit($total, $start);
+       $query=$this->db->get($this->_name);
        return $query->result_array();
     }
     // // thêm lượt xem
