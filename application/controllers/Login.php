@@ -213,8 +213,8 @@ class Login extends CI_Controller {
 	{
 		$cb = base_url()."Login/callback";
 		$fb = new Facebook\Facebook([
-          'app_id' => '1835738986453711',
-          'app_secret' => '43e5c2d04ac4d93baf4d39d0f91b5def',
+          'app_id' => '1981709738820610',
+          'app_secret' => '4f145f787c59c88edc329e2cbabd457e',
           'default_graph_version' => 'v2.5',
         ]);
 
@@ -231,8 +231,8 @@ class Login extends CI_Controller {
 	{
 		$cb = base_url()."Login/callback";
 		$fb = new Facebook\Facebook([
-        'app_id' => '1835738986453711',
-          'app_secret' => '43e5c2d04ac4d93baf4d39d0f91b5def',
+        'app_id' => '1981709738820610',
+          'app_secret' => '4f145f787c59c88edc329e2cbabd457e',
         'default_graph_version' => 'v2.5',
         ]);
         

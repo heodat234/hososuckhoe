@@ -30,7 +30,8 @@
                                     </li>
                                     <li class="<?php echo isset($bv)? $bv : '' ?>"><a href="<?php echo base_url() ?>benhvien.html" class="<?php echo isset($bv)? $bv : '' ?>" ><i class="icon-cog"></i>Bệnh viện</a>
                                     </li>
-                                  
+                                    <li class="<?php echo isset($bs)? $bs : '' ?>"><a href="<?php echo base_url() ?>bacsi.html" class="<?php echo isset($bs)? $bs : '' ?>" ><i class="icon-cog"></i>Bác sĩ</a>
+                                    </li>
                                     
                                     <li class="<?php echo isset($thanhvien)? $thanhvien : '' ?>"><a href="<?php echo base_url() ?>thanhvien.html" class="<?php echo isset($thanhvien)? $thanhvien : '' ?>"><i class="icon-pencil"></i>Thành viên</a>
                                     </li>

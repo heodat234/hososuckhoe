@@ -68,7 +68,8 @@ class Welcome extends CI_Controller {
 		$adata['csrf'] = $csrf;
 
 
-   		$key 		= $this->input->post('search');
+   		$key 			= $this->input->post('search');
+
    		if ($key == '') {
    			$adata['benhvien'] = '';
    			$adata['thuocs'] = '';
@@ -79,6 +80,55 @@ class Welcome extends CI_Controller {
 	   		$adata['thuocs'] 	= $this->Thuoc_model->search_data($key);
 	   		$adata['bacsi'] 	= $this->Bacsi_model->search_data($key);
 	   		$adata['tintuc'] 	= $this->News_model->search_data($key);
+	   	}
+   		$this->_data['html_header'] = $this->load->view('home/header', NULL, TRUE);
+        $this->_data['html_body'] 	= $this->load->view('page/pageSearch', $adata, TRUE);
+        return $this->load->view('home/master', $this->_data);
+   	}
+
+   	public function pageSearchChitiet()
+   	{
+   		$csrf = array(
+        'name' => $this->security->get_csrf_token_name(),
+        'hash' => $this->security->get_csrf_hash()
+		);
+		$adata['csrf'] = $csrf;
+
+
+   		$key 			= $this->input->post('search');
+   		$check_thuoc 	= $this->input->post('check_thuoc');
+   		$check_bv 		= $this->input->post('check_bv');
+   		$check_bs 		= $this->input->post('check_bs');
+   		$check_tin 		= $this->input->post('check_tin');
+
+   		
+   		if ($key == '') {
+   			$adata['benhvien'] = '';
+   			$adata['thuocs'] = '';
+   			$adata['bacsi'] = '';
+   			$adata['tintuc'] = '';
+   		}else{
+   			if (isset($check_thuoc) && $check_thuoc == 'check1') {
+   				$adata['thuocs'] 		= $this->Thuoc_model->search_data($key);
+   			}else{
+   				$adata['hideThuoc']  	= 'hide';
+   			}
+   			if (isset($check_bv) && $check_bv == 'check2') {
+   				$adata['benhvien'] 		= $this->BenhVien_model->search_data($key);
+   			}else{
+   				$adata['hideBv']  		= 'hide';
+   			}
+   			if (isset($check_bs) && $check_bs == 'check3') {
+   				$adata['bacsi'] 		= $this->Bacsi_model->search_data($key);
+   			}else{
+   				$adata['hideBs']  		= 'hide';
+   			}
+   			if (isset($check_tin) && $check_tin == 'check4') {
+   				$adata['tintuc'] 		= $this->News_model->search_data($key);
+   			}else{
+   				$adata['hideTin']  		= 'hide';
+   			}
+	   	
 	   	}
    		$this->_data['html_header'] = $this->load->view('home/header', NULL, TRUE);
         $this->_data['html_body'] 	= $this->load->view('page/pageSearch', $adata, TRUE);
