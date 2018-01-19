@@ -6633,7 +6633,7 @@ button.close {
 
 .carousel-indicators {
 				position: absolute;
-				bottom: 10px;
+				bottom: -30px;
 				left: 50%;
 				z-index: 15;
 				width: 60%;
@@ -6649,7 +6649,7 @@ button.close {
 				height: 10px;
 				margin: 1px;
 				text-indent: -999px;
-				border: 1px solid #fff;
+				border: 1px solid #ddd;
 				border-radius: 10px;
 				cursor: pointer;
 				background-color: #000 \9;
@@ -6660,7 +6660,7 @@ button.close {
 				margin: 0;
 				width: 12px;
 				height: 12px;
-				background-color: #fff
+				background-color: #128ee1
 }
 
 .carousel-caption {
@@ -6696,9 +6696,7 @@ button.close {
 								right: 20%;
 								padding-bottom: 30px
 				}
-				.carousel-indicators {
-								bottom: 20px
-				}
+				
 }
 
 .clearfix:before,
@@ -10670,7 +10668,7 @@ a:focus {
 				position: relative;
 				overflow: hidden;
 				width: 100%;
-				border: 1px solid #e6e7e8
+				/*border: 1px solid #e6e7e8*/
 }
 
 .well .carousel-inner {
@@ -19414,7 +19412,7 @@ ul.list-bv >li >div {
 	margin-top: 10px;
 	width: 98%;
 }
-.content-news div{
+.content-news div.title{
 	padding: 5px 10px; 
 	background-color: #128ee1; 
 	color: #fff;
@@ -19434,7 +19432,7 @@ ul.list-bv >li >div {
 
 @media (min-width: 1200px)  {
 	.dept-author-img-desk {
-		width: 118px;
+		width: 112px;
 	}
 	.subtitle div.title-b {
 		margin-top: -17px;
@@ -20187,6 +20185,14 @@ ul.nav >li >a#dangnhap-dky{
   	padding: 10px;
   	margin-top: 10px;
   }
+  article .title .dropcap {
+  	font-size: 50px;
+    font-weight: 600;
+    color: #0064c2;
+    display: inline-block;
+    vertical-align: middle;
+    width: 10%
+  }
   article p.imgwrap {
   	padding: 5px 0;
   }
@@ -20212,6 +20218,20 @@ ul.nav >li >a#dangnhap-dky{
   	display: block;
   	padding: 0 10px 15px 10px;
   }
+  article a.doctor>img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+	}
   article a {
   	color: #0064c2;
   }
+.short-desc {
+	display: grid;
+}
+
+
+img.slide-thuoc {width:60%; margin-left: 20%}
+.carousel .item {-webkit-transition: opacity 3s; -moz-transition: opacity 3s; -ms-transition: opacity 3s; -o-transition: opacity 3s; transition: opacity 3s;}
+.carousel .active.left {left:0;opacity:0;z-index:2;}
+.carousel .next {left:0;opacity:1;z-index:1;}

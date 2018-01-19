@@ -64,6 +64,13 @@ class Benh_model extends CI_Model{
         $query = $this->db->get('type_sick');
         return $query->row_array();
     }
+
+    public function selectBenh_by_IdType($id_type)
+    {
+        $this->db->select()->where("id_type", $id_type)->limit(5);
+        $query = $this->db->get($this->_name);
+        return $query->result_array();
+    }
     // // thêm lượt xem
     // public function updateView($data)
     // {
