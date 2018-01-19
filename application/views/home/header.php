@@ -35,7 +35,7 @@
                                     
                                     <li class="<?php echo isset($benh)? $benh : '' ?>"><a href="<?php echo base_url() ?>benh.html" class="<?php echo isset($benh)? $benh : '' ?>"><i class="icon-pencil"></i>Bệnh</a>
                                     </li>
-                                     <li class="<?php echo isset($thuoc)? $thuoc : '' ?>"><a href="<?php echo base_url() ?>thuoc.html" class="<?php echo isset($thuoc)? $thuoc : '' ?>"><i class="icon-pencil"></i>Tìm thuốc</a>
+                                     <li class="<?php echo isset($thuoc)? $thuoc : '' ?>"><a href="<?php echo base_url() ?>thuoc.html" class="<?php echo isset($thuoc)? $thuoc : '' ?>"><i class="icon-pencil"></i>Thuốc</a>
                                     </li>
                                     
                                     <?php if($this->session->has_userdata('user') && $this->session->userdata('user')['group'] == '0') { ?>
