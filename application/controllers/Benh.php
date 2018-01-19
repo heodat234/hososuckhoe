@@ -49,7 +49,10 @@ class Benh extends CI_Controller {
 	public function benhById($id)
 	{
 		$mdata['benh']		= $this->Benh_model->selectBenh_by_Id($id);
-		$desc 		= json_decode($mdata['benh']['article']);
+		$id_type 			= $mdata['benh']['id_type'];
+		$mdata['tuongtu']	= $this->Benh_model->selectBenh_by_IdType($id_type);
+		$desc 		= json_decode($mdata['benh']['article'],true);
+		
 		$mdata['desc'] = $desc[0];
 		$data['benh']			= 'active';
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  

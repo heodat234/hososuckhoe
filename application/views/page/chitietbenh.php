@@ -25,13 +25,14 @@
     <div class="col-md-4 col-sm-12 col-lg-4 col-xs-12 right">
       <div>
         <div class="heading">
-          <h2>Các bệnh đang được quan tâm</h2>
-          <p> Tăng men gan</p>
-          <p> Sơ vữa động mạch</p>
-          <p> Thiếu máu cơ tim</p>
+          <h2>Các bệnh liên quan</h2>
         </div>
         <div>
-
+          <ul class="list-categories list-categories_widget list-bv">
+            <?php foreach ($tuongtu as $tt): ?>
+              <li><a href="<?php echo base_url().'benh/'.$tt['id']?>"><span class="list-categories__name"><?php echo $tt['name'] ?></span></a></li>
+            <?php endforeach ?>
+          </ul>
         </div>
       </div>
     </div>
@@ -40,3 +41,17 @@
 </div>
 </div>
 </section>
+<script type="text/javascript">
+
+  
+   var x = document.getElementsByClassName("lazy");
+   // console.log( x.data('original'));
+
+   for (var i = 0; i < x.length; i++) {
+    var url = x[i].attributes.getNamedItem('data-original').value;
+    x[i].setAttribute('src', url);
+   }
+   // console.log();
+   // console.log($(this).children('img').attr('src'));
+  
+</script>

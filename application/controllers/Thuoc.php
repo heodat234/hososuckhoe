@@ -61,11 +61,16 @@ class Thuoc extends CI_Controller {
 	}
 	public function thuocById($id)
 	{
-		//$mdata['thuoc']		= $this->Thuoc_model->selectThuoc_by_Id($id);
-		
+		$mdata['thuoc']		= $this->Thuoc_model->selectThuoc_by_Id($id);
+		$id_type 			= $mdata['thuoc']['id_type'];
+		$mdata['tuongtu']	= $this->Thuoc_model->selectThuoc_by_IdType($id_type);
+
+		$mdata['anh'] 		= json_decode($mdata['thuoc']['image'],true);
+		$content 			= json_decode($mdata['thuoc']['article'],true);
+		$mdata['content']	= $content;
 		$data['thuoc']			= 'active';
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
-        $this->_data['html_body'] 	= $this->load->view('page/chitietbenh', null, TRUE);
+        $this->_data['html_body'] 	= $this->load->view('page/chitietthuoc', $mdata, TRUE);
         return $this->load->view('home/master', $this->_data);
 	}
 
