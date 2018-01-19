@@ -17512,6 +17512,9 @@ input[type="date"] {
 #doctor-second-style .detail-line-height {
 				line-height: 1px
 }
+#imedica-dep-accordion{
+	font-size: 18px;
+}
 
 #doctor-second-style .close-btn1 {
 				display: inline-block;
