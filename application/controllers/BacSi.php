@@ -47,18 +47,8 @@ class BacSi extends CI_Controller {
 		}else{
 			$mdata['image'] = base_url().'images/profile.png';
 		}
-		$thongtin =  json_decode($mdata['bacsi']['article'],true);
-		$chucvu = $thongtin[0];
-		// var_dump($chucvu);
-		$mdata['chucvu'] = str_replace('Chức vụ', '', $chucvu);
-		$noilam = $thongtin[1];
-		$mdata['noilam'] = str_replace('Nơi công tác', '', $noilam);
-		$kinhnghiem = $thongtin[2];
-		$mdata['kinhnghiem'] = str_replace('Kinh nghiệm', '', $kinhnghiem);
-		$giaithuong = $thongtin[3];
-		$mdata['giaithuong'] = str_replace('Giải thưởng-ghi nhận', '', $giaithuong);
-		$daotao = $thongtin[4];
-		$mdata['daotao'] = str_replace('Quá trình đào tạo', '', $daotao);
+		$mdata['content']       = json_decode($mdata['bacsi']['article'],true);
+		// var_dump($mdata['content']  );
 
 		$mdata['cate_bacsi']		= $this->Bacsi_model->selectBS($id);
 

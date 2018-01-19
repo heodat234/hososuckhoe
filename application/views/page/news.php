@@ -1,3 +1,14 @@
+<style type="text/css">
+  .content-news h2 {
+    font-size: 14px;
+        display: block;
+    overflow: hidden;
+    background: #fffba2;
+    padding: 10px;
+    border: 1px dashed #25abe0;
+    line-height: 22px;
+  }
+</style>
 <div>
   <div class="about-intro-wrap pull-left">
     <div class="bread-crumb-wrap ibc-wrap-1">
@@ -19,19 +30,8 @@
               <div style="margin-bottom: 40px">
                 <h3 class=""><?php echo $tintuc['title'] ?></h3>
               </div>
-              <div class="col-md-2 col-sm-12 col-lg-2 col-xs-12 no-pad ">
-                <ul class="entry-meta clearfix">
-                  <li><a href=""><i class="fa fa-user"></i> Admin</a></li>
-                  <li><a href=""><i class="fa fa-calendar"></i>  <?php echo date('d-m-Y',strtotime($tintuc['created_at'])) ?> </a></li>
-                  <li><a href=""><i class="fa fa-eye"></i>  <?php echo number_format($tintuc['view']+1) ?></a></li>
-                </ul>
-              </div>
-              
-              <div class="img-news col-md-9 col-sm-12 col-lg-9 col-xs-12 col-md-offset-1 no-pad" style="margin-bottom: 40px">
-                <img class="img-responsive" width="100%" src="<?php echo base_url().'images/tintuc/'.$tintuc['image'] ?>">
-              </div>
               <div class="content-news">
-                <p><?php echo $tintuc['content'] ?></p>
+                <p><?php echo $content[0]; ?></p>
               </div> 
               <div class="cmt-news">
                 <div class="fb-comments" data-href="http://hososuckhoe.org/staging/" data-width="100%" data-numposts="5"></div>
@@ -71,4 +71,11 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  var x = document.getElementsByClassName("lazy");
 
+   for (var i = 0; i < x.length; i++) {
+    var url = x[i].attributes.getNamedItem('data-original').value;
+    x[i].setAttribute('src', url);
+   }
+</script>

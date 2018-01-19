@@ -1,3 +1,8 @@
+<style type="text/css">
+  .cv-title {
+    display: block;
+  }
+</style>
 <div>
   <div class="about-intro-wrap pull-left">
     <div class="bread-crumb-wrap ibc-wrap-1">
@@ -26,26 +31,13 @@
                 <div><h4>chuyên khoa: <b><?php echo $bacsi['branch'] ?></b></h4></div>
                 <div><p><?php echo $bacsi['short_desc'] ?></p></div>
               </div>
-              <div class="content-news">
-                <div>Chức vụ</div>
-                <?php echo $chucvu ?>
-              </div>
-              <div class="content-news">
-                <div>Nơi công tác</div>
-                <?php echo $noilam ?>
-              </div> 
-              <div class="content-news">
-                <div>Kinh nghiệm</div>
-                <?php echo $kinhnghiem ?>
-              </div>
-              <div class="content-news">
-                <div>Giải thưởng-ghi nhận</div>
-                <?php echo $giaithuong ?>
-              </div>
-              <div class="content-news">
-                <div>Quá trình đào tạo</div>
-                <?php echo $daotao ?>
-              </div>
+              <?php foreach ($content as $key => $value): ?>
+                <div class="content-news">
+                  <?php echo $value ?>
+                </div>
+              <?php endforeach ?>
+              
+              
               <div class="clearfix"></div>         
             </div>
             <div class="col-md-3 col-sm-12 col-lg-3 col-xs-12 right">

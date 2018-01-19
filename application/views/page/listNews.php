@@ -17,7 +17,7 @@
           <ul>
             <?php foreach ($category as $tintuc): ?>
               <li class="ds-tin" >
-                    <a href="<?php echo base_url().'tintuc/'.$tintuc['id']?>"><img style=""  class="img-responsive" src="<?php echo base_url().'images/tintuc/'.$tintuc['image'] ?>"></a>
+                    <a href="<?php echo base_url().'tintuc/'.$tintuc['id']?>"><img style=""  class="img-responsive" src="<?php echo json_decode($tintuc['image'],true)[0]['data-original'] ?>"></a>
                   <div class="ds-tin-content" >
                     <div><h3><a href="<?php echo base_url().'tintuc/'.$tintuc['id']?>"><?php echo $tintuc['title'] ?></a></h3></div>
                     <div>
@@ -26,7 +26,7 @@
                       </h5>
                     </div>
                     <div>
-                      <p><?php echo word_limiter($tintuc['description'],30) ?></p>
+                      <p><?php echo word_limiter($tintuc['short_desc'],30) ?></p>
                     </div>
                   </div>
               </li>
@@ -46,7 +46,7 @@
                 <?php foreach ($noibat as $tt): ?>
                     <div class="img-noibat" >
                       <a href="<?php echo base_url().'tintuc/'.$tt['id']?>">
-                        <img width="100%"  src="<?php echo base_url().'images/tintuc/'.$tt['image'] ?>">
+                        <img width="100%"  src="<?php echo json_decode($tt['image'],true)[0]['data-original'] ?>">
                       </a>
                     </div>
                     

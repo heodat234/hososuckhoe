@@ -27,7 +27,8 @@ class News extends CI_Controller {
         $mdata['category'] = $this->News_model->getNews($config['per_page'], $start);
         $mdata['phantrang'] =  $this->pagination->create_links();
 		$mdata['noibat'] = $this->News_model->selectTintucNoiBat();
-
+		// $m = json_decode($mdata['noibat'][0]['image'],true);
+		// print_r($m);
 		$data['new']			= 'active';
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
 
@@ -42,6 +43,7 @@ class News extends CI_Controller {
 	{
 		$mdata['category']		= $this->News_model->selectTintuc();
 		$mdata['tintuc']		= $this->News_model->selectTintuc_by_Id($id);
+		$mdata['content']       = json_decode($mdata['tintuc']['article'],true);
 		$view = $mdata['tintuc']['view'] + 1;
 		$dk = array('id' =>$id , 'view'=>$view );
 		$this->News_model->updateView($dk);

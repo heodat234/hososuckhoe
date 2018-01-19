@@ -60,7 +60,7 @@
                         <?php for($i = 0; $i<2;$i++): ?>
                             <div class="post-item-wrap pull-left col-sm-6 col-md-12 col-xs-12">
                                 <?php if (isset( $tintuc[$i])){ ?>
-                                    <img src="<?php echo base_url() ?>images/tintuc/<?php echo $tintuc[$i]['image'] ?>" class="img-responsive post-author-img" alt="" />
+                                    <img src="<?php echo json_decode($tintuc[$i]['image'],true)[0]['data-original'] ?>" class="img-responsive post-author-img" alt="" />
                                     <div class="post-content1 pull-left col-md-8 col-sm-7 col-xs-7">
                                         <div class="post-title pull-left"><a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id']?>"><?php echo $tintuc[$i]['title'] ?></a></div>
                                         <div class="post-meta-top pull-left">
@@ -71,7 +71,7 @@
                                         </div>
                                     </div>
                                     <div class="post-content2 pull-left">                   
-                                        <p><?php echo $tintuc[$i]['description'] ?><br />
+                                        <p><?php echo $tintuc[$i]['short_desc'] ?><br />
                                             <span class="post-meta-bottom"><a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id']?>">Xem tiếp ...</a></span>
                                         </p>
                                     </div>
