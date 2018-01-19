@@ -9026,7 +9026,10 @@ label.error {
 				margin: 4px 8px 0 0;
 				line-height: 31px
 }
-
+.dropcap{
+	font-size: 40px;
+	color: #2190c7;
+}
 .dropcap-three {
 				display: block;
 				color: #107fc9;
@@ -20159,7 +20162,7 @@ ul.nav >li >a#dangnhap-dky{
   	overflow: hidden;
   	background: #f0f7fe;
   	padding: 10px;
-  	
+  	font-size: 13px;
   }
   article h3 {
   	display: block;
