@@ -40,7 +40,7 @@
                                     
                                     <?php if($this->session->has_userdata('user') && $this->session->userdata('user')['group'] == '0') { ?>
                                         <li class="dropdown <?php echo isset($pageHoso)? $pageHoso : '' ?>">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dangnhap-dky">
                                                 
                                                 <?php if ($this->session->userdata('user')['avatar'] == ''){ ?>
                                                   <img class="profile-image" style="width: 35px; margin-top: -7px;" src="<?php echo base_url() ?>images/profile.png">
@@ -58,7 +58,7 @@
                                         </li>
                                     <?php }else if ($this->session->has_userdata('user') && $this->session->userdata('user')['group'] != '0') { ?>
                                         <li class="dropdown <?php echo isset($pageHoso)? $pageHoso : '' ?>">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dangnhap-dky">
                                                 
                                                  <?php if ($this->session->userdata('user')['avatar'] == ''){ ?>
                                                   <img class="profile-image" style="width: 35px; margin-top: -7px;" src="<?php echo base_url() ?>images/profile.png">
