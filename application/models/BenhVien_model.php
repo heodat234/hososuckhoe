@@ -41,7 +41,7 @@ class Benhvien_model extends CI_Model{
 
     public function search_data($key)
     {
-      $sql = "SELECT * FROM `hospital` WHERE ten LIKE '%$key%'";
+      $sql = "SELECT * FROM `hospital` WHERE name LIKE '%$key%'";
       $query = $this->db->query($sql); 
       return $query->result_array();
     }

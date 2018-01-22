@@ -13,46 +13,18 @@
     </div>
     <div id="shortcode-12">
       <div class="container body-list">
-        <div class="col-md-8 col-sm-12 col-lg-8 col-xs-12 left body-ds-tin thongtin-thuoc">
-          <h3><?php echo $thuoc['title'] ?></h3>
-
-          <div class="carousel-wrapper">
-            <div id="hero-carousel" class="carousel slide carousel-fade">
-              <ol class="carousel-indicators">
-                <li data-target="#hero-carousel" data-slide-to="0" class="active"></li>
-                <?php for($i = 1 ; $i< count($anh);$i++): ?>
-                  <li data-target="#hero-carousel" data-slide-to="<?php echo $i ?>"></li>
-                <?php endfor ?>
-              </ol>
-              <div class="carousel-inner">
-                <div class="item active">
-                  <img class="slide-thuoc" src="<?php echo $anh[0]['src'] ?>">
-                </div>
-                <?php for($i = 1 ; $i< count($anh);$i++): ?>
-                  <div class="item">
-                    <img class="slide-thuoc" src="<?php echo $anh[$i]['data-src'] ?>">
-                  </div>
-                <?php endfor ?>
-                
-              </div>
-              <a class="left carousel-control" href="#hero-carousel" data-slide="prev">
-                <i class="fa fa-chevron-left left"></i>
-              </a>
-              <a class="right carousel-control" href="#hero-carousel" data-slide="next">
-                <i class="fa fa-chevron-right right"></i>
-              </a>
-            </div>
+        <div class="col-md-8 col-sm-12 col-lg-8 col-xs-12 no-pad body-ds-tin">
+          <div>
+            <h3 class=""><?php echo $thuoc['title'] ?></h3>
           </div>
-        
-          <div >
-            <span style="color: red; font-size: 20px"><?php echo $thuoc['price']?></span><?php echo $thuoc['unit'] ?>
-          </div >
-          <div class="short-desc"><?php echo $thuoc['short_desc'] ?></div>
-          <?php foreach ($content as $ct): ?>
-            <div class="content-news"><?php echo $ct ?></div>
-          <?php endforeach ?>
           
-
+          <?php foreach ($content as $key => $value): ?>
+                <div class="content-news">
+                  <?php echo $value ?>
+                </div>
+              <?php endforeach ?>
+       
+                     
         </div>
         
         <div class="col-md-4 col-sm-12 col-lg-4 col-xs-12 right">
@@ -88,8 +60,5 @@
 </div>
 </section>
 <script>
-  $('.carousel').carousel({
-    interval: 3000,
-    pause: false
-  })
+  
 </script>

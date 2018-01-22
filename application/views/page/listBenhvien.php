@@ -15,9 +15,15 @@
       <div class="container body-list">
         <div class="col-md-8 col-sm-12 col-lg-8 col-xs-12 left body-ds-tin"  >
           <ul>
-            <?php foreach ($benhvien as $bv): ?>
+            <?php foreach ($benhvien as $bv):
+            $headers = @get_headers(json_decode($bv['image'],true)[0]['src']); ?>
               <li class="ds-tin" >
-                    <a href="<?php echo base_url().'benhvien/'.$bv['id']?>"><img style=""  class="img-responsive" src="<?php echo json_decode($bv['image'],true)[0]['src'] ?>"></a>
+                  <?php if ($headers == true){ ?>
+                  <a href="<?php echo base_url().'benhvien/'.$bv['id']?>"><img style=""  class="img-responsive" src="<?php echo json_decode($bv['image'],true)[0]['src'] ?>"></a>
+                  <?php }else{ ?>
+                    <a href="<?php echo base_url().'bacsi/'.$bv['id']?>"><img class="avatar-bs"  class="img-responsive" src="<?php echo base_url() ?>images/benhvien.jpg"></a>
+                  <?php } ?>
+                    
                   <div class="ds-tin-content" >
                     <div><h3><a href="<?php echo base_url().'benhvien/'.$bv['id']?>"><?php echo $bv['name'] ?></a></h3></div>
                     

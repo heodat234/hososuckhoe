@@ -23,8 +23,10 @@ class BacSi extends CI_Controller {
 		$config['total_rows'] = $this->Bacsi_model->countAll();
         $config['base_url'] = base_url()."/BacSi/index";
         $config['per_page'] = 4;
-        $config['next_link'] = "Trước";
-  		$config['prev_link'] = "Sau";
+        $config['next_link'] = "Sau";
+  		$config['prev_link'] = "Trước";
+  		$config['first_link'] 	= "Đầu";
+  		$config['last_link'] 	= "Cuối";
   		$config['num_links'] = 5;
         $start=$this->uri->segment(3);
         $this->load->library('pagination', $config);

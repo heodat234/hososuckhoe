@@ -63,13 +63,13 @@
                   <div class="icon-box-5 wow fadeInDown" data-wow-delay="0.5s" data-wow-offset="150">
                     <div class ="thuoc-img">
                       <a href="<?php echo base_url().'thuoc/'.$thuoc['id'] ?>">
-                        <img src="<?php echo base_url() ?>images/thuoc/<?php echo $thuoc['anh'] ?>">
+                        <img src="<?php echo json_decode($thuoc['image'],true)[0]['src'] ?>">
                       </a>
                     </div>
                     <div class="icon-box2-title tenthuoc">
-                      <a href="<?php echo base_url().'thuoc/'.$thuoc['id'] ?>"><?php echo $thuoc['ten'] ?></a>
+                      <a href="<?php echo base_url().'thuoc/'.$thuoc['id'] ?>"><?php echo $thuoc['title'] ?></a>
                     </div>
-                    <p>Công dụng: <?php echo  word_limiter($thuoc['cong_dung'],20) ?>.</p>
+                    <p>Giá: <?php echo  $thuoc['price'] . $thuoc['unit'] ?></p>
                   </div>   
                 </div>
               <?php endforeach ?>
@@ -85,69 +85,80 @@
                 <?php if (empty($benhvien)){ ?>
                   <span>Không có kết quả phù hợp.</span>
                 <?php }else { ?>
-                  <?php if (count($benhvien) == 1){ ?>
+                  <?php if (count($benhvien) == 1){
+                  $headers = @get_headers(json_decode($benhvien[0]['image'],true)[0]['src']); ?>
                     <li class="ds-tin-a ds-timkiem2">
-                      <a href="<?php echo base_url().'benhvien/'.$benhvien[0]['id'] ?>">
-                        <img style="margin-top: 15px;"  class="img-responsive" src="<?php echo base_url().'images/benhvien/'.$benhvien[0]['anh'] ?>">
+                      <?php if ($headers == true){ ?>
+                        <a href="<?php echo base_url().'benhvien/'.$benhvien[0]['id']?>"><img style=""  class="img-responsive" src="<?php echo json_decode($benhvien[0]['image'],true)[0]['src'] ?>"></a>
+                      <?php }else{ ?>
+                          <a href="<?php echo base_url().'bacsi/'.$benhvien[0]['id'] ?>"><img class="avatar-bs"  class="img-responsive" src="<?php echo base_url() ?>images/benhvien.jpg"></a>
+                      <?php } ?>
                       </a>
                       <div class="ds-tin-content" >
                         <div>
                           <h3><a href="<?php echo base_url().'benhvien/'.$benhvien[0]['id'] ?>">
-                            <?php echo $benhvien[0]['ten'] ?>
+                            <?php echo $benhvien[0]['name'] ?>
                           </a></h3>
                         </div>
                         <div>
-                          <p><b>Chuyên khoa: </b><?php echo $benhvien[0]['chuyen_khoa'] ?></p>
+                          <p><b>Giờ làm việc: </b><?php echo $benhvien[0]['short_desc'] ?></p>
                         </div>
                         <div>
-                          <p><b>Số điện thoai: </b><?php echo $benhvien[0]['so_dienthoai'] ?></p>
+                          <p><b>Số điện thoai: </b><?php echo $benhvien[0]['tel'] ?></p>
                         </div>
                         <div>
-                          <p><b>Địa chỉ: </b><?php echo $benhvien[0]['dia_chi'] ?></p>
+                          <p><b>Địa chỉ: </b><?php echo $benhvien[0]['address'] ?></p>
                         </div>
                       </div>
                     </li>
                   <?php }else { ?>
-                    <?php for ($i=0; $i < count($benhvien); $i++) { ?>
+                    <?php for ($i=0; $i < count($benhvien); $i++) { 
+                      $headers = @get_headers(json_decode($benhvien[$i]['image'],true)[0]['src']); ?>
                       <?php if ($i < count($benhvien)-1){ ?>
                         <li class=" ds-timkiem1">
-                          <a href="<?php echo base_url().'benhvien/'.$benhvien[$i]['id']?>"><img class="img-responsive" src="<?php echo base_url().'images/'.$benhvien[$i]['anh'] ?>"></a>
+                           <?php if ($headers == true){ ?>
+                            <a href="<?php echo base_url().'benhvien/'.$benhvien[$i]['id']?>"><img style=""  class="img-responsive" src="<?php echo json_decode($benhvien[$i]['image'],true)[0]['src'] ?>"></a>
+                          <?php }else{ ?>
+                              <a href="<?php echo base_url().'bacsi/'.$benhvien[$i]['id'] ?>"><img class="avatar-bs"  class="img-responsive" src="<?php echo base_url() ?>images/benhvien.jpg"></a>
+                          <?php } ?>
                           <div class="ds-tin-content" >
                             <div>
                               <h3><a href="<?php echo base_url().'benhvien/'.$benhvien[$i]['id'] ?>">
-                                <?php echo $benhvien[$i]['ten'] ?>
+                                <?php echo $benhvien[$i]['name'] ?>
                               </a></h3>
                             </div>
                             <div>
-                              <p><b>Chuyên khoa: </b><?php echo $benhvien[$i]['chuyen_khoa'] ?></p>
+                              <p><b>Giờ làm việc: </b><?php echo $benhvien[$i]['short_desc'] ?></p>
                             </div>
                             <div>
-                              <p><b>Số điện thoai: </b><?php echo $benhvien[$i]['so_dienthoai'] ?></p>
+                              <p><b>Số điện thoai: </b><?php echo $benhvien[$i]['tel'] ?></p>
                             </div>
                             <div>
-                              <p><b>Địa chỉ: </b><?php echo $benhvien[$i]['dia_chi'] ?></p>
+                              <p><b>Địa chỉ: </b><?php echo $benhvien[$i]['address'] ?></p>
                             </div>
                           </div>
                         </li>
                       <?php }else{ ?>
                         <li class="ds-tin-a ds-timkiem2">
-                          <a href="<?php echo base_url().'benhvien/'.$benhvien[$i]['id'] ?>">
-                            <img style="margin-top: 15px;"  class="img-responsive" src="<?php echo base_url().'images/benhvien/'.$benhvien[$i]['anh'] ?>">
-                          </a>
+                          <?php if ($headers == true){ ?>
+                            <a href="<?php echo base_url().'benhvien/'.$benhvien[$i]['id']?>"><img style=""  class="img-responsive" src="<?php echo json_decode($benhvien[$i]['image'],true)[0]['src'] ?>"></a>
+                          <?php }else{ ?>
+                              <a href="<?php echo base_url().'bacsi/'.$benhvien[$i]['id'] ?>"><img class="avatar-bs"  class="img-responsive" src="<?php echo base_url() ?>images/benhvien.jpg"></a>
+                          <?php } ?>
                           <div class="ds-tin-content" >
                             <div>
                               <h3><a href="<?php echo base_url().'benhvien/'.$benhvien[$i]['id'] ?>">
-                                <?php echo $benhvien[$i]['ten'] ?>
+                                <?php echo $benhvien[$i]['name'] ?>
                               </a></h3>
                             </div>
                             <div>
-                              <p><b>Chuyên khoa: </b><?php echo $benhvien[$i]['chuyen_khoa'] ?></p>
+                              <p><b>Giờ làm việc: </b><?php echo $benhvien[$i]['short_desc'] ?></p>
                             </div>
                             <div>
-                              <p><b>Số điện thoai: </b><?php echo $benhvien[$i]['so_dienthoai'] ?></p>
+                              <p><b>Số điện thoai: </b><?php echo $benhvien[$i]['tel'] ?></p>
                             </div>
                             <div>
-                              <p><b>Địa chỉ: </b><?php echo $benhvien[$i]['dia_chi'] ?></p>
+                              <p><b>Địa chỉ: </b><?php echo $benhvien[$i]['address'] ?></p>
                             </div>
                           </div>
                         </li>
@@ -168,60 +179,72 @@
               <?php if (empty($bacsi)){ ?>
                   <span>Không có kết quả phù hợp.</span>
               <?php }else { ?>
-                <?php if (count($bacsi) == 1){ ?>
+                <?php if (count($bacsi) == 1){ 
+                  $headers = @get_headers(json_decode($bacsi[0]['image'],true)[0]['src']); ?>
                   <li class="ds-tin-a ds-timkiem2">
-                    <a href="<?php echo base_url().'bacsi/'.$bacsi[0]['id'] ?>">
-                      <img style="margin-top: 15px;"  class="img-responsive" src="<?php echo base_url().'images/bacsi/'.$bacsi[0]['anh'] ?>">
-                    </a>
+                    <?php if ($headers == true){ ?>
+                      <a href="<?php echo base_url().'bacsi/'.$bacsi[0]['id']?>"><img class="avatar-bs" style="width: 170px; height: 170px" class="img-responsive" src="<?php echo json_decode($bacsi[0]['image'],true)[0]['src'] ?>"></a>
+                    <?php }else{ ?>
+                      <a href="<?php echo base_url().'bacsi/'.$bacsi[0]['id']?>"><img class="avatar-bs" style="width: 170px; height: 170px" class="img-responsive" src="<?php echo base_url() ?>images/profile.png"></a>
+                    <?php } ?>
+                    
                     <div class="ds-tin-content" >
                       <div>
                         <h3><a href="<?php echo base_url().'bacsi/'.$bacsi[0]['id'] ?>">
-                          <?php echo $bacsi[0]['ten'] ?>
+                          <?php echo $bacsi[0]['name'] ?>
                         </a></h3>
                       </div>
                       <div>
-                        <p><b>Chuyên khoa: </b><?php echo $bacsi[0]['chuyen_khoa'] ?></p>
+                        <p><b>Chuyên khoa: </b><?php echo $bacsi[0]['branch'] ?></p>
                       </div>
                       <div>
-                        <p><b>Nơi làm việc: </b><?php echo $bacsi[0]['noi_lam_viec'] ?></p>
+                        <p><b>Nơi làm việc: </b><?php echo $bacsi[0]['short_desc'] ?></p>
                       </div>
                     </div>
                   </li>
                 <?php }else { ?>
-                  <?php for ($i=0; $i < count($bacsi); $i++) { ?>
+                  <?php for ($i=0; $i < count($bacsi); $i++) { 
+                    $headers = @get_headers(json_decode($bacsi[$i]['image'],true)[0]['src']);  ?>
                     <?php if ($i < count($bacsi)-1){ ?>
                       <li class=" ds-timkiem1">
-                        <a href="<?php echo base_url().'bacsi/'.$bacsi[$i]['id']?>"><img class="img-responsive" src="<?php echo base_url().'images/'.$bacsi[$i]['anh'] ?>"></a>
+                        <?php if ($headers == true){ ?>
+                          <a href="<?php echo base_url().'bacsi/'.$bacsi[$i]['id']?>"><img class="avatar-bs" style="width: 170px; height: 170px" class="img-responsive" src="<?php echo json_decode($bacsi[$i]['image'],true)[0]['src'] ?>"></a>
+                        <?php }else{ ?>
+                          <a href="<?php echo base_url().'bacsi/'.$bacsi[$i]['id']?>"><img class="avatar-bs" style="width: 170px; height: 170px" class="img-responsive" src="<?php echo base_url() ?>images/profile.png"></a>
+                        <?php } ?>
+                        
                         <div class="ds-tin-content" >
                           <div>
                             <h3><a href="<?php echo base_url().'bacsi/'.$bacsi[$i]['id'] ?>">
-                              <?php echo $bacsi[$i]['ten'] ?>
+                              <?php echo $bacsi[$i]['name'] ?>
                             </a></h3>
                           </div>
                           <div>
-                            <p><b>Chuyên khoa: </b><?php echo $bacsi[$i]['chuyen_khoa'] ?></p>
+                            <p><b>Chuyên khoa: </b><?php echo $bacsi[$i]['branch'] ?></p>
                           </div>
                           <div>
-                            <p><b>Nơi làm việc: </b><?php echo $bacsi[$i]['noi_lam_viec'] ?></p>
+                            <p><b>Nơi làm việc: </b><?php echo $bacsi[$i]['short_desc'] ?></p>
                           </div>
                         </div>
                       </li>
                     <?php }else{ ?>
                       <li class="ds-tin-a ds-timkiem2">
-                        <a href="<?php echo base_url().'bacsi/'.$bacsi[$i]['id'] ?>">
-                          <img style="margin-top: 15px;"  class="img-responsive" src="<?php echo base_url().'images/bacsi/'.$bacsi[$i]['anh'] ?>">
-                        </a>
+                        <?php if ($headers == true){ ?>
+                          <a href="<?php echo base_url().'bacsi/'.$bacsi[$i]['id']?>"><img class="avatar-bs" style="width: 170px; height: 170px" class="img-responsive" src="<?php echo json_decode($bacsi[$i]['image'],true)[0]['src'] ?>"></a>
+                        <?php }else{ ?>
+                          <a href="<?php echo base_url().'bacsi/'.$bacsi[$i]['id']?>"><img class="avatar-bs" style="width: 170px; height: 170px" class="img-responsive" src="<?php echo base_url() ?>images/profile.png"></a>
+                        <?php } ?>
                         <div class="ds-tin-content" >
                           <div>
                             <h3><a href="<?php echo base_url().'bacsi/'.$bacsi[$i]['id'] ?>">
-                              <?php echo $bacsi[$i]['ten'] ?>
+                              <?php echo $bacsi[$i]['name'] ?>
                             </a></h3>
                           </div>
                           <div>
-                            <p><b>Chuyên khoa: </b><?php echo $bacsi[$i]['chuyen_khoa'] ?></p>
+                            <p><b>Chuyên khoa: </b><?php echo $bacsi[$i]['branch'] ?></p>
                           </div>
                           <div>
-                            <p><b>Nơi làm việc: </b><?php echo $bacsi[$i]['noi_lam_viec'] ?></p>
+                            <p><b>Nơi làm việc: </b><?php echo $bacsi[$i]['short_desc'] ?></p>
                           </div>
                         </div>
                       </li>
@@ -244,7 +267,7 @@
                 <?php if (count($tintuc) == 1){ ?>
                   <li class="ds-tin-a ds-timkiem2">
                     <a href="<?php echo base_url().'tintuc/'.$tintuc[0]['id'] ?>">
-                      <img style="margin-top: 15px;"  class="img-responsive" src="<?php echo base_url().'images/tintuc/'.$tintuc[0]['image'] ?>">
+                      <img style="margin-top: 15px;"  class="img-responsive" src="<?php echo json_decode($tintuc[0]['image'],true)[0]['data-original'] ?>">
                     </a>
                     <div class="ds-tin-content" >
                       <div>
@@ -257,7 +280,7 @@
                             <?php }else{ echo "Tin tức Nội bộ";} ?></p>
                       </div>
                       <div>
-                        <p><?php echo word_limiter($tintuc[0]['description'],30) ?></p>
+                        <p><?php echo word_limiter($tintuc[0]['short_desc'],30) ?></p>
                       </div>
                     </div>
                   </li>
@@ -265,7 +288,7 @@
                   <?php for ($i=0; $i < count($tintuc); $i++) { ?>
                     <?php if ($i < count($tintuc)-1){ ?>
                       <li class=" ds-timkiem1">
-                        <a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id']?>"><img class="img-responsive" src="<?php echo base_url().'images/tintuc/'.$tintuc[$i]['image'] ?>"></a>
+                        <a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id']?>"><img class="img-responsive" src="<?php echo json_decode($tintuc[$i]['image'],true)[0]['data-original'] ?>"></a>
                         <div class="ds-tin-content" >
                           <div>
                             <h3><a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id'] ?>">
@@ -277,14 +300,14 @@
                             <?php }else{ echo "Tin tức Nội bộ";} ?></b></p>
                           </div>
                           <div>
-                            <p><?php echo word_limiter($tintuc[$i]['description'],30) ?></p>
+                            <p><?php echo word_limiter($tintuc[$i]['short_desc'],30) ?></p>
                           </div>
                         </div>
                       </li>
                     <?php }else{ ?>
                       <li class="ds-tin-a ds-timkiem2">
                         <a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id'] ?>">
-                          <img style="margin-top: 15px;"  class="img-responsive" src="<?php echo base_url().'images/tintuc/'.$tintuc[$i]['image'] ?>">
+                          <img style="margin-top: 15px;"  class="img-responsive" src="<?php echo json_decode($tintuc[$i]['image'],true)[0]['data-original'] ?>">
                         </a>
                         <div class="ds-tin-content" >
                           <div>
@@ -297,7 +320,7 @@
                             <?php }else{ echo "Tin tức Nội bộ";} ?></b></p>
                           </div>
                           <div>
-                            <p><?php echo word_limiter($tintuc[$i]['description'],30) ?></p>
+                            <p><?php echo word_limiter($tintuc[$i]['short_desc'],30) ?></p>
                           </div>
                         </div>
                       </li>

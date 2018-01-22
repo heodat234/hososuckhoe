@@ -19,8 +19,10 @@ class News extends CI_Controller {
         $config['total_rows'] = $this->News_model->countAll();
         $config['base_url'] = base_url()."/news/index";
         $config['per_page'] = 4;
-        $config['next_link'] = "Trước";
-  		$config['prev_link'] = "Sau";
+        $config['next_link'] = "Sau";
+  		$config['prev_link'] = "Trước";
+  		$config['first_link'] 	= "Đầu";
+  		$config['last_link'] 	= "Cuối";
   		$config['num_links'] = 5;
         $start=$this->uri->segment(3);
         $this->load->library('pagination', $config);
@@ -131,11 +133,11 @@ class News extends CI_Controller {
 	{
 		$id 		= $this->input->post('id');
 		$tin		= $this->News_model->selectTintuc_by_Id($id);
-		$image 		= $tin['image'];
+		// $image 		= $tin['image'];
 
 
 		$this->News_model->deleteTintuc($id);
-		unlink('./images/tintuc/'.$image);
+		// unlink('./images/tintuc/'.$image);
 
 		$csrf = array(
         'name' => $this->security->get_csrf_token_name(),

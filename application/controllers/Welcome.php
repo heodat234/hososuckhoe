@@ -43,20 +43,31 @@ class Welcome extends CI_Controller {
 
 	public function loadData()
     {
-       // $keyword = $this->input->get('keyword');
     	$url = parse_url($_SERVER['REQUEST_URI']);
-		parse_str($url['query'], $params);
+		  parse_str($url['query'], $params);
 		// print_r($params['keyword']);
-       $results = array();
-       $data = $this->BenhVien_model->search_data($params['keyword']);
+      $results = array();
+      $data['0']      = $this->BenhVien_model->search_data($params['keyword']);
+      $data['1']     = $this->Thuoc_model->search_data($params['keyword']);
+      $data['2']     = $this->Bacsi_model->search_data($params['keyword']);
+      $data['3']     = $this->News_model->search_data($params['keyword']);
        
-       if (!empty($data)) {
-            foreach ($data as $da)
-            {
-                $results[] = $da['ten'];
+          for ($i=0; $i < 2; $i++) { 
+            if (!empty($data[$i])) {
+              foreach ($data[$i] as $da)
+              {
+                if (isset($da['name'])) {
+                  $results[] = $da['name'];
+                }
+                if (isset($da['title'])) {
+                  $results[] = $da['title'];
+                }
+              }
             }
+          }
+            
             echo json_encode($results);
-       }
+       
     }
 
    	public function pageSearch()
@@ -100,7 +111,7 @@ class Welcome extends CI_Controller {
    		$check_bv 		= $this->input->post('check_bv');
    		$check_bs 		= $this->input->post('check_bs');
    		$check_tin 		= $this->input->post('check_tin');
-
+      // var_dump($check_tin);
    		
    		if ($key == '') {
    			$adata['benhvien'] = '';
@@ -128,11 +139,17 @@ class Welcome extends CI_Controller {
    			}else{
    				$adata['hideTin']  		= 'hide';
    			}
-	   	
+        if ($check_thuoc==null && $check_bv==null && $check_bs==null && $check_tin==null) {
+            $adata['thuocs']    = $this->Thuoc_model->search_data($key);
+            $adata['benhvien']    = $this->BenhVien_model->search_data($key);
+            $adata['bacsi']     = $this->Bacsi_model->search_data($key);
+            $adata['tintuc']    = $this->News_model->search_data($key);
+            $adata['hideTin'] = $adata['hideThuoc'] = $adata['hideBv'] = $adata['hideBs']  = '';
+        }
 	   	}
    		$this->_data['html_header'] = $this->load->view('home/header', NULL, TRUE);
-        $this->_data['html_body'] 	= $this->load->view('page/pageSearch', $adata, TRUE);
-        return $this->load->view('home/master', $this->_data);
+      $this->_data['html_body'] 	= $this->load->view('page/pageSearch', $adata, TRUE);
+      return $this->load->view('home/master', $this->_data);
    	}
 	
 }

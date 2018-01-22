@@ -30,16 +30,7 @@
                 
                  <!--Foot widget-->
                 <div class="col-xs-12 col-sm-6 col-md-3 recent-tweet-foot foot-widget">
-                    <div class="foot-widget-title">Bài viết Nội bộ</div>
-                    <ul>
-                        <?php if (isset($noibo)){ ?>
-                            <?php foreach ($noibo as $n) { ?>
-                            <li><a href="#"><?php echo $n['title'] ?><br /><span class="event-date"><?php echo date('d-m-Y',strtotime($n['created_at'])) ?></span></a></li>
-                            <?php } ?>
-                        <?php }else { ?>
-                            <li>Chưa có tin mới</li>
-                        <?php  } ?>
-                    </ul>
+                    <div class="fb-page" data-href="https://www.facebook.com/H%E1%BB%93-s%C6%A1-s%E1%BB%A9c-kh%E1%BB%8Fe-192082374865236/" data-show-facepile="true" data-show-facepile="false" data-width="250" data-height="300" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" ><blockquote cite="https://www.facebook.com/H%E1%BB%93-s%C6%A1-s%E1%BB%A9c-kh%E1%BB%8Fe-192082374865236/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/H%E1%BB%93-s%C6%A1-s%E1%BB%A9c-kh%E1%BB%8Fe-192082374865236/">Hồ sơ sức khỏe</a></blockquote></div>
                 </div>
                 
                 <!--Foot widget-->

@@ -41,7 +41,7 @@ class Bacsi_model extends CI_Model{
 
     public function search_data($key)
     {
-      $sql = "SELECT * FROM `bacsi` WHERE ten LIKE '%$key%'";
+      $sql = "SELECT * FROM `doctor` WHERE name LIKE '%$key%'";
       $query = $this->db->query($sql); 
       return $query->result_array();
     }

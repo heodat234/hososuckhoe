@@ -54,9 +54,9 @@
                         <h4  >
                             <a href="<?php echo base_url().'tintuc/'.$tt['id']?>"><?php echo $tt['title'] ?></a>
                         </h4>
-                        <h5 >
+                        <!-- <h5 >
                             <span>Lượt xem: <?php echo $tt['view'] ?></span>
-                        </h5>
+                        </h5> -->
                     </div>
                     <div class="clearfix vien-tin"></div>
                     

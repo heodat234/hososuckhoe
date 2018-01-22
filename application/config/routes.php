@@ -73,6 +73,7 @@ $route['bacsi/(:num)'] 			= 'BacSi/bacSiById/$1';
 $route['thuoc.html'] 			= 'thuoc';
 $route['thuocByIdLoai/(:num)'] 	= 'thuoc/thuocByIdLoai/$1';
 $route['thuoc/(:num)'] 			= 'thuoc/thuocById/$1';
+$route['chitietthuoc/(:num)'] 	= 'thuoc/thongTinThuocById/$1';
 
 $route['benh.html'] 			= 'benh';
 $route['benhByIdLoai'] 			= 'benh/benhByIdLoai';

@@ -25,7 +25,6 @@
 						<form action="<?php echo base_url() ?>loginUser" class="form-horizontal form-appointment ui-form" method="post" role="form" style="margin-top: 0px;">                
 							<h4 class="text-center">Đăng nhập hệ thống</h4>
 							<input name="<?php echo $csrf['name'] ?>" type="hidden" value="<?php echo $csrf['hash'] ?>" />             <hr />
-                			<div class="row">
 			                    <div class="col-md-12">
 			                        <div class="input-group">
 			                        	<label class="col-lg-3 control-label" for="ten">Tên đăng nhập</label>
@@ -43,34 +42,29 @@
 			                            </div>
 			                        </div>
 			                    </div>
-                			</div>
-			                <div class="row">
-			                    
+                						                    
 			                    <div class="col-md-12  text-center" style="margin-top: 12px;">
 
 			                        <a href="#forgotPass" data-toggle="modal" >  Bạn quên mật khẩu?</a>
 
 			                    </div>
-			                </div>
-			                <div class="row">
 			                    <div class="col-md-12 text-center" style="margin-top:30px;">
 			                        <button type="submit" class="btn btn-success">Đăng Nhập</button>
 			                    </div>
-			                </div>
-			                <div class="row" style="margin-top:30px;">
+			                <div class="" style="margin-top:30px;">
 			                    <div class="col-md-12 text-center">
 			                        <a href="<?php echo base_url() ?>pageRegister"> Đăng ký tài khoản mới </a>
 			                    </div>
 			                </div>
 						</form>            
-						<div class="row" style="margin-top:10px;">
+						<div class="" style="margin-top:10px;">
 
 			                <div class="col-md-12">
 			                    <h4 class="text-center">Sử dụng tài khoản khác.</h4>
 			                    <hr />
 			                </div>
 
-			                <div class="col-md-12 col-md-offset-2">
+			                <div class="col-md-12 col-md-offset-2 col-sm-offset-3 ">
 			                    <section id="socialLoginForm">
 									<form action="/Account/ExternalLogin" method="post">
 										<input name="__RequestVerificationToken" type="hidden" value="" /> <div id="socialLoginList">
@@ -100,7 +94,6 @@
 		      	<input name="<?php echo $csrf['name'] ?>" type="hidden" value="<?php echo $csrf['hash'] ?>" />
 		      <div class="modal-body">
 		         <div class="container-fluid">
-		            <div class="row">
 		               <div class="col-xs-12 col-sm-12 col-md-12">
 		                  <div class="form-group">
 		                     <div><b>Nhập mail</b></div>
@@ -112,7 +105,6 @@
 		                     </div>
 		                  </div>
 		               </div>
-		            </div>
 		         </div>
 		      </div>
 

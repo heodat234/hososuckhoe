@@ -1,8 +1,5 @@
-<style type="text/css">
-  .cv-title {
-    display: block;
-  }
-</style>
+
+
 <div>
   <div class="about-intro-wrap pull-left">
     <div class="bread-crumb-wrap ibc-wrap-1">
@@ -18,16 +15,14 @@
     </div>
     <div id="shortcode-12">
       <div class="container">
-        <div class="row">
           <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12" style="margin-bottom: 20px;">
-            <div class="col-md-9 col-sm-12 col-lg-9 col-xs-12 no-pad " style="border-right: 1px solid #f3f3f3">
+            <div class="col-md-9 col-sm-12 col-lg-9 col-xs-12 no-pad body-ds-tin" >
               
               <div class="img-news" style="text-align: center;">
-
                 <img width="40%" src="<?php echo $image ?>">
               </div>
               <div style="text-align: center;">
-                <h3 class=""><?php echo $bacsi['name'] ?></3>
+                <h3 class=""><?php echo $bacsi['name'] ?></h3>
                 <div><h4>chuyên khoa: <b><?php echo $bacsi['branch'] ?></b></h4></div>
                 <div><p><?php echo $bacsi['short_desc'] ?></p></div>
               </div>
@@ -36,8 +31,6 @@
                   <?php echo $value ?>
                 </div>
               <?php endforeach ?>
-              
-              
               <div class="clearfix"></div>         
             </div>
             <div class="col-md-3 col-sm-12 col-lg-3 col-xs-12 right">
@@ -68,8 +61,6 @@
               </div>
             </div>
           </div>
-        </div>
-        
       </div>
     </div>
   </div>

@@ -1,14 +1,4 @@
-<style type="text/css">
-  .content-news h2 {
-    font-size: 14px;
-        display: block;
-    overflow: hidden;
-    background: #fffba2;
-    padding: 10px;
-    border: 1px dashed #25abe0;
-    line-height: 22px;
-  }
-</style>
+
 <div>
   <div class="about-intro-wrap pull-left">
     <div class="bread-crumb-wrap ibc-wrap-1">
@@ -26,15 +16,15 @@
       <div class="container body-list">
         <!-- <div class="row"> -->
           <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
-            <div class="col-md-9 col-sm-12 col-lg-9 col-xs-12 no-pad ">
-              <div style="margin-bottom: 40px">
+            <div class="col-md-9 col-sm-12 col-lg-9 col-xs-12 no-pad body-ds-tin">
+              <div class="title-new">
                 <h3 class=""><?php echo $tintuc['title'] ?></h3>
               </div>
               <div class="content-news">
                 <p><?php echo $content[0]; ?></p>
               </div> 
               <div class="cmt-news">
-                <div class="fb-comments" data-href="http://hososuckhoe.org/staging/" data-width="100%" data-numposts="5"></div>
+                <div class="fb-comments" data-href="http://hososuckhoe.org/staging/tintuc/<?php echo $tintuc['id'] ?> " data-width="100%" data-numposts="5"></div>
               </div>           
             </div>
             <div class="col-md-3 col-sm-12 col-lg-3 col-xs-12 right">
@@ -43,11 +33,22 @@
                   <h4 class="head"><i class="fa fa-folder-o" style="color: #f26529;"></i> Danh mục tin tức</h4>
                 </div>
                 <div>
-                  <ul class="list-categories list-categories_widget list-bv">
-                    <?php foreach ($category as $tt): ?>
-                      <li><a href="<?php echo base_url().'tintuc/'.$tt['id']?>"><span class="list-categories__name"><?php echo $tt['title'] ?></span></a></li>
-                    <?php endforeach ?>
-                  </ul>
+                  <?php foreach ($category as $tt): ?>
+                    <div class="img-noibat" >
+                      <a href="<?php echo base_url().'tintuc/'.$tt['id']?>">
+                        <img style="width: 100%"  src="<?php echo json_decode($tt['image'],true)[0]['data-original'] ?>">
+                      </a>
+                    </div>
+                    
+                    <div class="content-noibat" >
+                        <h5 >
+                            <a href="<?php echo base_url().'tintuc/'.$tt['id']?>"><?php echo $tt['title'] ?></a>
+                        </h5>
+                        <h6><?php echo word_limiter($tt['short_desc'],5) ?></h6>
+                    </div>
+                    <div class="clearfix vien-tin"></div>
+                  <?php endforeach ?>
+                  
                 </div>
               </div>
               <div style="margin-top: 20px">
@@ -59,7 +60,7 @@
                     <p>Quản lý hồ sơ sức khỏe cá nhân online</p>
                   </div>
                   <div>
-                    <iframe width="100%"  src="https://www.youtube.com/embed/1-Zee9ZJH7o" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                    
                   </div>
                 </div>
               </div>
@@ -77,5 +78,6 @@
    for (var i = 0; i < x.length; i++) {
     var url = x[i].attributes.getNamedItem('data-original').value;
     x[i].setAttribute('src', url);
+    x[i].setAttribute('class','lazy img-responsive');
    }
 </script>

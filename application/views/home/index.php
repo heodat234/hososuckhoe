@@ -95,20 +95,10 @@
                             <img src="<?php echo base_url() ?>images/benhvien.jpg" class="img-responsive dept-author-img-desk col-md-3" alt="" />
                             <div class="dept-content pull-left col-md-7 col-lg-7">
                                 <div class="dept-title pull-left">Tra cứu thông tin bệnh viện</div> 
-                                <p>Chúng tôi cung cấp thông tin cơ bản các bệnh viện , bảng xếp hạng bệnh viện theo tiêu chí người dùng đánh giá , chuyên khoa điều trị ...</p>
-                        
-                        
-                                <!-- <a href="#" class="dept-details-butt">Xem chi tiết</a>
-                                <div class="purchase-strip-blue dept-apponit-butt">
-                                    <div class="color-4">
-                                        <p class="ipurchase-paragraph">
-                                            <button class="icon-calendar btn btn-4 btn-4a notViewed">Appointment</button>
-                                        </p>
-                                    </div>
-                                </div> -->
-                        
+                                
                                 <div class="vspacer"></div>
                             </div>
+                            <div><p>Chúng tôi cung cấp thông tin cơ bản các bệnh viện , bảng xếp hạng bệnh viện theo tiêu chí người dùng đánh giá , chuyên khoa điều trị ...</p></div>
                         </div>
                     
                         <h3><i class="icon-stethoscope dept-icon"></i><span class="dep-txt">Bác sĩ</span></h3>
@@ -116,7 +106,7 @@
                             <img src="<?php echo base_url() ?>images/doctor.png" class="img-responsive dept-author-img-desk col-md-3" alt="" />
                             <div class="dept-content pull-left col-md-7 col-lg-7">
                                 <div class="dept-title pull-left">Tra cứu thông tin bác sĩ</div> 
-                                <p>Chúng tôi cung cấp thông tin cơ bản của các bác sĩ, dược sĩ chuyên khoa trong ngành .</p>
+                                <p></p>
                             
                                 <!-- <a href="#" class="dept-details-butt">Details</a>
                                 <div class="purchase-strip-blue dept-apponit-butt">
@@ -128,6 +118,7 @@
                                 </div> -->
                                 <div class="vspacer"></div>
                             </div>
+                            <div><p>Chúng tôi cung cấp thông tin cơ bản của các bác sĩ, dược sĩ chuyên khoa trong ngành .</p></div>
                         </div>
                     
                         <h3><i class="icon-heart dept-icon"></i><span class="dep-txt">Thuốc</span></h3>
@@ -135,7 +126,7 @@
                            <img src="<?php echo base_url() ?>images/thuoc.jpg" class="img-responsive dept-author-img-desk col-md-4" alt="" />
                             <div class="dept-content pull-left col-md-7 col-lg-7">
                             <div class="dept-title pull-left">Tra cứu thông tin thuốc</div> 
-                            <p>Chúng tôi cung cấp thông tin cơ bản của các loại thuốc có mặt trên thị trường.</p>
+                            
                             
                             <!-- <a href="#" class="dept-details-butt">Details</a>
                             <div class="purchase-strip-blue dept-apponit-butt"><div class="color-4">
@@ -144,7 +135,8 @@
                                 </p>
                             </div></div> -->
                             <div class="vspacer"></div>
-                            </div>                
+                            </div> 
+                            <p>Chúng tôi cung cấp thông tin cơ bản của các loại thuốc có mặt trên thị trường.</p>               
                         </div>
                     
                         <h3><i class="icon-stethoscope dept-icon"></i><span class="dep-txt">Tin tức y khoa</span></h3>
@@ -152,7 +144,7 @@
                             <img src="<?php echo base_url() ?>images/ykhoa.jpg" class="img-responsive dept-author-img-desk col-md-4" alt="" />
                             <div class="dept-content pull-left col-md-7 col-lg-7">
                                 <div class="dept-title pull-left">Cung cấp kiến thức cơ bản</div> 
-                                <p>Chúng tôi cung cấp thông tin các kiến thức y khoa cơ bản, các bài báo khoa học về y học, các loại bệnh.</p>
+                                
                             
                                 <!-- <a href="#" class="dept-details-butt">Details</a>
                                 <div class="purchase-strip-blue dept-apponit-butt">
@@ -163,7 +155,8 @@
                                     </div>
                                 </div> -->
                                 <div class="vspacer"></div>
-                            </div>                
+                            </div> 
+                            <p>Chúng tôi cung cấp thông tin các kiến thức y khoa cơ bản, các bài báo khoa học về y học, các loại bệnh.</p>               
                         </div>
                     </div>
                 </div>
@@ -171,9 +164,9 @@
                 <div  class="col-xs-12 col-sm-12 col-md-4  styBs">
                     <div class="latest-post-wrap pull-left wow fadeInLeft" data-wow-delay="0.5s" data-wow-offset="100" > 
                         <div class="subtitle pull-left">
-                            <div class="title-a">BXH BỆNH VIỆN</div>
+                            <div class="title-a">BỆNH VIỆN</div>
                             <div class="title-d"><p></p></div>
-                            <div class="tooltip-bs"><a href="#" data-toggle="tooltip" title="Hooray!"><i class="fa fa-info-circle"></i></a></div>
+                            <div class="tooltip-bs"><a href="#" data-toggle="tooltip" title="Tiêu chí đánh giá bệnh viện dựa trên đánh giá người dùng về các tiêu chí : chất lượng khám chưa bệnh, chất lượng dịch vụ"><i class="fa fa-info-circle"></i></a></div>
                         </div>
                         <div>
                           <ul class="list-categories-bv list-categories_widget list-bv">

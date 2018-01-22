@@ -20,16 +20,17 @@
         <td class="col-md-1 col-lg-1">Xóa</td>
 			</thead>
 			<tbody>
-				<?php foreach ($news as $new) { ?>
+				<?php foreach ($news as $new) { 
+          $content = json_decode($new['article'],true); ?>
 				<tr id="row_<?php echo $new['id'] ?>">
           <td></td>
 					<td><?php echo $new['title'] ?></td>
 					<!-- <td><img style="width: 20%" src="<?php echo base_url().'images/tintuc/'.$new['image'] ?> "></td> -->
-          <td><?php echo word_limiter($new['description'],30) ?></td>
-          <td><?php echo word_limiter($new['content'],40) ?></td>
+          <td><?php echo word_limiter($new['short_desc'],30) ?></td>
+          <td><?php echo word_limiter( $content[0],30) ?></td>
 					<td><?php echo date('d-m-Y',strtotime($new['created_at'])) ?></td>
 					<td>
-						<button class="btn btn-success" data-toggle="modal" data-target="#edit-tintuc" title="Sửa tin tức" data-id="<?php echo $new['id'] ?>" data-title="<?php echo $new['title'] ?>" data-desc='<?php echo $new['description'] ?>' data-content='<?php echo $new['content'] ?>' data-image="<?php echo $new['image'] ?>"><i class="fa fa-edit fa-lg"></i></button>
+						<button class="btn btn-success" data-toggle="modal" data-target="#edit-tintuc" title="Sửa tin tức" data-id="<?php echo $new['id'] ?>" data-title="<?php echo $new['title'] ?>" data-desc='<?php echo $new['short_desc'] ?>' data-content='"<?php echo $content[0] ?>"' ><i class="fa fa-edit fa-lg"></i></button>
 					</td>
 					<td>
 						<button class="btn btn-danger" onclick="delete_row(<?php echo $new['id'] ?>)" title="Xóa tin tức"><i class="fa fa-trash fa-lg"></i></button>
@@ -187,7 +188,7 @@
     //get data-id attribute of the clicked element
     var id 		= $(e.relatedTarget).data('id');
     var title 	= $(e.relatedTarget).data('title');
-    var image 	= $(e.relatedTarget).data('image');
+    var image 	= '';
     var desc 	= $(e.relatedTarget).data('desc');
     var content = $(e.relatedTarget).data('content');
     //populate the textbox

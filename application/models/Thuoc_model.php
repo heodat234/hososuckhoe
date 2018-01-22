@@ -31,6 +31,12 @@ class Thuoc_model extends CI_Model{
         $query = $this->db->get($this->_name);
         return $query->result_array();
     }
+    public function selectThuocLimit()
+    {
+        $this->db->select()->order_by("id", "desc")->limit(5);
+        $query = $this->db->get($this->_name);
+        return $query->result_array();
+    }
     public function selectThuoc_by_Id($id)
     {
         $this->db->select()->where("id", $id);
@@ -43,7 +49,12 @@ class Thuoc_model extends CI_Model{
         $query = $this->db->get($this->_name);
         return $query->result_array();
     }
-
+    public function selectThongTinThuoc_by_Id($id)
+    {
+        $this->db->select()->where("id_drug", $id);
+        $query = $this->db->get('drug_detail');
+        return $query->row_array();
+    }
     public function search_data($key)
     {
       $sql = "SELECT * FROM `drug` WHERE title LIKE '%$key%'";

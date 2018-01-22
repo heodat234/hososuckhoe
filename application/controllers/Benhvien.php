@@ -22,9 +22,11 @@ class Benhvien extends CI_Controller {
 	{
 		$config['total_rows'] = $this->BenhVien_model->countAll();
         $config['base_url'] = base_url()."/benhvien/index";
-        $config['per_page'] = 4;
-        $config['next_link'] = "Trước";
-  		$config['prev_link'] = "Sau";
+        $config['per_page'] = 12;
+        $config['next_link'] = "Sau";
+  		$config['prev_link'] = "Trước";
+  		$config['first_link'] 	= "Đầu";
+  		$config['last_link'] 	= "Cuối";
   		$config['num_links'] = 5;
         $start=$this->uri->segment(3);
         $this->load->library('pagination', $config);
@@ -44,9 +46,19 @@ class Benhvien extends CI_Controller {
 		$ten = $mdata['benhvien1']['name'];
 		$ten = to_slug($ten);
 		$ten = str_replace( '-', '+', $ten );
-		$map = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?address=$ten&sensor=false");
-		$map = json_decode($map,true);
+		$flag = true;
+		while ( $flag) {
+			$map = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?address=$ten&sensor=false");
+			$map = json_decode($map,true);
+			if(isset($map['results'][0])){
+				$flag = false;
+			}
+		}
+		
+
+		
 		$location = $map['results'][0]['geometry']['location'];
+		
 		$mdata['toado'] = $location;
 		$mdata['gioithieu'] = json_decode($mdata['benhvien1']['article'],true)[0];
 

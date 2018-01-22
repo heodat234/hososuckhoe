@@ -12,7 +12,8 @@
     
     <link href="<?php echo base_url() ?>public/css/jquery-ui-1.10.3.custom.css" rel="stylesheet" />
     <link href="<?php echo base_url() ?>public/css/animate.css" rel="stylesheet" />
-    <link href="<?php echo base_url() ?>public/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- <link href="<?php echo base_url() ?>public/css/font-awesome.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>public/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/blue.css" id="style-switch" />
      <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/jquery-ui.css" id="style-switch" />
     <!-- REVOLUTION BANNER CSS SETTINGS -->
@@ -28,6 +29,15 @@
      <script type="text/javascript" src="<?php echo base_url(); ?>public/js/jquery-ui.js"></script>
      <script type="text/javascript" src="<?php echo base_url(); ?>public/js/js.cookie.js"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAbjBhwvVw17A_RP6r_jeQrZ-ChKY90H5U&sensor=false"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112747370-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-112747370-1');
+    </script>
 </head>
     <body>
         <div id="loader-overlay"><img src="<?php echo base_url() ?>public/images/loader.gif" alt="Loading" /></div>

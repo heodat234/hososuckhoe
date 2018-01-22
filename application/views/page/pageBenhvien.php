@@ -13,11 +13,10 @@
     </div>
     <div id="shortcode-12">
       <div class="container">
-        <div class="row">
           <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
-            <div class="col-md-9 col-sm-12 col-lg-9 col-xs-12 no-pad ">
+            <div class="col-md-9 col-sm-12 col-lg-9 col-xs-12 no-pad body-ds-tin">
               <div>
-                <h3 class=""><?php echo $benhvien1['name'] ?></3>
+                <h3 class=""><?php echo $benhvien1['name'] ?></h3>
               </div>
               <div class="img-news" style="text-align: center;">
                 <img style="width: 40%;" src="<?php echo json_decode($benhvien1['image'],true)[0]['src'] ?>">
@@ -29,12 +28,10 @@
                 <div><i class="glyphicon glyphicon-globe"></i><a href="<?php echo $benhvien1['web_site'] ?>"> <?php echo $benhvien1['web_site'] ?></a></div>
               </div>
               <div id="map" style="height:400px; width:100%"></div>
-              <div class="content-news">
+              <div class="content-news-bv">
                 <?php echo $gioithieu ?>
               </div> 
-              <div class="cmt-news">
-                Bình luận
-              </div>           
+                         
             </div>
             <div class="col-md-3 col-sm-12 col-lg-3 col-xs-12 right">
               <div>
@@ -58,13 +55,12 @@
                     <p>Quản lý hồ sơ sức khỏe cá nhân online</p>
                   </div>
                   <div>
-                    <iframe width="100%"  src="https://www.youtube.com/embed/1-Zee9ZJH7o" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                   
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
         
       </div>
     </div>
