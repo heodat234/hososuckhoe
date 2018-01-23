@@ -16,6 +16,7 @@
           <ul>
             <?php foreach ($bacsi as $bs): 
               $headers = @get_headers(json_decode($bs['image'],true)[0]['src']);
+              // var_dump($headers);
             ?>
               <li class="ds-tin-bs" >
                 <?php if ($headers == true){ ?>

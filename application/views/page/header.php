@@ -26,21 +26,20 @@
                                     <li class="<?php echo isset($trangchu)? $trangchu : '' ?>"><a href="<?php echo base_url() ?>" ><i class="icon-home"></i>Trang chủ</a>
                                     </li>
 
-                                    <li class=" <?php echo isset($new)? $new : '' ?>"><a href="<?php echo base_url() ?>tintuc.html" class="<?php echo isset($new)? $new : '' ?>" ><i class="fa fa-newspaper-o menu-icon" ></i>Tin tức</a>
+                                    <li class=" <?php echo isset($new)? $new : '' ?>"><a href="<?php echo base_url() ?>tintuc.html" class="<?php echo isset($new)? $new : '' ?>" ><i class="icon-cog"></i>Tin tức</a>
                                     </li>
-                                    <li class="<?php echo isset($bv)? $bv : '' ?>"><a href="<?php echo base_url() ?>benhvien.html" class="<?php echo isset($bv)? $bv : '' ?>" ><i class="fa fa-hospital-o menu-icon"></i>Bệnh viện</a>
+                                    <li class="<?php echo isset($bv)? $bv : '' ?>"><a href="<?php echo base_url() ?>benhvien.html" class="<?php echo isset($bv)? $bv : '' ?>" ><i class="icon-cog"></i>Bệnh viện</a>
                                     </li>
-                                    <li class="<?php echo isset($bs)? $bs : '' ?>"><a href="<?php echo base_url() ?>bacsi.html" class="<?php echo isset($bs)? $bs : '' ?>" ><i class="fa fa-user-md menu-icon"></i>Bác sĩ</a>
-                                    </li>
+                                  
                                     
-                                    <li class="<?php echo isset($benh)? $benh : '' ?>"><a href="<?php echo base_url() ?>benh.html" class="<?php echo isset($benh)? $benh : '' ?>"><i class="fa fa-stethoscope menu-icon"></i>Bệnh</a>
+                                    <li class="<?php echo isset($thanhvien)? $thanhvien : '' ?>"><a href="<?php echo base_url() ?>thanhvien.html" class="<?php echo isset($thanhvien)? $thanhvien : '' ?>"><i class="icon-pencil"></i>Thành viên</a>
                                     </li>
-                                     <li class="<?php echo isset($thuoc)? $thuoc : '' ?>"><a href="<?php echo base_url() ?>thuoc.html" class="<?php echo isset($thuoc)? $thuoc : '' ?>"><i class="fa fa-medkit menu-icon"></i>Thuốc</a>
+                                     <li class="<?php echo isset($thuoc)? $thuoc : '' ?>"><a href="<?php echo base_url() ?>thuoc.html" class="<?php echo isset($thuoc)? $thuoc : '' ?>"><i class="icon-pencil"></i>Tìm thuốc</a>
                                     </li>
                                     
                                     <?php if($this->session->has_userdata('user') && $this->session->userdata('user')['group'] == '0') { ?>
                                         <li class="dropdown <?php echo isset($pageHoso)? $pageHoso : '' ?>">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dangnhap-dky">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                 
                                                 <?php if ($this->session->userdata('user')['avatar'] == ''){ ?>
                                                   <img class="profile-image" style="width: 35px; margin-top: -7px;" src="<?php echo base_url() ?>images/profile.png">
@@ -58,7 +57,7 @@
                                         </li>
                                     <?php }else if ($this->session->has_userdata('user') && $this->session->userdata('user')['group'] != '0') { ?>
                                         <li class="dropdown <?php echo isset($pageHoso)? $pageHoso : '' ?>">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dangnhap-dky">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                 
                                                  <?php if ($this->session->userdata('user')['avatar'] == ''){ ?>
                                                   <img class="profile-image" style="width: 35px; margin-top: -7px;" src="<?php echo base_url() ?>images/profile.png">
@@ -75,7 +74,7 @@
                                             </ul>
                                         </li>
                                     <?php  }else{ ?>
-                                        <li ><a href="<?php echo base_url() ?>pageLogin" id ="dangnhap-dky"><i class="fa fa-sign-in menu-icon"> </i>Đăng nhập/Đăng ký</a>
+                                        <li ><a href="<?php echo base_url() ?>pageLogin" id ="dangnhap-dky"><i class="icon-pencil"> </i>Đăng nhập/Đăng ký</a>
                                     </li>
                                     <?php } ?>
                                 </ul>

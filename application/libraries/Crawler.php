@@ -402,4 +402,34 @@ class Crawler{
     	}
     	return $contents;
     }
+
+    public function get_articles_by_xpath($xpath=''){
+    	if($xpath == ''){
+    		return false;
+    	}
+    	$articles = [];
+    	$count = 0;
+    	if(!$page_keywords = $this->dom->find($xpath)){
+    		return false;
+    	}
+    	foreach ($page_keywords as $arc) {
+    		$articles[$count++] = $arc->innertext();
+    	}
+    	return $articles;
+    }
+
+    public function get_images_by_xpath($xpath=''){
+    	if($xpath == ''){
+    		return false;
+    	}
+    	$contents = [];
+    	$count = 0;
+    	if(!$page_keywords = $this->dom->find($xpath)){
+    		return false;
+    	}
+    	foreach ($page_keywords as $cnt) {
+    		$contents[$count++] = $cnt->attr;
+    	}
+    	return $contents;
+    }
 }

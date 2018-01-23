@@ -11,7 +11,6 @@ class Welcome extends CI_Controller {
 
 		
 		$t_data['ykhoa']		= $this->News_model->selectTintucYkhoa();
-		$t_data['noibo']		= $this->News_model->selectTintucNoibo();
         $this->_data['html_footer'] = $this->load->view('home/footer', $t_data, TRUE);
 	}
 	public function index()
