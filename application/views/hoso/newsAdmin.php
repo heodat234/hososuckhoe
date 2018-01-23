@@ -170,7 +170,13 @@
 
  
 <script type="text/javascript">
-  
+  var x = document.getElementsByClassName("lazy");
+
+   for (var i = 0; i < x.length; i++) {
+    var url = x[i].attributes.getNamedItem('data-original').value;
+    x[i].setAttribute('src', url);
+    x[i].setAttribute('class','lazy img-responsive');
+   }
 
   $.ajaxSetup({
 	  beforeSend: function(xhr, settings) {

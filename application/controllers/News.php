@@ -35,7 +35,6 @@ class News extends CI_Controller {
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
 
         $t_data['ykhoa']		= $this->News_model->selectTintucYkhoa();
-		$t_data['noibo']		= $this->News_model->selectTintucNoibo();
         $this->_data['html_footer'] = $this->load->view('home/footer', $t_data, TRUE);
         $this->_data['html_body'] 	= $this->load->view('page/listNews', $mdata, TRUE);
         return $this->load->view('home/master', $this->_data);
@@ -53,7 +52,6 @@ class News extends CI_Controller {
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE); 
 		 
         $t_data['ykhoa']		= $this->News_model->selectTintucYkhoa();
-		$t_data['noibo']		= $this->News_model->selectTintucNoibo();
         $this->_data['html_footer'] = $this->load->view('home/footer', $t_data, TRUE);
         $this->_data['html_body'] 	= $this->load->view('page/news', $mdata, TRUE);
         return $this->load->view('home/master', $this->_data);
@@ -133,11 +131,11 @@ class News extends CI_Controller {
 	{
 		$id 		= $this->input->post('id');
 		$tin		= $this->News_model->selectTintuc_by_Id($id);
-		// $image 		= $tin['image'];
+		$image 		= $tin['image'];
 
 
 		$this->News_model->deleteTintuc($id);
-		// unlink('./images/tintuc/'.$image);
+		unlink('./images/tintuc/'.$image);
 
 		$csrf = array(
         'name' => $this->security->get_csrf_token_name(),

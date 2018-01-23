@@ -15,8 +15,8 @@ class Login extends CI_Controller {
 		    'protocol'  =>  'smtp',
 		    'smtp_host' =>  'ssl://smtp.googlemail.com',
 		    'smtp_port' =>  465,
-		    'smtp_user' =>  'hunglt2345@gmail.com',
-		    'smtp_pass' =>  'Heodat2304',
+		    'smtp_user' =>  'hungminhitsoluton@gmail.com',
+		    'smtp_pass' =>  'hungminhits',
 		    'mailtype'  =>  'html', 
 		    'charset'   =>  'utf-8',
 		);
@@ -33,7 +33,6 @@ class Login extends CI_Controller {
 		$this->_data['html_header'] = $this->load->view('home/header', NULL, TRUE);  
 		
         $t_data['ykhoa']		= $this->News_model->selectTintucYkhoa();
-		$t_data['noibo']		= $this->News_model->selectTintucNoibo();
         $this->_data['html_footer'] = $this->load->view('home/footer', $t_data, TRUE);
         
 	}
