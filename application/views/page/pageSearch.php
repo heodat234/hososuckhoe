@@ -12,7 +12,7 @@
     </div>
     <div class="ibc-wrap-1 timkiem-box">
       <div class="container">
-        <form  method="post" action="<?php echo base_url() ?>timkiemchitiet.html">
+        <form  method="get" action="<?php echo base_url() ?>timkiemchitiet.html">
           <div class=" col-xs-12 col-md-6 col-sm-12">
             <div class="timkiem-info">
               <input name="<?php echo $csrf['name'] ?>" type="hidden" value="<?php echo $csrf['hash'] ?>" /> 

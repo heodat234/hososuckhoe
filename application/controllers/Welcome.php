@@ -106,11 +106,11 @@ class Welcome extends CI_Controller {
 		$adata['csrf'] = $csrf;
 
 
-   		$key 			= $this->input->post('search');
-   		$check_thuoc 	= $this->input->post('check_thuoc');
-   		$check_bv 		= $this->input->post('check_bv');
-   		$check_bs 		= $this->input->post('check_bs');
-   		$check_tin 		= $this->input->post('check_tin');
+   		$key 			= $this->input->get('search');
+   		$check_thuoc 	= $this->input->get('check_thuoc');
+   		$check_bv 		= $this->input->get('check_bv');
+   		$check_bs 		= $this->input->get('check_bs');
+   		$check_tin 		= $this->input->get('check_tin');
       // var_dump($check_tin);
    		
    		if ($key == '') {
