@@ -10,7 +10,7 @@
                         <div class="col-xs-12 no-pad"><i class="icon-globe address-icons"></i>10 Đường số 11 <br />Quận 6, TP HCM</div>
                         <div class="col-xs-12 no-pad"><i class="icon-phone2 address-icons"></i>+84 455 755</div>
                         <!-- <div class="col-xs-12 no-pad"><i class="icon-file address-icons"></i>+123 555 755</div> -->
-                        <div class="col-xs-12 no-pad"><i class="icon-mail address-icons"></i>hungminhits@gmail.com</div>
+                        <div class="col-xs-12 no-pad"><i class="icon-mail address-icons"></i>hungminhitsolution@gmail.com</div>
                     </address>
                 </div>
                 
@@ -60,8 +60,6 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 foot-widget-bottom">
                     <p class="col-xs-12 col-md-5 no-pad">All Rights Reserved | Designed by <a href="http://hungminhits.com/">HungMinhITS</a></p>
                     <ul class="foot-menu col-xs-12 col-md-7 no-pad">
-                        <li><a href="<?php echo base_url() ?>thanhvien.html">Thành viên</a></li>
-                        <li><a href="<?php echo base_url() ?>benhsu.html">Bệnh sử</a></li>    
                         <li><a href="<?php echo base_url() ?>">Trang chủ</a></li>                           
                     </ul>
                 </div>
