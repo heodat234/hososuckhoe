@@ -71,12 +71,7 @@ class Welcome extends CI_Controller {
 
    	public function pageSearch()
    	{
-   		$csrf = array(
-        'name' => $this->security->get_csrf_token_name(),
-        'hash' => $this->security->get_csrf_hash()
-		);
-		$adata['csrf'] = $csrf;
-
+   		
 
    		$key 			= $this->input->post('search');
 
@@ -98,11 +93,10 @@ class Welcome extends CI_Controller {
 
    	public function pageSearchChitiet()
    	{
-   		$csrf = array(
-        'name' => $this->security->get_csrf_token_name(),
-        'hash' => $this->security->get_csrf_hash()
-		);
-		$adata['csrf'] = $csrf;
+   		$adata['benhvien'] = '';
+      $adata['thuocs'] = '';
+      $adata['bacsi'] = '';
+      $adata['tintuc'] = '';
 
 
    		$key 			= $this->input->get('search');

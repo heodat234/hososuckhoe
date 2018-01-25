@@ -15,7 +15,7 @@ class Login extends CI_Controller {
 		    'protocol'  =>  'smtp',
 		    'smtp_host' =>  'ssl://smtp.googlemail.com',
 		    'smtp_port' =>  465,
-		    'smtp_user' =>  'hungminhitsoluton@gmail.com',
+		    'smtp_user' =>  'hungminhitsolution@gmail.com',
 		    'smtp_pass' =>  'hungminhits',
 		    'mailtype'  =>  'html', 
 		    'charset'   =>  'utf-8',
@@ -93,7 +93,7 @@ class Login extends CI_Controller {
 		}else{
 			$this->b_Check = true;
 			$this->Login_model->insertUser( $a_UserInfo );
-			$this->email->from('hunglt2345@gmail.com', 'Hồ sơ sức khỏe');
+			$this->email->from('hungminhitsolution@gmail.com', 'Hồ sơ sức khỏe');
 			//cau hinh nguoi nhan
 			$this->email->to($a_UserInfo['email']);
 			$this->email->subject('Xác nhận tài khoản');
@@ -166,7 +166,7 @@ class Login extends CI_Controller {
 		$mail = $this->input->post('email');
 		 
 		//cau hinh email va ten nguoi gui
-		$this->email->from('hunglt2345@gmail.com', 'Hồ sơ sức khỏe');
+		$this->email->from('hungminhitsolution@gmail.com', 'Hồ sơ sức khỏe');
 		//cau hinh nguoi nhan
 		$this->email->to($mail);
 		$this->email->subject('Lấy lại mật khẩu');
