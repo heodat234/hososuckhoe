@@ -34,8 +34,7 @@
                     <div class="icon-boxwrap4"><i class="fa fa-search icon-box-back2"></i></div>
                     <div class="icon-box2-title">Tra cứu nhanh</div>
                     <div class="box-search" >
-                        <form method="post" action="<?php echo base_url() ?>timkiem.html">
-                            <input name="<?php echo $csrf['name'] ?>" type="hidden" value="<?php echo $csrf['hash'] ?>" /> 
+                        <form method="get" action="<?php echo base_url() ?>timkiem.html">
                             <input class="data" type="text" name="search" placeholder="Tra cứu thông tin ngay">
                             <button  ><span class="fa fa-search fa-lg"></span></button>
                             <h6 >Tra cứu thông tin Bệnh viện, Bác sĩ, Thuốc,...</h6>

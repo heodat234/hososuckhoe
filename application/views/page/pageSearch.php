@@ -15,12 +15,18 @@
         <form  method="get" action="<?php echo base_url() ?>timkiemchitiet.html">
           <div class=" col-xs-12 col-md-6 col-sm-12">
             <div class="timkiem-info">
-              <input name="<?php echo $csrf['name'] ?>" type="hidden" value="<?php echo $csrf['hash'] ?>" /> 
               <div class=" input-group">
                 <input type="text" name="search"   class="form-control" placeholder="Tra cứu ngay">
                 <div class="input-group-addon btn-timkiem"><button class="btn-search"><i class="fa fa-search"></i></button></div>
               </div>
+             
               <div><h6>Tra cứu thông tin Bệnh viện, Bác sĩ, Thuốc,...</h6></div>
+               <div>
+                <?php if ($count != 0): ?>
+                  <h5>"<span style="color: #f0b627"><?php echo $key ?></span>" có <?php echo $count ?> kết quả</h5>
+                <?php endif ?>
+                
+              </div>
             </div>
           </div>
           <div class=" col-xs-6 col-md-3 col-sm-6">
