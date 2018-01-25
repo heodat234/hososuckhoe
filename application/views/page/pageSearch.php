@@ -22,10 +22,8 @@
              
               <div><h6>Tra cứu thông tin Bệnh viện, Bác sĩ, Thuốc,...</h6></div>
                <div>
-                <?php if ($count != 0): ?>
                   <h5>"<span style="color: #f0b627"><?php echo $key ?></span>" có <?php echo $count ?> kết quả</h5>
-                <?php endif ?>
-                
+
               </div>
             </div>
           </div>
