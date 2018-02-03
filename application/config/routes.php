@@ -53,7 +53,8 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['thanhvien.html'] 		= 'welcome/thanhvien';
+$route['lienhe.html'] 			= 'welcome/contact';
+$route['insertContact'] 		= 'welcome/insertContact';
 
 $route['tintuc.html'] 			= 'news';
 $route['tintuc/(:num)'] 		= 'news/tinTucById/$1';

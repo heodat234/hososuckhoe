@@ -55,7 +55,7 @@
     $('.loadBenh').remove();
     $.ajax({
       url: '<?php echo base_url() ?>benhByIdLoai',
-      type: 'post',
+      type: 'get',
       dataType: 'json',
       data: {id: id},
     })

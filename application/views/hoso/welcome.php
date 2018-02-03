@@ -1,50 +1,69 @@
+
+<style type="text/css">
+  .editAnh :hover {
+    background-color: #000;
+    opacity: 0.8;
+  }
+</style>
 <div class="welcome-route-content content-hs col-10 col-offset-2" id="page-info">
     <section >
       <div class="row">
         <div class="page-header clearfix col-sx-12">
-            <h3>Xin chào <?php echo $this->session->userdata('user')['name']  ?></h3>
+            <h3>Xin chào <?php echo $user['name']  ?></h3>
         </div>
         <div>
             <div class="row">
               <div class=" col-12 col-sm-4 col-lg-2">
-                <?php if ($this->session->userdata('user')['avatar'] == ''){ ?>
-                  <img style="width: 90%" src="<?php echo base_url() ?>images/profile.png">
+                <?php if ($user['avatar'] == ''){ ?>
+                  <img class="img-avatar" style="width: 90%" src="<?php echo base_url() ?>images/profile.png">
                 <?php }else { ?>
-                  <img style="width: 90%" src="<?php echo base_url() ?>images/avatar/<?php echo $this->session->userdata('user')['avatar'] ?>">
+                  <img class="img-avatar" style="width: 90%" src="<?php echo base_url() ?>images/avatar/<?php echo $user['avatar'] ?>">
                 <?php } ?>
+                <div class="editAnh" style="height: 40px;width: 90%;background-color: #000;opacity: 0.4;margin-top: -40px;cursor:pointer;">
+                  <div style="float: left; width: 30%"><i class="fa fa-camera" style="color: #fff; margin-top: 13px;margin-left: 13px"></i></div>
+                  <div style="float: right;width: 70%;margin-top: 5px;"><span style="font-size: 10px;color: #fff; font-weight: bold;">Cập nhập ảnh đại diện</span></div>
+                </div>
               </div>
               <div class="col-12 col-sm-8 col-lg-10" style="margin-top: 10px;">
                 <table>
                   <tr>
                     <td class="tenmuc">Họ và tên: </td>
-                    <td class="col-1"> <?php echo $this->session->userdata('user')['name'] ?></td>
+                    <td class="col-1"> <?php echo $user['name'] ?></td>
                   </tr>
                   <tr>
                     <td class="tenmuc">Email: </td>
-                    <td> <?php echo $this->session->userdata('user')['email'] ?></td>
+                    <td> <?php echo $user['email'] ?></td>
                   </tr>
                   <tr>
                     <td class="tenmuc">Số CMND: </td>
-                    <td> <?php echo $this->session->userdata('user')['cmnd'] ?></td>
+                    <td> <?php echo $user['cmnd'] ?></td>
                   </tr>
                   <tr>
                     <td class="tenmuc">Giới tính: </td>
-                    <td> <?php echo $this->session->userdata('user')['gioi_tinh']==0 ?"Nam":"Nữ"  ?></td>
+                    <td> <?php echo $user['gioi_tinh']==0 ?"Nam":"Nữ"  ?></td>
+                  </tr>
+                  <tr>
+                    <td class="tenmuc">Nhóm máu: </td>
+                    <td> <?php echo $user['nhom_mau'] ?></td>
                   </tr>
                   <tr>
                     <td class="tenmuc">Số điện thoại: </td>
-                    <td> <?php echo $this->session->userdata('user')['phone'] ?></td>
+                    <td> <?php echo $user['phone'] ?></td>
                   </tr>
                   <tr>
                     <td class="tenmuc">Địa chỉ: </td>
-                    <td> <?php echo $this->session->userdata('user')['dia_chi'] ?></td>
+                    <td> <?php echo $user['dia_chi'] ?></td>
+                  </tr>
+                  <tr>
+                    <td class="tenmuc">Ngày sinh: </td>
+                    <td> <?php echo date('d-m-Y',strtotime($user['ngay_sinh'])) ?></td>
                   </tr>
                 </table>
               </div>
               
               <div class="col-md-6 col-md-offset-2 col-12" style="width: 90%">
                 <br>
-                <button class="btn btn-info" data-toggle="modal" data-target="#edit" data-id='<?php echo $this->session->userdata('user')['id'] ?>' data-name='<?= $this->session->userdata('user')['name'] ?>' data-cmnd='<?php echo $this->session->userdata('user')['cmnd'] ?>' data-gioitinh='<?php echo $this->session->userdata('user')['gioi_tinh'] ?>' data-phone='<?php echo $this->session->userdata('user')['phone'] ?>' data-diachi='<?php echo $this->session->userdata('user')['dia_chi'] ?>' data-ngaysinh='<?php echo date('Y-m-d',strtotime($this->session->userdata('user')['ngay_sinh'])) ?>' >
+                <button class="btn btn-info" data-toggle="modal" data-target="#edit" data-id='<?php echo $user['id'] ?>' data-name='<?= $user['name'] ?>' data-cmnd='<?php echo $user['cmnd'] ?>' data-gioitinh='<?php echo $user['gioi_tinh'] ?>' data-phone='<?php echo $user['phone'] ?>' data-mau='<?php echo $user['nhom_mau'] ?>' data-diachi='<?php echo $user['dia_chi'] ?>' data-ngaysinh='<?php echo date('Y-m-d',strtotime($user['ngay_sinh'])) ?>' >
                     <i class="fa fa-edit"></i> Chỉnh sửa thông tin
                 </button>
                 <button class="btn btn-danger" data-toggle="modal" data-target="#editPass"><i class="fa fa-key"></i> Đổi mật khẩu</button>
@@ -109,6 +128,15 @@
                              </div>
                           </div>
                           <div class="form-group">
+                             <div><b>Nhóm máu</b></div>
+                             <div class="input-group">
+                                <div class="input-group-addon iga2">
+                                   <span class="glyphicon glyphicon-folder-open"></span>
+                                </div>
+                                <input type="text" class="form-control" name="nhom_mau" >
+                             </div>
+                          </div>
+                          <div class="form-group">
                              <div><b>Ngày sinh</b></div>
                              <div class="input-group">
                                 <div class="input-group-addon iga2">
@@ -151,7 +179,7 @@
           </div>
           <form method="post" id="form-pass" enctype="multipart/form-data" action="<?php echo base_url() ?>editPass">
             <input name="csrf_test_name" type="hidden" value="" id ="csrf" /> 
-            <input type="hidden" name="id" id="id" value="<?php echo $this->session->userdata('user')['id'] ?>">
+            <input type="hidden" name="id" id="id" value="<?php echo $user['id'] ?>">
               <div class="modal-body">
                  <div class="container-fluid">
                     <div class="row">
@@ -213,18 +241,20 @@
      //mở form chỉnh sửa
     $('#edit').on('show.bs.modal', function(e) {
       //get data-id attribute of the clicked element
-      var id = $(e.relatedTarget).data('id');
-      var ten = $(e.relatedTarget).data('name');
-      var cmnd = $(e.relatedTarget).data('cmnd');
+      var id        = $(e.relatedTarget).data('id');
+      var ten       = $(e.relatedTarget).data('name');
+      var cmnd      = $(e.relatedTarget).data('cmnd');
+      var mau       = $(e.relatedTarget).data('mau');
       var gioi_tinh = $(e.relatedTarget).data('gioitinh');
-      var phone = $(e.relatedTarget).data('phone');
+      var phone     = $(e.relatedTarget).data('phone');
       var ngay_sinh = $(e.relatedTarget).data('ngaysinh');
-      var dia_chi = $(e.relatedTarget).data('diachi');
+      var dia_chi   = $(e.relatedTarget).data('diachi');
       //populate the textbox
       $(e.currentTarget).find('input[name="id"]').val(id);
       $(e.currentTarget).find('input[name="name"]').val(ten);
       $(e.currentTarget).find('input[name="cmnd"]').val(cmnd);
-        $('.gioi_tinh option[value="'+gioi_tinh+'"]').prop('selected','selected');
+      $(e.currentTarget).find('input[name="nhom_mau"]').val(mau);
+      $('.gioi_tinh option[value="'+gioi_tinh+'"]').prop('selected','selected');
       $(e.currentTarget).find('input[name="phone"]').val(phone);
       $(e.currentTarget).find('input[name="ngay_sinh"]').attr('value',ngay_sinh);
       $(e.currentTarget).find('input[name="dia_chi"]').val(dia_chi);
@@ -273,4 +303,18 @@
         }
         
     });
+
+    $('.editAnh').hide();
+    $('.img-avatar').mouseenter(function() {
+      $('.editAnh').show();
+      $('.editAnh').mouseenter(function() {
+        $('.editAnh').show();
+      });
+    });
+   $('.img-avatar').mouseleave(function() {
+     $('.editAnh').hide();
+     $('.editAnh').mouseleave(function() {
+        $('.editAnh').hide();
+      });
+   });
 </script>

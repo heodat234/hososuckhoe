@@ -33,7 +33,7 @@ class Benh extends CI_Controller {
 	public function benhByIdLoai()
 	{
 		$l_data['mdata'] ='';
-		$idLoai = $this->input->post('id');
+		$idLoai = $this->input->get('id');
 		$tenNhom = $this->Benh_model->getTenLoai($idLoai);
 		$tenNhom = $tenNhom['name'];
         $benhs		= $this->Benh_model->getBenhByIdLoai($idLoai);

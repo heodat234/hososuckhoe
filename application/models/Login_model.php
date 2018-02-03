@@ -51,9 +51,15 @@ class Login_model extends CI_Model{
 
     public function selectUser()
     {
-        $this->db->select();
+        $this->db->select() ;
         $query = $this->db->get($this->_name);
         return $query->result_array();
+    }
+    public function selectUserById($id)
+    {
+        $this->db->select()->where('id', $id);
+        $query = $this->db->get($this->_name);
+        return $query->row_array();
     }
     //thêm tài khoản mới
     public function insertUser($data)
@@ -82,8 +88,9 @@ class Login_model extends CI_Model{
          $prevCheck = $this->db->where(array('oauth_provider'=>$data['oauth_provider'],'oauth_uid'=>$data['oauth_uid']))
                 ->get($this->_name)
                 ->row_array();
+                // var_dump($data);
         if($prevCheck > 0){
-            $update = $this->db->update($this->_name,$data,array('id'=>$prevCheck['id']));
+            // $update = $this->db->update($this->_name,$data,array('id'=>$prevCheck['id']));
             $userID = $prevCheck['id'];
         }else{
             if ($this->checkMail($data['email'])) {

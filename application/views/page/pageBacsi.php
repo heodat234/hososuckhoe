@@ -18,7 +18,7 @@
           <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12" style="margin-bottom: 20px;">
             <div class="col-md-9 col-sm-12 col-lg-9 col-xs-12 no-pad body-ds-tin" >
               
-              <div class="img-news" style="text-align: center;">
+              <div  style="text-align: center;">
                 <img width="40%" src="<?php echo $image ?>">
               </div>
               <div style="text-align: center;">

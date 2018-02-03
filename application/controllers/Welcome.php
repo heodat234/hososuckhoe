@@ -6,7 +6,7 @@ class Welcome extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->helper(array('url','text'));
-		$this->load->model(array('News_model','BenhVien_model','Bacsi_model','Thuoc_model'));
+		$this->load->model(array('News_model','BenhVien_model','Bacsi_model','Thuoc_model','Login_model','Contact_model'));
 		$this->load->library(array('form_validation','session'));
 
 		
@@ -31,14 +31,34 @@ class Welcome extends CI_Controller {
         return $this->load->view('home/master', $this->_data);
 	}
 	
-	public function thanhvien()
+	public function contact()
 	{
-		$data['thanhvien']			= 'active';
-		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);
-        $this->_data['html_body'] 	= $this->load->view('page/thanhvien', NULL, TRUE);
+		$csrf = array(
+        'name' => $this->security->get_csrf_token_name(),
+        'hash' => $this->security->get_csrf_hash()
+    );
+    $mdata['csrf'] = $csrf;
+		$this->_data['html_header'] = $this->load->view('home/header', null, TRUE);
+        $this->_data['html_body'] 	= $this->load->view('page/contact', $mdata, TRUE);
         // $this->_data['html_slider'] = $this->load->view('home/slider', NULL, TRUE);
         return $this->load->view('home/master', $this->_data);
 	}
+  public function insertContact()
+  {
+    $frm = $this->input->post();
+    if (!$this->session->has_userdata('user')) {
+      $c_data['name'] = $frm['name'];
+      $c_data['email'] = $frm['email'];
+    }else{
+      $user = $this->Login_model->selectUserById($this->session->userdata('user')['id']);
+      $c_data['name'] = $user['name'];
+      $c_data['email'] = $user['email'];
+    }
+    $c_data['subject'] = $frm['subject'];
+    $c_data['content'] = $frm['content'];
+    $this->Contact_model->insertContact($c_data);
+    redirect(base_url());
+  }
 
 	public function loadData()
     {

@@ -67,7 +67,11 @@
                   <div class="icon-box-5 wow fadeInDown" data-wow-delay="0.5s" data-wow-offset="150">
                     <div class ="thuoc-img">
                       <a href="<?php echo base_url().'thuoc/'.$thuoc['id'] ?>">
-                        <img src="<?php echo json_decode($thuoc['image'],true)[0]['src'] ?>">
+                        <?php if (json_decode($thuoc['image'],true)[0]['src'] == ''){ ?>
+                          <img src="<?php echo base_url() ?>images/thuoc.jpg">
+                        <?php }else{ ?>
+                          <img src="<?php echo json_decode($thuoc['image'],true)[0]['src'] ?>">
+                        <?php } ?>
                       </a>
                     </div>
                     <div class="icon-box2-title tenthuoc">

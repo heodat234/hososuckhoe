@@ -89,6 +89,13 @@
 				                        </div>
 				                        <br>
 				                        <div class="input-group">
+				                        	<label class="col-lg-3 control-label" for="ten">Nhóm máu</label>
+	                          				<div class="col-lg-9">
+				                            	<input class="form-control" data-val="true" name="nhom_mau" placeholder="Nhóm máu của bạn" type="text" />
+				                            </div>
+				                        </div>
+				                        <br>
+				                        <div class="input-group">
 				                        	<label class="col-lg-3 control-label" for="ten">Số CMND</label>
 	                          				<div class="col-lg-9">
 				                            	<input class="form-control" data-val="true" name="cmnd" placeholder="Số chứng minh nhân dân" type="text" />
@@ -106,6 +113,14 @@
 				                        	<label class="col-lg-3 control-label" for="ten">Địa chỉ</label>
 	                          				<div class="col-lg-9">
 				                            	<input class="form-control" data-val="true"  name="dia_chi" placeholder="Địa chỉ" type="text" />
+				                            </div>
+				                        </div>
+				                        <br>
+				                        <div class="input-group">
+				                        	<label class="col-lg-3 control-label" for="ten">Ảnh đại diện</label>
+	                          				<div class="col-lg-9">
+				                            	<input class="form-control" id="f" type="file" name="avatar" onchange="file_change(this)"/>
+                                				<img style="width: 100px;height: 100px" id="img"  style="display: none;" src="<?php echo base_url() ?>images/profile.png">
 				                            </div>
 				                        </div>
 				                    </div>
@@ -183,4 +198,28 @@
 	        	$('.alert-danger').html('Bạn chưa nhập mật khẩu.');
 	        }
 	    });
+
+	function file_change(f){
+
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        var img = document.getElementById("img");
+        img.src = e.target.result;
+        img.style.display = "inline";
+    };
+    var ftype =f.files[0].type;
+    switch(ftype)
+            {
+                case 'image/png':
+                case 'image/gif':
+                case 'image/jpeg':
+                case 'image/pjpeg':
+                    reader.readAsDataURL(f.files[0]);
+                    break;
+                default:
+                    alert(' Bạn chỉ được chọn file ảnh.');
+                   $('#f').val(null);
+            }
+    
+    }
 </script>

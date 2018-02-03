@@ -15,7 +15,7 @@ class Login extends CI_Controller {
 		    'protocol'  =>  'smtp',
 		    'smtp_host' =>  'ssl://smtp.googlemail.com',
 		    'smtp_port' =>  465,
-		    'smtp_user' =>  'hungminhitsolution@gmail.com',
+		    'smtp_user' =>  'hososuckhoe.org@gmail.com',
 		    'smtp_pass' =>  'hungminhits',
 		    'mailtype'  =>  'html', 
 		    'charset'   =>  'utf-8',
@@ -49,10 +49,12 @@ class Login extends CI_Controller {
 		$this->_data['html_body'] = $this->load->view('page/register', $this->a_Data, TRUE);
         return $this->load->view('home/master', $this->_data);
 	}
+	
 	//đăng nhập thường
 	public function loginUser()
 	{
 		$frm = $this->input->post();
+
 		$a_UserInfo['username'] = $frm['username'];
 		$a_UserInfo['password'] = md5($frm['password']);
 		$a_UserChecking = $this->Login_model->a_fCheckUser( $a_UserInfo );
@@ -61,7 +63,7 @@ class Login extends CI_Controller {
 				$this->b_Check = 'Tài khoản của bạn chưa được xác nhận. Vui lòng xác nhận tài khoản của bạn trước khi đăng nhập.';
 			}else{
 				$this->session->set_userdata('user', $a_UserChecking);
-				redirect(base_url(''));
+				redirect(base_url('account.html'));
 			}
 		}else{
 			$this->b_Check = 'Tài khoản không đúng. Xin vui lòng đăng nhập lại !';
@@ -69,6 +71,7 @@ class Login extends CI_Controller {
 		$this->a_Data['b_Check']= $this->b_Check;
 		$this->_data['html_body'] = $this->load->view('page/login',$this->a_Data, TRUE);
         return $this->load->view('home/master', $this->_data);
+ 
 	}
 	//vào trang cá nhân
 	public function account()
@@ -88,12 +91,33 @@ class Login extends CI_Controller {
 		$a_UserInfo['gioi_tinh'] 	= $frm['gioi_tinh'];
 		$a_UserInfo['ngay_sinh'] 	= $frm['ngay_sinh'];
 		$a_UserInfo['cmnd'] 		= $frm['cmnd'];
+		$a_UserInfo['nhom_mau'] 	= $frm['nhom_mau'];
 		if ($this->Login_model->checkMail( $a_UserInfo['email'] )) {
 			$this->b_Check = false;
 		}else{
 			$this->b_Check = true;
+
+			if (!empty($_FILES['avatar']['name'])) {
+			
+				$config['upload_path'] = './images/avatar';
+				$config['allowed_types'] = 'jpg|png';
+				$config['file_name'] = $_FILES['avatar']['name'];
+				$this->load->library('upload', $config);
+				$this->upload->initialize($config);
+				if ($this->upload->do_upload('avatar')) {
+					$uploadData = $this->upload->data();
+					$a_UserInfo['avatar']  = $uploadData['file_name'];
+				} else{
+					$error = $this->upload->display_errors();
+            		echo $error;
+					$a_UserInfo['avatar'] = '';
+				}
+			}else{
+				$a_UserInfo['avatar']  = '';
+			}
+
 			$this->Login_model->insertUser( $a_UserInfo );
-			$this->email->from('hungminhitsolution@gmail.com', 'Hồ sơ sức khỏe');
+			$this->email->from('hososuckhoe.org@gmail.com', 'Hồ sơ sức khỏe');
 			//cau hinh nguoi nhan
 			$this->email->to($a_UserInfo['email']);
 			$this->email->subject('Xác nhận tài khoản');
@@ -130,6 +154,7 @@ class Login extends CI_Controller {
 		$a_UserInfo['gioi_tinh'] 	= $frm['gioi_tinh'];
 		$a_UserInfo['ngay_sinh'] 	= $frm['ngay_sinh'];
 		$a_UserInfo['cmnd'] 		= $frm['cmnd'];
+		$a_UserInfo['nhom_mau'] 	= $frm['nhom_mau'];
 		$editUser = $this->Login_model->editUser( $a_UserInfo );
 
 		$this->session->unset_userdata('user');
@@ -166,7 +191,7 @@ class Login extends CI_Controller {
 		$mail = $this->input->post('email');
 		 
 		//cau hinh email va ten nguoi gui
-		$this->email->from('hungminhitsolution@gmail.com', 'Hồ sơ sức khỏe');
+		$this->email->from('hososuckhoe.org@gmail.com', 'Hồ sơ sức khỏe');
 		//cau hinh nguoi nhan
 		$this->email->to($mail);
 		$this->email->subject('Lấy lại mật khẩu');
@@ -212,8 +237,8 @@ class Login extends CI_Controller {
 	{
 		$cb = base_url()."Login/callback";
 		$fb = new Facebook\Facebook([
-          'app_id' => '1981709738820610',
-          'app_secret' => '4f145f787c59c88edc329e2cbabd457e',
+          'app_id' => '148742165825847',
+          'app_secret' => '0d5546d7c13e24ecab160538072ee152',
           'default_graph_version' => 'v2.5',
         ]);
 
@@ -230,8 +255,8 @@ class Login extends CI_Controller {
 	{
 		$cb = base_url()."Login/callback";
 		$fb = new Facebook\Facebook([
-        'app_id' => '1981709738820610',
-          'app_secret' => '4f145f787c59c88edc329e2cbabd457e',
+        'app_id' => '148742165825847',
+          'app_secret' => '0d5546d7c13e24ecab160538072ee152',
         'default_graph_version' => 'v2.5',
         ]);
         
@@ -265,14 +290,25 @@ class Login extends CI_Controller {
         }
         // User Information Retrival begins................................................
         $me = $response->getGraphUser();
-        $a_UserInfo['oauth_provider']  = 'facebook';
-        $a_UserInfo['oauth_uid'] = $me->getProperty('id');
-        $a_UserInfo['name'] = $me->getProperty('name');
-		$a_UserInfo['email'] = $me->getProperty('email');
-		$a_UserInfo['avatar'] = $me->getProperty('avatar');
-		$a_UserInfo['group'] = 0;
-		// var_dump($a_UserInfo);
-		if ($this->Login_model->checkUser( $a_UserInfo )) {
+        $a_UserInfo['oauth_provider']  	= 'facebook';
+        $a_UserInfo['oauth_uid'] 		= $me->getProperty('id');
+        $a_UserInfo['name'] 			= $me->getProperty('name');
+		$a_UserInfo['email'] 			= $me->getProperty('email');
+		$a_UserInfo['avatar'] 			= $me->getProperty('avatar');
+		$a_UserInfo['group'] 			= 0;
+		$a_UserInfo['cmnd'] 			= '';
+		$gender = $me->getProperty('gender');
+		if ($gender == 'male') {
+			$a_UserInfo['gioi_tinh'] 		= 0;
+		}else{
+			$a_UserInfo['gioi_tinh'] 		= 1;
+		}
+		$a_UserInfo['phone'] 			= '';
+		$a_UserInfo['dia_chi'] 			= '';
+		$a_UserInfo['ngay_sinh'] 		= '';
+		$a_UserInfo['nhom_mau'] 		= '';
+		// var_dump($me);
+		if ($a_UserInfo['id'] = $this->Login_model->checkUser( $a_UserInfo )) {
 			$this->session->set_userdata('user', $a_UserInfo);
 			redirect(base_url(''));
 		}else{
@@ -287,8 +323,8 @@ class Login extends CI_Controller {
 	//đăng nhập bằng google
 	public function loginGoogle()
 	{
-		$client_id = '148311644753-bu3gi4mpei8s70a5j1smrq7j0c70b2pt.apps.googleusercontent.com';
-        $client_secret = 'GEHoQkXScBWpvLtxf8E6cznJ';
+		$client_id = '613126986126-l14n7p3q09msrqlhbrnotaov4u8s1fbh.apps.googleusercontent.com';
+        $client_secret = 'fg0WlAlRMyAuORMY0SUrmYtz';
         $redirect_uri = base_url('gcallback');;
 
         //Create Client Request to access Google API
@@ -311,8 +347,8 @@ class Login extends CI_Controller {
 	function gcallback()
     {
             // Fill CLIENT ID, CLIENT SECRET ID, REDIRECT URI from Google Developer Console
-	     $client_id = '148311644753-bu3gi4mpei8s70a5j1smrq7j0c70b2pt.apps.googleusercontent.com';
-	     $client_secret = 'GEHoQkXScBWpvLtxf8E6cznJ';
+	     $client_id = '613126986126-l14n7p3q09msrqlhbrnotaov4u8s1fbh.apps.googleusercontent.com';
+	     $client_secret = 'fg0WlAlRMyAuORMY0SUrmYtz';
 	     $redirect_uri = base_url('gcallback');
 
 	    //Create Client Request to access Google API
@@ -332,14 +368,23 @@ class Login extends CI_Controller {
 	  
 	    // User information retrieval starts..............................
 	    $user = $service->userinfo->get(); //get user info
-	    $a_UserInfo['oauth_provider']  = 'google';
-	    $a_UserInfo['oauth_uid'] = $user->id;
-	    $a_UserInfo['name'] = $user->name;
-		$a_UserInfo['email'] = $user->email;
-		// $a_UserInfo['avatar'] = $user->avatar;
-		$a_UserInfo['group'] = 0;
-		// var_dump($a_UserInfo);
-		if ($this->Login_model->checkUser( $a_UserInfo )) {
+	    $a_UserInfo['oauth_provider']  	= 'google';
+	    $a_UserInfo['oauth_uid'] 		= $user->id;
+	    $a_UserInfo['name'] 			= $user->name;
+		$a_UserInfo['email'] 			= $user->email;
+		$a_UserInfo['group'] 			= 0;
+		$picture 						= $user->picture;
+		$a_UserInfo['cmnd'] 			= '';
+		$a_UserInfo['gioi_tinh'] 		= 0;
+		$a_UserInfo['phone'] 			= '';
+		$a_UserInfo['dia_chi'] 			= '';
+		$a_UserInfo['ngay_sinh'] 		= '';
+		$a_UserInfo['nhom_mau'] 		= '';
+		$a_UserInfo['avatar'] 			= substr($picture, strrpos($picture, '/') + 1);
+		file_put_contents('images/avatar/'.$a_UserInfo['avatar'], file_get_contents($picture));
+		
+		// var_dump($user);
+		if ($a_UserInfo['id'] = $this->Login_model->checkUser( $a_UserInfo )) {
 			$this->session->set_userdata('user', $a_UserInfo);
 			redirect(base_url(''));
 		}else{

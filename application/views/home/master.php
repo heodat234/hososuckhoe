@@ -28,6 +28,8 @@
     <script type="text/javascript" src="<?php echo base_url() ?>public/js/jquery.min.js"></script>
      <script type="text/javascript" src="<?php echo base_url(); ?>public/js/jquery-ui.js"></script>
      <script type="text/javascript" src="<?php echo base_url(); ?>public/js/js.cookie.js"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js?hl=vi"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAbjBhwvVw17A_RP6r_jeQrZ-ChKY90H5U&sensor=false"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112747370-1"></script>
@@ -78,7 +80,7 @@
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.11&appId=1981709738820610';
+      js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.11&appId=148742165825847';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
     </body>

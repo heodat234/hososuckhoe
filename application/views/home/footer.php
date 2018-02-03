@@ -10,7 +10,7 @@
                         <div class="col-xs-12 no-pad"><i class="icon-globe address-icons"></i>10 Đường số 11 <br />Quận 6, TP HCM</div>
                         <div class="col-xs-12 no-pad"><i class="icon-phone2 address-icons"></i>+84 455 755</div>
                         <!-- <div class="col-xs-12 no-pad"><i class="icon-file address-icons"></i>+123 555 755</div> -->
-                        <div class="col-xs-12 no-pad"><i class="icon-mail address-icons"></i>hungminhitsolution@gmail.com</div>
+                        <div class="col-xs-12 no-pad"><i class="icon-mail address-icons"></i>hososuckhoe.org@gmail.com</div>
                     </address>
                 </div>
                 
@@ -30,16 +30,16 @@
                 
                  <!--Foot widget-->
                 <div class="col-xs-12 col-sm-6 col-md-3 recent-tweet-foot foot-widget">
-                    <div class="fb-page" data-href="https://www.facebook.com/H%E1%BB%93-s%C6%A1-s%E1%BB%A9c-kh%E1%BB%8Fe-192082374865236/" data-show-facepile="true" data-show-facepile="false" data-width="250" data-height="300" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" ><blockquote cite="https://www.facebook.com/H%E1%BB%93-s%C6%A1-s%E1%BB%A9c-kh%E1%BB%8Fe-192082374865236/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/H%E1%BB%93-s%C6%A1-s%E1%BB%A9c-kh%E1%BB%8Fe-192082374865236/">Hồ sơ sức khỏe</a></blockquote></div>
+                    <div class="fb-page" data-href="https://www.facebook.com/hososuckhoe.org" data-show-facepile="true" data-show-facepile="false" data-width="250" data-height="300" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" ><blockquote cite="https://www.facebook.com/hososuckhoe.org" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/hososuckhoe.org">Hồ sơ sức khỏe</a></blockquote></div>
                 </div>
                 
                 <!--Foot widget-->
                 <div class="col-xs-12 col-sm-6 col-md-3 foot-widget">
                     <div class="foot-widget-title">Liên hệ hợp tác</div>
-                    <p>Nhận thông báo mới từ chúng tôi.</p>
-                    <div class="news-subscribe"><input type="text" class="news-tb" placeholder="Email Address" /><button class="news-button">Đăng ký</button></div>
+                    <p>Gửi đóng góp cho chúng tôi.</p>
+                    <div class="news-subscribe"><a class="news-button" href="<?php echo base_url() ?>lienhe.html">Liên hệ</a></div>
                     <div class="foot-widget-title">Hồ sơ sức khỏe</div>
-                    <div class="social-wrap">
+                    <!-- <div class="social-wrap">
                         <ul>
                         <li><a href="#"><i class="icon-facebook foot-social-icon" id="face-foot" data-toggle="tooltip" data-placement="bottom" title="Facebook"></i></a></li>
                         <li><a href="#"><i class="icon-social-twitter foot-social-icon" id="tweet-foot" data-toggle="tooltip" data-placement="bottom" title="Twitter"></i></a></li>
@@ -47,7 +47,7 @@
                         <li><a href="#"><i class="icon-linkedin foot-social-icon" id="link-foot" data-toggle="tooltip" data-placement="bottom" title="Linked in"></i></a></li>
                         <li><a href="#"><i class="icon-rss foot-social-icon" id="rss-foot" data-toggle="tooltip" data-placement="bottom" title="RSS"></i></a></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
                 
             </div>

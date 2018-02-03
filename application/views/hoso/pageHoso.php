@@ -100,9 +100,9 @@
                                   <div class="input-group-addon iga2">
                                      <span class="glyphicon glyphicon-folder-open"></span>
                                   </div>
-                                  <input type="file" class="form-control"  name="userfile[]" multiple="multiple" id="i_file"  required="">
+                                  <input type="file" class="form-control"  name="userfile[]" multiple="multiple" id="i_file"  >
                               </div>
-                              <span>*Có thể nhiều file ảnh cùng lúc.</span>
+                              <span>*Có thể nhiều file ảnh cùng lúc.</span> 
                           </div>
                         </div>
                     </div>

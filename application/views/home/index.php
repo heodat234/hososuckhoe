@@ -43,9 +43,13 @@
                  </div>   
                 </div>
             </div>
+             <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 30px;">
+                <a href="<?php echo base_url() ?>pageLogin"><img width="100%" src="<?php echo base_url() ?>images/banner/Banner-HSSK.gif"></a>
+            </div>
         </div>
     </div>
 </div>
+
 <div class="container">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="col-xs-12 col-sm-12 col-md-12 pull-left">
@@ -162,7 +166,7 @@
 
                 <div  class="col-xs-12 col-sm-12 col-md-4  styBs">
                     <div class="latest-post-wrap pull-left wow fadeInLeft" data-wow-delay="0.5s" data-wow-offset="100" > 
-                        <div class="subtitle pull-left">
+                        <div class="subtitle no-pad pull-left">
                             <div class="title-a">BỆNH VIỆN</div>
                             <div class="title-d"><p></p></div>
                             <div class="tooltip-bs"><a href="#" data-toggle="tooltip" title="Tiêu chí đánh giá bệnh viện dựa trên đánh giá người dùng về các tiêu chí : chất lượng khám chưa bệnh, chất lượng dịch vụ"><i class="fa fa-info-circle"></i></a></div>

@@ -21,8 +21,8 @@ class Benhvien_model extends CI_Model{
     }
     public function selectBVIndex()
     {
-        $this->db->select()->order_by("danh_gia", "desc")->limit(10);
-        $query = $this->db->get($this->_name);
+        $sql = "SELECT *, diemDichVu + diemChuyenMon AS tong FROM `hospital` ORDER BY tong DESC LIMIT 10";
+        $query = $this->db->query($sql); 
         return $query->result_array();
     }
     public function selectBV()
@@ -47,10 +47,10 @@ class Benhvien_model extends CI_Model{
     }
 
     // // thêm lượt xem
-    // public function updateView($data)
-    // {
-    //     $this->db->where('id', $data['id'])->update($this->_name,$data);
-    // }
+    public function updateDiem($idBV,$data)
+    {
+        $this->db->where('id', $idBV)->update($this->_name,$data);
+    }
     // public function insertTintuc($data)
     // {
     //     $this->db->insert($this->_name,$data);

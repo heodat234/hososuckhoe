@@ -13389,7 +13389,7 @@ input[type="date"] {
 }
 
 .department-wrap .subtitle {
-				margin-bottom: 55px
+				margin-bottom: 38px
 }
 
 .ui-widget {
@@ -19405,7 +19405,9 @@ ul.list-bv >li >div {
 	border-left: 1px solid #fff;
 }
 .img-news {
-	text-align: center;
+	float: left;
+	width: 50%;
+	margin-bottom: 20px;
 }
 .img-news img{
 	
@@ -19911,7 +19913,8 @@ ul.list-bv >li >div {
 }
 
 .gioithieu-bv {
-	margin-top: 20px;
+	float: right;
+	width: 50%;
 	font-size: 15px;
 }
 .gioithieu-bv div >i {
@@ -20092,6 +20095,7 @@ ul.nav >li >a#dangnhap-dky{
 }
 .tenthuoc{
 	margin-top: -2px;
+	height: 70px;
 }
 .thuoc-img img{
 	width: 100%;
@@ -20274,3 +20278,26 @@ img.slide-thuoc {width:60%; margin-left: 20%}
 .title-new{
 	margin-bottom: 40px;
 }
+@media  (max-width: 375px){ 
+	#rc-imageselect, .g-recaptcha {
+		transform:scale(0.77);
+		-webkit-transform:scale(0.77);
+		transform-origin:0 0;
+		-webkit-transform-origin:0 0; 
+	} 
+} 
+@media  (min-width: 375px) and (max-width: 450px) { #rc-imageselect, .g-recaptcha { margin-left: 20px; }}
+@media (max-width: 427px) {
+	.loginMXH {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+} 
+
+
+li.danhgia >a >img {
+	width: 100%;
+}
+/*li.danhgia >a :hover {
+	color: #107fc9;
+}*/

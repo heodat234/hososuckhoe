@@ -40,7 +40,7 @@
                                     
                                     <?php if($this->session->has_userdata('user') && $this->session->userdata('user')['group'] == '0') { ?>
                                         <li class="dropdown <?php echo isset($pageHoso)? $pageHoso : '' ?>">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dangnhap-dky">
+                                            <a href="<?php echo base_url() ?>account.html" class="dropdown-toggle" data-toggle="dropdown" id="dangnhap-dky">
                                                 
                                                 <?php if ($this->session->userdata('user')['avatar'] == ''){ ?>
                                                   <img class="profile-image" style="width: 35px; margin-top: -7px;" src="<?php echo base_url() ?>images/profile.png">
@@ -75,8 +75,8 @@
                                             </ul>
                                         </li>
                                     <?php  }else{ ?>
-                                        <li ><a href="<?php echo base_url() ?>pageLogin" id ="dangnhap-dky"><i class="fa fa-sign-in menu-icon"> </i>Đăng nhập/Đăng ký</a>
-                                    </li>
+                                        <li><a href="<?php echo base_url() ?>pageLogin" id ="dangnhap-dky"  ><i class="fa fa-sign-in menu-icon"></i><span style="padding: 5px; font-weight: bold; border: 1px solid #ffcb59; color: #ffcb59"> <span style="font-size: 20px;">+</span> TẠO HỒ SƠ</span></a>
+                                        </li>
                                     <?php } ?>
                                 </ul>
                             </div>
@@ -88,3 +88,4 @@
         </div>  
     </div>
 </header>
+<!-- style="width: 80%; background: url(<?php echo base_url() ?>images/Button-ĐK.png); background-size: cover;background-repeat: no-repeat;" -->

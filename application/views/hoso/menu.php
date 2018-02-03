@@ -53,7 +53,16 @@
                 <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-signal"></span>
             </a>
         </li>
+        <li class="">
+            <a id="menu-message-center" href="<?php echo base_url() ?>lienhe.html" class="">
+                 Liên hệ / Góp ý
+                <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span>
+            </a>
+        </li>
         <?php } ?>
+
+
+
 
       </ul>
     </div>

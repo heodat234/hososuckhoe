@@ -1,3 +1,13 @@
+<style type="text/css">
+  .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+    text-decoration: none;
+    color: #107fc9;
+    background-color: #fff;
+  }
+  .dropdown-menu>li>a {
+    border-bottom: none;
+}
+</style>
 <div>
   <div class="about-intro-wrap pull-left">
     <div class="bread-crumb-wrap ibc-wrap-1">
@@ -18,14 +28,46 @@
               <div>
                 <h3 class=""><?php echo $benhvien1['name'] ?></h3>
               </div>
-              <div class="img-news" style="text-align: center;">
-                <img style="width: 40%;" src="<?php echo json_decode($benhvien1['image'],true)[0]['src'] ?>">
+              <div class="img-news">
+                <img style="width: 90%;" src="<?php echo json_decode($benhvien1['image'],true)[0]['src'] ?>">
               </div>
               <div class="gioithieu-bv" >
                 <div><i class="fa fa-phone"></i><a href=""> <?php echo $benhvien1['tel'] ?></a></div>
                 <div><i class="fa fa-map-marker"></i> <?php echo $benhvien1['address'] ?></div>
                 <div><i class="fa fa-clock-o"></i> <?php echo $benhvien1['short_desc'] ?></div>
                 <div><i class="glyphicon glyphicon-globe"></i><a href="<?php echo $benhvien1['web_site'] ?>"> <?php echo $benhvien1['web_site'] ?></a></div>
+                <div style="margin-top: 100px; width: 70%;border-top: 1px solid #f3f3f3">
+                   <nav class="navbar navbar-default" role="navigation">
+                        <div class="container-fluid">
+                        
+                            <div class="" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav " style="margin-left: -20px;">
+                                    <li class="dropdown <?php echo isset($danhgiaDV)? $danhgiaDV : ''  ?>" style="width: 40%" id="dv">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <img style="width: 35%" src="<?php echo base_url() ?>images/Untitled-1.png"> Dịch vụ
+                                        </a>
+                                         <ul class="dropdown-menu " style="width: 300px;">
+                                            <li class="col-md-4 danhgia" style="margin-left: -15px;"><a href="javascrip:void(0)" onclick="danhgiaDichVu(1)"><img  src="<?php echo base_url() ?>images/icons-Tam-on.png"> Tạm ổn</a></li>
+                                            <li class="col-md-4 danhgia"><a href="javascrip:void(0)" onclick="danhgiaDichVu(2)"><img  src="<?php echo base_url() ?>images/icons-Tot.png"> Tốt</a></li>
+                                            <li class="col-md-4 danhgia"><a href="javascrip:void(0)" onclick="danhgiaDichVu(3)"><img  src="<?php echo base_url() ?>images/icons-Rat-tot.png"> Rất tốt</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown <?php echo isset($danhgiaCM)? $danhgiaCM : ''  ?>" style="width: 60%" id="cm">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <img style="width: 20%" src="<?php echo base_url() ?>images/icons-dich-vu.png"> Chuyên môn
+                                        </a>
+                                        <ul class="dropdown-menu " style="width: 300px;">
+                                            <li class="col-md-4 danhgia" style="margin-left: -15px;"><a href="javascrip:void(0)" onclick="danhgiaChuyenMon(1)"><img  src="<?php echo base_url() ?>images/icons-Tam-on.png"> Tạm ổn</a></li>
+                                            <li class="col-md-4 danhgia"><a href="javascrip:void(0)" onclick="danhgiaChuyenMon(2)"><img  src="<?php echo base_url() ?>images/icons-Tot.png"> Tốt</a></li>
+                                            <li class="col-md-4 danhgia"><a href="javascrip:void(0)" onclick="danhgiaChuyenMon(3)"><img  src="<?php echo base_url() ?>images/icons-Rat-tot.png"> Rất tốt</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                                  
+                        </div>
+                    </nav>  
+                </div>
               </div>
               <div id="map" style="height:400px; width:100%"></div>
               <div class="content-news-bv">
@@ -133,4 +175,63 @@ function toggleBounce() {
   }
 }
 google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+<script type="text/javascript">
+  function danhgiaDichVu(diem) {
+    var idBV = <?php echo $benhvien1['id'] ?>;
+    <?php if($this->session->has_userdata('user') ){ ?>;
+    
+      $.ajax({
+        url: '<?php echo base_url() ?>Benhvien/danhgiaDichVu',
+        type: 'get',
+        dataType: 'json',
+        data: {diem: diem, idBV: idBV},
+      })
+      .done(function(data) {
+        if (data.err == 1) {
+          $('#dv').addClass('active');
+          alert('Đánh giá thành công.')
+        }else{
+          alert('Bạn đã đánh giá dịch vụ của bệnh viện này.')
+        }
+      })
+      .fail(function() {
+        console.log("error");
+      });
+ 
+    <?php 
+        }else{
+    ?>
+      alert('Bạn phải đăng nhập để có thể đánh giá bệnh viện.');
+    <?php } ?>
+    
+  }
+  function danhgiaChuyenMon(diem) {
+    var idBV = <?php echo $benhvien1['id'] ?>;
+    <?php if($this->session->has_userdata('user') ){ ?>;
+    
+      $.ajax({
+        url: '<?php echo base_url() ?>Benhvien/danhgiaChuyenMon',
+        type: 'get',
+        dataType: 'json',
+        data: {diem: diem, idBV: idBV},
+      })
+      .done(function(data) {
+        if (data.err == 1) {
+          $('#cm').addClass('active');
+          alert('Đánh giá thành công.')
+        }else{
+          alert('Bạn đã đánh giá dịch vụ của bệnh viện này.')
+        }
+      })
+      .fail(function() {
+        console.log("error");
+      });
+ 
+    <?php 
+        }else{
+    ?>
+      alert('Bạn phải đăng nhập để có thể đánh giá bệnh viện.');
+    <?php } ?>
+  }
 </script>

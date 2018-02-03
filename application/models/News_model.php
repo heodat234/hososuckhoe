@@ -14,7 +14,7 @@ class News_model extends CI_Model{
         return $query->num_rows(); 
     }
     public function getNews($total, $start){
-       $this->db->limit($total, $start);
+       $this->db->order_by("id", "desc")->limit($total, $start);
        $query=$this->db->get("news");
        return $query->result_array();
     }

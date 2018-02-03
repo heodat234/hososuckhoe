@@ -21,6 +21,8 @@ class Hoso extends CI_Controller {
 	}
 	public function index()
 	{
+		$idUser = $this->session->userdata('user')['id'];
+		$this->a_Data['user'] = $this->Login_model->selectUserById($idUser);
 		$this->data['welcome']		= 'active';
 		$this->_data['html_menu']		= $this->load->view('hoso/menu', $this->data, TRUE);  
         $this->_data['html_body'] = $this->load->view('hoso/welcome', $this->a_Data, TRUE);
@@ -60,7 +62,7 @@ class Hoso extends CI_Controller {
 		$this->data['tk']				= 'active';
 		$id_user 						= $this->session->userdata('user')['id'];
 		
-		$muc_chiso 						= $this->Muc_Chiso_model->selectChiso();
+		$muc_chiso 						= $this->Muc_Chiso_model->selectChiso(); 
 		for ($i=0; $i < count($muc_chiso) ; $i++) { 
 			$data = array();
 			$ngay = array();
@@ -101,34 +103,38 @@ class Hoso extends CI_Controller {
 		$dataInfo 	= array();
 	    $data 		= array();
 	    $files 		= $_FILES;
-	    $cpt 		= count($_FILES['userfile']['name']);
+
+	   if (!empty($_FILES['userfile']['name'][0])) {
+	   	
+	    	$cpt 		= count($_FILES['userfile']['name']);
 	    
-	    for($i=0; $i<$cpt; $i++){           
-	        $_FILES['userfile']['name']		= $files['userfile']['name'][$i];
-	        $_FILES['userfile']['type']		= $files['userfile']['type'][$i];
-	        $_FILES['userfile']['tmp_name']	= $files['userfile']['tmp_name'][$i];
-	        $_FILES['userfile']['error']	= $files['userfile']['error'][$i];
-	        $_FILES['userfile']['size']		= $files['userfile']['size'][$i];    
-	        $this->upload->initialize($this->set_upload_options());
-	        if ($this->upload->do_upload()) {
-	        	$dataInfo[] = $this->upload->data();
-	        } else{
-				$error = $this->upload->display_errors();
-        		echo $error;
-			}
+		    for($i=0; $i<$cpt; $i++){           
+		        $_FILES['userfile']['name']		= $files['userfile']['name'][$i];
+		        $_FILES['userfile']['type']		= $files['userfile']['type'][$i];
+		        $_FILES['userfile']['tmp_name']	= $files['userfile']['tmp_name'][$i];
+		        $_FILES['userfile']['error']	= $files['userfile']['error'][$i];
+		        $_FILES['userfile']['size']		= $files['userfile']['size'][$i];    
+		        $this->upload->initialize($this->set_upload_options());
+		        if ($this->upload->do_upload()) {
+		        	$dataInfo[] = $this->upload->data();
+		        } else{
+					$error = $this->upload->display_errors();
+	        		echo $error;
+				}
+		    }
+		    for ($i=0; $i < $cpt; $i++) { 
+		    	$_data['dulieu'] 		= $dataInfo[$i]['file_name'];
+	    		$_data['id_hoso'] 		= $id_hoso;
+	    		$_data['ten_data'] 		= 'file';
+	    		$_data['loai_chiso'] 	= '1';
+		    	$this->ChitietHoso_model->insertChitiet_Hoso($_data);				
+		    }
 	    }
 	    
-	    for ($i=0; $i < $cpt; $i++) { 
-	    	$_data['dulieu'] 		= $dataInfo[$i]['file_name'];
-    		$_data['id_hoso'] 		= $id_hoso;
-    		$_data['ten_data'] 		= 'file';
-    		$_data['loai_chiso'] 	= '6';
-	    	$this->ChitietHoso_model->insertChitiet_Hoso($_data);				
-	    }
 
 
 
-		redirect(base_url('hoso.html'));
+		redirect(base_url('form.html/'.$id_hoso.''));
 	}
 
 	public function addFile()
@@ -159,7 +165,7 @@ class Hoso extends CI_Controller {
 	    	$_data['dulieu'] 		= $dataInfo[$i]['file_name'];
     		$_data['id_hoso'] 		= $id;
     		$_data['ten_data'] 		= 'file';
-    		$_data['loai_chiso'] 	= '6';
+    		$_data['loai_chiso'] 	= '1';
 	    	$this->ChitietHoso_model->insertChitiet_Hoso($_data);				
 	    }
 
@@ -195,9 +201,9 @@ class Hoso extends CI_Controller {
 		
 		$active = $this->input->post('active');
 		if ($active == 0) {
-			$dk  	= array('loai_chiso' => 6, 'id_hoso' => $id_hoso,'active'=>$active );
+			$dk  	= array('loai_chiso' => 1, 'id_hoso' => $id_hoso,'active'=>$active );
 		}else{
-			$dk  	= array('loai_chiso' => 6, 'id_hoso' => $id_hoso );
+			$dk  	= array('loai_chiso' => 1, 'id_hoso' => $id_hoso );
 		}
 		$mData['image'] = $this->ChitietHoso_model->selectFile($dk);
 		print_r(json_encode($mData));
@@ -252,7 +258,7 @@ class Hoso extends CI_Controller {
 	public function activeFile()
 	{
 		$frm = $this->input->post();
-		$dk  	= array('loai_chiso' => 6, 'id_hoso' => $frm['id_hoso'] );
+		$dk  	= array('loai_chiso' => 1, 'id_hoso' => $frm['id_hoso'] );
 		$noti 		= $this->ChitietHoso_model->selectFile($dk);
 		// var_dump($noti);
 		foreach ($noti as $no) {

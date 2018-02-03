@@ -1,3 +1,4 @@
+
 <!-- <section class="complete-content content-footer-space">	 -->
      <div class="about-intro-wrap pull-left">
      
@@ -15,32 +16,36 @@
 	         </div>
 	    </div>
 		<div class="container">
-		    <div class="row">
+		    <!-- <div class="row"> -->
 		    	<div class="alert-success" style="text-align: center;"><span><?php if(isset($a_Check)){echo $a_Check;}?></span></div>
 		    	<div class="alert-danger" style="text-align: center;"><span><?php if(isset($b_Check)){echo $b_Check;}?></span></div>
 		    	<div class="alert-success" style="text-align: center;"><span><?php if(isset($c_Check) && $c_Check == true){echo "Mật khẩu mới đã được gửi tới mail của bạn !";}?></span></div>
 		    	<div class="alert-success" style="text-align: center;"><span><?php if(isset($d_Check) && $d_Check == true){echo "Tài khoản của bạn đã được xác nhận. Bạn có thể đăng nhập để sử dụng !";}?></span></div>
     			<div class="col-md-6 col-md-offset-3">
         			<section id="loginForm">
-						<form action="<?php echo base_url() ?>loginUser" class="form-horizontal form-appointment ui-form" method="post" role="form" style="margin-top: 0px;">                
+						<form action="<?php echo base_url() ?>loginUser" class="form-horizontal form-appointment ui-form" method="post" role="form" style="margin-top: 0px;" id="form-login">                
 							<h4 class="text-center">Đăng nhập hệ thống</h4>
 							<input name="<?php echo $csrf['name'] ?>" type="hidden" value="<?php echo $csrf['hash'] ?>" />             <hr />
 			                    <div class="col-md-12">
 			                        <div class="input-group">
-			                        	<label class="col-lg-3 control-label" for="ten">Tên đăng nhập</label>
-                          				<div class="col-lg-9">
+			                        	<label class="col-lg-2 control-label" for="ten">Tên đăng nhập</label>
+                          				<div class="col-lg-10">
 			                            	<input class="form-control" data-val="true" data-val-required="Không được để trống!" id="UserName" name="username" placeholder="Nhập email/số điện thoại" type="text" value="" />
 			                            	<span class="field-validation-valid text-danger" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
 			                            </div>
 			                        </div>
 			                        <br>
 			                        <div class="input-group">
-			                        	<label class="col-lg-3 control-label" for="ten">Mật khẩu</label>
-                          				<div class="col-lg-9">
+			                        	<label class="col-lg-2 control-label" for="ten">Mật khẩu</label>
+                          				<div class="col-lg-10">
 			                            	<input class="form-control" data-val="true" data-val-required="Không được để trống!" id="Password" name="password" placeholder="Mật khẩu" type="password" />
 			                            	<span class="field-validation-valid text-danger" data-valmsg-for="Password" data-valmsg-replace="true"></span>
 			                            </div>
 			                        </div>
+			                        <div style="margin-top: 15px;">
+			                        	<div class="g-recaptcha  col-lg-offset-3 col-md-offset-1 col-sm-offset-3 col-offset-1"  data-sitekey="6LdwBEMUAAAAAA10G9BJCu04j-Nn5iCg6Xq7kydH"></div>
+			                        </div>
+			                        	
 			                    </div>
                 						                    
 			                    <div class="col-md-12  text-center" style="margin-top: 12px;">
@@ -49,7 +54,7 @@
 
 			                    </div>
 			                    <div class="col-md-12 text-center" style="margin-top:30px;">
-			                        <button type="submit" class="btn btn-success">Đăng Nhập</button>
+			                        <button type="button" onclick="checkCaptcha()" class="btn btn-success">Đăng Nhập</button>
 			                    </div>
 			                <div class="" style="margin-top:30px;">
 			                    <div class="col-md-12 text-center">
@@ -64,13 +69,13 @@
 			                    <hr />
 			                </div>
 
-			                <div class="col-md-12 col-md-offset-2 col-sm-offset-3 ">
+			                <div class="col-md-12 col-md-offset-1 col-lg-offset-2 col-sm-offset-3 ">
 			                    <section id="socialLoginForm">
 									<form action="/Account/ExternalLogin" method="post">
 										<input name="__RequestVerificationToken" type="hidden" value="" /> <div id="socialLoginList">
 							                <p style="color:#000">
-							                    <button class="btn btn-primary"><i class="fa fa-facebook"></i><a href="<?php echo base_url() ?>loginFb" style="color: white" > Login with Facebook</a></button>
-												<button class="btn btn-danger"><i class="fa fa-google"></i><a href="<?php echo base_url() ?>loginGoogle" style="color: white"> Login with Google</a></button>
+							                    <button class="btn btn-primary loginMXH"><i class="fa fa-facebook"></i><a href="<?php echo base_url() ?>loginFb" style="color: white" > Login with Facebook</a></button>
+												<button class="btn btn-danger loginMXH"><i class="fa fa-google"></i><a href="<?php echo base_url() ?>loginGoogle" style="color: white"> Login with Google</a></button>
 							                </p>
             							</div>
 									</form>
@@ -79,7 +84,7 @@
             			</div>
         			</section>
     			</div>
-			</div>
+			<!-- </div> -->
 		</div>
 
 		<!-- form nhập mail lấy lại mật khẩu -->
@@ -121,3 +126,13 @@
 		</div>
 	</div>
 <!-- </section> -->
+<script type="text/javascript">
+	function checkCaptcha() {
+		var captcha = grecaptcha.getResponse();
+		if (captcha == '') {
+			alert('Bạn chưa xác thực Captcha');
+		}else{
+			$('#form-login').submit();
+		}
+	}
+</script>
