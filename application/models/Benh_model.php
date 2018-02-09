@@ -71,25 +71,5 @@ class Benh_model extends CI_Model{
         $query = $this->db->get($this->_name);
         return $query->result_array();
     }
-    // // thêm lượt xem
-    // public function updateView($data)
-    // {
-    //     $this->db->where('id', $data['id'])->update($this->_name,$data);
-    // }
-    // public function insertTintuc($data)
-    // {
-    //     $this->db->insert($this->_name,$data);
-    // }
-    // //sửa tin
-    // public function updateTintuc($data)
-    // {
-    //     $this->db->where('id', $data['id'])->update($this->_name,$data);
-    // }
-    // function deleteTintuc($id)
-    // {
-    //     $this->db->where('id', $id)->delete($this->_name);
-    // }
    
-   
-  
 }

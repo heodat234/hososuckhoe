@@ -19496,7 +19496,7 @@ ul.list-bv >li >div {
 	}
 	.ds-tin-content {
 		margin-left: 300px; 
-		margin-top: -170px;
+		margin-top: -160px;
 	}
 	.body-list {
 		margin-top: -10px;
@@ -19562,7 +19562,7 @@ ul.list-bv >li >div {
 	}
 	.ds-tin-content {
 		margin-left: 300px; 
-		margin-top: -170px;
+		margin-top: -160px;
 	}
 	.body-ds-tin {
 		border-right: 1px solid #ddd;
@@ -19640,7 +19640,7 @@ ul.list-bv >li >div {
 	}
 	.ds-tin-content {
 		margin-left: 300px; 
-		margin-top: -170px;
+		margin-top: -160px;
 	}
 	.ds-tin{
 		border-bottom: 1px dotted #ccc; 
@@ -20038,6 +20038,13 @@ ul.ul-list-ds li {
 	margin:-10px 0 15px 0;
 	box-sizing: border-box;
 }
+.content-noibat-new{
+	float: right;
+	width: 65%;
+	/*height: 81px;*/
+	margin:-10px 0 15px 0;
+	box-sizing: border-box;
+}
 .content-noibat h4 >a {
 	font-size: 16px;
     text-decoration: none;
@@ -20301,3 +20308,31 @@ li.danhgia >a >img {
 /*li.danhgia >a :hover {
 	color: #107fc9;
 }*/
+
+.editAnh {
+	height: 40px;
+	width: 90%;
+	background-color: #000;
+	opacity: 0.4;
+	margin-top: -40px;
+	cursor:pointer;
+}
+.editAnh >div.logo-trai {
+	float: left; 
+	width: 30%;
+}
+.editAnh >div.title-phai {
+	float: right;
+	width: 70%;
+	margin-top: 5px;
+}
+div.logo-trai > i {
+	color: #fff; 
+	margin-top: 13px;
+	margin-left: 13px
+}
+div.title-phai > span {
+	font-size: 10px;
+	color: #fff; 
+	font-weight: bold;
+}

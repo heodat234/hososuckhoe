@@ -17,9 +17,9 @@
 				<?php foreach ($chiso as $cs) { ?>
 				<tr>
 					<td></td>
-					<td><?php echo $cs['ten_data'] ?></td>
-					<td><?php echo $cs['dulieu'] ?></td>
-          			<td><?php echo $cs['don_vi'] ?></td>
+					<td><?php echo $cs['name'] ?></td>
+					<td><?php echo $cs['value'] ?></td>
+          			<td><?php echo $cs['unit'] ?></td>
 					<td><?php echo date('d-m-Y',strtotime($cs['created_at'])) ?></td>
 					<td><?php echo date('d-m-Y',strtotime($cs['updated_at'])) ?></td>
 				

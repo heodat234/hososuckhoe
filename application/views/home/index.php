@@ -62,8 +62,12 @@
                         </div>
                         <?php for($i = 0; $i<2;$i++): ?>
                             <div class="post-item-wrap pull-left col-sm-6 col-md-12 col-xs-12">
-                                <?php if (isset( $tintuc[$i])){ ?>
-                                    <img src="<?php echo json_decode($tintuc[$i]['image'],true)[0]['data-original'] ?>" class="img-responsive post-author-img" alt="" />
+                                <?php if (isset( $tintuc[$i])){ 
+                                    if(isset(json_decode($tintuc[$i]['image'],true)[0]['data-original'])) { ?>
+                                        <img src="<?php echo json_decode($tintuc[$i]['image'],true)[0]['data-original'] ?>" class="img-responsive post-author-img" alt="" />
+                                    <?php }else{ ?>
+                                        <img src="<?php echo json_decode($tintuc[$i]['image'],true)[0]['src'] ?>" class="img-responsive post-author-img" alt="" />
+                                    <?php } ?>
                                     <div class="post-content1 pull-left col-md-8 col-sm-7 col-xs-7">
                                         <div class="post-title pull-left"><a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id']?>"><?php echo $tintuc[$i]['title'] ?></a></div>
                                         <div class="post-meta-top pull-left">

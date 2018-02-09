@@ -14,7 +14,7 @@
     <div id="shortcode-12">
       <div class="container body-list">
         <div class="col-md-8 col-sm-12 col-lg-8 col-xs-12 left body-ds-tin thongtin-thuoc">
-          <h3><?php echo $thuoc['title'] ?></h3>
+          <h3><?php echo $thuoc['name'] ?></h3>
 
           <div class="carousel-wrapper">
             <div id="hero-carousel" class="carousel slide carousel-fade">
@@ -26,11 +26,11 @@
               </ol>
               <div class="carousel-inner">
                 <div class="item active">
-                  <img class="slide-thuoc" src="<?php echo $anh[0]['src'] ?>">
+                  <img class="slide-thuoc" src="<?php echo $anh[0] ?>">
                 </div>
                 <?php for($i = 1 ; $i< count($anh);$i++): ?>
                   <div class="item">
-                    <img class="slide-thuoc" src="<?php echo $anh[$i]['data-src'] ?>">
+                    <img class="slide-thuoc" src="<?php echo $anh[$i] ?>">
                   </div>
                 <?php endfor ?>
                 
@@ -70,7 +70,7 @@
                     
                     <div class="content-noibat" >
                         <h4  >
-                            <a href="<?php echo base_url().'thuoc/'.$tt['id']?>"><?php echo $tt['title'] ?></a>
+                            <a href="<?php echo base_url().'thuoc/'.$tt['id']?>"><?php echo $tt['name'] ?></a>
                         </h4>
                         <h5 >
                             <span>Giá: <?php echo $tt['price'] .$tt['unit'] ?></span>

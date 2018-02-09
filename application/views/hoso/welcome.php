@@ -1,10 +1,5 @@
 
-<style type="text/css">
-  .editAnh :hover {
-    background-color: #000;
-    opacity: 0.8;
-  }
-</style>
+
 <div class="welcome-route-content content-hs col-10 col-offset-2" id="page-info">
     <section >
       <div class="row">
@@ -15,13 +10,13 @@
             <div class="row">
               <div class=" col-12 col-sm-4 col-lg-2">
                 <?php if ($user['avatar'] == ''){ ?>
-                  <img class="img-avatar" style="width: 90%" src="<?php echo base_url() ?>images/profile.png">
+                  <img class="img-avatar" style="width: 95%" src="<?php echo base_url() ?>images/profile.png">
                 <?php }else { ?>
-                  <img class="img-avatar" style="width: 90%" src="<?php echo base_url() ?>images/avatar/<?php echo $user['avatar'] ?>">
+                  <img class="img-avatar" style="width: 95%" src="<?php echo base_url() ?>images/avatar/<?php echo $user['avatar'] ?>">
                 <?php } ?>
-                <div class="editAnh" style="height: 40px;width: 90%;background-color: #000;opacity: 0.4;margin-top: -40px;cursor:pointer;">
-                  <div style="float: left; width: 30%"><i class="fa fa-camera" style="color: #fff; margin-top: 13px;margin-left: 13px"></i></div>
-                  <div style="float: right;width: 70%;margin-top: 5px;"><span style="font-size: 10px;color: #fff; font-weight: bold;">Cập nhập ảnh đại diện</span></div>
+                <div class="editAnh" onclick="editAvatar()">
+                  <div class="logo-trai" ><i class="fa fa-camera"></i></div>
+                  <div class="title-phai" ><span >Cập nhập ảnh đại diện</span></div>
                 </div>
               </div>
               <div class="col-12 col-sm-8 col-lg-10" style="margin-top: 10px;">
@@ -230,6 +225,43 @@
       </div>
     </div>
 </div>
+
+
+<div id="editAvatar" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cập nhập ảnh đại diện</h4>
+      </div>
+      <form method="post" action="<?php echo base_url() ?>Login/editAvatar" enctype="multipart/form-data">
+        <div class="modal-body">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <br>
+              <input name="csrf_test_name" type="hidden" value="<?php echo $csrf['hash'] ?>" id ="csrf" /> 
+              <input type="hidden" name="id" value="<?php echo $user['id'] ?>">
+              <div class="form-group">
+               <div><b>Chọn ảnh đại diện</b></div>
+                 <div class="input-group">
+                    <div class="input-group-addon iga2">
+                       <span class="glyphicon glyphicon-folder-open"></span>
+                    </div>
+                    <input type="file" class="form-control"  name="avatar"  required="" >
+                 </div>
+              </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default" >Lưu</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
 <script type="text/javascript">
     $.ajaxSetup({
       beforeSend: function(xhr, settings) {
@@ -317,4 +349,9 @@
         $('.editAnh').hide();
       });
    });
+
+   function editAvatar() {
+    // alert('sadasdas');
+      $('#editAvatar').modal('show');
+   }
 </script>

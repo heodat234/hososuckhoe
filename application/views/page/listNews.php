@@ -17,9 +17,15 @@
           <ul>
             <?php foreach ($category as $tintuc): ?>
               <li class="ds-tin" >
-                    <a href="<?php echo base_url().'tintuc/'.$tintuc['id']?>"><img style=""  class="img-responsive" src="<?php echo json_decode($tintuc['image'],true)[0]['data-original'] ?>"></a>
+                    <a href="<?php echo base_url().'tintuc/'.$tintuc['id']?>">
+                      <?php if (isset(json_decode($tintuc['image'],true)[0]['data-original'])){ ?>
+                        <img style=""  class="img-responsive" src="<?php echo json_decode($tintuc['image'],true)[0]['data-original'] ?>">
+                      <?php }else{ ?>
+                        <img style=""  class="img-responsive" src="<?php echo json_decode($tintuc['image'],true)[0]['src'] ?>">
+                      <?php } ?>
+                    </a>
                   <div class="ds-tin-content" >
-                    <div><h3><a href="<?php echo base_url().'tintuc/'.$tintuc['id']?>"><?php echo $tintuc['title'] ?></a></h3></div>
+                    <div><h4><a href="<?php echo base_url().'tintuc/'.$tintuc['id']?>"><?php echo $tintuc['title'] ?></a></h4></div>
                     <div>
                       <h5><?php if ($tintuc['id_loai'] == 1){echo "Tin tức Y khoa"; ?>
                           <?php }else{ echo "Tin tức Nội bộ";} ?>
@@ -46,7 +52,11 @@
                 <?php foreach ($noibat as $tt): ?>
                     <div class="img-noibat" >
                       <a href="<?php echo base_url().'tintuc/'.$tt['id']?>">
-                        <img width="100%"  src="<?php echo json_decode($tt['image'],true)[0]['data-original'] ?>">
+                        <?php if (isset(json_decode($tt['image'],true)[0]['data-original'])){ ?>
+                          <img width="100%"  src="<?php echo json_decode($tt['image'],true)[0]['data-original'] ?>">
+                        <?php }else{ ?>
+                          <img width="100%"  src="<?php echo json_decode($tt['image'],true)[0]['src'] ?>">
+                        <?php } ?>
                       </a>
                     </div>
                     

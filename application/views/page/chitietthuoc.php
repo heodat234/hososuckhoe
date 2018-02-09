@@ -15,7 +15,7 @@
       <div class="container body-list">
         <div class="col-md-8 col-sm-12 col-lg-8 col-xs-12 no-pad body-ds-tin">
           <div>
-            <h3 class=""><?php echo $thuoc['title'] ?></h3>
+            <h3 class=""><?php echo $thuoc['name'] ?></h3>
           </div>
           
           <?php foreach ($content as $key => $value): ?>
@@ -42,7 +42,7 @@
                     
                     <div class="content-noibat" >
                         <h4  >
-                            <a href="<?php echo base_url().'thuoc/'.$tt['id']?>"><?php echo $tt['title'] ?></a>
+                            <a href="<?php echo base_url().'thuoc/'.$tt['id']?>"><?php echo $tt['name'] ?></a>
                         </h4>
                         <h5 >
                             <span>Giá: <?php echo $tt['price'] .$tt['unit'] ?></span>

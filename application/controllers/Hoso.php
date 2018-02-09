@@ -69,7 +69,7 @@ class Hoso extends CI_Controller {
 			$thongke					= $this->ChitietHoso_model->thongkeChiso($id_user,$muc_chiso[$i]['id']);
 			if (count($thongke) >0) {
 				for ($j=0; $j < count($thongke); $j++) { 
-				$data[$j] = $thongke[$j]['dulieu']-0;
+				$data[$j] = $thongke[$j]['value']-0;
 				$ngay[$j] = date('d-m-Y',strtotime($thongke[$j]['created_at']));
 				}
 				$tk_data[$i] = json_encode($data);
@@ -77,11 +77,7 @@ class Hoso extends CI_Controller {
 			}
 		
 		}
-// 		echo "<pre>";
- 
-// print_r($tk_data);
- 
-// echo "</pre>";
+
 		$this->a_Data['data']  = $tk_data;
 		$this->a_Data['ngay']  = $tk_ngay;
 		$this->a_Data['chiso']	= $muc_chiso;
@@ -123,10 +119,10 @@ class Hoso extends CI_Controller {
 				}
 		    }
 		    for ($i=0; $i < $cpt; $i++) { 
-		    	$_data['dulieu'] 		= $dataInfo[$i]['file_name'];
+		    	$_data['value'] 		= $dataInfo[$i]['file_name'];
 	    		$_data['id_hoso'] 		= $id_hoso;
-	    		$_data['ten_data'] 		= 'file';
-	    		$_data['loai_chiso'] 	= '1';
+	    		$_data['name'] 		= 'file';
+	    		$_data['type_index'] 	= '1';
 		    	$this->ChitietHoso_model->insertChitiet_Hoso($_data);				
 		    }
 	    }
@@ -162,10 +158,10 @@ class Hoso extends CI_Controller {
 	    }
 	    
 	    for ($i=0; $i < $cpt; $i++) { 
-	    	$_data['dulieu'] 		= $dataInfo[$i]['file_name'];
+	    	$_data['value'] 		= $dataInfo[$i]['file_name'];
     		$_data['id_hoso'] 		= $id;
-    		$_data['ten_data'] 		= 'file';
-    		$_data['loai_chiso'] 	= '1';
+    		$_data['name'] 		= 'file';
+    		$_data['type_index'] 	= '1';
 	    	$this->ChitietHoso_model->insertChitiet_Hoso($_data);				
 	    }
 
@@ -201,9 +197,9 @@ class Hoso extends CI_Controller {
 		
 		$active = $this->input->post('active');
 		if ($active == 0) {
-			$dk  	= array('loai_chiso' => 1, 'id_hoso' => $id_hoso,'active'=>$active );
+			$dk  	= array('type_index' => 1, 'id_hoso' => $id_hoso,'active'=>$active );
 		}else{
-			$dk  	= array('loai_chiso' => 1, 'id_hoso' => $id_hoso );
+			$dk  	= array('type_index' => 1, 'id_hoso' => $id_hoso );
 		}
 		$mData['image'] = $this->ChitietHoso_model->selectFile($dk);
 		print_r(json_encode($mData));
@@ -218,11 +214,19 @@ class Hoso extends CI_Controller {
 
 		for ($i=0; $i <= $frm['count'] ;$i++) { 
 			if (isset($frm['chiso_'.$i] )) {
-				$data['ten_data'] 	= $frm['chiso_'.$i];
-				$data['loai_chiso'] = $frm['id_chiso_'.$i];
-				$data['dulieu'] 	= $frm[$i];
-				$data['don_vi'] 	= $frm['dv_'.$i];
-				$this->ChitietHoso_model->insertChitiet_Hoso($data);
+				$data['name'] 	= $frm['chiso_'.$i];
+				$data['value'] 	= $frm[$i];
+				$data['unit'] 	= $frm['dv_'.$i];
+				if ($this->Muc_Chiso_model->checkChiSo($data['name'])) {
+					$data['type_index'] = $frm['id_chiso_'.$i];
+					$this->ChitietHoso_model->insertChitiet_Hoso($data);
+				}else{
+					$m_data['name'] = $frm['chiso_'.$i];
+					$m_data['hidden'] = 1;
+					$data['type_index'] = $this->Muc_Chiso_model->insertChiSo($m_data);
+					$this->ChitietHoso_model->insertChitiet_Hoso($data);
+				}
+				
 			}
 		}
 		redirect(base_url('hoso.html'));
@@ -258,7 +262,7 @@ class Hoso extends CI_Controller {
 	public function activeFile()
 	{
 		$frm = $this->input->post();
-		$dk  	= array('loai_chiso' => 1, 'id_hoso' => $frm['id_hoso'] );
+		$dk  	= array('type_index' => 1, 'id_hoso' => $frm['id_hoso'] );
 		$noti 		= $this->ChitietHoso_model->selectFile($dk);
 		// var_dump($noti);
 		foreach ($noti as $no) {
@@ -300,7 +304,7 @@ class Hoso extends CI_Controller {
 		$ngay = array();
 		if (count($thongke) >0) {
 				for ($j=0; $j < count($thongke); $j++) { 
-				$data[$j] = $thongke[$j]['dulieu']-0;
+				$data[$j] = $thongke[$j]['value']-0;
 				$ngay[$j] = date('d-m-Y',strtotime($thongke[$j]['created_at']));
 				}
 				$tk_data[$loai_chiso-1] = json_encode($data);

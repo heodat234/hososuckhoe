@@ -122,7 +122,7 @@ class Welcome extends CI_Controller {
       $adata['thuocs'] = '';
       $adata['bacsi'] = '';
       $adata['tintuc'] = '';
-
+      $adata['count'] = 0;
 
    		$key 			= $this->input->get('search');
    		$check_thuoc 	= $this->input->get('check_thuoc');
@@ -140,25 +140,25 @@ class Welcome extends CI_Controller {
    		}else{
    			if (isset($check_thuoc) && $check_thuoc == 'check1') {
    				$adata['thuocs'] 		= $this->Thuoc_model->search_data($key);
-          $adata['count'] = count($adata['thuocs']);
+          $adata['count'] += count($adata['thuocs']);
    			}else{
    				$adata['hideThuoc']  	= 'hide';
    			}
    			if (isset($check_bv) && $check_bv == 'check2') {
    				$adata['benhvien'] 		= $this->BenhVien_model->search_data($key);
-          $adata['count'] = count($adata['benhvien']) ;
+          $adata['count'] += count($adata['benhvien']) ;
    			}else{
    				$adata['hideBv']  		= 'hide';
    			}
    			if (isset($check_bs) && $check_bs == 'check3') {
    				$adata['bacsi'] 		= $this->Bacsi_model->search_data($key);
-          $adata['count'] = count($adata['bacsi']);
+          $adata['count'] += count($adata['bacsi']);
    			}else{
    				$adata['hideBs']  		= 'hide';
    			}
    			if (isset($check_tin) && $check_tin == 'check4') {
    				$adata['tintuc'] 		= $this->News_model->search_data($key);
-          $adata['count'] = count($adata['tintuc']);
+          $adata['count'] += count($adata['tintuc']);
    			}else{
    				$adata['hideTin']  		= 'hide';
    			}

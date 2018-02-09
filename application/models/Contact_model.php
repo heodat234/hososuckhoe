@@ -14,7 +14,7 @@ class Contact_model extends CI_Model{
     public function insertContact($data)
     {
         $this->db->insert($this->_name,$data);
-        return $this->db->insert_id();;
+        return $this->db->insert_id();
     }
 
    

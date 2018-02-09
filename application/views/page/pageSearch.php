@@ -75,7 +75,7 @@
                       </a>
                     </div>
                     <div class="icon-box2-title tenthuoc">
-                      <a href="<?php echo base_url().'thuoc/'.$thuoc['id'] ?>"><?php echo $thuoc['title'] ?></a>
+                      <a href="<?php echo base_url().'thuoc/'.$thuoc['id'] ?>"><?php echo $thuoc['name'] ?></a>
                     </div>
                     <p>Giá: <?php echo  $thuoc['price'] . $thuoc['unit'] ?></p>
                   </div>   
@@ -275,7 +275,11 @@
                 <?php if (count($tintuc) == 1){ ?>
                   <li class="ds-tin-a ds-timkiem2">
                     <a href="<?php echo base_url().'tintuc/'.$tintuc[0]['id'] ?>">
-                      <img style="margin-top: 15px;"  class="img-responsive" src="<?php echo json_decode($tintuc[0]['image'],true)[0]['data-original'] ?>">
+                      <?php if (isset(json_decode($tintuc[0]['image'],true)[0]['data-original'])){ ?>
+                        <img style="margin-top: 15px;"  class="img-responsive" src="<?php echo json_decode($tintuc[0]['image'],true)[0]['data-original'] ?>">
+                      <?php }else{ ?>
+                        <img style="margin-top: 15px;"  class="img-responsive" src="<?php echo json_decode($tintuc[0]['image'],true)[0]['src'] ?>">
+                      <?php } ?>
                     </a>
                     <div class="ds-tin-content" >
                       <div>
@@ -296,7 +300,13 @@
                   <?php for ($i=0; $i < count($tintuc); $i++) { ?>
                     <?php if ($i < count($tintuc)-1){ ?>
                       <li class=" ds-timkiem1">
-                        <a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id']?>"><img class="img-responsive" src="<?php echo json_decode($tintuc[$i]['image'],true)[0]['data-original'] ?>"></a>
+                        <a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id']?>">
+                          <?php if (isset(json_decode($tintuc[$i]['image'],true)[0]['data-original'])){ ?>
+                            <img style="margin-top: 15px;"  class="img-responsive" src="<?php echo json_decode($tintuc[$i]['image'],true)[0]['data-original'] ?>">
+                          <?php }else{ ?>
+                            <img style="margin-top: 15px;"  class="img-responsive" src="<?php echo json_decode($tintuc[$i]['image'],true)[0]['src'] ?>">
+                          <?php } ?>
+                        </a>
                         <div class="ds-tin-content" >
                           <div>
                             <h3><a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id'] ?>">
@@ -315,7 +325,11 @@
                     <?php }else{ ?>
                       <li class="ds-tin-a ds-timkiem2">
                         <a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id'] ?>">
-                          <img style="margin-top: 15px;"  class="img-responsive" src="<?php echo json_decode($tintuc[$i]['image'],true)[0]['data-original'] ?>">
+                          <?php if (isset(json_decode($tintuc[$i]['image'],true)[0]['data-original'])){ ?>
+                            <img style="margin-top: 15px;"  class="img-responsive" src="<?php echo json_decode($tintuc[$i]['image'],true)[0]['data-original'] ?>">
+                          <?php }else{ ?>
+                            <img style="margin-top: 15px;"  class="img-responsive" src="<?php echo json_decode($tintuc[$i]['image'],true)[0]['src'] ?>">
+                          <?php } ?>
                         </a>
                         <div class="ds-tin-content" >
                           <div>

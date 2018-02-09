@@ -19,9 +19,9 @@
 			                      	<option value="">Chọn chỉ số xét nghiệm</option>
 			                      	<?php foreach ($chiso as $chi): ?>
 			                      		<?php if (isset($id_chiso) && $id_chiso == $chi['id']) { ?>
-			                      			<option required value="<?php echo $chi['id']?>"><?php echo $chi['ten_chiso'] ?></option>
+			                      			<option required value="<?php echo $chi['id']?>"><?php echo $chi['name'] ?></option>
 			                      		<?php } else { ?>
-			                      			<option value="<?php echo $chi['id']?>"><?php echo $chi['ten_chiso'] ?></option>
+			                      			<option value="<?php echo $chi['id']?>"><?php echo $chi['name'] ?></option>
 			                      		<?php }?>
 			                      	<?php endforeach ?>
 			                      </select>
@@ -87,7 +87,7 @@
 		            type: 'spline'
 		        },
 		        title: {
-		            text: 'Chỉ số xét nghiệm <?php echo $ss['ten_chiso'] ?>',
+		            text: 'Chỉ số xét nghiệm <?php echo $ss['name'] ?>',
 		        },
 
 		        plotOptions: {
@@ -100,7 +100,7 @@
 		        },
 		        yAxis: {
 		            title: {
-		                text: '<?php echo $ss['ten_chiso'] ?>'
+		                text: '<?php echo $ss['name'] ?>'
 		            },
 		            plotLines: [{
 		                value: 0,
@@ -112,7 +112,7 @@
 		        },
 		        tooltip: {
 		            
-		            valueSuffix: '<?php echo $ss['don_vi'] ?>',
+		            valueSuffix: '<?php echo $ss['unit'] ?>',
 		            crosshairs: true,
 		            shared: true
 		        },
@@ -124,7 +124,7 @@
 		        },
 		        
 		        series: [{
-		            name: '<?php echo $ss['ten_chiso'] ?>',
+		            name: '<?php echo $ss['name'] ?>',
 		            data: <?php echo $data[$ss['id']-1] ?>
 		        }],
 		    });

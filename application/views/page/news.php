@@ -22,9 +22,10 @@
               </div>
               <div class="content-news">
                 <p><?php echo $content[0]; ?></p>
-              </div> 
+              </div>
+              <div class="fb-share-button" data-href="http://hososuckhoe.org/tintuc/<?php echo $tintuc['id'] ?>" data-layout="button_count"></div> 
               <div class="cmt-news">
-                <div class="fb-comments" data-href="http://hososuckhoe.org/staging/tintuc/<?php echo $tintuc['id'] ?> " data-width="100%" data-numposts="5"></div>
+                <div class="fb-comments" data-href="http://hososuckhoe.org/staging/tintuc/<?php echo $tintuc['id'] ?> " data-width="100%" data-numposts="5" data-size="large" data-mobile-iframe="true"></div>
               </div>           
             </div>
             <div class="col-md-3 col-sm-12 col-lg-3 col-xs-12 right">
@@ -36,13 +37,17 @@
                   <?php foreach ($category as $tt): ?>
                     <div class="img-noibat" >
                       <a href="<?php echo base_url().'tintuc/'.$tt['id']?>">
-                        <img style="width: 100%"  src="<?php echo json_decode($tt['image'],true)[0]['data-original'] ?>">
+                        <?php if (isset(json_decode($tt['image'],true)[0]['data-original'])){ ?>
+                          <img style="width: 100%"  src="<?php echo json_decode($tt['image'],true)[0]['data-original'] ?>">
+                        <?php }else{ ?>
+                          <img style="width: 100%"  src="<?php echo json_decode($tt['image'],true)[0]['src'] ?>">
+                        <?php } ?>
                       </a>
                     </div>
                     
                     <div class="content-noibat" >
                         <h5 >
-                            <a href="<?php echo base_url().'tintuc/'.$tt['id']?>"><?php echo $tt['title'] ?></a>
+                            <a href="<?php echo base_url().'tintuc/'.$tt['id']?>"><?php echo word_limiter($tt['title'],10) ?></a>
                         </h5>
                         <h6><?php echo word_limiter($tt['short_desc'],5) ?></h6>
                     </div>

@@ -13,7 +13,7 @@
                 <input type="hidden" name="count" id="count" value="0">
                 <input type="hidden" name="id_hoso" value="<?php echo $id_hoso ?>">
                 <div  style="margin-left: 2px; margin-right: 10px">
-                    <div class="col-12 col-md-6">Chọn chỉ số xét nghiệm</div>
+                    <div class="col-12 col-md-6">Nhập mới hoặc Chọn chỉ số xét nghiệm</div>
                     <div class="col-12 col-md-6">Nhập giá trị chỉ số tương ứng</div>
                     <div >
                       <div class="col-12 col-md-6">
@@ -28,7 +28,7 @@
                       <button type="button" title="Thêm chỉ số" class="btn btn-primary pull-right" onclick="them()" id="btn_0" style="height:34px; margin-top: -34px;"><i class="fa fa-plus"></i></button>
                       <datalist id="cs" >
                         <?php foreach ($chiso as $cs): ?>
-                          <option don_vi="<?php echo $cs['don_vi'] ?>" id="<?php echo $cs['id'] ?>" value="<?php echo $cs['ten_chiso'] ?>"><?php echo $cs['ghi_chu'] ?></option>
+                          <option don_vi="<?php echo $cs['unit'] ?>" id="<?php echo $cs['id'] ?>" value="<?php echo $cs['name'] ?>"><?php echo $cs['note'] ?></option>
                         <?php endforeach ?>
                       </datalist>
                     </div>  

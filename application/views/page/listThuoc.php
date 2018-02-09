@@ -22,7 +22,7 @@
                 </a>
               </div>
               <div class="icon-box2-title tenthuoc">
-                 <a href="<?php echo base_url().'thuoc/'.$thuoc['id'] ?>"> <?php echo $thuoc['title'] ?> </a>
+                 <a href="<?php echo base_url().'thuoc/'.$thuoc['id'] ?>"> <?php echo $thuoc['name'] ?> </a>
               </div>
               <p class= "gia-thuoc"><?php echo $thuoc['price'] ?> </p>
             </div>

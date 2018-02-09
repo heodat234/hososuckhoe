@@ -2,7 +2,7 @@
 class Muc_Chiso_model extends CI_Model{
 	
 	/* Gán tên bảng cần xử lý*/
-	private $_name = 'muc_chiso';
+	private $_name = 'type_index';
 	
 	function __construct(){
         parent::__construct();
@@ -14,23 +14,27 @@ class Muc_Chiso_model extends CI_Model{
     public function selectChiso()
     {
 
-        $this->db->select()->where('id !=', '1');
+        $this->db->select()->where('id !=', '1')->where('hidden !=', '1');
         $query = $this->db->get($this->_name);
         return $query->result_array();
     }
     //thêm tài khoản mới
-    public function insertChitiet_Hoso($data)
+    public function insertChiSo($data)
     {
         $this->db->insert($this->_name,$data);
+        return $this->db->insert_id();
     }
 
-    // //thêm file hồ sơ
-    // public function insertFile($data)
-    // {
-    //     $this->db->where('id', $data['id'])->update($this->_name,$data);
-    // }
-    
-   
-   
-  
+    public function checkChiSo( $name ){
+        $a =   $this->db->select()
+                            ->where('name', $name)
+                            ->get($this->_name)
+                            ->row_array();
+        if(count($a) >0){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

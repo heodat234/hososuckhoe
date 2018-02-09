@@ -11,41 +11,41 @@ class Thuoc_model extends CI_Model{
     } 
     
     public function countAll(){
-        $query=$this->db->get($this->_name);
+        $query=$this->db->where('hidden', 0)->get($this->_name);
         return $query->num_rows(); 
     }
     public function countIdLoai($id){
-        $this->db->where('id_type',$id);
+        $this->db->where('id_type',$id)->where('hidden', 0);
         $query=$this->db->get($this->_name);
         return $query->num_rows(); 
     }
     public function getThuoc($total, $start){
-       $this->db->limit($total, $start);
+       $this->db->where('hidden', 0)->limit($total, $start);
        $query=$this->db->get($this->_name);
        return $query->result_array();
     }
     
     public function selectThuoc()
     {
-        $this->db->select()->order_by("id", "desc");
+        $this->db->select()->where('hidden', 0)->order_by("id", "desc");
         $query = $this->db->get($this->_name);
         return $query->result_array();
     }
     public function selectThuocLimit()
     {
-        $this->db->select()->order_by("id", "desc")->limit(5);
+        $this->db->select()->where('hidden', 0)->order_by("id", "desc")->limit(5);
         $query = $this->db->get($this->_name);
         return $query->result_array();
     }
     public function selectThuoc_by_Id($id)
     {
-        $this->db->select()->where("id", $id);
+        $this->db->select()->where("id", $id)->where('hidden', 0);
         $query = $this->db->get($this->_name);
         return $query->row_array();
     }
     public function selectThuoc_by_IdType($id_type)
     {
-        $this->db->select()->where("id_type", $id_type)->limit(5);
+        $this->db->select()->where("id_type", $id_type)->where('hidden', 0)->limit(5);
         $query = $this->db->get($this->_name);
         return $query->result_array();
     }
@@ -57,7 +57,7 @@ class Thuoc_model extends CI_Model{
     }
     public function search_data($key)
     {
-      $sql = "SELECT * FROM `drug` WHERE title LIKE '%$key%'";
+      $sql = "SELECT * FROM `drug` WHERE name LIKE '%$key%'";
       $query = $this->db->query($sql); 
       return $query->result_array();
     }
@@ -70,29 +70,10 @@ class Thuoc_model extends CI_Model{
         return $query->result_array();
     }
     public function getThuocByIdLoai($idLoai, $total, $start){
-       $this->db->where('id_type',$idLoai)->limit($total, $start);
+       $this->db->where('id_type',$idLoai)->where('hidden', 0)->limit($total, $start);
        $query=$this->db->get($this->_name);
        return $query->result_array();
     }
-    // // thêm lượt xem
-    // public function updateView($data)
-    // {
-    //     $this->db->where('id', $data['id'])->update($this->_name,$data);
-    // }
-    // public function insertTintuc($data)
-    // {
-    //     $this->db->insert($this->_name,$data);
-    // }
-    // //sửa tin
-    // public function updateTintuc($data)
-    // {
-    //     $this->db->where('id', $data['id'])->update($this->_name,$data);
-    // }
-    // function deleteTintuc($id)
-    // {
-    //     $this->db->where('id', $id)->delete($this->_name);
-    // }
-   
-   
+    
   
 }

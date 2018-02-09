@@ -45,6 +45,21 @@ class News extends CI_Controller {
 		$mdata['category']		= $this->News_model->selectTintuc();
 		$mdata['tintuc']		= $this->News_model->selectTintuc_by_Id($id);
 		$mdata['content']       = json_decode($mdata['tintuc']['article'],true);
+
+		if (isset(json_decode($mdata['tintuc']['image'],true)[0]['data-original'])) {
+		$this->_data['meta']  	= '<meta property="og:url"content="http://hososuckhoe.org/tintuc/'.$view = $mdata['tintuc']['id'].'" />
+  		<meta property="og:type"          content="website" />
+	  	<meta property="og:title"         content="'.$view = $mdata['tintuc']['title'].'" />
+	  	<meta property="og:description"   content="'.$view = $mdata['tintuc']['short_desc'].'" />
+	  	<meta property="og:image"         content="'.json_decode($mdata['tintuc']['image'],true)[0]['data-original'].'" />';
+	  	}else {
+	  		$this->_data['meta']  	= '<meta property="og:url"content="http://hososuckhoe.org/tintuc/'.$view = $mdata['tintuc']['id'].'" />
+  		<meta property="og:type"          content="website" />
+	  	<meta property="og:title"         content="'.$view = $mdata['tintuc']['title'].'" />
+	  	<meta property="og:description"   content="'.$view = $mdata['tintuc']['short_desc'].'" />
+	  	<meta property="og:image"         content="'.json_decode($mdata['tintuc']['image'],true)[0]['src'].'" />';
+	  	}
+	  	
 		$view = $mdata['tintuc']['view'] + 1;
 		$dk = array('id' =>$id , 'view'=>$view );
 		$this->News_model->updateView($dk);

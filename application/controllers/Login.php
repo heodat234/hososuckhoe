@@ -158,7 +158,9 @@ class Login extends CI_Controller {
 		$editUser = $this->Login_model->editUser( $a_UserInfo );
 
 		$this->session->unset_userdata('user');
-		redirect(base_url('pageLogin'));
+		$user = $this->Login_model->selectUserById($a_UserInfo['id']);
+		$this->session->set_userdata('user', $user);
+		redirect(base_url('account.html'));
 	}
 	//xóa tài khoản
 	public function deleteUser()
@@ -232,13 +234,43 @@ class Login extends CI_Controller {
 		redirect(base_url('pageLogin'));
 	}
 
+	public function editAvatar()
+	{
+		$a_UserInfo['id'] = $this->input->post('id');
+		// var_dump($a_UserInfo['id']);
+		if (!empty($_FILES['avatar']['name'])) {
+			$config['upload_path'] = './images/avatar';
+			$config['allowed_types'] = 'jpg|png';
+			$config['file_name'] = $_FILES['avatar']['name'];
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+			if ($this->upload->do_upload('avatar')) {
+				$uploadData = $this->upload->data();
+				$a_UserInfo['avatar']  = $uploadData['file_name'];
+			} else{
+				$error = $this->upload->display_errors();
+        		echo $error;
+				$a_UserInfo['avatar'] = '';
+			}
+		}else{
+			$a_UserInfo['avatar']  = '';
+		}
+		$this->Login_model->editUser($a_UserInfo);
+		$this->session->unset_userdata('user');	
+		$user = $this->Login_model->selectUserById($a_UserInfo['id']);
+		$this->session->set_userdata('user', $user);
+		redirect(base_url('account.html'));
+	}
+
+
+
 	//đăng nhập bằng facebook
 	public function loginFacebook()
 	{
 		$cb = base_url()."Login/callback";
 		$fb = new Facebook\Facebook([
-          'app_id' => '148742165825847',
-          'app_secret' => '0d5546d7c13e24ecab160538072ee152',
+          'app_id' => '1981709738820610',
+          'app_secret' => '4f145f787c59c88edc329e2cbabd457e',
           'default_graph_version' => 'v2.5',
         ]);
 
@@ -255,8 +287,8 @@ class Login extends CI_Controller {
 	{
 		$cb = base_url()."Login/callback";
 		$fb = new Facebook\Facebook([
-        'app_id' => '148742165825847',
-          'app_secret' => '0d5546d7c13e24ecab160538072ee152',
+        'app_id' => '1981709738820610',
+          'app_secret' => '4f145f787c59c88edc329e2cbabd457e',
         'default_graph_version' => 'v2.5',
         ]);
         
