@@ -14,7 +14,7 @@
     <div id="shortcode-12">
       <div class="container body-list">
         <div class="col-md-8 col-sm-12 col-lg-8 col-xs-12 left body-ds-tin thongtin-thuoc">
-          <h3><?php echo $thuoc['name'] ?></h3>
+          <h1><?php echo $thuoc['name'] ?></h1>
 
           <div class="carousel-wrapper">
             <div id="hero-carousel" class="carousel slide carousel-fade">
@@ -45,9 +45,9 @@
           </div>
         
           <div >
-            <span style="color: red; font-size: 20px"><?php echo $thuoc['price']?></span><?php echo $thuoc['unit'] ?>
+            <span class="price"><?php echo $thuoc['price']?> đ</span><?php echo $thuoc['unit'] ?>
           </div >
-          <div class="short-desc"><?php echo $thuoc['short_desc'] ?></div>
+          <h2><div class="short-desc"><?php echo $thuoc['short_desc'] ?></div></h2>
           <?php foreach ($content as $ct): ?>
             <div class="content-news"><?php echo $ct ?></div>
           <?php endforeach ?>

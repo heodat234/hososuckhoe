@@ -53,6 +53,7 @@ class Thuoc extends CI_Controller {
         $start 					=$this->uri->segment(4);
         $this->load->library('pagination', $config);
         $mdata['thuocs'] 		= $this->Thuoc_model->getThuocByIdLoai($idLoai,$config['per_page'], $start);
+        // var_dump($mdata['thuocs'][0]['name_type']);
         $mdata['phantrang'] 	=  $this->pagination->create_links();
 		$mdata['loai_thuoc'] 	= $this->Thuoc_model->selectLoaiThuoc();
 		$mdata['id_Loai']		= $idLoai;
@@ -60,11 +61,11 @@ class Thuoc extends CI_Controller {
 		$data['thuoc']			= 'active';
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
         $this->_data['html_body'] 	= $this->load->view('page/listThuoc', $mdata, TRUE);
-        return $this->load->view('home/master', $this->_data);
+        // return $this->load->view('home/master', $this->_data);
 	}
-	public function thuocById($id)
+	public function thuocById($name_type, $slug)
 	{
-		$mdata['thuoc']		= $this->Thuoc_model->selectThuoc_by_Id($id);
+		$mdata['thuoc']		= $this->Thuoc_model->selectThuoc_by_Slug($slug);
 		if ($mdata['thuoc'] == NUll) {
 			redirect(base_url(''));
 		}

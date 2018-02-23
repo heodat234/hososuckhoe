@@ -7,7 +7,7 @@ class Thuoc_model extends CI_Model{
 	function __construct(){
         parent::__construct();
         $this->load->database();
-        $this->primaryKey = 'id';
+        $this->primaryKey = 'id'; 
     } 
     
     public function countAll(){
@@ -20,8 +20,11 @@ class Thuoc_model extends CI_Model{
         return $query->num_rows(); 
     }
     public function getThuoc($total, $start){
-       $this->db->where('hidden', 0)->limit($total, $start);
-       $query=$this->db->get($this->_name);
+       $this->db->select('drug.*, loai_thuoc.name as name_type')
+       ->where('drug.hidden', 0)->limit($total, $start)
+       ->from($this->_name)
+       ->join('loai_thuoc','loai_thuoc.id = drug.id_type');
+       $query=$this->db->get();
        return $query->result_array();
     }
     
@@ -37,9 +40,9 @@ class Thuoc_model extends CI_Model{
         $query = $this->db->get($this->_name);
         return $query->result_array();
     }
-    public function selectThuoc_by_Id($id)
+    public function selectThuoc_by_Slug($slug)
     {
-        $this->db->select()->where("id", $id)->where('hidden', 0);
+        $this->db->select()->where("slug", $slug)->where('hidden', 0);
         $query = $this->db->get($this->_name);
         return $query->row_array();
     }
@@ -70,8 +73,11 @@ class Thuoc_model extends CI_Model{
         return $query->result_array();
     }
     public function getThuocByIdLoai($idLoai, $total, $start){
-       $this->db->where('id_type',$idLoai)->where('hidden', 0)->limit($total, $start);
-       $query=$this->db->get($this->_name);
+       $this->db->select('drug.*, loai_thuoc.name as name_type')
+       ->where('drug.id_type',$idLoai)->where('drug.hidden', 0)->limit($total, $start)
+       ->from($this->_name)
+       ->join('loai_thuoc','loai_thuoc.id = drug.id_type');
+       $query=$this->db->get();
        return $query->result_array();
     }
     
