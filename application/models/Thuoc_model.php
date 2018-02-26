@@ -40,17 +40,20 @@ class Thuoc_model extends CI_Model{
         $query = $this->db->get($this->_name);
         return $query->result_array();
     }
-    public function selectThuoc_by_Slug($slug)
+    public function selectThuoc_by_Id($id)
     {
-        $this->db->select()->where("slug", $slug)->where('hidden', 0);
+        $this->db->select()->where("id", $id)->where('hidden', 0);
         $query = $this->db->get($this->_name);
         return $query->row_array();
     }
     public function selectThuoc_by_IdType($id_type)
     {
-        $this->db->select()->where("id_type", $id_type)->where('hidden', 0)->limit(5);
-        $query = $this->db->get($this->_name);
-        return $query->result_array();
+        $this->db->select('drug.*, loai_thuoc.name as name_type')
+       ->where('drug.hidden', 0)->limit(5)
+       ->from($this->_name)
+       ->join('loai_thuoc','loai_thuoc.id = drug.id_type');
+       $query=$this->db->get();
+       return $query->result_array();
     }
     public function selectThongTinThuoc_by_Id($id)
     {

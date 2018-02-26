@@ -2,30 +2,22 @@
     <div class="header-bg">
         <div id="headerstic">
             <div class=" top-bar container">
-                <!-- <div class="row">    -->
                     <nav class="navbar navbar-default" role="navigation">
                         <div class="container-fluid">
                             <div class="navbar-header">
                                 <a href="<?php echo base_url() ?>"><img class="img-logo" style="width: 200px;" src="<?php echo base_url() ?>public/images/2.png"></a>
                                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-
                                   <span class="sr-only">Toggle navigation</span>
-
-                                  <span class="icon-bar"></span>
-
-                                  <span class="icon-bar"></span>
-
                                   <span class="icon-bar"></span>
                                   <span class="icon-bar"></span>
-
+                                  <span class="icon-bar"></span>
+                                  <span class="icon-bar"></span>
                                 </button>
                             </div>
-                            
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav navbar-right">
                                     <li class="<?php echo isset($trangchu)? $trangchu : '' ?>"><a href="<?php echo base_url() ?>" ><i class="icon-home"></i>Trang chủ</a>
                                     </li>
-
                                     <li class=" <?php echo isset($new)? $new : '' ?>"><a href="<?php echo base_url() ?>tintuc.html" class="<?php echo isset($new)? $new : '' ?>" ><i class="fa fa-newspaper-o menu-icon" ></i>Tin tức</a>
                                     </li>
                                     <li class="<?php echo isset($bv)? $bv : '' ?>"><a href="<?php echo base_url() ?>benhvien.html" class="<?php echo isset($bv)? $bv : '' ?>" ><i class="fa fa-hospital-o menu-icon"></i>Bệnh viện</a>
@@ -83,9 +75,7 @@
                                   
                         </div>
                     </nav>
-                <!-- </div>     -->
             </div><!--Topbar End-->
         </div>  
     </div>
 </header>
-<!-- style="width: 80%; background: url(<?php echo base_url() ?>images/Button-ĐK.png); background-size: cover;background-repeat: no-repeat;" -->

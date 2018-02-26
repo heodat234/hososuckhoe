@@ -1,28 +1,23 @@
 <!DOCTYPE HTML>
-<!--[if gt IE 8]> <html class="ie9" lang="en"> <![endif]-->
 <html xmlns="http://www.w3.org/1999/xhtml" class="ihome">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-       <?php echo isset($meta) ? $meta : ''; ?>
-    
-    <title>Hồ sơ sức khỏe</title>
-    <!-- <link REL="SHORTCUT ICON" HREF="favicon.ico"> -->
+    <meta name="description" content="Bệnh án điện tử, thông tin sức khỏe, bác sĩ, bệnh viện, thuốc chữa bệnh, thuốc giá tốt , rẻ nhất , uy tín ,mua bán thuốc trực tuyến"/>
+    <meta name="keywords" content="giá thuốc, bệnh án, điều trị bệnh, bác sĩ, bệnh viện uy tín"/>
+    <?php echo isset($meta) ? $meta : ''; ?>
+    <title>Hồ sơ sức khỏe trực tuyến | Mua bán thuốc giá tốt giao hàng tận nhà</title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
     
     <link href="<?php echo base_url() ?>public/css/jquery-ui-1.10.3.custom.css" rel="stylesheet" />
     <link href="<?php echo base_url() ?>public/css/animate.css" rel="stylesheet" />
-    <!-- <link href="<?php echo base_url() ?>public/css/font-awesome.min.css" rel="stylesheet" /> -->
     <link rel="stylesheet" href="<?php echo base_url() ?>public/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/blue.css" id="style-switch" />
      <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/jquery-ui.css" id="style-switch" />
-    <!-- REVOLUTION BANNER CSS SETTINGS -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/rs-plugin/css/settings.min.css" media="screen" />
 
     <link href="<?php echo base_url() ?>public/css/my-admin.css" rel="stylesheet" />
-    <!-- <link href="<?php echo base_url() ?>public/css/bootstrap.min.css" rel="stylesheet" />    -->
     <link rel="icon" type="image/png" href="<?php echo base_url() ?>public/images/logo-hssk1.png">
 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/css/slides.css" />
@@ -39,7 +34,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'UA-112747370-1');
     </script>
 </head>
@@ -47,17 +41,11 @@
         <div id="loader-overlay"><img src="<?php echo base_url() ?>public/images/loader.gif" alt="Loading" /></div>
         <?php echo isset($html_header) ? $html_header : ''; ?>
         <div class="complete-content">  
-            
             <?php echo isset($html_slider) ? $html_slider : ''; ?>
             <?php echo isset($html_body) ? $html_body : ''; ?>                  
         </div>    
-        
         <?php echo isset($html_footer) ? $html_footer : ''; ?>
-            
-       
-            
-            
-        
+   
     <!--JS Inclution-->
     
     <script type="text/javascript" src="<?php echo base_url() ?>public/js/jquery-ui-1.10.3.custom.min.js"></script>  
@@ -86,6 +74,4 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
     </body>
-
-<!-- Mirrored from imedica-html.brainstormforce.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 15 Dec 2017 08:43:26 GMT -->
 </html>

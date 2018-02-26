@@ -51,7 +51,6 @@
     var url = x[i].attributes.getNamedItem('data-original').value;
     x[i].setAttribute('src', url);
    }
-   // console.log();
-   // console.log($(this).children('img').attr('src'));
+
   
 </script>

@@ -45,9 +45,9 @@
           </div>
         
           <div >
-            <span class="price"><?php echo $thuoc['price']?> đ</span><?php echo $thuoc['unit'] ?>
+            <span class="price"><?php echo $thuoc['price']?></span><?php echo $thuoc['unit'] ?>
           </div >
-          <h2><div class="short-desc"><?php echo $thuoc['short_desc'] ?></div></h2>
+          <h3><div class="short-desc"><?php echo $thuoc['short_desc'] ?></div></h3>
           <?php foreach ($content as $ct): ?>
             <div class="content-news"><?php echo $ct ?></div>
           <?php endforeach ?>
@@ -63,14 +63,14 @@
             <div>
               <?php foreach ($tuongtu as $tt): ?>
                     <div class="img-noibat" >
-                      <a href="<?php echo base_url().'thuoc/'.$tt['id']?>">
+                      <a href="<?php echo base_url().'thuoc/'.$tt['id'].'-'.to_slug($tt['name']).'.html' ?>">
                         <img style="width: 70%"  src="<?php echo json_decode($tt['image'],true)[0]['src'] ?>">
                       </a>
                     </div>
                     
                     <div class="content-noibat" >
                         <h4  >
-                            <a href="<?php echo base_url().'thuoc/'.$tt['id']?>"><?php echo $tt['name'] ?></a>
+                            <a href="<?php echo base_url().'thuoc/'.$tt['id'].'-'.to_slug($tt['name']).'.html' ?>"><?php echo $tt['name'] ?></a>
                         </h4>
                         <h5 >
                             <span>Giá: <?php echo $tt['price'] .$tt['unit'] ?></span>

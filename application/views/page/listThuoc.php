@@ -17,12 +17,12 @@
           <?php foreach ($thuocs as $thuoc): ?>
             <div class="col-md-3 col-sm-6 col-xs-12 col-lg-3 item-thuoc">
               <div class ="thuoc-img">
-                <a href="<?php echo base_url().'thuoc/'.to_slug($thuoc['name_type']).'/'.$thuoc['slug'].'.html' ?>">
+                <a href="<?php echo base_url().'thuoc/'.$thuoc['id'].'-'.to_slug($thuoc['name']).'.html' ?>">
                   <img src="<?php echo json_decode($thuoc['image'],true)[0]['src'] ?>">
                 </a>
               </div>
               <div class="icon-box2-title tenthuoc">
-                 <a href="<?php echo base_url().'thuoc/'.to_slug($thuoc['name_type']).'/'.$thuoc['slug'].'.html' ?>"> <?php echo $thuoc['name'] ?> </a>
+                 <a href="<?php echo base_url().'thuoc/'.$thuoc['id'].'-'.to_slug($thuoc['name']).'.html' ?>"> <?php echo $thuoc['name'] ?> </a>
               </div>
               <p class= "gia-thuoc"><?php echo $thuoc['price'] ?> </p>
             </div>

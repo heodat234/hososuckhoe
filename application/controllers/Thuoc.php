@@ -50,7 +50,7 @@ class Thuoc extends CI_Controller {
   		$config['first_link'] 	= "Đầu";
   		$config['last_link'] 	= "Cuối";
   		$config['num_links'] 	= 5;
-        $start 					=$this->uri->segment(4);
+        $start 					= $this->uri->segment(4);
         $this->load->library('pagination', $config);
         $mdata['thuocs'] 		= $this->Thuoc_model->getThuocByIdLoai($idLoai,$config['per_page'], $start);
         // var_dump($mdata['thuocs'][0]['name_type']);
@@ -61,11 +61,14 @@ class Thuoc extends CI_Controller {
 		$data['thuoc']			= 'active';
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
         $this->_data['html_body'] 	= $this->load->view('page/listThuoc', $mdata, TRUE);
-        // return $this->load->view('home/master', $this->_data);
+        return $this->load->view('home/master', $this->_data);
 	}
-	public function thuocById($name_type, $slug)
+	public function thuocById()
 	{
-		$mdata['thuoc']		= $this->Thuoc_model->selectThuoc_by_Slug($slug);
+		$url = $this->uri->segment(2);
+
+		$id = explode('-',$url)[0];
+		$mdata['thuoc']		= $this->Thuoc_model->selectThuoc_by_Id($id);
 		if ($mdata['thuoc'] == NUll) {
 			redirect(base_url(''));
 		}
