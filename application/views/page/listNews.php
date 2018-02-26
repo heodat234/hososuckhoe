@@ -17,7 +17,7 @@
           <ul>
             <?php foreach ($category as $tintuc): ?>
               <li class="ds-tin" >
-                    <a href="<?php echo base_url().'tintuc/'.$tintuc['id']?>">
+                    <a href="<?php echo base_url().'tintuc/'.$tintuc['id'].'-'.to_slug($tintuc['title']).'.html'?>">
                       <?php if (isset(json_decode($tintuc['image'],true)[0]['data-original'])){ ?>
                         <img style=""  class="img-responsive" src="<?php echo json_decode($tintuc['image'],true)[0]['data-original'] ?>">
                       <?php }else{ ?>
@@ -25,7 +25,7 @@
                       <?php } ?>
                     </a>
                   <div class="ds-tin-content" >
-                    <div><h4><a href="<?php echo base_url().'tintuc/'.$tintuc['id']?>"><?php echo $tintuc['title'] ?></a></h4></div>
+                    <div><h4><a href="<?php echo base_url().'tintuc/'.$tintuc['id'].'-'.to_slug($tintuc['title']).'.html'?>"><?php echo $tintuc['title'] ?></a></h4></div>
                     <div>
                       <h5><?php if ($tintuc['id_loai'] == 1){echo "Tin tức Y khoa"; ?>
                           <?php }else{ echo "Tin tức Nội bộ";} ?>
@@ -51,7 +51,7 @@
             <div>
                 <?php foreach ($noibat as $tt): ?>
                     <div class="img-noibat" >
-                      <a href="<?php echo base_url().'tintuc/'.$tt['id']?>">
+                      <a href="<?php echo base_url().'tintuc/'.$tt['id'].'-'.to_slug($tt['title']).'.html' ?>">
                         <?php if (isset(json_decode($tt['image'],true)[0]['data-original'])){ ?>
                           <img width="100%"  src="<?php echo json_decode($tt['image'],true)[0]['data-original'] ?>">
                         <?php }else{ ?>
@@ -62,11 +62,9 @@
                     
                     <div class="content-noibat" >
                         <h4  >
-                            <a href="<?php echo base_url().'tintuc/'.$tt['id']?>"><?php echo $tt['title'] ?></a>
+                            <a href="<?php echo base_url().'tintuc/'.$tt['id'].'-'.to_slug($tt['title']).'.html'?>"><?php echo $tt['title'] ?></a>
                         </h4>
-                        <!-- <h5 >
-                            <span>Lượt xem: <?php echo $tt['view'] ?></span>
-                        </h5> -->
+                       
                     </div>
                     <div class="clearfix vien-tin"></div>
                     

@@ -19,13 +19,13 @@
             $headers = @get_headers(json_decode($bv['image'],true)[0]['src']); ?>
               <li class="ds-tin" >
                   <?php if ($headers == true){ ?>
-                  <a href="<?php echo base_url().'benhvien/'.$bv['id']?>"><img style=""  class="img-responsive" src="<?php echo json_decode($bv['image'],true)[0]['src'] ?>"></a>
+                  <a href="<?php echo base_url().'benhvien/'.$bv['id'].'-'.to_slug($bv['name']).'.html'?>"><img style=""  class="img-responsive" src="<?php echo json_decode($bv['image'],true)[0]['src'] ?>"></a>
                   <?php }else{ ?>
-                    <a href="<?php echo base_url().'bacsi/'.$bv['id']?>"><img class="avatar-bs"  class="img-responsive" src="<?php echo base_url() ?>images/benhvien.jpg"></a>
+                    <a href="<?php echo base_url().'bacsi/'.$bv['id'].'-'.to_slug($bv['name']).'.html' ?>"><img class="avatar-bs"  class="img-responsive" src="<?php echo base_url() ?>images/benhvien.jpg"></a>
                   <?php } ?>
                     
                   <div class="ds-tin-content" >
-                    <div><h3><a href="<?php echo base_url().'benhvien/'.$bv['id']?>"><?php echo $bv['name'] ?></a></h3></div>
+                    <div><h3><a href="<?php echo base_url().'benhvien/'.$bv['id'].'-'.to_slug($bv['name']).'.html'?>"><?php echo $bv['name'] ?></a></h3></div>
                     
                     <div>
                       <p><b>Số điện thoai: </b><?php echo $bv['tel'] ?></p>
@@ -50,14 +50,14 @@
             <div>
                 <?php foreach ($noibat as $tt): ?>
                     <div class="img-noibat" >
-                      <a href="<?php echo base_url().'benhvien/'.$tt['id']?>">
+                      <a href="<?php echo base_url().'benhvien/'.$tt['id'].'-'.to_slug($tt['name']).'.html'?>">
                         <img style="width: 70%"  src="<?php echo json_decode($tt['image'],true)[0]['src'] ?>">
                       </a>
                     </div>
                     
                     <div class="content-noibat" >
                         <h4  >
-                            <a href="<?php echo base_url().'benhvien/'.$tt['id']?>"><?php echo $tt['name'] ?></a>
+                            <a href="<?php echo base_url().'benhvien/'.$tt['id'].'-'.to_slug($tt['name']).'.html'?>"><?php echo $tt['name'] ?></a>
                         </h4>
                         <h5 >
                             <span>Địa chỉ: <?php echo $tt['address'] ?></span>

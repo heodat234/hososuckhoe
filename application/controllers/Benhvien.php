@@ -37,8 +37,11 @@ class Benhvien extends CI_Controller {
         $this->_data['html_body'] 	= $this->load->view('page/listBenhvien', $mdata, TRUE);
         return $this->load->view('home/master', $this->_data);
 	}
-	public function benhVienById($id)
+	public function benhVienById()
 	{
+		$url = $this->uri->segment(2);
+		$id = explode('-',$url)[0];
+
 		$mdata['benhvien']		= $this->BenhVien_model->selectBV();
 		$mdata['benhvien1']		= $this->BenhVien_model->selectBV_by_Id($id);
 		$array_User 		= unserialize($mdata['benhvien1']['userDanhgia']);

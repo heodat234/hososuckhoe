@@ -40,14 +40,15 @@ class Benh extends CI_Controller {
         $l_data['mdata'].='<div class="col-md-12 col-sm-12 loadBenh">';
         $l_data['mdata'].= '<div style="margin-left: 15px;"><h4>Các bệnh thuộc nhóm bệnh '.$tenNhom.'</h4></div><ul>';
         foreach ($benhs as $benh) {
-        	$l_data['mdata'].= '<div class="col-md-3 col-sx-6 ds-benh"><li><a href="'.base_url().'benh/'.$benh['id'].'"><h5>'.$benh['name'].'</h5></a></li></div>';
+        	$l_data['mdata'].= '<div class="col-md-3 col-sx-6 ds-benh"><li><a href="'.base_url().'benh/'.$benh['id'].'-'.to_slug($benh['name']).'.html'.'"><h5>'.$benh['name'].'</h5></a></li></div>';
         }
         $l_data['mdata'].= '</ul></div>';
         print_r( json_encode($l_data['mdata']));
         
 	}
-	public function benhById($id)
+	public function benhById($id,$ten)
 	{
+		
 		$mdata['benh']		= $this->Benh_model->selectBenh_by_Id($id);
 		$id_type 			= $mdata['benh']['id_type'];
 		$mdata['tuongtu']	= $this->Benh_model->selectBenh_by_IdType($id_type);

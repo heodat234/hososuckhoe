@@ -41,7 +41,7 @@
                 <div>
                   <ul class="list-categories list-categories_widget list-bv">
                     <?php foreach ($cate_bacsi as $cate): ?>
-                      <li><a href="<?php echo base_url().'bacsi/'.$cate['id']?>"><span class="list-categories__name"><?php echo $cate['name'] ?></span></a></li>
+                      <li><a href="<?php echo base_url().'bacsi/'.$cate['id'].'-'.to_slug($cate['name']).'.html'?>"><span class="list-categories__name"><?php echo $cate['name'] ?></span></a></li>
                     <?php endforeach ?>
                   </ul>
                 </div>

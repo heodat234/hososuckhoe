@@ -30,7 +30,7 @@
         <div>
           <ul class="list-categories list-categories_widget list-bv">
             <?php foreach ($tuongtu as $tt): ?>
-              <li><a href="<?php echo base_url().'benh/'.$tt['id']?>"><span class="list-categories__name"><?php echo $tt['name'] ?></span></a></li>
+              <li><a href="<?php echo base_url().'benh/'.$tt['id'].'-'.to_slug($tt['name']).'.html'?>"><span class="list-categories__name"><?php echo $tt['name'] ?></span></a></li>
             <?php endforeach ?>
           </ul>
         </div>

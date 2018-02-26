@@ -3,10 +3,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Bệnh án điện tử, thông tin sức khỏe, bác sĩ, bệnh viện, thuốc chữa bệnh, thuốc giá tốt , rẻ nhất , uy tín ,mua bán thuốc trực tuyến"/>
-    <meta name="keywords" content="giá thuốc, bệnh án, điều trị bệnh, bác sĩ, bệnh viện uy tín"/>
+    <meta name="description" content="<?php echo isset($description) ? $description : ''; ?>"/>
+    <meta name="keywords" content="<?php echo isset($keywords) ? $keywords : ''; ?>"/>
     <?php echo isset($meta) ? $meta : ''; ?>
-    <title>Hồ sơ sức khỏe trực tuyến | Mua bán thuốc giá tốt giao hàng tận nhà</title>
+    <title><?php echo isset($title) ? $title : ''; ?></title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
     

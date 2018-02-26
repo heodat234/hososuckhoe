@@ -56,8 +56,9 @@ $route['translate_uri_dashes'] = FALSE;
 $route['lienhe.html'] 			= 'welcome/contact';
 $route['insertContact'] 		= 'welcome/insertContact';
 
-$route['tintuc.html'] 			= 'news';
-$route['tintuc/(:num)'] 		= 'news/tinTucById/$1';
+$route['tintuc.html']  			= 'news';
+$route['tintuc/page/(:num)']  			= 'news/index/$1';
+$route['tintuc/(:num)-(:any).html'] 		= 'news/tinTucById/$1';
 $route['tintucAdmin.html'] 		= 'news/tintucAdmin';
 $route['addNews'] 				= 'news/themTintuc';
 $route['editNews'] 				= 'news/suaTintuc';
@@ -65,20 +66,20 @@ $route['deleteNews'] 			= 'news/xoaTintuc';
 
 
 $route['benhvien.html'] 		= 'benhvien';
-$route['benhvien/(:num)'] 		= 'benhvien/benhVienById/$1';
+$route['benhvien/(:num)-(:any).html'] 		= 'benhvien/benhVienById/$1';
 
 
 $route['bacsi.html'] 			= 'BacSi';
-$route['bacsi/(:num)'] 			= 'BacSi/bacSiById/$1';
+$route['bacsi/(:num)-(:any).html'] 			= 'BacSi/bacSiById/$1';
 
 $route['thuoc.html'] 			= 'thuoc';
 $route['thuocByIdLoai/(:num)'] 	= 'thuoc/thuocByIdLoai/$1';
-$route['thuoc/(:num)-(:any).html'] 			= 'thuoc/thuocById/$2';
+$route['thuoc/(:num)(:any)'] 			= 'thuoc/thuocById/$1';
 $route['chitietthuoc/(:num)'] 	= 'thuoc/thongTinThuocById/$1';
 
 $route['benh.html'] 			= 'benh';
 $route['benhByIdLoai'] 			= 'benh/benhByIdLoai';
-$route['benh/(:num)'] 			= 'benh/benhById/$1';
+$route['benh/(:num)-(:any).html'] 			= 'benh/benhById/$1/$2';
 
 //login
 $route['pageLogin'] 		= 'Login';

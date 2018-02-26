@@ -17,7 +17,7 @@
           <div class="col-md-12 col-sm-12 loadBenh" >
             <ul >
               <?php foreach ($benhs as $benh): ?>
-              <div  class="col-md-3 col-sx-6 ds-benh"><li><a href="<?php echo base_url()."benh/".$benh['id'] ?>"><h5><?php echo $benh['name'] ?></h5></a></li></div>
+              <div  class="col-md-3 col-sx-6 ds-benh"><li><a href="<?php echo base_url()."benh/".$benh['id'].'-'.to_slug($benh['name']).'.html' ?>"><h5><?php echo $benh['name'] ?></h5></a></li></div>
               
               <?php endforeach ?>
             </ul>

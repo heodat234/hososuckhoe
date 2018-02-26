@@ -17,31 +17,33 @@ class News extends CI_Controller {
 	public function index()
 	{
         $config['total_rows'] = $this->News_model->countAll();
-        $config['base_url'] = base_url()."/news/index";
+        $config['base_url'] = base_url()."tintuc/page";
         $config['per_page'] = 4;
         $config['next_link'] = "Sau";
   		$config['prev_link'] = "Trước";
   		$config['first_link'] 	= "Đầu";
   		$config['last_link'] 	= "Cuối";
   		$config['num_links'] = 5;
+  		$config['use_page_numbers'] = TRUE;
         $start=$this->uri->segment(3);
+        // var_dump($start);
         $this->load->library('pagination', $config);
         $mdata['category'] = $this->News_model->getNews($config['per_page'], $start);
         $mdata['phantrang'] =  $this->pagination->create_links();
 		$mdata['noibat'] = $this->News_model->selectTintucNoiBat();
-		// $m = json_decode($mdata['noibat'][0]['image'],true);
-		// print_r($m);
 		$data['new']			= 'active';
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
-
         $t_data['ykhoa']		= $this->News_model->selectTintucYkhoa();
         $this->_data['html_footer'] = $this->load->view('home/footer', $t_data, TRUE);
         $this->_data['html_body'] 	= $this->load->view('page/listNews', $mdata, TRUE);
         return $this->load->view('home/master', $this->_data);
 	}
 
-	public function tinTucById($id)
+	public function tinTucById()
 	{
+		$url = $this->uri->segment(2);
+		$id = explode('-',$url)[0];
+
 		$mdata['category']		= $this->News_model->selectTintuc();
 		$mdata['tintuc']		= $this->News_model->selectTintuc_by_Id($id);
 		$mdata['content']       = json_decode($mdata['tintuc']['article'],true);

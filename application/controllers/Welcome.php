@@ -5,7 +5,7 @@ class Welcome extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->helper(array('url','text'));
+		$this->load->helper(array('url','text','my_helper'));
 		$this->load->model(array('News_model','BenhVien_model','Bacsi_model','Thuoc_model','Login_model','Contact_model'));
 		$this->load->library(array('form_validation','session'));
 
@@ -20,8 +20,10 @@ class Welcome extends CI_Controller {
         'hash' => $this->security->get_csrf_hash()
 		);
 		$mdata['csrf'] = $csrf;
-
 		$data['trangchu']		= 'active';
+    $this->_data['description']   = "Bệnh án điện tử, thông tin sức khỏe, bác sĩ, bệnh viện, thuốc chữa bệnh, thuốc giá tốt , rẻ nhất , uy tín ,mua bán thuốc trực tuyến";
+    $this->_data['keywords']   = "giá thuốc, bệnh án, điều trị bệnh, bác sĩ, bệnh viện uy tín";
+    $this->_data['title']      = "Hồ sơ sức khỏe trực tuyến | Mua bán thuốc giá tốt giao hàng tận nhà";
 		$mdata['tintuc']		= $this->News_model->selectTintucIndex();
 		$mdata['benhvien']		= $this->BenhVien_model->selectBVIndex();
 		// var_dump($mdata['benhvien']);

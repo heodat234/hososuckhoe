@@ -83,7 +83,7 @@
                 <div>
                   <ul class="list-categories list-categories_widget list-bv">
                     <?php foreach ($benhvien as $bv): ?>
-                      <li><a href="<?php echo base_url().'benhvien/'.$bv['id']?>"><span class="list-categories__name"><?php echo $bv['name'] ?></span></a></li>
+                      <li><a href="<?php echo base_url().'benhvien/'.$bv['id'].'-'.to_slug($bv['name']).'.html' ?>"><span class="list-categories__name"><?php echo $bv['name'] ?></span></a></li>
                     <?php endforeach ?>
                   </ul>
                 </div>

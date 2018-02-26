@@ -69,7 +69,7 @@
                                         <img src="<?php echo json_decode($tintuc[$i]['image'],true)[0]['src'] ?>" class="img-responsive post-author-img" alt="" />
                                     <?php } ?>
                                     <div class="post-content1 pull-left col-md-8 col-sm-7 col-xs-7">
-                                        <div class="post-title pull-left"><a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id']?>"><?php echo $tintuc[$i]['title'] ?></a></div>
+                                        <div class="post-title pull-left"><a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id'].'-'.to_slug($tintuc[$i]['title']).'.html'?>"><?php echo $tintuc[$i]['title'] ?></a></div>
                                         <div class="post-meta-top pull-left">
                                             <ul>
                                                 <li><i class="icon-calendar"></i><?php echo date('d-m-Y',strtotime($tintuc[$i]['created_at'])) ?></li>
@@ -79,7 +79,7 @@
                                     </div>
                                     <div class="post-content2 pull-left">                   
                                         <p><?php echo $tintuc[$i]['short_desc'] ?><br />
-                                            <span class="post-meta-bottom"><a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id']?>">Xem tiếp ...</a></span>
+                                            <span class="post-meta-bottom"><a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id'].'-'.to_slug($tintuc[$i]['title']).'.html'?>">Xem tiếp ...</a></span>
                                         </p>
                                     </div>
                                 <?php }else { ?>

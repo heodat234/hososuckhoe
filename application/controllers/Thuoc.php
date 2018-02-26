@@ -63,11 +63,9 @@ class Thuoc extends CI_Controller {
         $this->_data['html_body'] 	= $this->load->view('page/listThuoc', $mdata, TRUE);
         return $this->load->view('home/master', $this->_data);
 	}
-	public function thuocById()
+	public function thuocById($id)
 	{
-		$url = $this->uri->segment(2);
-
-		$id = explode('-',$url)[0];
+		
 		$mdata['thuoc']		= $this->Thuoc_model->selectThuoc_by_Id($id);
 		if ($mdata['thuoc'] == NUll) {
 			redirect(base_url(''));

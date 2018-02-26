@@ -37,8 +37,11 @@ class BacSi extends CI_Controller {
         $this->_data['html_body'] 	= $this->load->view('page/listBacsi', $mdata, TRUE);
         return $this->load->view('home/master', $this->_data);
 	}
-	public function bacSiById($id)
+	public function bacSiById()
 	{
+		$url = $this->uri->segment(2);
+		$id = explode('-',$url)[0];
+
 		$mdata['bacsi']				= $this->Bacsi_model->selectBS_by_Id($id);
 
 		$url = json_decode($mdata['bacsi']['image'],true)[0]['src'];

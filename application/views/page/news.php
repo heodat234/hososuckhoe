@@ -36,7 +36,7 @@
                 <div>
                   <?php foreach ($category as $tt): ?>
                     <div class="img-noibat" >
-                      <a href="<?php echo base_url().'tintuc/'.$tt['id']?>">
+                      <a href="<?php echo base_url().'tintuc/'.$tt['id'].'-'.to_slug($tt['title']).'.html'?>">
                         <?php if (isset(json_decode($tt['image'],true)[0]['data-original'])){ ?>
                           <img style="width: 100%"  src="<?php echo json_decode($tt['image'],true)[0]['data-original'] ?>">
                         <?php }else{ ?>
@@ -47,7 +47,7 @@
                     
                     <div class="content-noibat" >
                         <h5 >
-                            <a href="<?php echo base_url().'tintuc/'.$tt['id']?>"><?php echo word_limiter($tt['title'],10) ?></a>
+                            <a href="<?php echo base_url().'tintuc/'.$tt['id'].'-'.to_slug($tt['title']).'.html'?>"><?php echo word_limiter($tt['title'],10) ?></a>
                         </h5>
                         <h6><?php echo word_limiter($tt['short_desc'],5) ?></h6>
                     </div>
