@@ -32,6 +32,9 @@ class News extends CI_Controller {
         $mdata['phantrang'] =  $this->pagination->create_links();
 		$mdata['noibat'] = $this->News_model->selectTintucNoiBat();
 		$data['new']			= 'active';
+		$this->_data['title']      = "Tổng hợp các tin tức mới liên quan đến sức khỏe";
+		$this->_data['description']	= "Xem và nghe lại file video, audio toạ đàm về các bệnh thường gặp";
+		$this->_data['keywords']	= "Hội thảo bệnh, tuyền truyền phòng chống bệnh, radio bác sĩ gia đình, toạ đàm bệnh, bác sĩ nói về bệnh";
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
         $t_data['ykhoa']		= $this->News_model->selectTintucYkhoa();
         $this->_data['html_footer'] = $this->load->view('home/footer', $t_data, TRUE);
@@ -39,35 +42,36 @@ class News extends CI_Controller {
         return $this->load->view('home/master', $this->_data);
 	}
 
-	public function tinTucById()
+	public function tinTucById($id)
 	{
-		$url = $this->uri->segment(2);
-		$id = explode('-',$url)[0];
-
 		$mdata['category']		= $this->News_model->selectTintuc();
 		$mdata['tintuc']		= $this->News_model->selectTintuc_by_Id($id);
 		$mdata['content']       = json_decode($mdata['tintuc']['article'],true);
-
+		$desc= trim(str_replace('"', "'", $mdata['tintuc']['short_desc']));
 		if (isset(json_decode($mdata['tintuc']['image'],true)[0]['data-original'])) {
-		$this->_data['meta']  	= '<meta property="og:url"content="http://hososuckhoe.org/tintuc/'.$view = $mdata['tintuc']['id'].'" />
-  		<meta property="og:type"          content="website" />
-	  	<meta property="og:title"         content="'.$view = $mdata['tintuc']['title'].'" />
-	  	<meta property="og:description"   content="'.$view = $mdata['tintuc']['short_desc'].'" />
-	  	<meta property="og:image"         content="'.json_decode($mdata['tintuc']['image'],true)[0]['data-original'].'" />';
+			$this->_data['meta']  	= '
+			<meta property="og:url"content="http://hososuckhoe.org/tintuc/'.$view = $mdata['tintuc']['id'].'-'.to_slug($mdata['tintuc']['title']).'.html" />
+	  		<meta property="og:type"          content="website" />
+		  	<meta property="og:title"         content="'.$view = $mdata['tintuc']['title'].'" />
+		  	<meta property="og:description"   content= "'.$view = $desc.'" />
+		  	<meta property="og:image"         content="'.json_decode($mdata['tintuc']['image'],true)[0]['data-original'].'" />';
 	  	}else {
-	  		$this->_data['meta']  	= '<meta property="og:url"content="http://hososuckhoe.org/tintuc/'.$view = $mdata['tintuc']['id'].'" />
-  		<meta property="og:type"          content="website" />
-	  	<meta property="og:title"         content="'.$view = $mdata['tintuc']['title'].'" />
-	  	<meta property="og:description"   content="'.$view = $mdata['tintuc']['short_desc'].'" />
-	  	<meta property="og:image"         content="'.json_decode($mdata['tintuc']['image'],true)[0]['src'].'" />';
+	  		$this->_data['meta']  	= '
+	  		<meta property="og:url"content="http://hososuckhoe.org/tintuc/'.$view = $mdata['tintuc']['id'].'-'.to_slug($mdata['tintuc']['title']).'.html" />
+	  		<meta property="og:type"          content="website" />
+		  	<meta property="og:title"         content="'.$view = $mdata['tintuc']['title'].'" />
+		  	<meta property="og:description"   content="'.$view = $desc.'" />
+		  	<meta property="og:image"         content="'.json_decode($mdata['tintuc']['image'],true)[0]['src'].'" />';
 	  	}
 	  	
 		$view = $mdata['tintuc']['view'] + 1;
 		$dk = array('id' =>$id , 'view'=>$view );
 		$this->News_model->updateView($dk);
 		$data['new']			= 'active';
+		$this->_data['title']      = $mdata['tintuc']['title']." - Hồ sơ sức khỏe";
+		$this->_data['description']	= $desc;
+		$this->_data['keywords']	= $mdata['tintuc']['keywords'];
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE); 
-		 
         $t_data['ykhoa']		= $this->News_model->selectTintucYkhoa();
         $this->_data['html_footer'] = $this->load->view('home/footer', $t_data, TRUE);
         $this->_data['html_body'] 	= $this->load->view('page/news', $mdata, TRUE);

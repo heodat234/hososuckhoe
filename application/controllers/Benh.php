@@ -20,12 +20,12 @@ class Benh extends CI_Controller {
 	}
 	public function index()
 	{
-		
         $mdata['benhs'] 		= $this->Benh_model->selectBenh();
-
 		$mdata['loai_benh'] 	= $this->Benh_model->selectLoaiBenh();
-
 		$data['benh']			= 'active';
+		$this->_data['title']      = "Tìm hiểu về các bệnh thường gặp - Hồ sơ sức khỏe";
+		$this->_data['description']	= "Tìm hiểu bệnh là gì, triệu chứng, nguyên nhân mắc bệnh, cách chữa trị và phòng ngừa... bài viết do các bác sĩ chuyên khoa biên soạn.";
+		$this->_data['keywords']	= "các bệnh thường gặp, triệu chứng bệnh, nguyên nhân mắc bệnh, điều trị bệnh, phòng ngừa bệnh";
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
         $this->_data['html_body'] 	= $this->load->view('page/listBenh', $mdata, TRUE);
         return $this->load->view('home/master', $this->_data);
@@ -48,14 +48,15 @@ class Benh extends CI_Controller {
 	}
 	public function benhById($id,$ten)
 	{
-		
 		$mdata['benh']		= $this->Benh_model->selectBenh_by_Id($id);
 		$id_type 			= $mdata['benh']['id_type'];
 		$mdata['tuongtu']	= $this->Benh_model->selectBenh_by_IdType($id_type);
 		$desc 		= json_decode($mdata['benh']['article'],true);
-		
 		$mdata['desc'] = $desc[0];
 		$data['benh']			= 'active';
+		$this->_data['title']      = $mdata['benh']['name']." - Hồ sơ sức khỏe";
+		$this->_data['description']	= trim($mdata['benh']['short_desc']);
+		$this->_data['keywords']	= $mdata['benh']['keywords'];
 		$this->_data['html_header'] = $this->load->view('home/header', $data, TRUE);  
         $this->_data['html_body'] 	= $this->load->view('page/chitietbenh', $mdata, TRUE);
         return $this->load->view('home/master', $this->_data);

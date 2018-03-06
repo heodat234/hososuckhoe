@@ -4163,6 +4163,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 .nav {
 				margin-bottom: 0;
 				padding-left: 0;
+				margin-top: 10px;
 				list-style: none
 }
 
@@ -4219,7 +4220,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 
 .nav-tabs>li {
 				float: left;
-				margin-bottom: -1px
+				margin-bottom: 10px
 }
 
 .nav-tabs>li>a {
@@ -7024,7 +7025,7 @@ p {
 }
 
 .inner-page-title-wrap h1 {
-				margin: 0 0 0 0;
+				margin: -11px 0 0 0;
 				color: #fff;
 				font-size: 25px;
 				line-height: 1.3em;
@@ -12977,7 +12978,7 @@ input[type="date"] {
 }
 
 #second .bg {
-				background: url(../images/iconlist.png) no-repeat bottom;
+				background: url(../../images/iconlist.png) no-repeat bottom;
 				height: 507px;
 				margin: 0px auto 0 auto;
 				padding: 0;
@@ -13076,12 +13077,18 @@ input[type="date"] {
 }
 
 .iconlist-text {
-				font-size: 14px;
+				font-size: 15px;
 				color: #6d6d6d;
 				line-height: 1.4em;
 				font-family: 'Noto Sans', sans-serif
 }
-
+.iconlist-text-a {
+				font-size: 14px;
+				color: #5d6d6d;
+				line-height: 1.4em;
+				font-family: 'Noto Sans', sans-serif;
+				text-indent: 15px;
+}
 .icon-list-connector {
 				left: 2.9em;
 				border-right-width: 2px;
@@ -13202,6 +13209,7 @@ input[type="date"] {
 .post-title a {
 				font-size: 17px;
 				color: #414042;
+				font-weight: bold;
 				line-height: 1.3em
 }
 
@@ -13267,9 +13275,10 @@ input[type="date"] {
 
 .icon-comments,
 .icon-calendar {
-				font-size: 18px;
+				font-size: 15px;
+				margin-right: 20px;
 				color: #107fc9;
-				margin: 6px 10px 0 0;
+				margin: 1px 5px 0 0;
 				float: left
 }
 
@@ -15244,7 +15253,6 @@ input[type="date"] {
 				.nav>li {
 								position: relative;
 								display: block;
-								background: url(../images/li-bottom.jpg) repeat-x bottom
 				}
 				.nav>li:last-child {
 								background: none
@@ -16159,7 +16167,6 @@ input[type="date"] {
 				.nav>li {
 								position: relative;
 								display: block;
-								background: url(../images/li-bottom.jpg) repeat-x bottom
 				}
 				.nav>li:last-child {
 								background: none
@@ -19737,8 +19744,8 @@ ul.list-bv >li >div {
 	.styNew{
 		border-right: 1px solid #ddd;
 	}
-	.styBs{
-		border-left: 1px solid #ddd;
+	.tracuu{
+		border-right: 1px solid #ddd;
 	}
 	.entry-meta {
 		width: 140px;
@@ -20339,4 +20346,32 @@ div.title-phai > span {
 .price{
 	color: red; 
 	font-size: 30px
+}
+.ngaydang{
+	margin-right: 20px;
+}
+#calendar{
+	border-bottom: none;
+}
+.tab_thongtin{
+	boder:1px solid #c5c5c5c5;
+	background: #0088ca;
+	color: #fff;
+}
+.dept-icon{
+	color: #fff;
+}
+.khungsearch{
+	border-radius: 7px;
+    height: 15px;
+    width: 98%;
+    border: 1px solid #ddd;
+    padding: 16px;
+}
+.ctiet{
+	float: right;
+    width: 600px;
+}
+.post-title {
+	margin-top:0px;	
 }

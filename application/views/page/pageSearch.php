@@ -7,6 +7,12 @@
           <div class="" >
               <h2 >Tra cứu</h2>
           </div>
+          <div class="box-search ctiet" >
+              <form method="get" action="<?php echo base_url() ?>timkiem.html">
+                  <input class="data khungsearch" type="text" name="search" placeholder="Tra cứu thông tin bệnh viện, bác sĩ, thuốc,...">
+                  <button  ><span class="fa fa-search fa-lg"></span></button>
+              </form>
+          </div>
         </div>
       </div>
     </div>
@@ -66,7 +72,7 @@
                 <div class="col-sm-6 col-xs-12 col-md-4  col-lg-4">
                   <div class="icon-box-5 wow fadeInDown" data-wow-delay="0.5s" data-wow-offset="150">
                     <div class ="thuoc-img">
-                      <a href="<?php echo base_url().'thuoc/'.$thuoc['id'] ?>">
+                      <a href="<?php echo base_url().'thuoc/'.$thuoc['id'].'-'.to_slug($thuoc['name']).'.html' ?>">
                         <?php if (json_decode($thuoc['image'],true)[0]['src'] == ''){ ?>
                           <img src="<?php echo base_url() ?>images/thuoc.jpg">
                         <?php }else{ ?>
@@ -75,7 +81,7 @@
                       </a>
                     </div>
                     <div class="icon-box2-title tenthuoc">
-                      <a href="<?php echo base_url().'thuoc/'.$thuoc['id'] ?>"><?php echo $thuoc['name'] ?></a>
+                      <a href="<?php echo base_url().'thuoc/'.$thuoc['id'].'-'.to_slug($thuoc['name']).'.html' ?>"><?php echo $thuoc['name'] ?></a>
                     </div>
                     <p>Giá: <?php echo  $thuoc['price'] . $thuoc['unit'] ?></p>
                   </div>   
@@ -83,7 +89,6 @@
               <?php endforeach ?>
             <?php }else { echo "Không có kết quả phù hợp.";} ?>            
           </div>
-            
           <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 timkiem <?php echo isset($hideBv) ? $hideBv : '';?>">
             <div class="subtitle  pull-left news-sub timkiem-tittle">
               <div class="title-c">THEO BỆNH VIỆN</div>
@@ -97,9 +102,9 @@
                   $headers = @get_headers(json_decode($benhvien[0]['image'],true)[0]['src']); ?>
                     <li class="ds-tin-a ds-timkiem2">
                       <?php if ($headers == true){ ?>
-                        <a href="<?php echo base_url().'benhvien/'.$benhvien[0]['id']?>"><img style=""  class="img-responsive" src="<?php echo json_decode($benhvien[0]['image'],true)[0]['src'] ?>"></a>
+                        <a href="<?php echo base_url().'benhvien/'.$benhvien[0]['id'].'-'.to_slug($benhvien[0]['name']).'.html'?>"><img style=""  class="img-responsive" src="<?php echo json_decode($benhvien[0]['image'],true)[0]['src'] ?>"></a>
                       <?php }else{ ?>
-                          <a href="<?php echo base_url().'bacsi/'.$benhvien[0]['id'] ?>"><img class="avatar-bs"  class="img-responsive" src="<?php echo base_url() ?>images/benhvien.jpg"></a>
+                          <a href="<?php echo base_url().'benhvien/'.$benhvien[0]['id'].'-'.to_slug($benhvien[0]['name']).'.html'?>"><img class="avatar-bs"  class="img-responsive" src="<?php echo base_url() ?>images/benhvien.jpg"></a>
                       <?php } ?>
                       </a>
                       <div class="ds-tin-content" >
@@ -125,13 +130,13 @@
                       <?php if ($i < count($benhvien)-1){ ?>
                         <li class=" ds-timkiem1">
                            <?php if ($headers == true){ ?>
-                            <a href="<?php echo base_url().'benhvien/'.$benhvien[$i]['id']?>"><img style=""  class="img-responsive" src="<?php echo json_decode($benhvien[$i]['image'],true)[0]['src'] ?>"></a>
+                            <a href="<?php echo base_url().'benhvien/'.$benhvien[$i]['id'].'-'.to_slug($benhvien[$i]['name']).'.html'?>"><img style=""  class="img-responsive" src="<?php echo json_decode($benhvien[$i]['image'],true)[0]['src'] ?>"></a>
                           <?php }else{ ?>
-                              <a href="<?php echo base_url().'bacsi/'.$benhvien[$i]['id'] ?>"><img class="avatar-bs"  class="img-responsive" src="<?php echo base_url() ?>images/benhvien.jpg"></a>
+                              <a href="<?php echo base_url().'benhvien/'.$benhvien[$i]['id'].'-'.to_slug($benhvien[$i]['name']).'.html'?>"><img class="avatar-bs"  class="img-responsive" src="<?php echo base_url() ?>images/benhvien.jpg"></a>
                           <?php } ?>
                           <div class="ds-tin-content" >
                             <div>
-                              <h3><a href="<?php echo base_url().'benhvien/'.$benhvien[$i]['id'] ?>">
+                              <h3><a href="<?php echo base_url().'benhvien/'.$benhvien[$i]['id'].'-'.to_slug($benhvien[$i]['name']).'.html'?>">
                                 <?php echo $benhvien[$i]['name'] ?>
                               </a></h3>
                             </div>
@@ -149,13 +154,13 @@
                       <?php }else{ ?>
                         <li class="ds-tin-a ds-timkiem2">
                           <?php if ($headers == true){ ?>
-                            <a href="<?php echo base_url().'benhvien/'.$benhvien[$i]['id']?>"><img style=""  class="img-responsive" src="<?php echo json_decode($benhvien[$i]['image'],true)[0]['src'] ?>"></a>
+                            <a href="<?php echo base_url().'benhvien/'.$benhvien[$i]['id'].'-'.to_slug($benhvien[$i]['name']).'.html'?>"><img style=""  class="img-responsive" src="<?php echo json_decode($benhvien[$i]['image'],true)[0]['src'] ?>"></a>
                           <?php }else{ ?>
-                              <a href="<?php echo base_url().'bacsi/'.$benhvien[$i]['id'] ?>"><img class="avatar-bs"  class="img-responsive" src="<?php echo base_url() ?>images/benhvien.jpg"></a>
+                              <a href="<?php echo base_url().'benhvien/'.$benhvien[$i]['id'].'-'.to_slug($benhvien[$i]['name']).'.html'?>"><img class="avatar-bs"  class="img-responsive" src="<?php echo base_url() ?>images/benhvien.jpg"></a>
                           <?php } ?>
                           <div class="ds-tin-content" >
                             <div>
-                              <h3><a href="<?php echo base_url().'benhvien/'.$benhvien[$i]['id'] ?>">
+                              <h3><a href="<?php echo base_url().'benhvien/'.$benhvien[$i]['id'].'-'.to_slug($benhvien[$i]['name']).'.html'?>">
                                 <?php echo $benhvien[$i]['name'] ?>
                               </a></h3>
                             </div>
@@ -191,14 +196,14 @@
                   $headers = @get_headers(json_decode($bacsi[0]['image'],true)[0]['src']); ?>
                   <li class="ds-tin-a ds-timkiem2">
                     <?php if ($headers == true){ ?>
-                      <a href="<?php echo base_url().'bacsi/'.$bacsi[0]['id']?>"><img class="avatar-bs" style="width: 170px; height: 170px" class="img-responsive" src="<?php echo json_decode($bacsi[0]['image'],true)[0]['src'] ?>"></a>
+                      <a href="<?php echo base_url().'bacsi/'.$bacsi[0]['id'].'-'.to_slug($bacsi[0]['name']).'.html'?>"><img class="avatar-bs" style="width: 170px; height: 170px" class="img-responsive" src="<?php echo json_decode($bacsi[0]['image'],true)[0]['src'] ?>"></a>
                     <?php }else{ ?>
-                      <a href="<?php echo base_url().'bacsi/'.$bacsi[0]['id']?>"><img class="avatar-bs" style="width: 170px; height: 170px" class="img-responsive" src="<?php echo base_url() ?>images/profile.png"></a>
+                      <a href="<?php echo base_url().'bacsi/'.$bacsi[0]['id'].'-'.to_slug($bacsi[0]['name']).'.html'?>"><img class="avatar-bs" style="width: 170px; height: 170px" class="img-responsive" src="<?php echo base_url() ?>images/profile.png"></a>
                     <?php } ?>
                     
                     <div class="ds-tin-content" >
                       <div>
-                        <h3><a href="<?php echo base_url().'bacsi/'.$bacsi[0]['id'] ?>">
+                        <h3><a href="<?php echo base_url().'bacsi/'.$bacsi[0]['id'].'-'.to_slug($bacsi[0]['name']).'.html'?>">
                           <?php echo $bacsi[0]['name'] ?>
                         </a></h3>
                       </div>
@@ -216,14 +221,14 @@
                     <?php if ($i < count($bacsi)-1){ ?>
                       <li class=" ds-timkiem1">
                         <?php if ($headers == true){ ?>
-                          <a href="<?php echo base_url().'bacsi/'.$bacsi[$i]['id']?>"><img class="avatar-bs" style="width: 170px; height: 170px" class="img-responsive" src="<?php echo json_decode($bacsi[$i]['image'],true)[0]['src'] ?>"></a>
+                          <a href="<?php echo base_url().'bacsi/'.$bacsi[$i]['id'].'-'.to_slug($bacsi[$i]['name']).'.html'?>"><img class="avatar-bs" style="width: 170px; height: 170px" class="img-responsive" src="<?php echo json_decode($bacsi[$i]['image'],true)[0]['src'] ?>"></a>
                         <?php }else{ ?>
-                          <a href="<?php echo base_url().'bacsi/'.$bacsi[$i]['id']?>"><img class="avatar-bs" style="width: 170px; height: 170px" class="img-responsive" src="<?php echo base_url() ?>images/profile.png"></a>
+                          <a href="<?php echo base_url().'bacsi/'.$bacsi[$i]['id'].'-'.to_slug($bacsi[$i]['name']).'.html'?>"><img class="avatar-bs" style="width: 170px; height: 170px" class="img-responsive" src="<?php echo base_url() ?>images/profile.png"></a>
                         <?php } ?>
                         
                         <div class="ds-tin-content" >
                           <div>
-                            <h3><a href="<?php echo base_url().'bacsi/'.$bacsi[$i]['id'] ?>">
+                            <h3><a href="<?php echo base_url().'bacsi/'.$bacsi[$i]['id'].'-'.to_slug($bacsi[$i]['name']).'.html'?>">
                               <?php echo $bacsi[$i]['name'] ?>
                             </a></h3>
                           </div>
@@ -238,13 +243,13 @@
                     <?php }else{ ?>
                       <li class="ds-tin-a ds-timkiem2">
                         <?php if ($headers == true){ ?>
-                          <a href="<?php echo base_url().'bacsi/'.$bacsi[$i]['id']?>"><img class="avatar-bs" style="width: 170px; height: 170px" class="img-responsive" src="<?php echo json_decode($bacsi[$i]['image'],true)[0]['src'] ?>"></a>
+                          <a href="<?php echo base_url().'bacsi/'.$bacsi[$i]['id'].'-'.to_slug($bacsi[$i]['name']).'.html'?>"><img class="avatar-bs" style="width: 170px; height: 170px" class="img-responsive" src="<?php echo json_decode($bacsi[$i]['image'],true)[0]['src'] ?>"></a>
                         <?php }else{ ?>
-                          <a href="<?php echo base_url().'bacsi/'.$bacsi[$i]['id']?>"><img class="avatar-bs" style="width: 170px; height: 170px" class="img-responsive" src="<?php echo base_url() ?>images/profile.png"></a>
+                          <a href="<?php echo base_url().'bacsi/'.$bacsi[$i]['id'].'-'.to_slug($bacsi[$i]['name']).'.html'?>"><img class="avatar-bs" style="width: 170px; height: 170px" class="img-responsive" src="<?php echo base_url() ?>images/profile.png"></a>
                         <?php } ?>
                         <div class="ds-tin-content" >
                           <div>
-                            <h3><a href="<?php echo base_url().'bacsi/'.$bacsi[$i]['id'] ?>">
+                            <h3><a href="<?php echo base_url().'bacsi/'.$bacsi[$i]['id'].'-'.to_slug($bacsi[$i]['name']).'.html'?>">
                               <?php echo $bacsi[$i]['name'] ?>
                             </a></h3>
                           </div>
@@ -274,7 +279,7 @@
               <?php }else { ?>
                 <?php if (count($tintuc) == 1){ ?>
                   <li class="ds-tin-a ds-timkiem2">
-                    <a href="<?php echo base_url().'tintuc/'.$tintuc[0]['id'] ?>">
+                    <a href="<?php echo base_url().'tintuc/'.$tintuc[0]['id'].'-'.to_slug($tintuc[0]['title']).'.html'?>">
                       <?php if (isset(json_decode($tintuc[0]['image'],true)[0]['data-original'])){ ?>
                         <img style="margin-top: 15px;"  class="img-responsive" src="<?php echo json_decode($tintuc[0]['image'],true)[0]['data-original'] ?>">
                       <?php }else{ ?>
@@ -283,7 +288,7 @@
                     </a>
                     <div class="ds-tin-content" >
                       <div>
-                        <h3><a href="<?php echo base_url().'tintuc/'.$tintuc[0]['id'] ?>">
+                        <h3><a href="<?php echo base_url().'tintuc/'.$tintuc[0]['id'].'-'.to_slug($tintuc[0]['title']).'.html'?>">
                               <?php echo $tintuc[0]['title'] ?>
                         </a></h3>
                       </div>
@@ -300,7 +305,7 @@
                   <?php for ($i=0; $i < count($tintuc); $i++) { ?>
                     <?php if ($i < count($tintuc)-1){ ?>
                       <li class=" ds-timkiem1">
-                        <a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id']?>">
+                        <a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id'].'-'.to_slug($tintuc[$i]['title']).'.html'?>">
                           <?php if (isset(json_decode($tintuc[$i]['image'],true)[0]['data-original'])){ ?>
                             <img style="margin-top: 15px;"  class="img-responsive" src="<?php echo json_decode($tintuc[$i]['image'],true)[0]['data-original'] ?>">
                           <?php }else{ ?>
@@ -309,7 +314,7 @@
                         </a>
                         <div class="ds-tin-content" >
                           <div>
-                            <h3><a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id'] ?>">
+                            <h3><a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id'].'-'.to_slug($tintuc[$i]['title']).'.html'?>">
                               <?php echo $tintuc[$i]['title'] ?>
                             </a></h3>
                           </div>
@@ -324,7 +329,7 @@
                       </li>
                     <?php }else{ ?>
                       <li class="ds-tin-a ds-timkiem2">
-                        <a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id'] ?>">
+                        <a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id'].'-'.to_slug($tintuc[$i]['title']).'.html'?>">
                           <?php if (isset(json_decode($tintuc[$i]['image'],true)[0]['data-original'])){ ?>
                             <img style="margin-top: 15px;"  class="img-responsive" src="<?php echo json_decode($tintuc[$i]['image'],true)[0]['data-original'] ?>">
                           <?php }else{ ?>
@@ -333,7 +338,7 @@
                         </a>
                         <div class="ds-tin-content" >
                           <div>
-                            <h3><a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id'] ?>">
+                            <h3><a href="<?php echo base_url().'tintuc/'.$tintuc[$i]['id'].'-'.to_slug($tintuc[$i]['title']).'.html'?>">
                               <?php echo $tintuc[$i]['title'] ?>
                             </a></h3>
                           </div>

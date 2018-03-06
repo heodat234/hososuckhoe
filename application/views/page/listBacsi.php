@@ -7,6 +7,12 @@
           <div class="bread-heading">
               <h1>Danh sách bác sĩ</h1>
           </div>
+          <div class="box-search ctiet" >
+              <form method="get" action="<?php echo base_url() ?>timkiem.html">
+                  <input class="data khungsearch" type="text" name="search" placeholder="Tra cứu thông tin bệnh viện, bác sĩ, thuốc,...">
+                  <button  ><span class="fa fa-search fa-lg"></span></button>
+              </form>
+          </div>
         </div>
       </div>
     </div>
